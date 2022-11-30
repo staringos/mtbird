@@ -1,0 +1,27 @@
+.platformSelect {
+  display: flex;
+  align-items: center;
+
+  .platformRadio {
+    margin: 0;
+
+    .platformRadioButton {
+      background-color: var(--gray-6);
+      color: var(--color-text-4);
+      border: 0;
+      border-radius: 0;
+    }
+
+    :global {
+      .ant-radio-button-checked {
+        background-color: var(--gray-5);
+        color: var(--color-text-2);
+      }
+
+      .ant-radio-button-wrapper:not(:first-child)::before {
+        width: 0;
+        box-shadow: 0;
+      }
+    }
+  }
+}

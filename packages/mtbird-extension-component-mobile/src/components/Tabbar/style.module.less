@@ -1,0 +1,39 @@
+.tabbarWrapper {
+  display: flex;
+  height: 50px;
+
+  .tabbarItem {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+
+    .tabbarTitle {
+      font-size: 10px;
+      color: var(--color-text-1);
+    }
+
+    .tabbarIcon {
+      font-size: 24px;
+      color: var(--color-text-1);
+      line-height: 24px;
+    }
+
+    .tabbarIconImage {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .tabbarItemActive {
+    .tabbarTitle {
+      color: var(--mtbird-primary-6);
+    }
+
+    .tabbarIcon {
+      color: var(--mtbird-primary-6);
+    }
+  }
+}

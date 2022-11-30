@@ -1,0 +1,30 @@
+.collapsePanel {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  .panelHeader {
+    height: 46px;
+    display: flex;
+    line-height: 46px;
+    border-bottom: 1px solid var(--gray-8);
+    padding: 0 10px;
+    cursor: pointer;
+
+    :global {
+      .mtbird-icon {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .panelContent {
+    flex: 1;
+    display: none;
+
+    &.show {
+      display: block;
+      border-bottom: 1px solid var(--gray-8);
+    }
+  }
+}

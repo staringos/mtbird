@@ -1,0 +1,47 @@
+{
+  "name": "@mtbird/helper-extension",
+  "version": "0.0.3-beta.27",
+  "description": "The extension helper for mtbird",
+  "author": "zousongqi <george@staringos.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/types",
+  "directories": {
+    "dist": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "scripts": {
+    "start": "NODE_ENV=production mtbird watch",
+    "build": "NODE_ENV=production mtbird build",
+    "link": "npm link ../../../mtbird-saas/node_modules/react",
+    "preDev": "lerna link & yarn run link",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  },
+  "peerDependencies": {
+    "@mtbird/shared": "^0.0.1-beta.4",
+    "antd": "^4.22.4",
+    "axios": "^0.27.2",
+    "lodash": "^4.17.21"
+  },
+  "dependencies": {
+    "axios": "^0.27.2"
+  },
+  "gitHead": "2f918f1c199fc230eb68d1fdaf07890b1fb99206"
+}

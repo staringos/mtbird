@@ -1,0 +1,73 @@
+@import '@mtbird/renderer-web/dist/index.css';
+
+@plugin "./theme/palette";
+
+@mebird-primary-1: color-palette(@mebird-primary-6, 1);
+@mebird-primary-2: color-palette(@mebird-primary-6, 2);
+@mebird-primary-3: color-palette(@mebird-primary-6, 3);
+@mebird-primary-4: color-palette(@mebird-primary-6, 4);
+@mebird-primary-5: color-palette(@mebird-primary-6, 5);
+@mebird-primary-6: #165dff;
+@mebird-primary-7: color-palette(@mebird-primary-6, 7);
+@mebird-primary-8: color-palette(@mebird-primary-6, 8);
+@mebird-primary-9: color-palette(@mebird-primary-6, 9);
+@mebird-primary-10: color-palette(@mebird-primary-6, 10);
+
+@gray-1: #f7f8fa;
+@gray-2: #f2f3f5;
+@gray-3: #e5e6eb;
+@gray-4: #c9cdd4;
+@gray-5: #a9aeb8;
+@gray-6: #86909c;
+@gray-7: #6b7785;
+@gray-8: #4e5969;
+@gray-9: #272e3b;
+@gray-10: #1d2129;
+
+@color-text-1: @gray-10;
+@color-text-2: @gray-8;
+@color-text-3: @gray-6;
+@color-text-4: @gray-4;
+
+:root {
+  --main-color: #333;
+  --background-color-default: #f0f4f7;
+  --light-1: #f4fafe;
+  --header-height: 48px;
+
+  --fill-2: #F2F3F5;
+  --font-color-default: #86909C;
+  --font-color-2: #E5E6EB;
+
+  --mtbird-primary-1: @mebird-primary-1;
+  --mtbird-primary-2: @mebird-primary-2;
+  --mtbird-primary-3: @mebird-primary-3;
+  --mtbird-primary-4: @mebird-primary-4;
+  --mtbird-primary-5: @mebird-primary-5;
+  --mtbird-primary-6: @mebird-primary-6;
+  --mtbird-primary-7: @mebird-primary-7;
+  --mtbird-primary-8: @mebird-primary-8;
+  --mtbird-primary-9: @mebird-primary-9;
+  --mtbird-primary-10: @mebird-primary-10;
+
+  --gray-1: @gray-1;
+  --gray-2: @gray-2;
+  --gray-3: @gray-3;
+  --gray-4: @gray-4;
+  --gray-5: @gray-5;
+  --gray-6: @gray-6;
+  --gray-7: @gray-7;
+  --gray-8: @gray-8;
+  --gray-9: @gray-9;
+  --gray-10: @gray-10;
+
+  --color-text-1: @color-text-1;
+  --color-text-2: @color-text-2;
+  --color-text-3: @color-text-3;
+  --color-text-4: @color-text-4;
+
+  --color-background-1: @gray-10;
+
+  --header-bar-height: 50px;
+  --common-grap: 5px;
+}

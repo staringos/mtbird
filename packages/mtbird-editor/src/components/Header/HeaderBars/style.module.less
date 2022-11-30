@@ -1,0 +1,25 @@
+.headerBars {
+  display: flex;
+
+  @width: calc(var(--header-bar-height) - var(--common-grap) * 2);
+
+  .headerBarButton {
+    width: @width;
+    height: @width;
+    margin-top: var(--common-grap);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .headerBarButtonDropdown {
+    width: calc(@width + 10px);
+  }
+
+  .activeButton {
+    background: var(--mtbird-primary-6) !important;
+    color: white !important;
+    border-radius: 5px !important;
+    padding: 0;
+  }
+}

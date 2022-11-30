@@ -1,0 +1,21 @@
+.schemaAlignPanel {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--gray-8);
+
+  :global {
+    .ant-btn {
+      color: var(--color-text-4);
+      padding: 4px 10px;
+      flex: 1;
+
+      &:hover {
+        color: var(--color-text-3);
+      }
+
+      &:focus {
+        color: var(--color-text-2);
+      }
+    }
+  }
+}

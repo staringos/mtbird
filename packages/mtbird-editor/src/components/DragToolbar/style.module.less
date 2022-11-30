@@ -1,0 +1,25 @@
+.dragToolbarContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 28px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  will-change: transform;
+  transform-origin: 0px 0px;
+  border: 1px solid var(--gray-4);
+  box-sizing: content-box !important;
+
+  .dragToolbarButton {
+    border: 0;
+    border-bottom: 1px solid var(--gray-4);
+    border-radius: 0;
+    width: 28px;
+    height: 28px;
+  }
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}

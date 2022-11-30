@@ -1,0 +1,25 @@
+.debugButtonWrapper {
+  position: relative;
+  display: inline-block;
+
+  .debugButton {
+  }
+
+
+  .debugStatus {
+    position: absolute;
+    bottom: 12px;
+    right: 5px;
+    width: 5px;
+    height: 5px;
+    border-radius: 1.5px;
+
+    &.error {
+      background-color: red;
+    }
+
+    &.success {
+      background-color: #03e403;
+    }
+  }
+}

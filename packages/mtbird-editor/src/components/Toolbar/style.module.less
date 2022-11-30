@@ -1,0 +1,102 @@
+@import '../../../../mtbird-core/src/themes/color.less';
+@import '../../theme/extends.less';
+
+.toolbarContainer {
+  display: flex;
+  width: 195px;
+  background-color: var(--gray-9);
+  height: 100%;
+  flex-direction: column;
+  position: relative;
+
+  .toolbarContent {
+    display: flex;
+    flex: 1;
+    height: 0;
+    flex-direction: column;
+  }
+
+  :global {
+    .ant-tabs {
+      flex: 1;
+      flex-grow: 1;
+      height: 0 !important;
+      // height: 100% !important;
+    }
+
+    .ant-tabs-nav {
+      min-width: 38px !important;
+    }
+
+    .ant-tabs-tabpane-active {
+      height: 100%;
+    }
+
+    .ant-tabs-nav-list {
+      background-color: var(--gray-10);
+      flex: 1;
+      height: 100% !important;
+      width: 38px;
+
+      .ant-tabs-tab {
+        align-items: center;
+        justify-content: center;
+        padding: 8px 0px !important;
+        font-size: 12px;
+        color: @font-color-common;
+      }
+      .ant-tabs-tab-btn {
+        writing-mode: vertical-lr;
+      }
+
+      .ant-tabs-tab-active {
+        background: var(--gray-9);
+        border-right: 0;
+
+        .ant-tabs-tab-btn {
+          color: var(--color-text-4);
+        }
+      }
+
+      .ant-tabs-ink-bar {
+        display: none !important;
+      }
+    }
+
+    .ant-tabs-content-holder {
+      display: flex;
+      flex: 1;
+      border-left: 0 !important;
+
+      .ant-tabs-content {
+        flex: 1;
+      }
+
+      .ant-tabs-tabpane {
+        padding-left: 5px !important;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+        .customScrollbar();
+
+        &.ant-tabs-tabpane-hidden {
+          display: none;
+        }
+      }
+    };
+  }
+
+  .toolbarBottomButton {
+    width: 38px;
+    padding: 0;
+    color: white;
+    width: 38px;
+    background-color: var(--gray-8);
+    border-radius: 0;
+
+    &:hover {
+      background-color: var(--gray-6);
+    }
+  }
+}

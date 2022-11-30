@@ -1,0 +1,8 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./"
+  },
+  "include": ["../../types/externals.d.ts", "src/**/*"],
+  "exclude": ["node_modules", "lib", "es", "dist"]
+}

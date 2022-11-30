@@ -1,0 +1,81 @@
+import { Meta } from '@storybook/addon-docs';
+import LinkTo from '@storybook/addon-links/react';
+
+<Meta title="拓展/Pipe(渲染管线)" parameters={{ viewMode: 'docs' }} />
+
+# 渲染管线 Pipe
+
+拓展目前可以为我们提供三种能力的增强，分别是 contributes（编辑器贡献）、pipes（渲染管线）、components（业务组件）
+
+渲染管线是帮助我们拓展渲染器 `@mtbird/render-web` 功能，我们可以把之前经常使用的 `contribute` 理解为针对编辑器功能的拓展，而针对某些需要在渲染层处理的任务，我们可以通过渲染管线进行处理。
+
+渲染管线在拓展中是位于 `src/pipes` 文件夹下的独立文件，跟 contributes 一样，也需要在 `manifest.json` 文件中声明，案例可以参考 `mtbird/packages/mtbird-extension-animation`
+
+## 🌰 例子
+
+比如我们在动画拓展中，我们使用与 [animate.css](https://animate.style/) 结合。在编辑器中记录用户选择的 动画类型、延迟时间、持续时间 等属性，并需要在渲染层将这些属性转化为 [animate.css](https://animate.style/) 的 css 样式，并赋予给最终渲染完成的 dom 元素。
+
+## 创建渲染管线
+
+在 `src/pipes` 中，增加 `animate.ts` 文件
+
+```typescript
+export default (params: { node: IComponentInstance }) => {
+  const { animate } = node;
+  // 如果有 delay 属性，就增加 animate.css 处理 delay 的方法
+  if (animate.delay) {
+    node.props.className = node.props.className + ` animate__delay-${animate.delay}s`;
+  }
+};
+```
+
+## 增加 pipes 配置
+
+在 manifest.json 文件中，声明 pipe
+
+```json
+{
+  ...
+  "pipes": ["animate"],
+  ...
+}
+```
+
+## 在 Features 注入 pipe
+
+通过 context.injectRenderPipe 方法将 pipe 注入到当前选中组件中，通过 context.removeRenderPipe 清除组件的 pipe
+
+```tsx
+const AnimatePanel = ({ context }) => {
+  ...
+  const handleToggleAnimate = (e: boolean) => {
+    context.onChangeValue('pattern.animate.open', e);
+    if (e) {
+      context.injectRenderPipe(manifest.name, 'animate');
+    } else {
+      context.removeRenderPipe(manifest.name, 'animate');
+    }
+  };
+
+  return (
+    <div className={styles.animationPanel}>
+      <div className={styles.animationHeader}>
+        <span className={styles.label}>开启动画</span>
+        <Switch checked={currentAni.open} onChange={handleToggleAnimate} />
+      </div>
+      ...
+    </div>
+  )
+};
+```
+
+注入后，每一次渲染的时候，渲染器会调用 pipe，并将执行结果用于渲染页面。
+
+## 注意事项
+
+- 每一个渲染管线需要是同步的纯方法：不能使用 `async` 和 `promise` 保证渲染不被阻塞。
+- 尽量保证少或者零外部依赖：为性能考虑，每一个 pipe 会被编译成一个单独的文件，在渲染时动态远程调用。
+
+关于渲染管线的设计思想，可以参考：元编程渲染管线
+
+下一篇：<LinkTo kind="拓展-component-自定义组件--page">自定义组件(Component)</LinkTo>

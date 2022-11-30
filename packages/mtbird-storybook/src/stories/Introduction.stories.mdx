@@ -1,0 +1,224 @@
+import { Meta } from '@storybook/addon-docs';
+import Code from '../assets/code-brackets.svg';
+import Colors from '../assets/colors.svg';
+import Comments from '../assets/comments.svg';
+import Direction from '../assets/direction.svg';
+import Flow from '../assets/flow.svg';
+import Plugin from '../assets/plugin.svg';
+import Repo from '../assets/repo.svg';
+import StackAlt from '../assets/stackalt.svg';
+import LinkTo from '@storybook/addon-links/react';
+import LogoBanner from '../assets/images/logo-banner.png';
+import Contact from '../components/Contact';
+import { linkTo } from '@storybook/addon-links';
+
+<Meta title="Home/介绍" parameters={{ viewMode: 'docs' }} />
+
+<style>
+  {`
+    .subheading {
+      --mediumdark: '#999999';
+      font-weight: 900;
+      font-size: 13px;
+      color: #999;
+      letter-spacing: 6px;
+      line-height: 24px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      margin-top: 40px;
+    }
+
+    .link-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      row-gap: 10px;
+    }
+
+    @media (min-width: 620px) {
+      .link-list {
+        row-gap: 20px;
+        column-gap: 20px;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media all and (-ms-high-contrast:none) {
+    .link-list {
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 1fr;
+        -ms-grid-rows: 1fr 1fr;
+      }
+    }
+
+    .link-item {
+      display: block;
+      padding: 20px 30px 20px 15px;
+      border: 1px solid #00000010;
+      border-radius: 5px;
+      transition: background 150ms ease-out, border 150ms ease-out, transform 150ms ease-out;
+      color: #333333;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .link-item:hover {
+      border-color: #1EA7FD50;
+      transform: translate3d(0, -3px, 0);
+      box-shadow: rgba(0, 0, 0, 0.08) 0 3px 10px 0;
+    }
+
+    .link-item:active {
+      border-color: #1EA7FD;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .link-item strong {
+      font-weight: 700;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .link-item img {
+      height: 40px;
+      width: 40px;
+      margin-right: 15px;
+      flex: none;
+    }
+
+    .link-item span {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .tip {
+      display: inline-block;
+      border-radius: 1em;
+      font-size: 11px;
+      line-height: 12px;
+      font-weight: 700;
+      background: #E7FDD8;
+      color: #66BF3C;
+      padding: 4px 12px;
+      margin-right: 10px;
+      vertical-align: top;
+    }
+
+    .tip-wrapper {
+      font-size: 13px;
+      line-height: 20px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    .tip-wrapper code {
+      font-size: 12px;
+      display: inline-block;
+    }
+  `}
+</style>
+
+<img src={LogoBanner} />
+
+<center>
+  <h3>你心所想，即是应用</h3>
+  <a href="https://mtbird.staringos.com">免费使用</a> | <a href="https://staringos.com">官网</a> ｜ <a href="https://docs.staringos.com">文档</a> ｜ <a href="/story/demos-编辑器--form-page">
+    Demo
+  </a>｜ <a href="https://github.com/staringos">Github</a>
+</center>
+
+# 星搭精卫
+
+星搭精卫 MtBird 是一款可视化页面生成器，无代码平台。我们帮助用户以可视化的形式搭建网页、小程序和表单等应用。
+
+<img src="https://mtbird-cdn.staringos.com/modal.gif" />
+
+<div className="subheading">业务场景</div>
+
+<div className="link-list">
+  <LinkTo className="link-item" kind="编辑器-页面--page">
+    <img src={Plugin} alt="plugin" />
+    <span>
+      <strong>手机页面</strong>
+      落地页、活动页
+    </span>
+  </LinkTo>
+  <LinkTo className="link-item" kind="编辑器-页面--page">
+    <img src={StackAlt} alt="Build" />
+    <span>
+      <strong>官网</strong>
+      企业官网、个人博客
+    </span>
+  </LinkTo>
+  <LinkTo className="link-item" kind="编辑器-表单--page">
+    <img src={Colors} alt="colors" />
+    <span>
+      <strong>表单</strong>
+      报名、投票、答题
+    </span>
+  </LinkTo>
+  <LinkTo className="link-item" kind="一站式营销-介绍--page">
+    <img src={Flow} alt="flow" />
+    <span>
+      <strong>一站式营销</strong>
+      销售线索搜集、投放落地页、AB测试、用户画像
+    </span>
+  </LinkTo>
+</div>
+
+<div className="subheading">我们的优势</div>
+
+<div className="link-list">
+  <LinkTo className="link-item" kind="拓展-介绍--page">
+    <img src={Repo} alt="repo" />
+    <span>
+      <strong>自定义拓展</strong>
+      可以对编辑器和页面进行定制化拓展、自定义组件，保证开发效率与灵活性，灵活拓展编辑器功能，支持各种复杂业务场景
+    </span>
+  </LinkTo>
+  <LinkTo className="link-item" kind="渲染器-嵌入渲染器--page">
+    <img src={Direction} alt="direction" />
+    <span>
+      <strong>业务系统灵活接入</strong>
+      编辑器、渲染系统可以快捷接入您的业务系统，帮助您的系统拓展功能
+    </span>
+  </LinkTo>
+  <LinkTo className="link-item" kind="渲染器-嵌入渲染器--page">
+    <img src={Code} alt="code" />
+    <span>
+      <strong>拥抱开源</strong>
+      开源编辑器，运行时和各类拓展，代码透明，拥抱开源社区的力量。
+    </span>
+  </LinkTo>
+  <LinkTo className="link-item" kind="服务-联系我们--page">
+    <img src={Comments} alt="comments" />
+    <span>
+      <strong>私有化部署</strong>
+      全系统支持私有化部署，全面保证数据安全。24h技术支持，保证业务安全稳定运行。
+    </span>
+  </LinkTo>
+</div>
+
+<p></p>
+
+## 常用资料
+
+- 📃 页面绑定自定义域名，点击了解 <LinkTo kind="编辑器-绑定域名--page">绑定域名</LinkTo>
+
+- 🌟 快速了解星搭拓展开发，可以从这里开始 <LinkTo kind="拓展-快速开始--page">快速开始</LinkTo>
+
+- ⌚️ 快速了解业务系统接入星搭编辑器，可以从这里了解 <LinkTo kind="编辑器-嵌入编辑器--page">嵌入编辑器</LinkTo>
+
+- 🌺 快速了解业务系统接入星搭渲染系统，可以从这里入门 <LinkTo kind="渲染器-嵌入渲染器--page">嵌入渲染系统</LinkTo>
+
+## 文档目录
+
+- <LinkTo kind="拓展-介绍--page">拓展</LinkTo>
+- <LinkTo kind="编辑器-介绍--page">编辑器</LinkTo>
+- <LinkTo kind="渲染器-介绍--page">渲染器</LinkTo>
+- <LinkTo kind="demos-编辑器--h-5-页面">DEMO</LinkTo>
+- <LinkTo kind="开源贡献-参与开源贡献--page">参与开源贡献</LinkTo>
+- <LinkTo kind="apis-数据结构-组件--page">APIs</LinkTo>
+- <LinkTo kind="服务-联系我们--page">联系我们</LinkTo>
+
+<Contact />

@@ -1,0 +1,84 @@
+import { Meta } from '@storybook/addon-docs';
+import LinkTo from '@storybook/addon-links/react';
+
+<Meta title="拓展/Component(自定义组件)" parameters={{ viewMode: 'docs' }} />
+
+# 自定义组件 Component
+
+自定义组件为拓展官方组件，该组件可以在编辑器中被添加进页面中。并在运行时展示。
+
+## 快速开始
+
+### 创建组件
+
+首先，需要在拓展的 `src/components` 目录下创建新的组件文件夹 `MyOwnButton`，并新建 React 组件 `index.tsx`
+
+```typescript
+import { IComponentDefine, IComponentProps, IComponentInstanceForm } from '@mtbird/shared';
+import styles from './style.module.less';
+
+const MyOwnButton: IComponentDefine<IComponentInstanceForm> = ({ children }: IComponentProps) => {
+  return (
+    <div className={styles.myOwnButtonWrapper} style={props.style}>
+      Such a Button, {children}
+    </div>
+  );
+};
+```
+
+### 创建样式文件
+
+在组件目录下创建样式文件 `style.module.less`
+
+```less
+.myOwnButtonWrapper {
+  background-color: red;
+  color: white;
+}
+```
+
+### 增加组件 manifest 配置
+
+组件的 manifest 不同于拓展的 manifest 文件，组件的 manifest 文件是对组件的描述。
+
+在组件目录下新增 `manifest.ts` 文件:
+
+```typescript
+import { IComponentManifest, IComponentInstanceForm } from '@mtbird/shared';
+
+const manifest: IComponentManifest<IComponentInstanceForm> = {
+  type: 'component', // 组件类型
+  componentName: 'RichTextEditor', // 组件的唯一名称
+  title: 'MyOwnButton', // 组件在左侧工具栏中的显示文字
+  icon: 'mtbird-mtbutton', // 组件在左侧工具栏中的 Icon
+  desc: '',
+  category: 'extension', // 组件在左侧工具栏显示在哪个tab页下
+  schema: [...COMPONENT.SCHEMA_COMPONENT_BASIC_STYLE], // 当组件被选中时，右侧可以修改的配置
+  instance: {
+    // 组件默认结构
+    type: 'form',
+    componentName: 'RichTextEditor',
+    props: {
+      style: {
+        // 默认样式，同 React.CSSProperties
+        height: 260,
+        width: 370
+      }
+    },
+    children: '这是一段信息' // 子组件
+  }
+};
+```
+
+### 在 拓展 配置中声明
+
+```json
+{
+  ...
+  "components": ["MyOwnButton"]
+  ...
+}
+
+```
+
+下一篇：<LinkTo kind="拓展-查看已发布拓展--page">编辑器引入</LinkTo>

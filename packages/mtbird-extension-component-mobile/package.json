@@ -1,0 +1,35 @@
+{
+  "name": "mtbird-extension-component-mobile",
+  "version": "0.0.3-beta.27",
+  "description": "星搭星搭移动端组件库",
+  "homepage": "",
+  "license": "MIT",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/types",
+  "directories": {
+    "dist": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "NODE_ENV=development mtbird start",
+    "build": "NODE_ENV=production mtbird build",
+    "publish-lib": "NODE_ENV=production mtbird publish --token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbDVpeDkzd2UwMDI5ZHc0emo5djBnNTFtIiwidGVhbUlkIjoiY2w2c3ZpcGFqMDkwN2oxczYxcWllNHY5YyIsImlhdCI6MTY2OTE5NDMzNiwiZXhwIjoxNjY5Nzk5MTM2fQ.Et3zKYTNNqiBL3oEU3T8vU3s02tnc931RquajEgxdlA"
+  },
+  "dependencies": {
+    "antd-mobile": "^5.25.1"
+  },
+  "devDependencies": {
+    "@mtbird/core": "^0.0.3-beta.27"
+  },
+  "peerDependencies": {
+    "@mtbird/cli": "^0.0.3-beta.15",
+    "@mtbird/shared": "^0.0.3-beta.15",
+    "antd": "^4.23.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  }
+}

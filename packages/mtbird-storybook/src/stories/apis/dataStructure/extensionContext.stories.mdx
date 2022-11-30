@@ -1,0 +1,263 @@
+import { Meta } from '@storybook/addon-docs';
+import LinkTo from '@storybook/addon-links/react';
+
+<Meta title="APIs/数据结构/拓展上下文" parameters={{ viewMode: 'docs' }} />
+
+# 拓展上下文 ExtensionContext
+
+TS Type: IExtensionContext
+
+## 结构
+
+```typescript
+export interface IExtensionContext {
+  page: IPageConfig | null;
+  componentMap: Map<string, IComponentInstance | IComponentInstanceForm>;
+  currentComponent: IComponentInstance[];
+  request: IRequest;
+  storage: Storage;
+  router: IRouter;
+
+  // event emit and subscription hub
+  eventHub: IEventEmitter;
+  EVENT_KEYS: Record<string, Symbol>;
+
+  /**
+   * 编辑器所有已注册的组件
+   */
+  registeredComponents?: Record<string, IComponentCommon>;
+
+  /**
+   * 注册feature
+   */
+  registerFeature: (key: string, feature: any) => void;
+  /**
+   * 注册弹窗
+   */
+  registerModal: (key: string, modal: any) => void;
+  /**
+   * 添加组件
+   */
+  addComponent: (component: IComponentInstance) => void;
+  /**
+   * 删除组件
+   */
+  deleteComponent: () => void;
+  /**
+   * 复制组件
+   */
+  copyComponent: () => void;
+  /**
+   * 移动组件
+   */
+  moveComponent: (leftOffset: number, topOffset: number) => void;
+  /**
+   * 上移一层
+   */
+  goUpper: () => void;
+  /**
+   * 下移一层
+   */
+  goLower: () => void;
+
+  /**
+   * 选中组件
+   */
+  selectComponent: (component: Array<IComponentInstance>) => void;
+
+  /**
+   * modify currentComponent config
+   */
+  onChangeValue: (keyPath: string, value: any) => void;
+
+  /**
+   * Inject render pipe handler and configuration into currentComponent's pipes.render attribute
+   */
+  injectRenderPipe: (extensionName: string, pipeName: string) => void;
+
+  /**
+   * Remove render pipe handler and configuration from currentComponent's pipes.render attribute
+   */
+  removeRenderPipe: (extensionName: string, pipeName: string) => void;
+}
+```
+
+## 属性
+
+### 💎 page
+
+当前编辑器正在操作的页面，为 IPageConfig 类型，具体数据结构参考：页面 Page
+
+### 💎 currentComponent
+
+当前编辑器正在操作的组件，为单个组件对象，或组件对象数组（当前多选），组件类型为 IComponentInstance ，具体数据结构可以参考：组件 Component
+
+### 💎 request
+
+数据请求操作对象
+
+### 💎 storage
+
+数据存储操作对象，API 类似 localStorage
+
+### 💎 router
+
+路由操作对象
+
+### 💎 eventHub
+
+编辑器全局事件坞
+
+## 方法
+
+### 🔧 addComponent 添加组件
+
+向正在编辑的页面中添加组件，如果当前选中组件类型为 container，则加入当前选中组件中，否则，则加入到当前选中组件的父组件中。
+类型
+
+```typescript
+(component: IComponentInstance) => void;
+```
+
+参数
+
+- component：需要添加的组件，类型为 组件 Component
+
+### 🔧 deleteComponent 删除组件
+
+删除当前选中（currentComponent）组件
+类型
+
+```typescript
+() => void;
+```
+
+### 🔧 copyComponent 复制组件
+
+复制当前选中（currentComponent）组件
+类型
+
+```typescript
+() => void;
+```
+
+### 🔧 moveComponent 移动组件
+
+移动当前选中（currentComponent）组件
+类型
+
+```typescript
+(leftOffset: number, topOffset: number) => void;
+```
+
+### 🔧 goUpper 上移一层
+
+将当前选中（currentComponent）组件，上移一层
+类型
+
+```typescript
+() => void;
+```
+
+### 🔧 goLower 下移一层
+
+将当前选中（currentComponent）组件，下移一层
+类型
+
+```typescript
+() => void;
+```
+
+### 🔧 selectComponent 选中组件
+
+选择某一组件
+
+类型
+
+```typescript
+(component: Array<IComponentInstance>) => void;
+```
+
+### 🔧 onChangeValue 修改当前组件配置
+
+修改当前选择组件的属性，如果当前选中多个，则每一个组件的 keyPath 属性都会被赋值成 value
+
+类型
+
+```typescript
+(keyPath: string, value: any) => void;
+```
+
+### 🔧 injectRenderPipe 注入渲染管线
+
+注入渲染管线，管线名需在 manifest.json 配置文件中声明，并在 src/pipes/{pipeName}.ts 文件中定义
+
+类型
+
+```typescript
+(extensionName: string, pipeName: string) => void;
+```
+
+### 🔧 removeRenderPipe 移除渲染管线
+
+移除渲染管线在当前组件中的应用
+
+类型
+(extensionName: string, pipeName: string) => void;
+
+### 🔧 registerFeature
+
+参数
+
+- key: 组件唯一标识（会默认加上拓展名作为前缀，以方式污染全局命名空间。如跨拓展调用组件，需在组件前加上拓展名称）
+- feature: React 组件（这个 React 组件中，也会以 props 形式传入一个 context 全局上下文对象）
+
+将某一个 React 组件注册为可供编辑器使用的拓展组件
+
+使用案例
+
+在 manifest.json
+
+```json
+...
+"contributes": {
+"toolbars": [
+{
+"params": {
+"name": "拓展案例"
+},
+"link": "component",
+"component": "example.tab" // component key
+}
+]
+}
+...
+```
+
+### 🔧 registerModal
+
+**_[参数]_**
+
+- key: 组件唯一标识（会默认加上拓展名作为前缀，以方式污染全局命名空间。如跨拓展调用组件，需在组件前加上拓展名称）
+- modal: React 组件（这个 React 组件中，也会以 props 形式传入一个 context 全局上下文对象）
+
+注册一个全局模态框
+使用案例
+
+在 manifest.json
+
+```json
+...
+"contributes": {
+  "toolbars": [
+    {
+      "params": {
+        "name": "拓展案例"
+      },
+      "link": "modal",
+      "modal": "example.tab" // component key
+    }
+  ]
+}
+...
+```

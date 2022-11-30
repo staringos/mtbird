@@ -1,0 +1,24 @@
+import { Meta } from '@storybook/addon-docs';
+import LinkTo from '@storybook/addon-links/react';
+
+<Meta title="APIs/数据结构/组件描述" parameters={{ viewMode: 'docs' }} />
+
+# 组件描述 ComponentManifest
+
+```typescript
+export interface IComponentManifest<T> {
+  type: string; // 组件类型，包括 component(组件)、form(表单项)、container(容器)
+  componentName: string; // 组件名（唯一）
+  category?: 'basic' | 'form' | 'icon' | 'extension'; // 组件Tab分类
+  subCategory?: 'common' | 'mobile' | 'container' | 'data'; // 组件子分类
+  title: string; // 组件显示名
+  icon: string; // 组件显示 ICON
+  desc: string;
+  // show in toolbar
+  hideInToolbar?: boolean; // 是否在左侧组件列表中显示
+  schema: IComponentInstanceForm[]; // 右侧，组件配置项
+  instance: T; // 组件被添加到页面中的 数据结构实例（提供给渲染器）
+}
+```
+
+其中 instance 的数据结构可以参考 <LinkTo kind="apis-数据结构-组件--page">这篇文档</LinkTo>

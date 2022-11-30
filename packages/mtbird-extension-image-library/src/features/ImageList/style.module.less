@@ -1,0 +1,30 @@
+.imageListWrapper {
+  height: 0px;
+  flex: 1;
+  overflow: auto;
+}
+
+.imageListContainer {
+  padding-left: 5px;
+  width: 100%;
+  flex-flow: wrap;
+  column-count: 2;
+  column-width: 60px;
+  column-gap: 5px;
+
+  :global {
+    .ant-image {
+      break-inside: avoid;
+      width: 60px;
+      max-width: 60px;
+      min-width: 60px;
+      margin-bottom: 5px;
+      border-radius: 5px;
+
+      &:hover {
+        width: 70px;
+        margin-left: -5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.imageLibContainer {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  flex-direction: column;
+  padding-top: 10px;
+
+  .tagRadio {
+    margin: 10px 0;
+  }
+
+  :global {
+    .ant-pagination-item {
+      a {
+        color: white;
+      }
+    }
+
+    .ant-pagination-item-active {
+      a {
+        color: rgb(62, 62, 62);
+      }
+    }
+
+    .anticon-right, .anticon-left, .ant-pagination-item-ellipsis {
+      color: white !important;
+    }
+  }
+}

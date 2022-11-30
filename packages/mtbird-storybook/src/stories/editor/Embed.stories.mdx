@@ -1,0 +1,75 @@
+import { Meta } from '@storybook/addon-docs';
+import LinkTo from '@storybook/addon-links/react';
+
+<Meta title="编辑器/嵌入编辑器" parameters={{ viewMode: 'docs' }} />
+
+# 嵌入编辑器
+
+编辑器本质上是一个独立的 React 组件，可以通过代码无缝嵌入到 React 前端项目中，或者通过诸如 乾坤 类的微前端框架嵌入到 Vue 或 AngularJS 中更新版本号
+
+## 嵌入 React 项目
+
+### 安装
+
+```shell
+yarn add @mtbird/editor @mtbird/shared
+```
+
+### 在组件中使用
+
+```tsx
+import React from 'react';
+import Editor from '@mtbird/editor';
+
+import { IPageConfig } from '@mtbird/shared';
+
+interface IProps {
+  pageConfig: IPageConfig;
+}
+
+const EditorPage = ({ pageConfig }: IProps) => {
+  const options = {
+    pageConfig
+  };
+  return <Editor options={options} />;
+};
+
+export default EditorPage;
+```
+
+可以查看 [编辑器嵌入 Demo](/story/demos-编辑器--form-page) 获取更多信息
+
+- 查看 `Options` 详细信息：[EditorOptions APIs]()
+- 查看 `PageConfig` 数据结构：[PageConfig APIs]()
+
+### 加载拓展
+
+可以查看官方支持的 <LinkTo kind="拓展-官方拓展列表--page">拓展列表</LinkTo> ，找到需要加载的 ExtensionName，在 options 中加入 extensions 参数
+
+```tsx
+const EditorPage = ({ pageConfig }: IProps) => {
+  const options = {
+    pageConfig,
+    extensions: ['mtbird-extension-enterprise']
+  };
+  return <Editor options={options} />;
+};
+
+export default EditorPage;
+```
+
+编辑器会自动加载拓展，如需要加载本地或其他镜像库的拓展，可以使用远程地址:
+
+```tsx
+const EditorPage = ({ pageConfig }: IProps) => {
+  const options = {
+    pageConfig,
+    extensions: ['mtbird-extension-enterprise', 'http://localhost:3100?name=mtbird-extension-component-mobile']
+  };
+  return <Editor options={options} />;
+};
+
+export default EditorPage;
+```
+
+下一篇：<LinkTo kind="%E6%B8%B2%E6%9F%93%E5%99%A8-%E4%BB%8B%E7%BB%8D--page">渲染器</LinkTo>

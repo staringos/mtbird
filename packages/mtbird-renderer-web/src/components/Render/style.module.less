@@ -1,0 +1,33 @@
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+
+  .maskText {
+    width: 80px;
+    height: 18px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 18px;
+    border: 1px solid var(--gray-5);
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: content-box;
+    background-color: var(--gray-3);
+  }
+
+  &:hover {
+    .maskText {
+      display: block;
+    }
+  }
+}
+
+.componentWrapper {
+  position: relative;
+}

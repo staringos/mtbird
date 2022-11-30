@@ -1,0 +1,22 @@
+.customScrollbar() {
+  margin-right: 2px;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 5px;
+    border-right: 2px solid transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgb(153 153 153 / 50%);
+    border-radius: 5px;
+    border-right: 5px solid transparent;
+
+    width: 6px;
+  }
+}

@@ -1,0 +1,30 @@
+.categoryPanel {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  .categoryTitle {
+    color: var(--color-text-4);
+    margin: 5px 0;
+  }
+
+  .animationsContainer {
+    grid-gap: 5px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 68px);
+  }
+  
+  .animationButton {
+    font-size: 12px;
+    background-color: var(--gray-5);
+    color: var(--color-text-1);
+    border: 0;
+  }
+
+  :global {
+    .ant-btn-primary {
+      background-color: var(--mtbird-primary-6);
+      color: var(--color-text-4);
+    }
+  }
+}

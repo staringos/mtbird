@@ -1,0 +1,59 @@
+import { Meta } from '@storybook/addon-docs';
+import LinkTo from '@storybook/addon-links/react';
+
+<Meta title="拓展/文件结构" parameters={{ viewMode: 'docs' }} />
+
+# 拓展文件结构
+
+拓展为一个简单的 react 项目。主要的文件有 `src/index.ts` 和 `manifest.json`。
+
+## 文件结构
+
+- src
+  - features 所有的特征组件
+  - components 所有的自定义组件
+  - pipes 所有的渲染管线
+  - index.ts 入口文件
+- manifest.json 拓展描述文件
+
+我们可以打开 `manifest.json` 文件，可以看到，里面有一个 `contributes` 配置，这是
+详细的文件结构说明，可以参考文档 文件结构
+
+这里我们重点介绍 `拓展描述文件 manifest.json` 和 `入口文件 index.ts`
+
+## 拓展描述文件 (manifest.json)
+
+`Manifest` 文件是关于拓展的描述，可以理解为拓展的配置文件。有拓展的基本信息 如 `name`、`title`、`version`。还有拓展的注册信息，如 `contributes`、`pipes`、`components`
+
+### 属性说明:
+
+基础属性
+
+- name 拓展唯一名称
+- title 拓展的显示名称
+- private 是否为组织私有拓展
+- version 拓展版本
+
+拓展注册
+
+- contributes 编辑器贡献
+- pipes 渲染管线
+- components 自定义组件
+
+详细的描述文件定义，参考这个文档 [拓展描述 Manifest]()
+
+## 入口文件（src/index.ts）
+
+拓展入口是拓展编辑器贡献入口，默认导出一个方法，方法接收一个 `context`（全局上下文）对象作为参数，该上下文中包括 当前编辑器和页面的基本信息（只读），和 注册、挂载和帮助方法
+
+```typescript
+const activity = (context: IExtensionContext) => {
+  context.registerFeature('example.tab', Example);
+};
+
+export default activity;
+```
+
+我们可以在这里挂在 feature 用于 Contributes，进行各种编辑器事件监听，并给出处理方法。
+
+下一篇：<LinkTo kind="%E6%8B%93%E5%B1%95-contribute-%E7%BC%96%E8%BE%91%E5%99%A8%E8%B4%A1%E7%8C%AE--page">编辑器贡献 Contribute</LinkTo>

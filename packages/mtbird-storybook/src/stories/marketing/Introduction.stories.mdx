@@ -1,0 +1,154 @@
+import { Meta } from '@storybook/addon-docs';
+import Contact from '../../components/Contact';
+import Colors from '../../assets/colors.svg';
+import Direction from '../../assets/direction.svg';
+import Flow from '../../assets/flow.svg';
+import Plugin from '../../assets/plugin.svg';
+import StackAlt from '../../assets/stackalt.svg';
+
+<Meta title="一站式营销/介绍" parameters={{ viewMode: 'docs' }} />
+
+<style>
+  {`
+    .subheading {
+      --mediumdark: '#999999';
+      font-weight: 900;
+      font-size: 13px;
+      color: #999;
+      letter-spacing: 6px;
+      line-height: 24px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      margin-top: 40px;
+    }
+
+    .link-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      row-gap: 10px;
+    }
+
+    @media (min-width: 620px) {
+      .link-list {
+        row-gap: 20px;
+        column-gap: 20px;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media all and (-ms-high-contrast:none) {
+    .link-list {
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 1fr;
+        -ms-grid-rows: 1fr 1fr;
+      }
+    }
+
+    .link-item {
+      display: block;
+      padding: 20px 30px 20px 15px;
+      border: 1px solid #00000010;
+      border-radius: 5px;
+      transition: background 150ms ease-out, border 150ms ease-out, transform 150ms ease-out;
+      color: #333333;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .link-item:hover {
+      border-color: #1EA7FD50;
+      transform: translate3d(0, -3px, 0);
+      box-shadow: rgba(0, 0, 0, 0.08) 0 3px 10px 0;
+    }
+
+    .link-item:active {
+      border-color: #1EA7FD;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .link-item strong {
+      font-weight: 700;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .link-item img {
+      height: 40px;
+      width: 40px;
+      margin-right: 15px;
+      flex: none;
+    }
+
+    .link-item span {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .tip {
+      display: inline-block;
+      border-radius: 1em;
+      font-size: 11px;
+      line-height: 12px;
+      font-weight: 700;
+      background: #E7FDD8;
+      color: #66BF3C;
+      padding: 4px 12px;
+      margin-right: 10px;
+      vertical-align: top;
+    }
+
+    .tip-wrapper {
+      font-size: 13px;
+      line-height: 20px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    .tip-wrapper code {
+      font-size: 12px;
+      display: inline-block;
+    }
+  `}
+</style>
+
+# 一站式营销
+
+<div className="subheading">解决方案</div>
+
+<div className="link-list">
+  <a className="link-item" href="/docs/一站式营销-介绍--page" target="_self">
+    <img src={StackAlt} alt="Build" />
+    <span>
+      <strong>千人千面，根据人群标签展示创意</strong>
+      不同用户标签展示不同的文案内容，可以根据搜索关键词，用户渠道，标签自动切换
+    </span>
+  </a>
+  <a className="link-item" href="/docs/一站式营销-介绍--page" target="_self">
+    <img src={Colors} alt="colors" />
+    <span>
+      <strong>A/B测试 精细化分流</strong>
+      精准分流，对不同创意进行测试，根据人群划分，找出人群转化率最高的方案
+    </span>
+  </a>
+  <a className="link-item" href="/docs/一站式营销-介绍--page" target="_self">
+    <img src={Flow} alt="flow" />
+    <span>
+      <strong>用户兴趣标签沉淀</strong>
+      灵活无代码用户兴趣标签配置沉掉，记录人群兴趣标签，支持数据仓库对接
+    </span>
+  </a>
+  <a className="link-item" href="/docs/一站式营销-介绍--page" target="_self">
+    <img src={Plugin} alt="plugin" />
+    <span>
+      <strong>无代码物料落地页搭建</strong>
+      物料落地页、线索手机一站式无代码搭建，快速响应活动和市场需求
+    </span>
+  </a>
+</div>
+
+<p></p>
+
+## 了解更多
+
+<Contact />

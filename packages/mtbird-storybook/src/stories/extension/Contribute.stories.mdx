@@ -1,0 +1,95 @@
+import { Meta } from '@storybook/addon-docs';
+import ContributesImages from '../../assets/images/contributes.png';
+import ContributesDemoImages from '../../assets/images/contributes-demo.png';
+import LinkTo from '@storybook/addon-links/react';
+
+<Meta title="拓展/Contribute(编辑器贡献)" parameters={{ viewMode: 'docs' }} />
+
+# 编辑器贡献 Contribute
+
+编辑器贡献 `Contribute` 是用来扩展编辑器功能的主要工具。可以帮助拓展在编辑器的不同位置 `ContributeType` 注入 `feature`（React 组件）。
+
+包含以下几个位置的拓展：
+
+- header 头部
+  - headerTools
+  - headerButtons
+- tool 工具面板
+  - toolbars
+  - toolButtons
+- schema 配置栏
+  - schemaTabs
+- canvas 画布
+  - canvasTools
+
+分别对应着对如图所示位置的拓展:
+
+<img src={ContributesImages} />
+
+## 创建 Contributes
+
+### 创建 Feature
+
+首先，在 `features` 文件夹新建 `Demo` 文件夹，并在其下创建 `index.tsx` 文件。这是一个 React 组件，用来展示我们想在编辑器贡献的功能样式
+
+```typescript
+import React from 'react';
+
+const Demo = () => {
+  return (
+    <div>
+      MTBIRD <button>Hello world</button>
+    </div>
+  );
+};
+
+export default Demo;
+```
+
+### 注册 Feature
+
+打开 `src/index.ts` 入口文件，在 `avtivity` 方法中，调用 `context.registerFeature` 方法，传入唯一的 `key` 和 我们刚才新建的 `Demo` 组件。
+
+```typescript
+import { IExtensionContext } from '@mtbird/shared';
+import Demo from './features/Demo';
+
+const activity = (context: IExtensionContext) => {
+  context.registerFeature('demo.tab', Demo);
+};
+
+export default activity;
+```
+
+### 修改配置文件
+
+接下来我们需要修改配置文件，增加 `contributes` 声明，我们的目标是挂载在 `toolbars` 位置。
+
+所以我们在 `contributes` 下增加 `toolTabs` 配置栏。
+
+```json
+{
+  ...
+  "contributes": {
+    "toolbars": [
+        {
+          "params": {
+              "name": "测试"
+          },
+          "link": "feature",
+          "feature": "demo.tab"
+        }
+    ]
+  }
+}
+```
+
+### 测试
+
+使用 [快速开始](/?path=/docs/拓展-快速开始--page#开始调试) 后面的调试方法，挂载拓展。可以看到编辑器的 `左侧Tabs(Toolbars)` 位置已经有了我们新增加的 `Tab`。
+
+<img src={ContributesDemoImages} />
+
+点击 `Tab` 可以看到，里面渲染的就是我们在上面注册的 `Feature` 组件
+
+下一篇：<LinkTo kind="%E6%8B%93%E5%B1%95-pipe-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF--page">渲染管线 Pipes</LinkTo>

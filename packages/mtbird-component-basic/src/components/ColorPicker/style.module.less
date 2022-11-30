@@ -1,0 +1,37 @@
+@import '../../../../mtbird-core/src/themes/color.less';
+
+.colorPickerWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+  justify-content: center;
+
+  .colorFormItem {
+    display: flex;
+    flex-direction: row;
+  }
+  .colorBox {
+    width: 22px;
+    height: 22px;
+    border: 1px solid @color-6;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+
+  .colorTitle {
+    font-size: 12px;
+    height: 22px;
+    width: 73px;
+    border: 0;
+    flex: 1;
+  }
+}
+
+.colorPickerPopover {
+  :global {
+    .ant-popover-inner-content {
+      padding: 0;
+    }
+  }
+}

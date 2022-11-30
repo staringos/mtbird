@@ -1,0 +1,38 @@
+@import '../../../../mtbird-core/src/themes/color.less';
+
+.ruler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: @color-3;
+
+  &.horizontal {
+    left: 30px;
+    width: calc(100% - 30px);
+    height: 30px;
+  }
+
+  &.vertical {
+    top: 0px;
+    width: 30px;
+    height: calc(100% - 30px);
+  }
+}
+
+.centerButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  background-color: @color-3;
+
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: 1px solid #777777;
+  box-sizing: border-box;
+  cursor: pointer;
+}

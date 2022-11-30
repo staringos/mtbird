@@ -1,0 +1,49 @@
+
+.toolbarBoxContainer {
+  display: flex;
+  flex-direction: column;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 58px;
+  align-items: center;
+
+  .toolbarBoxIcon {
+    width: 35px;
+    height: 35px;
+    font-size: 35px;
+    text-align: center;
+    background-color: var(--gray-5);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  :global {
+    .ant-tabs-tabpane {
+      padding-left: 10px;
+    }
+
+    .mtbird-icon {
+      font-size: 18px;
+      color: var(--color-text-1);
+    }
+  }
+
+  .toolbarBoxTitle {
+    font-size: 12px;
+    color: var(--color-text-4);
+    text-align: center;
+    margin-top: 5px;
+  }
+
+  &:hover {
+    background-color: var(--gray-5);
+    .toolbarBoxTitle {
+      color: var(--color-text-1);
+    }
+  }
+}

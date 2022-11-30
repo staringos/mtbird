@@ -1,0 +1,39 @@
+{
+  "name": "@mtbird/extension-image-library",
+  "version": "0.0.3-beta.27",
+  "description": "The image library plugin",
+  "author": "zousongqi <george@staringos.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/types",
+  "directories": {
+    "dist": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "scripts": {
+    "start": "NODE_ENV=production mtbird start",
+    "build": "NODE_ENV=production mtbird build",
+    "link": "npm link ../../../mtbird-saas/node_modules/react",
+    "preDev": "lerna link & yarn run link",
+    "publish-lib": "NODE_ENV=production mtbird publish --token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbDVpeDkzd2UwMDI5ZHc0emo5djBnNTFtIiwidGVhbUlkIjoiY2w2c3ZpcGFqMDkwN2oxczYxcWllNHY5YyIsImlhdCI6MTY2MjUxODY4MiwiZXhwIjoxNjYzMTIzNDgyfQ.bWkjMlMM6wthFfwY-hPx2EF0Mcg9FTB_wENZNPkmaFU",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "peerDependencies": {
+    "@mtbird/shared": "^0.0.1-beta.4",
+    "antd": "^4.22.3"
+  },
+  "devDependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "gitHead": "2f918f1c199fc230eb68d1fdaf07890b1fb99206"
+}

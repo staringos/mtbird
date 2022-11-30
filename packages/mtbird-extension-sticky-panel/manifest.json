@@ -1,0 +1,23 @@
+{
+  "name": "mtbird-extension-sticky-panel",
+  "title": "屏幕跟随",
+  "version": "0.0.3",
+  "desc": "屏幕跟随",
+  "tags": [
+      "拓展案例"
+  ],
+  "pipes": ["sticky"],
+  "contributes": {
+    "canvasTools": [
+      {
+        "sort": 3,
+        "params": {
+            "name": "屏幕跟随",
+            "icon": "mtbird-icon mtbird-aim"
+        },
+        "link": "panel",
+        "feature": "sticky.panel"
+      }
+    ]
+  }
+}

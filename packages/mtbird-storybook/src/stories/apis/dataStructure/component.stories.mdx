@@ -1,0 +1,179 @@
+import { Meta } from '@storybook/addon-docs';
+import LinkTo from '@storybook/addon-links/react';
+
+<Meta title="APIs/数据结构/组件" parameters={{ viewMode: 'docs' }} />
+
+# 组件 ComponentInstance
+
+## Component Instance
+
+完整的组件数据结构
+
+```typescript
+export interface IComponentInstance {
+  // 基础属性
+  id?: string; // 组件唯一ID，每次 addComponent 的时候生成
+  type: string; // 组件类型 container | form | component
+  componentName: string; // 唯一的组件名称
+  parent?: string; // 父组件ID
+  props: IProps; // 要直接传给组件 dom 元素的 props，如 style 和 className
+  layout?: 'absolute' | 'grid' | 'flex'; // 布局方式，目前只支持 absolute 和 flex
+  data?: {
+    alias?: string; // 组件自定义显示别名
+    variables?: IVariable[]; // 局部变量，如果是 ContainerRoot 组件的 variables，则为全局变量
+    options?: Record<string, any>[]; // 一般是如 select / checkbox / radio 等组件的值
+  };
+  pattern?: {
+    display?: string; // 组件是否显示
+    background?: 'image' | 'graduual' | 'color';
+    animate?: IAnimate;
+  };
+  editing?: {
+    showMask?: boolean; // 组件是否在编辑状态时 双击才能操作，参考输入框和按钮
+  };
+  children: IComponentInstance[] | number | string; // 子元素
+
+  // 高级属性
+  events?: Record<EventAction, IEvent>; // 事件
+  pipes?: {
+    // 管线
+    render?: Record<string, IPipe>;
+  };
+  extension?: {
+    // 拓展
+    isExtension: boolean;
+    extensionName: string;
+    componentName: string;
+    registry?: string;
+    version: string;
+  };
+}
+```
+
+## 表单 form
+
+```typescript
+export interface IComponentInstanceForm extends IComponentInstance {
+  formConfig: {
+    keyPath?: string | null; // 表单元素修改值的 keyPath
+    label?: string; // 表单元素的左侧 label
+    description?: string;
+    placeholder?: string;
+    labelStyle?: React.CSSProperties; // 左侧label 的样式
+    verify?: {
+      // 表单验证
+      isRequired: boolean;
+    };
+    suffix?: string; // 后缀
+    valueFormatter?: string; // 值被填充会控件的时候的格式化方法 eg. 'function(value) { return value + "px"; }';
+    editFormatter?: string; // 值被保存的时候的格式化方法 editFormatter like send to edit formatter
+    rules?: Array<any>; // TODO 未实现 Array<IFormRules>;
+    rulesVerifyInside?: boolean; // 即将被移除 不建议使用
+    componentName?: string; // 即将被移除 不建议使用
+    componentProps?: IProps; // 即将被移除 不建议使用
+  };
+}
+```
+
+## 管线 pipes
+
+管线为渲染管线，管线配置，通常拓展管线。在渲染前对渲染元素进行数据处理的纯方法，可以参考 <LinkTo kind="拓展-pipe-渲染管线--page">这篇文档</LinkTo>
+
+```typescript
+pipes?: {
+  render?: Record<string, IPipe>; // 渲染时使用的管线，后续还会增加 初始化 和 销毁前 管线
+};
+```
+
+IProps
+
+```typescript
+export interface IPipe {
+  handler: string; // 拓展加载器会加载拓展中管线的js文件，并将js文件转成 hander 方法，存在这里，提供渲染管道调用
+  name: string; // 管线名称
+  extensionName?: string; // 管线拓展名称
+}
+```
+
+## 事件 events
+
+事件配置
+
+```typescript
+events?: Record<EventAction, IEvent>; // 事件
+```
+
+IEvent
+
+```typescript
+export interface IEvent {
+  type: EventType; // 事件类型
+  src?: string; // type 为 link 时的路径
+  inlineCode?: string; // type 为 inline-code 时的代码，为字符串类型，会在触发时呗 eval 执行
+  modalId: string; // type 为 modal 时的弹窗ID
+  keyPath?: string; // when event type is change-variable, key path to varibles
+  value?: string | number | boolean; // when event is change-variable, set keyPath from varibles to this value
+}
+```
+
+EventType 事件执行类型
+
+```typescript
+export type EventType =
+  | 'link' // 链接
+  | 'link-blank' // 链接 新打开页面
+  | 'submit' // 提交表单
+  | 'clear' // 清空表单
+  | 'open-modal' // 打开弹窗
+  | 'close-modal' // 关闭弹窗
+  | 'inline-code' // 行内代码
+  | 'change-variable'; // 修改变量
+```
+
+EventAction 事件触发类型
+
+```typescript
+export type EventAction = 'click' | 'hover' | 'blur' | 'dbclick' | 'scroll';
+```
+
+## 拓展 extension
+
+注意：只有拓展提供的自定义组件有这个变量
+
+拓展配置
+
+```typescript
+extension?: {
+  // 拓展
+  isExtension: boolean; // 是否是拓展
+  extensionName: string; // 拓展名
+  componentName: string; // 组件名
+  registry?: string; // 拓展的镜像库，默认为 register.staringos.com，本地调试的时候会改为 localhost: 8081
+  version: string; // TODO 版本控制
+};
+```
+
+## 动画 animate
+
+动画配置
+
+```typescript
+pattern?: {
+  ...
+  animate?: IAnimate;
+};
+```
+
+IAnimate
+
+```typescript
+export interface IAnimate {
+  type: string;
+  className: string;
+  delay: number;
+  duration: number;
+  repeat: number;
+  infinite: boolean;
+  open: boolean;
+}
+```

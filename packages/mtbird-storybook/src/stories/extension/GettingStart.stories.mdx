@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/addon-docs';
+import DebugImage from '../../assets/images/1.png';
+import StartExtension from '../../assets/images/start-extension.png';
+import LinkTo from '@storybook/addon-links/react';
+
+<Meta title="拓展/快速开始" parameters={{ viewMode: 'docs' }} />
+
+# 快速开始
+
+本篇将带领大家，使用不到两分钟的时间，初始化一个拓展项目代码，并开始在编辑器中调试。
+
+## 🤔 安装 CLI 工具
+
+```shell
+yarn global add @mtbird/cli
+```
+
+## 🚗 创建拓展项目
+
+```shell
+mtbird create my-extension
+```
+
+这里需要根据提示，输入拓展信息（唯一标识、名称、描述）。要注意，拓展的唯一标识（extensionName）需要是全局唯一的。
+
+## 💰 启动拓展项目
+
+```shell
+cd my-extension
+yarn start
+```
+
+这里的 start 命令会输出拓展地址，复制这个地址
+
+<img src={StartExtension} alt="start extension" />
+
+## 开始调试
+
+打开 [编辑器](https://mtbird.staringos.com)，点击右上角 `Debug` 按钮。
+
+<img src={DebugImage} alt="debug" />
+
+输入上面 `start` 命令输出的地址 `http://localhost:3000/...`，点击开始调试，页面刷新，`Debug` 按钮变为绿色，拓展即挂载成功。
+
+下一篇：<LinkTo kind="拓展-文件结构--page">拓展文件结构</LinkTo>

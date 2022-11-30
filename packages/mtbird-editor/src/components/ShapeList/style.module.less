@@ -1,0 +1,35 @@
+.shapePanelContaienr {
+  display: flex;
+  flex-direction: column;
+  width: 270px;
+  height: 500px;
+  background-color: var(--gray-9);
+  overflow-y: auto;
+  height: 100%;
+
+  .shapePanelRow {
+    display: flex;
+    flex-direction: column;
+
+    .shapePanelTitle {
+      background-color: var(--gray-6);
+      flex: 1;
+      width: 100%;
+      font-size: 14px;
+      color: white;
+      margin-bottom: 10px;
+      padding-left: 10px;
+    }
+
+    .shapePanelContent {
+      display: grid;
+      grid-gap: 5px;
+      padding: 0 5px;
+      grid-template-columns: repeat(auto-fill, 28px);
+    }
+
+    .shape {
+      cursor: pointer;
+    }
+  }
+}

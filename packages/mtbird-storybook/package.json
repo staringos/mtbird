@@ -1,0 +1,84 @@
+{
+  "name": "mtbird-storybook",
+  "version": "0.0.3-beta.27",
+  "private": true,
+  "browser": {
+    "crypto": false,
+    "stream": false
+  },
+  "dependencies": {
+    "@mtbird/component-basic": "^0.0.3-beta.27",
+    "@mtbird/core": "^0.0.3-beta.27",
+    "@mtbird/editor": "^0.0.3-beta.27",
+    "@mtbird/helper-component": "^0.0.3-beta.27",
+    "@mtbird/helper-extension": "^0.0.3-beta.27",
+    "@mtbird/renderer-web": "^0.0.3-beta.27",
+    "@mtbird/shared": "^0.0.3-beta.27",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^18.11.7",
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "antd": "^4.23.0",
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "stream": "npm:stream-browserify",
+    "typescript": "^4.8.4",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "test-storybook": "test-storybook",
+    "start": "start-storybook -p 6006 -s public",
+    "link": "yarn link @mtbird/core & yarn link @mtbird/shared & yarn link @mtbird/component-basic & yarn link @mtbird/renderer-web & yarn link @mtbird/editor & yarn link @mtbird/helper-component & yarn link @mtbird/helper-extension",
+    "build": "build-storybook -s public"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^6.5.13",
+    "@storybook/addon-actions": "^6.5.13",
+    "@storybook/addon-essentials": "^6.5.13",
+    "@storybook/addon-interactions": "^6.5.13",
+    "@storybook/addon-links": "^6.5.13",
+    "@storybook/builder-webpack5": "^6.5.13",
+    "@storybook/manager-webpack5": "^6.5.13",
+    "@storybook/node-logger": "^6.5.13",
+    "@storybook/preset-create-react-app": "^4.1.2",
+    "@storybook/react": "^6.5.13",
+    "@storybook/testing-library": "^0.0.13",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "crypto-browserify": "^3.12.0",
+    "prop-types": "^15.8.1",
+    "webpack": "^5.74.0"
+  }
+}

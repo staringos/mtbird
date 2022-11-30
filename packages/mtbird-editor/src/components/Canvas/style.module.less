@@ -1,0 +1,69 @@
+.canvasWrapper {
+  position: relative;
+  flex: 1;
+  height: 0px;
+  background: var(--gray-8);
+
+  .infiniteViewer {
+    display: flex;
+    flex: 1;
+    height: 100%;
+
+    position: absolute !important;
+    left: calc(30px);
+    top: 30px;
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+  }
+
+  .canvas {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    // padding: 40px 10px 10px 10px;
+    position: relative;
+    overflow: auto;
+  }
+
+  .canvasContent {
+    width: 375px;
+    height: 750px;
+
+    .canvasOutsider {
+      background-color: white;
+
+      &.canvasOutsiderModal {
+        max-height: 750px;
+        overflow: hidden;
+      }
+    }
+  }
+
+  :global {
+    .container-block-dragging-handler {
+      display: none;
+      width: 100%;
+      height: 20px;
+      position: absolute;
+      text-align: center;
+      bottom: 0;
+      left: 0;
+      color: white;
+      background-color: var(--mtbird-primary-2);
+      cursor: ns-resize;
+    }
+
+    .render-component:hover {
+      // .container-block-dragging-handler {
+      //   display: block;
+      // }
+      &.ContainerBlock {
+        > .container-block-dragging-handler {
+          display: block;
+        }
+      }
+    }
+  }
+}

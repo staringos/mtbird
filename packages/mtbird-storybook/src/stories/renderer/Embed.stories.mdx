@@ -1,0 +1,35 @@
+import { Meta } from '@storybook/addon-docs';
+import LinkTo from '@storybook/addon-links/react';
+
+<Meta title="渲染器/嵌入渲染器" parameters={{ viewMode: 'docs' }} />
+
+# 嵌入渲染器
+
+渲染器是经过编辑器编辑的页面渲染的 React 组件，可以无缝嵌入到任意 React 系统中，也可以通过如 乾坤 等微前端框架嵌入到 Vue 或 React 项目中。
+
+## 安装渲染器
+
+```shell
+yarn add @mtbird/renderer @mtbird/shared
+```
+
+## 引用渲染器
+
+```tsx
+import React from 'react'
+import {IPageConfig} from '@mtbird/shared'
+
+interface IProps {
+  pageConfig: IPageConfig;
+}
+
+const RenderPage = ({pageConfig}: IProps) => {
+  const innerDataSource = mew InnerDataSource();
+  return <Renderer pageConfig={pageConfig} dataSource={innerDataSource} />;
+};
+```
+
+可以查看 [渲染器 Demo](/story/demos-渲染器--form-page) 获取更多信息
+
+- 查看 `Options` 详细信息：<LinkTo kind="">EditorOptions APIs</LinkTo>
+- 查看 `PageConfig` 数据结构：<LinkTo kind="">PageConfig APIs</LinkTo>

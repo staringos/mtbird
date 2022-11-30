@@ -1,0 +1,68 @@
+.headerContainer {
+  height: var(--header-bar-height);
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-background-1);
+  color: var(--color-text-4);
+
+  .headerLeft {
+    display: flex;
+
+    :global {
+      .mtbird-icon {
+        color: var(--color-text-4);
+        font-size: 18px;
+      }
+    }
+
+    .headerBackButton {
+      width: calc(var(--header-bar-height) - var(--common-grap) * 2);
+      margin-top: var(--common-grap);
+    }
+  }
+
+  .splitLine {
+    height: 100%;
+    width: 1px;
+    background-color: var(--gray-7);
+    margin: 0 10px;
+  }
+
+  .headerCenter {
+    line-height: var(--header-bar-height);
+    display: flex;
+  }
+
+  :global {
+    .ant-menu-overflow {
+      height: var(--header-bar-height);
+    }
+
+    .ant-btn-text {
+      color: var(--color-text-4);
+      font-size: 12px;
+      height: var(--header-bar-height);
+      line-height: var(--header-bar-height);
+      padding-top: 0;
+      padding-bottom: 0;
+  
+      &:hover, &:active, &:focus {
+        color: var(--color-text-3);
+      }
+    }
+  }
+
+  .headerButton {
+    :global {
+      .mtbird-icon {
+        margin-right: 5px;
+        line-height: 35px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .headerRight {
+    display: flex;
+  }
+}

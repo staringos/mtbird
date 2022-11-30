@@ -1,0 +1,34 @@
+{
+  "name": "@mtbird/shared",
+  "version": "0.0.3-beta.27",
+  "description": "The shared constants and types for mtbird",
+  "author": "zousongqi <george@staringos.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/types",
+  "directories": {
+    "dist": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "scripts": {
+    "start": "NODE_ENV=production mtbird watch",
+    "build": "NODE_ENV=production mtbird build",
+    "preDev": "echo \"1\"",
+    "link": "npm link ../../../mtbird-saas/node_modules/react",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "peerDependencies": {
+    "react": "18.1.0",
+    "react-dom": "18.1.0"
+  },
+  "gitHead": "2f918f1c199fc230eb68d1fdaf07890b1fb99206"
+}

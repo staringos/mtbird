@@ -1,0 +1,57 @@
+{
+  "name": "@mtbird/editor",
+  "version": "0.0.3-beta.27",
+  "description": "The editor of mtbird",
+  "author": "zousongqi <george@staringos.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/types",
+  "directories": {
+    "dist": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "scripts": {
+    "start": "rimraf dist & NODE_ENV=development mtbird watch",
+    "build": "NODE_ENV=production mtbird build",
+    "preDev": "npm-install-peers & lerna link & yarn run link",
+    "link": "npm link ../../../mtbird-saas/node_modules/react",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "@scena/guides": "^0.18.1",
+    "@scena/react-guides": "^0.17.1",
+    "hotkeys-js": "^3.9.4",
+    "html-to-image": "^1.10.8",
+    "react-grid-layout": "^1.3.4",
+    "react-infinite-viewer": "^0.14.0",
+    "react-moveable": "^0.32.7",
+    "react-selecto": "^1.16.2"
+  },
+  "peerDependencies": {
+    "@mtbird/component-basic": "^0.0.1-beta.18",
+    "@mtbird/core": "^0.0.1-beta.18",
+    "@mtbird/helper-component": "^0.0.1-beta.18",
+    "@mtbird/helper-extension": "^0.0.1-beta.18",
+    "@mtbird/renderer-web": "^0.0.1-beta.18",
+    "@mtbird/shared": "^0.0.1-beta.18",
+    "antd": "^4.23.0",
+    "lodash": "^4.17.21",
+    "react": "18.1.0",
+    "react-dom": "18.1.0"
+  },
+  "devDependencies": {
+    "@types/react-grid-layout": "^1.3.2",
+    "less": "^4.1.3",
+    "rimraf": "^3.0.2"
+  },
+  "gitHead": "2f918f1c199fc230eb68d1fdaf07890b1fb99206"
+}
