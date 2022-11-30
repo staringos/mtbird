@@ -1,6 +1,6 @@
 const rollup = require('rollup');
 
-export const EVENT_MAP = {
+const EVENT_MAP = {
   START: '监听器正在启动（重启）',
   BUNDLE_START: '构建单个文件束',
   BUNDLE_END: '完成文件束构建',

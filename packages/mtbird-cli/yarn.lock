@@ -2045,10 +2045,10 @@
     npmlog "^4.1.2"
     write-file-atomic "^3.0.3"
 
-"@mtbird/core@^0.0.3-beta.15":
-  version "0.0.3-beta.15"
-  resolved "https://mirrors.cloud.tencent.com/npm/@mtbird%2fcore/-/core-0.0.3-beta.15.tgz#1d48601458f2c2f52504c8d708f37b28f39b6d9f"
-  integrity sha512-J8zesIsyl8SN/Z/xxOW5+skmUVKfGIFjGxH/Bs3UbMN9BSQORxUMehGItjfjxYuTx+eqQIIsbucCDeB9T2FcUQ==
+"@mtbird/core@^0.0.3-beta.27":
+  version "0.0.3-beta.27"
+  resolved "https://registry.yarnpkg.com/@mtbird/core/-/core-0.0.3-beta.27.tgz#ba4503cffa3c823f0e23b62e8f5d2394df12936e"
+  integrity sha512-wwZQgfol9tRXGxuIfWR9b6qPSBDBbloSdyomjFuLIsXsISP0N7YtZKeI/j838e1OxTIHaheD81eTswmqsKtuzw==
   dependencies:
     eventemitter2 "^6.4.9"
     nanoid "^4.0.0"
