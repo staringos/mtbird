@@ -6,7 +6,7 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
   type: 'component',
   componentName: 'SplitLine',
   title: '分割线',
-  icon: 'mtbird-text',
+  icon: 'mtbird-line',
   desc: '',
   category: 'basic',
   schema: [...SCHEMA_COMPONENT_BASIC_STYLE],

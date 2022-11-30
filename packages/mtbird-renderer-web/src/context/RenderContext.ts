@@ -12,6 +12,8 @@ interface IRenderContext {
   renderExtra?: (node: IComponentInstance) => React.Component | React.FC | string | null;
   onClick: (node: IComponentInstance, e?: React.MouseEvent<HTMLElement>) => void;
   onUpload: (files: any) => Promise<string[]>;
+  // change page's component tree data
+  onChangeSelf: (keyPath: string, value: any) => void;
   changeVariables: (keyPath: string, value: any) => void;
   Components: React.Component | React.FC;
 }

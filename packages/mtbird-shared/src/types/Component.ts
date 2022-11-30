@@ -132,7 +132,10 @@ export interface IComponentProps {
   dataSource?: IDataSource;
   isEdit: boolean;
   onSelectComponent: () => void;
+  // for data source value change (eg: form data)
   onChangeValue: (value: any, keyPath?: string | null) => void;
+  // for component tree change (eg: component.children)
+  onChangeSelf: (keyPath: string, value: any) => void;
   onUpload: (files: any) => Promise<string[]>;
 }
 

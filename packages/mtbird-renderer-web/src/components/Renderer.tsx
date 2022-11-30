@@ -23,11 +23,12 @@ interface IProps {
   layoutMoveable?: { grid: any };
   renderExtra?: (node: IComponentInstance) => React.Component | React.FC | string | null;
   onClick?: () => void;
+  onChangeSelf?: (keyPath: string, value: string) => void;
   onUpload?: (files: any) => Promise<string[]>;
 }
 
 export default (props: IProps) => {
-  const { pageConfig, platform, onClick, dataSource, onUpload, isZoom, isEdit, layoutMoveable, renderExtra, variables } = props;
+  const { pageConfig, platform, onClick, dataSource, onUpload, isZoom, isEdit, layoutMoveable, renderExtra, variables, onChangeSelf } = props;
   const style = pageConfig?.data?.props?.style || {};
   const [isLoading, setIsLoading] = useState(true);
   const [extensionComponents, setExtensionComponents] = useState({});
@@ -61,7 +62,8 @@ export default (props: IProps) => {
     isEdit,
     layoutMoveable,
     Components,
-    platform
+    platform,
+    onChangeSelf
   });
 
   return (

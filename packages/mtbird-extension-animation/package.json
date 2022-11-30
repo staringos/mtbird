@@ -17,7 +17,7 @@
   "scripts": {
     "start": "rimraf dist & NODE_ENV=development mtbird start",
     "build": "NODE_ENV=production mtbird build",
-    "publish-lib": "NODE_ENV=production mtbird publish --token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbDVpeDkzd2UwMDI5ZHc0emo5djBnNTFtIiwidGVhbUlkIjoiY2w2c3ZpcGFqMDkwN2oxczYxcWllNHY5YyIsImlhdCI6MTY2Mzk5MDg3NSwiZXhwIjoxNjY0NTk1Njc1fQ.LB3t39iF70Y7C9GbpkVxNrZVyL_p4_YFi5WQNRP9_aM"
+    "publish-lib": "NODE_ENV=production mtbird publish --token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbDVpeDkzd2UwMDI5ZHc0emo5djBnNTFtIiwidGVhbUlkIjoiY2w2c3ZpcGFqMDkwN2oxczYxcWllNHY5YyIsImlhdCI6MTY2OTgxOTc4NSwiZXhwIjoxNjcwNDI0NTg1fQ.52efLAO4bECx28lttvXC3-iAY4yEKQKW0RtKP4RYB9E"
   },
   "peerDependencies": {
     "@mtbird/cli": "^0.0.1-beta.7",

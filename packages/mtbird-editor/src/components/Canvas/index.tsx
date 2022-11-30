@@ -114,6 +114,10 @@ export default () => {
     }
   };
 
+  const handleChangeSelf = (keyPath: string, value: any) => {
+    return actions.onChange(keyPath, value);
+  };
+
   return (
     <div ref={containerRef} className={styles.canvasWrapper + ' selectoContainer'} onClick={handleCancelSelect}>
       <GuildLine
@@ -182,10 +186,10 @@ export default () => {
                 isEdit={true}
                 pageConfig={state.pageConfig}
                 platform="mobile"
-                onClick={handleClick}
                 dataSource={state.pageDataSource}
                 onUpload={actions.onUpload}
                 variables={state.variables}
+                onChangeSelf={handleChangeSelf}
                 renderExtra={(node: IComponentInstance) => {
                   if (node?.componentName !== 'ContainerBlock') return '';
                   return (

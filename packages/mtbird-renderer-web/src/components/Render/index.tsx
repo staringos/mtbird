@@ -26,7 +26,7 @@ const Render = ({ node, className, zIndex, formId, parent }: IProps & IPageConfi
   if (isString(node) || isNumber(node)) return node;
 
   const context = useContext(RenderContext);
-  const { layoutMoveable, onClick, dataSource, onUpload, isEdit, renderExtra, Components, variables } = context;
+  const { layoutMoveable, onClick, dataSource, onUpload, isEdit, renderExtra, Components, variables, onChangeSelf } = context;
   const Component = node.extension ? Components[node.extension.extensionName]?.[node.extension.componentName] : Components[node.componentName];
   const componentRef = useRef(null);
   const { props, editing, pattern } = node;
@@ -121,6 +121,7 @@ const Render = ({ node, className, zIndex, formId, parent }: IProps & IPageConfi
       formId={instanceFormId}
       onSelectComponent={handleClick}
       onChangeValue={handleValueChange}
+      onChangeSelf={onChangeSelf}
       parent={parent}
     >
       {renderChildren}
