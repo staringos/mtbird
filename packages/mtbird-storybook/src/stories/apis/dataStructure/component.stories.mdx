@@ -50,6 +50,32 @@ export interface IComponentInstance {
 }
 ```
 
+## 数据相关 data
+
+### 局部变量 variables
+
+组件的局部变量可以用于存储那些有初始值，只代表当前组件或子组件状态，不需要持久化保存。页面关闭，对变量的修改即重置的值。
+
+如：弹窗是否显示，就是由内置变量 `variables.$modals[modelsId]` 控制的。
+
+需要显示弹窗的时候，这个值为 true，弹窗组件监听这个值的改变，决定弹窗的显示状态。反之，关闭时设置这个值为 false，即关闭。
+
+使用
+
+将 ComponentInstance 中的任意一个属性设置成变量模版，在渲染的时候，如果能找到对应变量中的值，则将该属性替换成目标变量。
+
+比如在 Select 组件中，要选择弹窗
+
+```json
+{
+  componentName: 'Select'
+  data: {
+    options: '${{$modalsList}}'
+  }
+  ...
+}
+```
+
 ## 表单 form
 
 ```typescript
@@ -177,3 +203,22 @@ export interface IAnimate {
   open: boolean;
 }
 ```
+
+## 显示条件 display
+
+可以使用 `pattern.display` 属性决定在某种情况下，组件是否显示。
+
+比如，在 组件点击事件类型 `node.events.click.type` 为跳转链接 `link` 的时候，显示输入跳转链接的文本框：
+
+```typescript
+{
+  componentName: 'Input',
+  pattern: {
+    display: 'function (node) { return node?.events?.click?.type === "link" }'
+  }
+}
+```
+
+值得注意的是，这里的 display 使用的内置函数实现。由于持久化数据库的原因，我们所有的 ComponentInstance 配置都不能直接使用方法，都需要将方法作为一个函数。
+
+在这个方法里，接受一个目标对象，并判断，作为当前组件是否显示的依据。

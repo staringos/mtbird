@@ -6,3 +6,4 @@ export * from './Extension';
 export * from './Common';
 export * from './Dto';
 export * from './Render';
+export * from './Data';

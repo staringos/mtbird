@@ -15,11 +15,12 @@ import keys from 'lodash/keys';
 import findIndex from 'lodash/findIndex';
 import { SchemaDataSource } from '@mtbird/helper-component';
 import Moveable from 'react-moveable';
+import PageDataSource from 'src/data/PageDataSource';
 
 const ADD_ROOT_COMPONENT = [COMPONENT_NAME.CONTAINER_BLOCK, COMPONENT_NAME.MODAL];
 
 function usePageModal(options: IEditorOptions): IContext {
-  const { pageConfig, onSave, pageList } = options;
+  const { pageConfig, onSave, pageList, modelDataSource } = options;
   const [tmpPageConfig, setTmpPageConfig] = useState(cloneDeep(pageConfig));
   const [currentComponent, setCurrentComponent] = useState<IComponentInstance[]>([tmpPageConfig.data as IComponentInstance]);
   const [pageData, setPageData] = useState({});
@@ -72,7 +73,7 @@ function usePageModal(options: IEditorOptions): IContext {
   };
 
   const [schemaDataSource, setSchemaDataSource] = useState(new SchemaDataSource({ currentComponent, componentMap }, onSchemaChange));
-  const [pageDataSource, setPageDataSource] = useState(new SchemaDataSource(pageData, onPageDataChange));
+  const [pageDataSource, setPageDataSource] = useState(new PageDataSource(pageData, onPageDataChange, modelDataSource));
 
   const refreshDataSource = () => {
     setSchemaDataSource(new SchemaDataSource({ currentComponent, componentMap }, onSchemaChange));

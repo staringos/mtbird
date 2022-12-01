@@ -18,6 +18,8 @@ interface IProps {
   parent?: IComponentInstance;
   formId?: string | undefined;
   platform: 'pc' | 'mobile';
+  node: IComponentInstance;
+  zIndex: number;
 }
 
 const Render = ({ node, className, zIndex, formId, parent }: IProps & IPageConfig) => {

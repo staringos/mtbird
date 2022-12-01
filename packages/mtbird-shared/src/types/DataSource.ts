@@ -1,31 +1,6 @@
-import { IColumn, IPageParams, IPagination } from './Common';
+import { IListColumn, IPageParams, IPagination } from './Common';
 
 export type IData = string | number | boolean | Array<any> | Record<string, any>;
-
-/**
- * 数据模型
- */
-export interface IModel {
-  id: string;
-  name: string;
-  fields: IModelField[];
-}
-
-/**
- * 数据模型字段
- */
-export interface IModelField {
-  id: string;
-  displayName: string;
-  key: string;
-  type: 'STRING' | 'DATE' | 'DATETIME' | 'NUMBER' | 'BOOLEAN' | 'ENUM';
-  options?: IOptionItem[];
-}
-
-export interface IOptionItem {
-  label: string;
-  value: string;
-}
 
 /**
  * Page data source: for data query storage and modify
@@ -44,7 +19,7 @@ export interface IDataSource {
   // common
   queryData?: (pageId: string, targetId: string, pagination: IPageParams, search: Record<string, any>) => Promise<IPagination<any>>;
   deleteData?: (targetId: string, dataId: string | number, dataType?: string) => Promise<boolean>;
-  getColumns?: (pageId: string, targetId: string) => Promise<IColumn[]>;
+  getColumns?: (pageId: string, targetId: string) => Promise<IListColumn[]>;
   modifyData?: (targetId: string, dataId: string, data: Record<string, any>) => Promise<boolean>;
   createData?: (targetId: string, data: Record<string, any>) => Promise<boolean>;
 

@@ -28,6 +28,7 @@ const ListComponent = ({ node, value, onChangeValue, dataSource }: IComponentPro
   });
   const [sort, setSort] = useState({});
   const modifyEntity = type === 'entity' ? entity : convertColumnsToEntity(columns, additionColumns);
+  const needConfig = (type === 'model' || type === 'form') && !targetId;
 
   const handleOpenAdd = () => {
     setEditData(null);
@@ -101,8 +102,9 @@ const ListComponent = ({ node, value, onChangeValue, dataSource }: IComponentPro
   };
 
   useEffect(() => {
+    if (needConfig) return;
     init();
-  }, [tableData]);
+  }, [tableData, node.data]);
 
   const refreshTable = async () => {
     switch (data?.type) {
@@ -141,6 +143,8 @@ const ListComponent = ({ node, value, onChangeValue, dataSource }: IComponentPro
   const handleTableChange = (pagination: any, filters: Record<string, any>, sorter: SorterResult<any>) => {
     console.log('pagination:', pagination, filters, sorter);
   };
+
+  if (needConfig) return <div>请配置数据源</div>;
 
   return (
     <div className={styles.listWrapper}>

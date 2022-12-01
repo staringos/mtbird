@@ -1,6 +1,8 @@
 import { IExtensionImportType } from './Extension';
 import { IPageConfig } from './Page';
 import { IComponentInstance } from './Component';
+import { IModel } from './Data';
+import { IDataSource } from './DataSource';
 
 export interface IEditorSettings {
   platform: 'mobile' | 'pc';
@@ -25,6 +27,8 @@ export interface IEditorOptions {
   extensions?: IExtensionImportType[];
   editorSettings?: IEditorSettings;
   onlineUserList?: IUser[];
+  models?: IModel[];
+  modelDataSource?: IDataSource;
   onBack: () => void;
   onUpload: (files: any) => Promise<string[]>;
   onSave: (page: IPageConfig, avatar: string) => void;

@@ -34,7 +34,7 @@ export type IPart = {
   value: string;
 };
 
-export type IColumn = {
+export type IListColumn = {
   label: string;
   value: string;
   render: (val: any, row: any) => any;

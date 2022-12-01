@@ -3,6 +3,7 @@ import { Tabs } from 'antd';
 import set from 'lodash/set';
 import styles from './style.module.less';
 import Model from '../../store/types';
+import { IModel } from '@mtbird/shared';
 import { ExtensionRender } from '@mtbird/helper-extension';
 
 import { SchemaEditorRender } from '@mtbird/helper-component';
@@ -13,7 +14,7 @@ import { EXTENSION_CONTRIBUTE_TYPE, getModalOptions } from '@mtbird/core';
 export default () => {
   const store = useContext(Model);
   const { state, actions } = store;
-  const { currentComponent, schemaDataSource, extensionComponents, pageConfig, extensionContributes, moveableRef } = state;
+  const { currentComponent, schemaDataSource, extensionComponents, pageConfig, extensionContributes, options } = state;
   const schemaTabs = extensionContributes.get(EXTENSION_CONTRIBUTE_TYPE.SCHEMA.TABS);
   const [data, setData] = useState({});
   const [tabActiveKey, setTabActiveKey] = useState('1');
@@ -27,7 +28,14 @@ export default () => {
 
   const firstCurrentComponent = currentComponent?.[0];
   const schemaConfig = generateSchemaForm(extensionComponents as any, firstCurrentComponent?.componentName);
-  const variables = useMemo(() => ({ $modalsList: getModalOptions(pageConfig.data) }), [pageConfig.data]);
+  const variables = useMemo(
+    () => ({
+      $modalsList: getModalOptions(pageConfig.data),
+      $models: options.models,
+      $modelsOptions: options.models?.map((cur: IModel) => ({ ...cur, label: cur.name, value: cur.id })) || []
+    }),
+    [pageConfig.data]
+  );
 
   const styleTab = {
     label: '样式',

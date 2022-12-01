@@ -218,8 +218,7 @@ export const generateKeys = () => {
 
 export const getZoom = (standardWidth: number = 375) => {
   let clientWidth = document.documentElement.clientWidth;
-  const zoom = clientWidth / standardWidth;
-  return zoom;
+  return clientWidth / standardWidth;
 };
 
 /**

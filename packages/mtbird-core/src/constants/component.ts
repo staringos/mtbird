@@ -139,83 +139,14 @@ export const SCHEMA_HEIGHT: IComponentInstanceForm = SchemaGenerator.input('高�
 // };
 
 export const SCHEMA_POSITION_STYLE: IComponentInstanceForm[] = [
-  // SchemaGenerator.splitLine(),
-  // SchemaGenerator.title('定位'),
   SchemaGenerator.containerFlex([
     SchemaGenerator.input('X', 'props.style.left', { 'formConfig.labelStyle.width': 40 }),
     SchemaGenerator.input('Y', 'props.style.top', { 'formConfig.labelStyle.width': 40 })
   ]) as any,
   SchemaGenerator.containerFlex([SchemaGenerator.input('宽度', 'props.style.width', { 'formConfig.labelStyle.width': 40 }), SCHEMA_HEIGHT]) as any
-  // {
-  //   type: 'component',
-  //   componentName: 'FormItem',
-  //   formConfig: {
-  //     keyPath: 'props.style.left',
-  //     label: 'X',
-  //     componentName: 'Input',
-  //     componentProps: {
-  //       type: 'number',
-  //       style: SCHEMA_FORM_ITEM_COMPONENT_STYLE
-  //     },
-  //     labelStyle: {
-  //       ...SCHEMA_FORM_ITEM_LABEL_STYLE,
-  //       width: 40
-  //     },
-  //     suffix: 'px'
-  //   } as any,
-  //   props: {
-  //     style: {}
-  //   },
-  //   children: []
-  // } as any,
-  // {
-  //   type: 'component',
-  //   componentName: 'FormItem',
-  //   formConfig: {
-  //     keyPath: 'props.style.top',
-  //     label: 'Y',
-  //     componentName: 'Input',
-  //     componentProps: {
-  //       type: 'number',
-  //       style: SCHEMA_FORM_ITEM_COMPONENT_STYLE
-  //     },
-  //     labelStyle: {
-  //       ...SCHEMA_FORM_ITEM_LABEL_STYLE,
-  //       width: 40
-  //     },
-  //     suffix: 'px'
-  //   },
-  //   props: {
-  //     style: {}
-  //   },
-  //   children: []
-  // } as any
-
-  // {
-  //   type: 'component',
-  //   componentName: 'FormItem',
-  //   formConfig: {
-  //     keyPath: 'props.style.width',
-  //     label: '宽度',
-  //     componentName: 'Input',
-  //     componentProps: {
-  //       type: 'number',
-  //       style: SCHEMA_FORM_ITEM_COMPONENT_STYLE
-  //     },
-  //     labelStyle: SCHEMA_FORM_ITEM_LABEL_STYLE,
-  //     suffix: 'px'
-  //   },
-  //   props: {
-  //     style: {}
-  //   },
-  //   children: []
-  // },
-  // SCHEMA_HEIGHT
 ];
 
 export const SCHEMA_BACKGROUND_BASIC_STYLE: IComponentInstanceForm[] = [
-  // SchemaGenerator.splitLine(),
-  // SchemaGenerator.title('背景'),
   SchemaGenerator.colorPicker('背景色', 'props.style.backgroundColor'),
   SchemaGenerator.upload('背景图片', 'props.style.background', {
     'formConfig.valueFormatter': 'function (value) {return `url(${value})`;}',
@@ -271,8 +202,6 @@ const TEXT_ALIGN_OPTIONS = [
 ];
 
 export const SCHEMA_FONT_BASIC_STYLE = [
-  // SchemaGenerator.splitLine(),
-  // SchemaGenerator.title('文字'),
   {
     type: 'component',
     componentName: 'FormItem',
@@ -324,8 +253,6 @@ const BORDER_STYLE_OPTIONS = [
 ];
 
 export const SCHEMA_BORDER_BASIC_STYLE = [
-  // SchemaGenerator.splitLine(),
-  // SchemaGenerator.title('边框'),
   SchemaGenerator.colorPicker('边框颜色', 'props.style.borderColor'),
   SchemaGenerator.input('边框大小', 'props.style.borderWidth', {
     'formConfig.componentProps.type': 'number',
@@ -418,7 +345,6 @@ export const SCHEMA_COMPONENT_BASIC_STYLE: any[] = [
 ];
 
 export const SCHEMA_FORM_CONFIG = [
-  // SchemaGenerator.splitLine(2),
   SchemaGenerator.collapsePanel('表单', [
     {
       type: 'component',
@@ -550,4 +476,28 @@ export const SCHEMA_EVENT_CLICK = [
       display: 'function (node) { return node?.events?.click?.type === "inline-code" }'
     }
   })
+];
+
+const DATA_TYPE_OPTIONS = [
+  {
+    label: '数据模型',
+    value: 'model'
+  },
+  {
+    label: '表单',
+    value: 'form'
+  },
+  {
+    label: '实体',
+    value: 'entity'
+  }
+];
+
+export const SCHEMA_DATA_BASIC = [
+  SchemaGenerator.collapsePanel('数据', [
+    SchemaGenerator.select('数据类型', 'data.type', DATA_TYPE_OPTIONS),
+    SchemaGenerator.select('模型', 'data.targetId', '${{$modelsOptions}}', {
+      'pattern.display': `function(node) { return node.data?.type === 'model' }`
+    })
+  ])
 ];
