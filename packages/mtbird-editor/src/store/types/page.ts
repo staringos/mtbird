@@ -39,6 +39,8 @@ export interface IAction {
   copyComponent: () => void;
   moveComponent: (leftOffset: number, topOffset: number) => void;
   getMoveable: () => Moveable | undefined;
+  prevStep: () => void;
+  nextStep: () => void;
 }
 
 export interface IContext {

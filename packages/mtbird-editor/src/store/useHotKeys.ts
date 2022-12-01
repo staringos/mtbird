@@ -27,6 +27,14 @@ const useHotKeys = (context: IContext) => {
         context.actions.moveComponent(0, 10);
         event.preventDefault();
         break;
+      case 'ctrl+z':
+      case 'command+z':
+        context.actions.prevStep();
+        break;
+      case 'ctrl+shift+z':
+      case 'command+shift+z':
+        context.actions.nextStep();
+        break;
     }
   };
 

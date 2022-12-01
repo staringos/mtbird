@@ -75,7 +75,7 @@ const AbsoluteLayoutMoveable = (
 
   const elementGuidelines = useMemo(() => {
     if (!currentFirstComponent) {
-      return Array.from(state.componentMap.keys()).map((cur) => document.getElementById(cur));
+      return []; // Array.from(state.componentMap.keys()).map((cur) => document.getElementById(cur));
     }
 
     const parent = state.componentMap.get(currentFirstComponent.parent as string);
@@ -106,8 +106,8 @@ const AbsoluteLayoutMoveable = (
       keepRatio={targets.length > 1 ? true : isShift}
       rotatable={rotatable}
       snappable={true}
-      snapDirections={{ top: true, right: true, bottom: true, left: true }}
-      elementSnapDirections={{ top: true, right: true, bottom: true, left: true }}
+      snapDirections={{ top: true, left: true, right: true, center: true, middle: true }}
+      elementSnapDirections={{ top: true, left: true, right: true, center: true, middle: true }}
       snapGap={true}
       isDisplaySnapDigit={true}
       origin={false}
@@ -117,7 +117,7 @@ const AbsoluteLayoutMoveable = (
       snapHorizontal={true}
       horizontalGuidelines={horizontalGuidelines}
       verticalGuidelines={verticalGuidelines}
-      elementGuidelines={elementGuidelines}
+      elementGuidelines={elementGuidelines as any}
       defaultClipPath={'inset'}
       // clipArea={true}
       // clipVerticalGuidelines={[0, '50%', '100%']}

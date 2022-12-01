@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useHotKey = () => {
+const useShiftKey = () => {
   const [shiftKey, setShiftKey] = useState(false);
 
   const handleHotKey = (event: string) => () => {
@@ -21,4 +21,4 @@ const useHotKey = () => {
   return shiftKey;
 };
 
-export default useHotKey;
+export default useShiftKey;

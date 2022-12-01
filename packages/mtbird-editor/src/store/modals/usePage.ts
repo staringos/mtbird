@@ -27,6 +27,9 @@ function usePageModal(options: IEditorOptions): IContext {
   const [hasEdit, setHasEdit] = useState(false);
   const [componentMap, setComponentMap] = useState(new Map<string, IComponentInstance>());
   const moveableRef = useRef<Moveable | undefined>();
+  const [historyStack, setHistoryStacK] = useState<string[]>([]);
+  const [historyStackPointer, setHistoryStackPointer] = useState(0);
+  const [isHistoryChange, setIsHistoryChange] = useState(false);
 
   // do this for refresh currentComponent when tmpPageConfig changed
   useEffect(() => {
@@ -74,6 +77,14 @@ function usePageModal(options: IEditorOptions): IContext {
 
   const [schemaDataSource, setSchemaDataSource] = useState(new SchemaDataSource({ currentComponent, componentMap }, onSchemaChange));
   const [pageDataSource, setPageDataSource] = useState(new PageDataSource(pageData, onPageDataChange, modelDataSource));
+
+  useEffect(() => {
+    if (isHistoryChange) return setIsHistoryChange(false);
+    const newHistory = [...historyStack, JSON.stringify(tmpPageConfig)];
+
+    setHistoryStacK(newHistory);
+    setHistoryStackPointer(historyStackPointer + 1);
+  }, [tmpPageConfig]);
 
   const refreshDataSource = () => {
     setSchemaDataSource(new SchemaDataSource({ currentComponent, componentMap }, onSchemaChange));
@@ -382,6 +393,25 @@ function usePageModal(options: IEditorOptions): IContext {
 
         setTmpPageConfig({ ...tmpPageConfig });
         setHasEdit(true);
+      },
+      prevStep: () => {
+        const pointer = historyStackPointer - 1;
+        if (pointer < 0) return;
+        const history = historyStack[pointer];
+        if (!history) return;
+        const page = JSON.parse(history);
+        setIsHistoryChange(true);
+        setHistoryStackPointer(pointer);
+        setTmpPageConfig(page);
+      },
+      nextStep: () => {
+        const pointer = historyStackPointer + 1;
+        if (pointer === historyStack.length) return;
+        const history = historyStack[pointer];
+        if (!history) return;
+        setIsHistoryChange(true);
+        setHistoryStackPointer(pointer);
+        setTmpPageConfig(JSON.parse(history));
       }
     }
   };

@@ -48,21 +48,26 @@ export default () => {
         <div className={styles.splitLine} />
         <DebugButton />
         <div className={styles.splitLine} />
-        {/* <Button className={styles.headerButton} type="text">
-          上一步
-        </Button>
-        <Button className={styles.headerButton} type="text">
-          下一步
-        </Button> */}
-        <Button className={styles.headerButton} type="text" onClick={handleSave}>
-          <i className="mtbird-icon mtbird-save" />
-          保存
-        </Button>
+        <Tooltip placement="bottom" title="上一步 (ctrl + z | cmd + z)">
+          <Button className={styles.headerButton} type="text" onClick={() => actions.prevStep()}>
+            <i className="mtbird-icon mtbird-arrowleft" />
+          </Button>
+        </Tooltip>
+        <Tooltip placement="bottom" title="下一步 (ctrl + shift + z | cmd + shift + z)">
+          <Button className={styles.headerButton} type="text" onClick={() => actions.nextStep()}>
+            <i className="mtbird-icon mtbird-arrowright" />
+          </Button>
+        </Tooltip>
+        <Tooltip placement="bottom" title="保存">
+          <Button className={styles.headerButton} type="text" onClick={handleSave}>
+            <i className="mtbird-icon mtbird-save" />
+          </Button>
+        </Tooltip>
+        <div className={styles.splitLine} />
         <Button className={styles.headerButton} type="text" onClick={handlePreview}>
           <i className="mtbird-icon mtbird-tablet" />
           预览
         </Button>
-        <div className={styles.splitLine} />
         <Button className={styles.headerButton} type="text" onClick={handlePublish}>
           <i className="mtbird-icon mtbird-up-square" />
           发布
