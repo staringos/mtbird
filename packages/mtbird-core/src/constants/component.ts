@@ -118,25 +118,10 @@ export enum COMPONENT_TYPES {
   DIALOG = 'DIALOG'
 }
 
-export const SCHEMA_HEIGHT: IComponentInstanceForm = SchemaGenerator.input('高度', 'props.style.height', { 'formConfig.labelStyle.width': 40 }); //{
-//   type: 'component',
-//   componentName: 'FormItem',
-//   formConfig: {
-//     keyPath: 'props.style.height',
-//     label: '高度',
-//     componentName: 'Input',
-//     componentProps: {
-//       type: 'number',
-//       style: SCHEMA_FORM_ITEM_COMPONENT_STYLE
-//     },
-//     labelStyle: SCHEMA_FORM_ITEM_LABEL_STYLE,
-//     suffix: 'px'
-//   },
-//   props: {
-//     style: {}
-//   },
-//   children: []
-// };
+export const SCHEMA_HEIGHT: IComponentInstanceForm = SchemaGenerator.input('高度', 'props.style.height', {
+  'formConfig.labelStyle.width': 40,
+  'formConfig.componentProps.type': 'number'
+});
 
 export const SCHEMA_POSITION_STYLE: IComponentInstanceForm[] = [
   SchemaGenerator.containerFlex([
@@ -344,6 +329,81 @@ export const SCHEMA_COMPONENT_BASIC_STYLE: any[] = [
   SchemaGenerator.collapsePanel('影子', EFFECT_BASIC_STYLE as any)
 ];
 
+export const FlexLayoutOnly = { 'pattern.display': 'function (node) { return node.layout === "flex";}' };
+
+export const SCHEMA_LAYOUT = [
+  SchemaGenerator.collapsePanel(
+    '布局',
+    [
+      SchemaGenerator.select('布局方式', 'layout', [
+        {
+          value: 'absolute',
+          label: '绝对布局'
+        },
+        {
+          value: 'flex',
+          label: '流式布局'
+        }
+      ]),
+      SchemaGenerator.select(
+        '布局方向',
+        'props.style.flexDirection',
+        [
+          {
+            value: 'row',
+            label: '水平'
+          },
+          {
+            value: 'column',
+            label: '垂直'
+          }
+        ],
+        FlexLayoutOnly
+      ),
+      SchemaGenerator.select(
+        '调整内容',
+        'props.style.justifyContent',
+        [
+          {
+            value: 'flex-start',
+            label: '容器开始'
+          },
+          {
+            value: 'flex-end',
+            label: '容器结束'
+          },
+          {
+            value: 'space-between',
+            label: '均匀排列'
+          }
+        ],
+        FlexLayoutOnly
+      ),
+      SchemaGenerator.select(
+        '元素对其',
+        'props.style.alignItems',
+        [
+          {
+            value: 'flex-start',
+            label: '容器开始'
+          },
+          {
+            value: 'flex-end',
+            label: '容器结束'
+          },
+          {
+            value: 'space-between',
+            label: '均匀排列'
+          }
+        ],
+        FlexLayoutOnly
+      ),
+      SchemaGenerator.spacingPanel(FlexLayoutOnly)
+    ],
+    true
+  )
+];
+
 export const SCHEMA_FORM_CONFIG = [
   SchemaGenerator.collapsePanel('表单', [
     {
@@ -391,24 +451,6 @@ export const SCHEMA_FORM_CONFIG = [
       }
     ])
   ])
-];
-
-export const SCHEMA_LAYOUT_FLEX = [
-  SchemaGenerator.select(
-    '布局方向',
-    'props.style.flexDirection',
-    [
-      {
-        value: 'row',
-        label: '水平'
-      },
-      {
-        value: 'column',
-        label: '垂直'
-      }
-    ],
-    { 'pattern.display': 'function (node) { return node.layout === "flex";}' }
-  )
 ];
 
 export const COMPONENT_POSITION_STYLE = {

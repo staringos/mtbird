@@ -25,5 +25,6 @@ export { default as Modal } from './Modal';
 export { default as Collapse } from './Collapse';
 export { default as CollapsePanel } from './CollapsePanel';
 export { default as SchemaAlignPanel } from './SchemaAlignPanel';
+export { default as SchemaSpacingPanel } from './SchemaSpacingPanel';
 export { default as Switch } from './Switch';
 export { default as Carousel } from './Carousel';

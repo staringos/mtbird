@@ -1,6 +1,6 @@
 import type { IComponentManifest, IComponentInstanceForm } from '@mtbird/shared';
 import { COMPONENT } from '@mtbird/core';
-const { SCHEMA_CONTAINER_BASIC_STYLE, SCHEMA_HEIGHT } = COMPONENT;
+const { SCHEMA_CONTAINER_BASIC_STYLE, SCHEMA_HEIGHT, SCHEMA_LAYOUT } = COMPONENT;
 
 const manifest: IComponentManifest<IComponentInstanceForm> = {
   type: 'container',
@@ -8,7 +8,7 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
   title: '区块',
   icon: 'mtbird-qukuai',
   desc: '',
-  schema: [...SCHEMA_CONTAINER_BASIC_STYLE, SCHEMA_HEIGHT],
+  schema: [...SCHEMA_CONTAINER_BASIC_STYLE, ...SCHEMA_LAYOUT, SCHEMA_HEIGHT],
   category: 'basic',
   subCategory: 'container',
   instance: {

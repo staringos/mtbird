@@ -1,6 +1,6 @@
 import type { IComponentManifest, IComponentInstance } from '@mtbird/shared';
 import { COMPONENT, SchemaGenerator } from '@mtbird/core';
-const { SCHEMA_COMPONENT_BASIC_STYLE, SCHEMA_LAYOUT_FLEX } = COMPONENT;
+const { SCHEMA_COMPONENT_BASIC_STYLE, SCHEMA_LAYOUT } = COMPONENT;
 
 const manifest: IComponentManifest<IComponentInstance> = {
   type: 'container',
@@ -10,11 +10,7 @@ const manifest: IComponentManifest<IComponentInstance> = {
   desc: '',
   category: 'basic',
   subCategory: 'container',
-  schema: [
-    ...SCHEMA_COMPONENT_BASIC_STYLE,
-    ...SCHEMA_LAYOUT_FLEX,
-    SchemaGenerator.collapsePanel('内容', [SchemaGenerator.input('标题', 'data.title')])
-  ],
+  schema: [...SCHEMA_COMPONENT_BASIC_STYLE, ...SCHEMA_LAYOUT, SchemaGenerator.collapsePanel('内容', [SchemaGenerator.input('标题', 'data.title')])],
   instance: {
     type: 'container',
     componentName: 'CollapsePanel',

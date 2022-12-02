@@ -1,6 +1,6 @@
 import type { IComponentManifest, IComponentInstanceForm } from '@mtbird/shared';
 import { COMPONENT, SchemaGenerator } from '@mtbird/core';
-const { SCHEMA_COMPONENT_BASIC_STYLE, SCHEMA_LAYOUT_FLEX } = COMPONENT;
+const { SCHEMA_COMPONENT_BASIC_STYLE, SCHEMA_LAYOUT } = COMPONENT;
 
 const formLayout = [
   {
@@ -19,7 +19,7 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
   title: '表单',
   icon: 'mtbird-form',
   desc: '',
-  schema: [...SCHEMA_COMPONENT_BASIC_STYLE, ...SCHEMA_LAYOUT_FLEX, SchemaGenerator.select('表单布局', 'formConfig.formLayout', formLayout, {})],
+  schema: [...SCHEMA_COMPONENT_BASIC_STYLE, ...SCHEMA_LAYOUT, SchemaGenerator.select('表单布局', 'formConfig.formLayout', formLayout, {})],
   category: 'basic',
   subCategory: 'data',
   instance: {

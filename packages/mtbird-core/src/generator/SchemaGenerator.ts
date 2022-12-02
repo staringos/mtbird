@@ -521,6 +521,25 @@ export default {
     return res;
   },
 
+  spacingPanel: (data?: Record<string, any>) => {
+    let res: any = {
+      type: 'form',
+      componentName: 'SchemaSpacingPanel',
+      props: {
+        style: {
+          ...COMPONENT_DEFAULT_STYLE
+        }
+      },
+      formConfig: {
+        keyPath: 'props.style'
+      },
+      children: []
+    };
+
+    if (data) res = mergeKeypath(res, data);
+    return res;
+  },
+
   switch: (label: string, keyPath: string) => {
     return {
       type: 'form',
@@ -564,7 +583,6 @@ export const generateFormItemSelect = (
       label,
       componentName: 'Select',
       componentProps: {
-        type: 'number',
         style: SCHEMA_FORM_ITEM_COMPONENT_STYLE
       },
       labelStyle: SCHEMA_FORM_ITEM_LABEL_STYLE,

@@ -36,7 +36,7 @@ const subCategoryGroup = [
 ];
 
 const ToolBoxList = ({ category, categoriesGroup }: IProps) => {
-  const [activeKey, setActiveKey] = useState<string | string[]>(['common']);
+  const [activeKey, setActiveKey] = useState<string | string[]>(['common', 'container']);
   const list = categoriesGroup[category.key];
 
   if (!list) return <div />;
