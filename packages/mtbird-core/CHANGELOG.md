@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.3-beta.28 (2022-12-02)
+
+
+### Features
+
+* change version ([90b4b6d](https://github.com/staringos/mtbird/commit/90b4b6dba766c5c33c3d76f39a0d34248efe2f5a))
+* connect model with list ([0d02132](https://github.com/staringos/mtbird/commit/0d02132ddeb6177730b83742394fe053c24f3ad6))
+* flex layout spacing management ([5a495bc](https://github.com/staringos/mtbird/commit/5a495bcb255abd63128d326f20ab6b6dbbf285f8))
+
+
+
+
+
 ## [0.0.3-beta.27](https://github.com/staringos/mtbird/compare/v0.0.3-beta.26...v0.0.3-beta.27) (2022-11-24)
 
 **Note:** Version bump only for package @mtbird/core

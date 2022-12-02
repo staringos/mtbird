@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.3-beta.28 (2022-12-02)
+
+
+### Bug Fixes
+
+* text edit and rich editor bug ([dfe3e87](https://github.com/staringos/mtbird/commit/dfe3e8737fa658fc80ec519f66c66a071b728229))
+
+
+### Features
+
+* connect model with list ([0d02132](https://github.com/staringos/mtbird/commit/0d02132ddeb6177730b83742394fe053c24f3ad6))
+
+
+
+
+
 ## [0.0.3-beta.27](https://github.com/staringos/mtbird-private/compare/v0.0.3-beta.26...v0.0.3-beta.27) (2022-11-24)
 
 **Note:** Version bump only for package @mtbird/shared
