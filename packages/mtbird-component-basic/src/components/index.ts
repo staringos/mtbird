@@ -28,3 +28,4 @@ export { default as SchemaAlignPanel } from './SchemaAlignPanel';
 export { default as SchemaSpacingPanel } from './SchemaSpacingPanel';
 export { default as Switch } from './Switch';
 export { default as Carousel } from './Carousel';
+export { default as Table } from './Table';
