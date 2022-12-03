@@ -5,6 +5,7 @@ import get from 'lodash/get';
 import set from 'lodash/set';
 import { COMPONENT_NAME, COMPONENT_TYPE, SchemaGenerator, findComponentByKey } from '@mtbird/core';
 import { getManifests } from '@mtbird/component-basic';
+
 import keys from 'lodash/keys';
 import has from 'lodash/has';
 

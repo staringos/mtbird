@@ -1,15 +1,13 @@
 import React, { useMemo, useState } from 'react';
-import { Tabs } from 'antd';
+import Tabs from '../Tabs';
 import set from 'lodash/set';
-import styles from './style.module.less';
 import Model from '../../store/types';
 import { IModel } from '@mtbird/shared';
-import { ExtensionRender } from '@mtbird/helper-extension';
-
-import { SchemaEditorRender } from '@mtbird/helper-component';
+import { SchemaEditorRender, IContributeManifest } from '@mtbird/helper-component';
 import { useContext } from 'react';
 import { generateSchemaForm } from '../../utils';
 import { EXTENSION_CONTRIBUTE_TYPE, getModalOptions } from '@mtbird/core';
+import { convertExtensionContributeToTab } from '../../utils/tools';
 
 export default () => {
   const store = useContext(Model);
@@ -52,18 +50,7 @@ export default () => {
     )
   };
 
-  const tabItems = [
-    styleTab,
-    ...(schemaTabs || []).map((cur) => ({
-      label: cur.params.name,
-      key: cur.params.name + cur.feature,
-      children: cur.link === 'feature' ? <ExtensionRender store={store} featureKey={cur.feature} /> : ''
-    }))
-  ];
+  const tabItems = [styleTab, ...convertExtensionContributeToTab(schemaTabs as IContributeManifest[], store)];
 
-  return (
-    <div className={styles.configuratorContainer}>
-      <Tabs activeKey={tabActiveKey} onChange={handleTabChange} items={tabItems}></Tabs>
-    </div>
-  );
+  return <Tabs onChange={handleTabChange} tabItems={tabItems} activeKey={tabActiveKey} width={260} />;
 };

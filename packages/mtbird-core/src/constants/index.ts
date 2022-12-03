@@ -37,6 +37,9 @@ export const EXTENSION_CONTRIBUTE_TYPE = {
   },
   SCHEMA: {
     TABS: 'schemaTabs'
+  },
+  BOTTOM: {
+    TABS: 'bottomTabs'
   }
 };
 
