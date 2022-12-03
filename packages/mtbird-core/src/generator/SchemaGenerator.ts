@@ -154,6 +154,29 @@ export default {
     if (data) res = mergeKeypath(res, data);
     return res;
   },
+  inputNumber: (label: string, keyPath?: string, data?: any) => {
+    let res: any = {
+      type: 'form',
+      componentName: 'Input',
+      formConfig: {
+        label,
+        keyPath,
+        labelStyle: { ...SCHEMA_FORM_ITEM_LABEL_STYLE },
+        componentProps: {
+          type: 'number',
+          style: SCHEMA_FORM_ITEM_COMPONENT_STYLE
+        }
+      },
+      props: {
+        style: {
+          width: '100%'
+        }
+      },
+      children: []
+    };
+    if (data) res = mergeKeypath(res, data);
+    return res;
+  },
   select: (label: string, keyPath: string, options: Record<string, any> | string, data?: any) => {
     let res: any = {
       type: 'form',
@@ -527,7 +550,8 @@ export default {
       componentName: 'SchemaSpacingPanel',
       props: {
         style: {
-          ...COMPONENT_DEFAULT_STYLE
+          ...COMPONENT_DEFAULT_STYLE,
+          marginLeft: 50
         }
       },
       formConfig: {

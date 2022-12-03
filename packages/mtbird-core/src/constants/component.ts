@@ -118,9 +118,8 @@ export enum COMPONENT_TYPES {
   DIALOG = 'DIALOG'
 }
 
-export const SCHEMA_HEIGHT: IComponentInstanceForm = SchemaGenerator.input('高度', 'props.style.height', {
-  'formConfig.labelStyle.width': 40,
-  'formConfig.componentProps.type': 'number'
+export const SCHEMA_HEIGHT: IComponentInstanceForm = SchemaGenerator.inputNumber('高度', 'props.style.height', {
+  'formConfig.labelStyle.width': 40
 });
 
 export const SCHEMA_POSITION_STYLE: IComponentInstanceForm[] = [
@@ -128,7 +127,11 @@ export const SCHEMA_POSITION_STYLE: IComponentInstanceForm[] = [
     SchemaGenerator.input('X', 'props.style.left', { 'formConfig.labelStyle.width': 40 }),
     SchemaGenerator.input('Y', 'props.style.top', { 'formConfig.labelStyle.width': 40 })
   ]) as any,
-  SchemaGenerator.containerFlex([SchemaGenerator.input('宽度', 'props.style.width', { 'formConfig.labelStyle.width': 40 }), SCHEMA_HEIGHT]) as any
+  SchemaGenerator.containerFlex([
+    SchemaGenerator.inputNumber('宽度', 'props.style.width', { 'formConfig.labelStyle.width': 40 }),
+    SCHEMA_HEIGHT
+  ]) as any,
+  SchemaGenerator.spacingPanel()
 ];
 
 export const SCHEMA_BACKGROUND_BASIC_STYLE: IComponentInstanceForm[] = [
@@ -187,34 +190,22 @@ const TEXT_ALIGN_OPTIONS = [
 ];
 
 export const SCHEMA_FONT_BASIC_STYLE = [
-  {
-    type: 'component',
-    componentName: 'FormItem',
-    formConfig: {
-      keyPath: 'props.style.fontSize',
-      label: '文字大小',
-      componentName: 'Input',
-      componentProps: {
-        type: 'number',
-        style: SCHEMA_FORM_ITEM_COMPONENT_STYLE
-      },
-      labelStyle: SCHEMA_FORM_ITEM_LABEL_STYLE,
-      suffix: 'px'
-    },
-    props: {
-      style: {
-        position: 'relative'
-      }
-    },
-    children: []
-  },
+  SchemaGenerator.containerFlex([
+    SchemaGenerator.inputNumber('大小', 'props.style.fontSize', { 'formConfig.labelStyle.width': 40 }),
+    SchemaGenerator.inputNumber('行高', 'props.style.lineHeight', {
+      'formConfig.labelStyle.width': 40,
+      'formConfig.valueFormatter': 'function (value) {return value + "px";}',
+      'formConfig.editFormatter': 'function (value) {return value ? parseFloat(value) : value;}'
+    })
+  ]),
   SchemaGenerator.colorPicker('文字颜色', 'props.style.color'),
   SchemaGenerator.formItem('文字样式', null, [SchemaGenerator.buttonGroup(TEXT_OPTIONS)]),
   SchemaGenerator.formItem('文字位置', null, [SchemaGenerator.buttonGroup(TEXT_ALIGN_OPTIONS)])
 ];
 
 export const SCHEMA_CONTAINER_BASIC_STYLE: any[] = [
-  SchemaGenerator.collapsePanel('背景', SCHEMA_BACKGROUND_BASIC_STYLE, true),
+  SchemaGenerator.collapsePanel('位置大小', SCHEMA_POSITION_STYLE, true),
+  SchemaGenerator.collapsePanel('背景', SCHEMA_BACKGROUND_BASIC_STYLE),
   SchemaGenerator.collapsePanel('文字', SCHEMA_FONT_BASIC_STYLE)
 ];
 
@@ -324,7 +315,6 @@ export const SCHEMA_COMPONENT_BASIC_STYLE: any[] = [
       'function (node, dataSource) { const parent = dataSource?.state["componentMap"]?.get(dataSource.getValue(0)?.parent)?.layout; return !parent || parent !== "flex";}'
   }),
   ...SCHEMA_CONTAINER_BASIC_STYLE,
-  SchemaGenerator.collapsePanel('定位', SCHEMA_POSITION_STYLE),
   SchemaGenerator.collapsePanel('边框', SCHEMA_BORDER_BASIC_STYLE),
   SchemaGenerator.collapsePanel('影子', EFFECT_BASIC_STYLE as any)
 ];
@@ -397,8 +387,7 @@ export const SCHEMA_LAYOUT = [
           }
         ],
         FlexLayoutOnly
-      ),
-      SchemaGenerator.spacingPanel(FlexLayoutOnly)
+      )
     ],
     true
   )

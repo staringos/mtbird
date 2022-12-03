@@ -8,7 +8,7 @@ interface IInputProps {
   type: 'margin' | 'padding';
 }
 
-const SchemaSpacingPanel = ({ onChangeValue, value }: IComponentProps) => {
+const SchemaSpacingPanel = ({ onChangeValue, value, style }: IComponentProps) => {
   const handleInput = (key: string) => {
     return (e: ChangeEvent<HTMLInputElement>) => {
       console.log('key: ', key, e.target.value);
@@ -31,7 +31,7 @@ const SchemaSpacingPanel = ({ onChangeValue, value }: IComponentProps) => {
   };
 
   return (
-    <div className={styles.marginContainer}>
+    <div className={styles.marginContainer} style={style}>
       <div className={styles.paddingContainer}>
         <div className={styles.box}>
           <span>内容</span>

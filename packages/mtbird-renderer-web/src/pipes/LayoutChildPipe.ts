@@ -13,6 +13,10 @@ const LayoutChildPipe = (props: IPipeProps) => {
   if (parent && parent.layout === LAYOUT_TYPE.FLEX && node.componentName !== COMPONENT_NAME.MODAL) {
     set(wrapperProps, 'style.position', 'relative');
     wrapperProps.style.zIndex = 'unset';
+    wrapperProps.style.left = 'unset';
+    wrapperProps.style.top = 'unset';
+    wrapperProps.style.right = 'unset';
+    wrapperProps.style.bottom = 'unset';
     node.props.className = 'relative';
   }
 

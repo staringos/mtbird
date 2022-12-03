@@ -247,23 +247,27 @@ function usePageModal(options: IEditorOptions): IContext {
         const groupableComponents = components.filter((cur) => cur.parent === commonParent);
         const groupableComponentIds = groupableComponents.map((cur) => cur.id);
         const pos = getWrapperPosition(groupableComponents);
+        const newId = generateKeys();
 
         const container: IComponentInstance = Components.utils.generateContainer(
           groupableComponents.map((cur) => {
             const { style } = cur.props;
             style.left = style.left - pos.left;
             style.top = style.top - pos.top;
+            cur.parent = newId;
             return cur;
           }),
           pos
         ) as IComponentInstance;
         const parent: IComponentInstance = componentMap.get(commonParent as string) as IComponentInstance; // findComponentByKey(tmpPageConfig.data, commonParent);
 
+        container.id = newId;
+
         parent.children = (parent.children as IComponentInstance[]).filter((cur: IComponentInstance) => {
           return groupableComponentIds.indexOf(cur.id) === -1;
         });
+
         container.parent = commonParent;
-        container.id = generateKeys();
 
         parent.children.push(container);
         setTmpPageConfig(tmpPageConfig);
