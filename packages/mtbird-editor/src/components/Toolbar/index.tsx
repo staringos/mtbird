@@ -91,7 +91,7 @@ export default () => {
   }, []);
 
   return (
-    <div className={styles.toolbarContainer}>
+    <div className={styles.toolbarContainer + ' ' + (state.tabsState['toolTabs'] ? '' : styles.toolbarContentHidden)}>
       <div className={styles.toolbarContent}>
         <Tabs
           activeKey={activeKey}

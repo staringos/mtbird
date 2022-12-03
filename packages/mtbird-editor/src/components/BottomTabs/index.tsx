@@ -27,7 +27,6 @@ const BottomBar = () => {
       onChange={onChange}
       width="unset"
       height={260}
-      style={{ borderLeft: '1px solid var(--gray-8)', borderRight: '1px solid var(--gray-8)' }}
       hideTabContent={!tabsState['bottomTabs']}
       extra={{
         right: (

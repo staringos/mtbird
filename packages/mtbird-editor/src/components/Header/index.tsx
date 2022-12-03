@@ -36,6 +36,20 @@ export default () => {
           </Button>
         </Tooltip>
         <div className={styles.splitLine} />
+        <Tooltip placement="bottom" title={`${state.tabsState['toolTabs'] ? '隐藏' : '显示'}组件面板`}>
+          <Button
+            className={styles.headerButton}
+            style={{ textAlign: 'center', padding: 0 }}
+            type="text"
+            onClick={() => actions.toggleTab('toolTabs')}
+          >
+            <i
+              className="mtbird-icon mtbird-border-right"
+              style={{ fontSize: '18px', margin: 0, color: state.tabsState['toolTabs'] ? 'var(--mtbird-primary-5)' : 'white' }}
+            />
+          </Button>
+        </Tooltip>
+        <div className={styles.splitLine} />
         <HeaderBars />
       </div>
       <div className={styles.headerCenter}>

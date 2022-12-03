@@ -8,6 +8,7 @@
   height: 100%;
   flex-direction: column;
   position: relative;
+  border-right: 1px solid var(--gray-8);
 
   .toolbarContent {
     display: flex;
@@ -97,6 +98,15 @@
 
     &:hover {
       background-color: var(--gray-6);
+    }
+  }
+
+  &.toolbarContentHidden {
+    width: 35px;
+    :global {
+      .ant-tabs-content-holder {
+        display: none;
+      }
     }
   }
 }

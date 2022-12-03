@@ -54,5 +54,7 @@ export default () => {
 
   if (!state.tabsState['schemaTabs']) return <div />;
 
-  return <Tabs onChange={handleTabChange} tabItems={tabItems} activeKey={tabActiveKey} width={260} />;
+  return (
+    <Tabs onChange={handleTabChange} style={{ borderLeft: '1px solid var(--gray-8)' }} tabItems={tabItems} activeKey={tabActiveKey} width={260} />
+  );
 };
