@@ -1,5 +1,5 @@
 import React from 'react';
-import BottomBar from '../BottomBar';
+import BottomBar from '../BottomTabs';
 import Canvas from '../Canvas';
 import ModalSelect from '../ModalSelect';
 import ModalStatusBar from '../ModalStatusBar';

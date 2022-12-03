@@ -7,6 +7,7 @@ export interface IState {
   onlineUserList?: IUser[];
   variables: Record<string, any>;
   editMode: EditMode;
+  tabsState: Record<string, boolean>;
 }
 
 export interface IAction {
@@ -16,6 +17,7 @@ export interface IAction {
   toggleRenderModal: (id: string, e: boolean) => void;
   getCurrentModal: () => string | null;
   setEditMode: (mode: EditMode) => void;
+  toggleTab: (tabKey: string) => void;
 }
 
 export interface IContext {

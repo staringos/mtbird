@@ -72,6 +72,12 @@ export default () => {
           <i className="mtbird-icon mtbird-up-square" />
           发布
         </Button>
+        <div className={styles.splitLine} />
+        <Tooltip placement="bottom" title={`${state.tabsState['schemaTabs'] ? '隐藏' : '显示'}样式面板`}>
+          <Button className={styles.headerButton} type="text" onClick={() => actions.toggleTab('schemaTabs')}>
+            <i className="mtbird-icon mtbird-control" style={{ color: state.tabsState['schemaTabs'] ? 'var(--mtbird-primary-5)' : 'white' }} />
+          </Button>
+        </Tooltip>
       </div>
     </div>
   );

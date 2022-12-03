@@ -8,13 +8,21 @@ interface IProps {
   tabItems: any[];
   width?: number | string;
   height?: number | string;
-  style: CSSProperties;
+  style?: CSSProperties;
+  hideTabContent?: boolean;
+  extra?: {
+    left?: any;
+    right?: any;
+  };
 }
 
-const TabsComponent = ({ activeKey, onChange, tabItems, width, height, style }: IProps) => {
+const TabsComponent = ({ activeKey, onChange, tabItems, width, height, style, hideTabContent, extra }: IProps) => {
   return (
-    <div className={styles.tabsContainer} style={{ ...style, width, height }}>
-      <Tabs activeKey={activeKey} onChange={onChange} items={tabItems}></Tabs>
+    <div
+      className={styles.tabsContainer + ' ' + (hideTabContent ? styles.hideContent : '')}
+      style={{ ...style, width, height: hideTabContent ? 35 : height }}
+    >
+      <Tabs activeKey={activeKey} onChange={onChange} items={tabItems} tabBarExtraContent={extra}></Tabs>
     </div>
   );
 };

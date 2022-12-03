@@ -52,5 +52,7 @@ export default () => {
 
   const tabItems = [styleTab, ...convertExtensionContributeToTab(schemaTabs as IContributeManifest[], store)];
 
+  if (!state.tabsState['schemaTabs']) return <div />;
+
   return <Tabs onChange={handleTabChange} tabItems={tabItems} activeKey={tabActiveKey} width={260} />;
 };

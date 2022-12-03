@@ -3,9 +3,11 @@
 
 .tabsContainer {
   display: flex;
-  width: 260px;
+  min-width: 35px;
+  min-height: 35px;
   background-color: var(--gray-9);
   color: @font-color-common;
+  border-top: 1px solid var(--gray-8);
 
   :global {
     .ant-tabs-ink-bar {
@@ -71,6 +73,15 @@
 
     .ant-tabs-tabpane-hidden {
       display: none;
+    }
+  }
+
+  &.hideContent {
+    height: 35px;
+    :global {
+      .ant-tabs-content-holder {
+        display: none;
+      }
     }
   }
 }

@@ -10,15 +10,20 @@ function useCommonModal(opts: IEditorOptions): IContext {
   const [options, setOptions] = useState(opts);
   const [editMode, setEditMode] = useState<EditMode>({ componentName: 'cursor' });
   const [variables, setVariables] = useState(initVariables(options.pageConfig.data));
+  const [tabsState, setTabsState] = useState({ toolTabs: true, bottomTabs: true, schemaTabs: true });
 
   const context: IContext = {
     state: {
       options,
       variables,
       editMode,
-      onlineUserList: options.onlineUserList
+      onlineUserList: options.onlineUserList,
+      tabsState
     },
     actions: {
+      toggleTab: (tabKey: string) => {
+        setTabsState({ ...tabsState, [tabKey]: !tabsState[tabKey] });
+      },
       setEditMode,
       onUpload,
       onSaveTemplate,
