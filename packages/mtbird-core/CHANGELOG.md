@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.29](https://github.com/staringos/mtbird/compare/v0.0.3-beta.28...v0.0.3-beta.29) (2022-12-03)
+
+
+### Bug Fixes
+
+* style adjust problem ([2c112d5](https://github.com/staringos/mtbird/commit/2c112d5483c5cc718a296774ae9cd57e91ed86a8))
+
+
+### Features
+
+* add bottom bar ([72533d9](https://github.com/staringos/mtbird/commit/72533d9cf1aa7d005a2c0f8eaad4a063314ef2af))
+
+
+
+
+
 ## 0.0.3-beta.28 (2022-12-02)
 
 

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.29](https://github.com/staringos/mtbird/compare/v0.0.3-beta.28...v0.0.3-beta.29) (2022-12-03)
+
+**Note:** Version bump only for package @mtbird/shared
+
+
+
+
+
 ## 0.0.3-beta.28 (2022-12-02)
 
 
