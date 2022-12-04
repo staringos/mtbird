@@ -11,11 +11,13 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
   category: 'basic',
   schema: [
     ...COMPONENT.SCHEMA_COMPONENT_BASIC_STYLE,
-    SchemaGenerator.select('按钮类型', 'props.type', BUTTON_TYPE_OPTIONS),
-    SchemaGenerator.select('按钮形状', 'props.shape', BUTTON_SHAPE_OPTIONS),
-    SchemaGenerator.select('按钮事件', 'events.click.type', BUTTON_EVENT_CLICK_OPTIONS),
-    SchemaGenerator.input('按钮文字', 'children'),
-    ...COMPONENT.SCHEMA_EVENT_CLICK
+    COMPONENT.SCHEMA_EVENT_CLICK,
+    SchemaGenerator.collapsePanel('按钮', [
+      SchemaGenerator.select('类型', 'props.type', BUTTON_TYPE_OPTIONS),
+      SchemaGenerator.select('形状', 'props.shape', BUTTON_SHAPE_OPTIONS),
+      SchemaGenerator.select('事件', 'events.click.type', BUTTON_EVENT_CLICK_OPTIONS),
+      SchemaGenerator.input('文字', 'children')
+    ])
   ],
   instance: {
     type: 'component',

@@ -1,4 +1,4 @@
-import { generateEventHandlers } from '@mtbird/core';
+import { ComponentEvent } from '@mtbird/core';
 import { IPipeProps } from '@mtbird/shared';
 
 /**
@@ -12,7 +12,7 @@ const EventPipe = (props: IPipeProps) => {
 
   let events = {};
   if (node.events) {
-    events = generateEventHandlers(node.events, context);
+    events = ComponentEvent.generateEventHandlers(node.events, context);
     node.props = { ...node.props, ...events };
   }
 

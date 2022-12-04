@@ -45,6 +45,7 @@ export interface IEventEmitter {
 
 export interface IExtensionContext {
   page: IPageConfig | null;
+  pageList: IPageConfig[];
   componentMap: Map<string, IComponentInstance | IComponentInstanceForm>;
   currentComponent: IComponentInstance[];
   request: IRequest;

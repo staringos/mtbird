@@ -37,6 +37,10 @@ export default class ExtensionContext implements IExtensionContext {
     return this.store?.state.componentMap || new Map();
   }
 
+  get pageList() {
+    return this.store?.state.pageList || [];
+  }
+
   extensionName = '';
 
   private store: IContext | null = null;

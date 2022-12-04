@@ -27,12 +27,15 @@ export type EventAction = 'click' | 'hover' | 'blur' | 'dbclick' | 'scroll';
 export type EventType = 'link' | 'link-blank' | 'submit' | 'clear' | 'open-modal' | 'close-modal' | 'inline-code' | 'change-variable';
 
 export interface IEvent {
+  action?: EventAction;
+  name?: string;
   type: EventType;
   src?: string;
   inlineCode?: string;
   modalId: string;
   keyPath?: string; // when event type is change-variable, key path to varibles
   value?: string | number | boolean; // when event is change-variable, set keyPath from varibles to this value
+  pageId?: string; // when event type is page
 }
 
 export interface IAnimate {

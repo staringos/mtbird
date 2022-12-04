@@ -1,6 +1,7 @@
 import type { IComponentInstanceForm } from '@mtbird/shared';
 import React from 'react';
 import SchemaGenerator from '../generator/SchemaGenerator';
+import { EVENT_TYPE } from '../events/ComponentEvent';
 
 export const ID_KEY = '%id%';
 
@@ -55,40 +56,40 @@ export const BUTTON_FORM_COMPONENT_NAME_OPTIONS = [
   }
 ];
 
-export const EVENT_TYPE_OPTIONS = [
-  {
-    value: 'click',
-    label: '点击'
-  },
-  {
-    value: 'link',
-    label: '链接'
-  },
-  {
-    value: 'submit',
-    label: '表单提交'
-  },
-  {
-    value: 'clear',
-    label: '表单清空'
-  },
-  {
-    value: 'open-modal',
-    label: '打开弹窗'
-  },
-  {
-    value: 'close-modal',
-    label: '关闭弹窗'
-  },
-  {
-    value: 'link-blank',
-    label: '行内代码'
-  },
-  {
-    value: 'link-blank',
-    label: '链接（新窗口）'
-  }
-];
+// export const EVENT_TYPE_OPTIONS = [
+//   {
+//     value: 'click',
+//     label: '点击'
+//   },
+//   {
+//     value: 'link',
+//     label: '链接'
+//   },
+//   {
+//     value: 'submit',
+//     label: '表单提交'
+//   },
+//   {
+//     value: 'clear',
+//     label: '表单清空'
+//   },
+//   {
+//     value: 'open-modal',
+//     label: '打开弹窗'
+//   },
+//   {
+//     value: 'close-modal',
+//     label: '关闭弹窗'
+//   },
+//   {
+//     value: 'link-blank',
+//     label: '行内代码'
+//   },
+//   {
+//     value: 'link-blank',
+//     label: '链接（新窗口）'
+//   }
+// ];
 
 export const COMPONENT_DEFAULT_STYLE: React.CSSProperties = {
   position: 'absolute'
@@ -456,42 +457,9 @@ export const COMPONENT_POSITION_STYLE = {
     zIndex: 0
   }
 };
-// | 'link-blank' | 'submit' | 'clear' | 'open-modal' | 'close-modal' | 'inline-code' | 'change-variable'
-const OPTIONS_CLICK_TYPE = [
-  {
-    label: '跳转链接',
-    value: 'link'
-  },
-  {
-    label: '跳转链接',
-    value: 'link-blank'
-  },
-  {
-    label: '提交表单',
-    value: 'submit'
-  },
-  {
-    label: '清空表单',
-    value: 'clear'
-  },
-  {
-    label: '打开弹窗',
-    value: 'open-modal'
-  },
-  {
-    label: '关闭弹窗',
-    value: 'close-modal'
-  },
-  {
-    label: '执行代码',
-    value: 'inline-code'
-  }
-];
 
-export const SCHEMA_EVENT_CLICK = [
-  SchemaGenerator.splitLine(2),
-  SchemaGenerator.title('点击事件'),
-  SchemaGenerator.select('点击事件类型', 'events.click.type', OPTIONS_CLICK_TYPE, null),
+export const SCHEMA_EVENT_CLICK = SchemaGenerator.collapsePanel('点击事件', [
+  SchemaGenerator.select('类型', 'events.click.type', EVENT_TYPE, null),
   SchemaGenerator.select('打开弹窗', 'events.click.modalId', '${{$modalsList}}', {
     pattern: {
       display: 'function (node) { return node?.events?.click?.type === "open-modal" || node?.events?.click?.type === "close-modal" }'
@@ -507,7 +475,7 @@ export const SCHEMA_EVENT_CLICK = [
       display: 'function (node) { return node?.events?.click?.type === "inline-code" }'
     }
   })
-];
+]);
 
 const DATA_TYPE_OPTIONS = [
   {
