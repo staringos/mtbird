@@ -1,0 +1,45 @@
+.shareContainer {
+  display: flex;
+  width: 260px;
+  height: 265px;
+  background: var(--gray-9);
+  box-shadow: 0 0.1em 0.5em #00000047;
+  flex-direction: column;
+  padding: 10px;
+  color: var(--color-text-4);
+
+  h2 {
+    color: var(--color-text-4);
+  }
+
+  .shareContainerUrl, .shareContainerCopyButton, .shareContainerCopyButton:hover, .shareContainerCopyButton:focus {
+    background-color: var(--gray-7);
+    color: var(--color-text-4);
+    border: 0;
+    height: 30px;
+  }
+
+  .shareContainerCopyButton, .shareContainerCopyButton:hover, .shareContainerCopyButton:focus {
+    border-left: 1px solid var(--gray-6);
+  }
+
+  .qrcodeContainer {
+    display: flex;
+    justify-content: center;
+    .qrcode {
+      width: 100px;
+      height: 100px;
+      margin: 5px 0;
+    }
+  }
+
+  .shareFooters {
+    display: flex;
+
+    :global {
+      .ant-btn {
+        flex: 1;
+      }
+    }
+  }
+}

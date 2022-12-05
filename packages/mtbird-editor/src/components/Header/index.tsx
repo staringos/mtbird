@@ -7,6 +7,7 @@ import DebugButton from '../DebugButton';
 import HeaderBars from './HeaderBars';
 import PlatformSelect from '../PlatformSelect';
 import UserList from '../UserList';
+import ShareDropdown from '../ShareDropdown';
 
 export default () => {
   const { actions, state } = useContext(Model);
@@ -72,23 +73,30 @@ export default () => {
             <i className="mtbird-icon mtbird-arrowright" />
           </Button>
         </Tooltip>
+        <div className={styles.splitLine} />
         <Tooltip placement="bottom" title="保存">
           <Button className={styles.headerButton} type="text" onClick={handleSave}>
             <i className="mtbird-icon mtbird-save" />
+            保存
           </Button>
         </Tooltip>
-        <div className={styles.splitLine} />
         <Button className={styles.headerButton} type="text" onClick={handlePreview}>
           <i className="mtbird-icon mtbird-tablet" />
           预览
         </Button>
-        <Button className={styles.headerButton} type="text" onClick={handlePublish}>
+        {/* <Button className={styles.headerButton} type="text" onClick={handlePublish}>
           <i className="mtbird-icon mtbird-up-square" />
           发布
-        </Button>
+        </Button> */}
+        <ShareDropdown page={state.pageConfig}>
+          <Button className={styles.headerButton} type="text">
+            <i className="mtbird-icon mtbird-share" />
+            分享
+          </Button>
+        </ShareDropdown>
         <div className={styles.splitLine} />
         <Tooltip placement="bottom" title={`${state.tabsState['schemaTabs'] ? '隐藏' : '显示'}样式面板`}>
-          <Button className={styles.headerButton} type="text" onClick={() => actions.toggleTab('schemaTabs')}>
+          <Button className={styles.headerButton} style={{ color: 'white' }} type="text" onClick={() => actions.toggleTab('schemaTabs')}>
             <i className="mtbird-icon mtbird-control" style={{ color: state.tabsState['schemaTabs'] ? 'var(--mtbird-primary-5)' : 'white' }} />
           </Button>
         </Tooltip>

@@ -55,12 +55,17 @@
 
   .headerButton {
     padding: 0 10px;
+    color: var(--color-text-4) !important;
     :global {
       .mtbird-icon {
         margin-right: 5px;
         line-height: 35px;
         font-size: 14px;
       }
+    }
+
+    &:disabled {
+      color: var(--color-text-3) !important;
     }
   }
 
