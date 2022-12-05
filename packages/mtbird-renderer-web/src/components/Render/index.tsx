@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useState } from 'react';
-import type { IPageConfig } from '@mtbird/shared';
+import type { IComponentInstanceForm, IPageConfig } from '@mtbird/shared';
 import { LAYOUT_TYPE, COMPONENT_NAME } from '@mtbird/core';
 import isArray from 'lodash/isArray';
 import isObject from 'lodash/isObject';
@@ -18,7 +18,7 @@ interface IProps {
   parent?: IComponentInstance;
   formId?: string | undefined;
   platform: 'pc' | 'mobile';
-  node: IComponentInstance;
+  node: IComponentInstance | IComponentInstanceForm;
   zIndex: number;
 }
 
@@ -37,7 +37,7 @@ const Render = ({ node, className, zIndex, formId, parent }: IProps & IPageConfi
   const [showMask, setShowMask] = useState(true);
 
   // 2. set wrapper styles
-  const wrapperProps = {
+  const wrapperProps: Record<string, any> = {
     className: '',
     style: {
       position,
@@ -83,12 +83,6 @@ const Render = ({ node, className, zIndex, formId, parent }: IProps & IPageConfi
   // 5. not display or component(node.componentName) not find in component collection
   if (!display || !Component) return <div />;
 
-  // 6. event handler
-  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    e.stopPropagation();
-    onClick && onClick(node, e);
-  };
-
   const handleValueChange = (value: any, keyPath: string) => {
     const keyPathHere = instanceFormId + '.' + (keyPath || node.formConfig?.keyPath || node.id);
     if (node.formConfig?.valueFormatter) {
@@ -109,6 +103,13 @@ const Render = ({ node, className, zIndex, formId, parent }: IProps & IPageConfi
 
   // 7. render extra
   const extra = renderExtra ? renderExtra(node) : '';
+
+  // 6. event handler
+  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+    e.stopPropagation();
+    wrapperProps.onClick && wrapperProps.onClick();
+    onClick && onClick(node, e);
+  };
 
   // 8. init component with its children and extra
   const component = (
@@ -131,7 +132,7 @@ const Render = ({ node, className, zIndex, formId, parent }: IProps & IPageConfi
     </Component>
   );
 
-  const Moveable = layoutMoveable?.[node.layout];
+  const Moveable = layoutMoveable?.[node.layout || LAYOUT_TYPE.ABSOLUTE];
 
   if (pattern?.noWrapper) return component;
 

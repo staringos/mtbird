@@ -71,30 +71,32 @@ export const EventType = {
   changeVariable: 'change-variable'
 };
 
-export const generateEventHandlers = (events: Record<EventAction, IEvent>, context: any) => {
+export const generateEventHandlers = (events: Record<EventAction, IEvent[]>, context: any) => {
   const handers = {};
 
-  const handlerGenerator = (event: IEvent) => {
-    return () => {
-      switch (event.type) {
-        case EventType.changeVariable:
-          return context.changeVariable(event.keyPath, event.value);
-        case EventType.openModal:
-          return context.changeVariable(`$modals.${event.modalId}`, true);
-        case EventType.closeModal:
-          return context.changeVariable(`$modals.${event.modalId}`, false);
-        case EventType.linkBlank:
-          return window.open(event.src);
-        case EventType.linkBlank:
-          return (location.href = event.src);
-        case EventType.inlineCode:
-          return generateFunction(event.inlineCode as string);
-      }
-    };
+  const eventGenerator = (event: IEvent) => {
+    switch (event.type) {
+      case EventType.changeVariable:
+        return context.changeVariable(event.keyPath, event.value);
+      case EventType.openModal:
+        return context.changeVariable(`$modals.${event.modalId}`, true);
+      case EventType.closeModal:
+        return context.changeVariable(`$modals.${event.modalId}`, false);
+      case EventType.linkBlank:
+        return window.open(event.src);
+      case EventType.linkBlank:
+        return (location.href = event.src);
+      case EventType.inlineCode:
+        return generateFunction(event.inlineCode as string);
+    }
   };
 
-  keys(events).forEach((event: IEvent) => {
-    handers[EventActionEventHandler[event]] = handlerGenerator(events[event]);
+  keys(events).forEach((key: string) => {
+    handers[EventActionEventHandler[key]] = () => {
+      events[key].map((cur: IEvent) => {
+        eventGenerator(cur);
+      });
+    };
   });
 
   return handers;

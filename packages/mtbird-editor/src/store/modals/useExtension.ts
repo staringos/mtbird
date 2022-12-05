@@ -50,7 +50,6 @@ function useExtensionModal(options: IEditorOptions, setLoading: (i: boolean) => 
           setExtensionComponents(res.components);
           await extensionInit(store);
 
-          console.log('setttttt extensionComponents:', extensionComponents, res);
           setRegisteredComponents({ ...registeredComponents, ...helpers.getExtensionComponentManifests(res.components) });
         }
         setLoading(false);

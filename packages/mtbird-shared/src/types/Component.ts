@@ -99,7 +99,7 @@ export interface IComponentInstance {
     pageId?: string; // dataSource 中数据对象提取
     features?: IFeatures;
   };
-  events?: Record<EventAction, IEvent>;
+  events?: Record<EventAction, IEvent[]>;
   parent?: string;
   children: IComponentInstance[] | number | string;
   pattern?: {

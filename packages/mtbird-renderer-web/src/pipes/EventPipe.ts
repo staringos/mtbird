@@ -1,5 +1,6 @@
 import { ComponentEvent } from '@mtbird/core';
 import { IPipeProps } from '@mtbird/shared';
+import keys from 'lodash/keys';
 
 /**
  * Get config from events to generate events handler
@@ -7,16 +8,14 @@ import { IPipeProps } from '@mtbird/shared';
  * @returns
  */
 const EventPipe = (props: IPipeProps) => {
-  const { node, context } = props;
-  // node.props.className = node.props.className + ' ' + node.componentName;
+  const { node, context, isEdit } = props;
 
-  let events = {};
-  if (node.events) {
-    events = ComponentEvent.generateEventHandlers(node.events, context);
-    node.props = { ...node.props, ...events };
-  }
-
-  return { ...props, node };
+  if (!node.events || isEdit) return props;
+  const events = ComponentEvent.generateEventHandlers(node.events, context);
+  keys(events).forEach((key: string) => {
+    props.wrapperProps[key] = events[key];
+  });
+  return props;
 };
 
 export default EventPipe;

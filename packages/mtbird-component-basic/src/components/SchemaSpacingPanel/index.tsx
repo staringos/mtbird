@@ -2,6 +2,7 @@ import { IComponentProps } from '@mtbird/shared';
 import React, { ChangeEvent } from 'react';
 import styles from './style.module.less';
 import { Input } from 'antd';
+import manifest from './manifest';
 
 interface IInputProps {
   pos: 'Left' | 'Right' | 'Top' | 'Bottom';
@@ -50,5 +51,7 @@ const SchemaSpacingPanel = ({ onChangeValue, value, style }: IComponentProps) =>
     </div>
   );
 };
+
+SchemaSpacingPanel.manifest = manifest;
 
 export default SchemaSpacingPanel;
