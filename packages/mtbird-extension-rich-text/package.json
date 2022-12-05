@@ -1,6 +1,6 @@
 {
   "name": "@mtbird/extension-rich-text",
-  "version": "0.0.3-beta.29",
+  "version": "0.0.3-beta.30",
   "description": "星搭富文本编辑框",
   "homepage": "",
   "license": "MIT",
@@ -30,8 +30,8 @@
     "@tiptap/starter-kit": "^2.0.0-beta.199"
   },
   "devDependencies": {
-    "@mtbird/core": "^0.0.3-beta.29",
-    "@mtbird/shared": "^0.0.3-beta.29"
+    "@mtbird/core": "^0.0.3-beta.30",
+    "@mtbird/shared": "^0.0.3-beta.30"
   },
   "peerDependencies": {
     "@mtbird/cli": "^0.0.1-beta.7",

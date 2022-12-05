@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.30](https://github.com/staringos/mtbird/compare/v0.0.3-beta.29...v0.0.3-beta.30) (2022-12-05)
+
+
+### Features
+
+* event panel ([9c1483b](https://github.com/staringos/mtbird/commit/9c1483bde9ed3e52594be8dec6a50a96151ab428))
+
+
+
+
+
 ## [0.0.3-beta.29](https://github.com/staringos/mtbird/compare/v0.0.3-beta.28...v0.0.3-beta.29) (2022-12-03)
 
 
