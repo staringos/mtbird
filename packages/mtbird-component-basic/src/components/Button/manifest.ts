@@ -11,7 +11,7 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
   category: 'basic',
   schema: [
     ...COMPONENT.SCHEMA_COMPONENT_BASIC_STYLE,
-    COMPONENT.SCHEMA_EVENT_CLICK,
+    // COMPONENT.SCHEMA_EVENT_CLICK,
     SchemaGenerator.collapsePanel('按钮', [
       SchemaGenerator.select('类型', 'props.type', BUTTON_TYPE_OPTIONS),
       SchemaGenerator.select('形状', 'props.shape', BUTTON_SHAPE_OPTIONS),
@@ -32,10 +32,12 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
       shape: 'default'
     },
     events: {
-      click: {
-        type: 'link',
-        src: 'http://staringos.com'
-      }
+      click: [
+        {
+          type: 'link',
+          src: 'http://staringos.com'
+        }
+      ]
     },
     editing: {
       showMask: true,

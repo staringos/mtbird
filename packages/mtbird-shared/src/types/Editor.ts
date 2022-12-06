@@ -31,7 +31,7 @@ export interface IEditorOptions {
   modelDataSource?: IDataSource;
   onBack: () => void;
   onUpload: (files: any) => Promise<string[]>;
-  onSave: (page: IPageConfig, avatar: string) => void;
+  onSave: (page: IPageConfig, avatar?: string) => void;
   onPageChange: (id: string) => void;
   onPreview?: () => void;
   onPublish?: () => void;

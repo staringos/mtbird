@@ -1,9 +1,9 @@
 import { IComponentInstance, IEditorOptions, IPosition } from '@mtbird/shared';
-import { COMPONENT_NAME, generateKeys, getWrapperPosition, dataURItoBlob } from '@mtbird/core';
+import { COMPONENT_NAME, generateKeys, getWrapperPosition } from '@mtbird/core';
 import { useState, useEffect, useRef } from 'react';
 import { computeBlockOverstep, flattenComponentTree, getComponentArray, needOverstep } from '../../utils';
 import { message } from 'antd';
-import IContext from '../types/page';
+import IContext, { ISaveState } from '../types/page';
 import * as Components from '@mtbird/component-basic';
 import { toPng } from 'html-to-image';
 import isEqual from 'lodash/isEqual';
@@ -16,6 +16,7 @@ import findIndex from 'lodash/findIndex';
 import { SchemaDataSource } from '@mtbird/helper-component';
 import Moveable from 'react-moveable';
 import PageDataSource from 'src/data/PageDataSource';
+import { SAVE_STATE } from 'src/utils/constants';
 
 const ADD_ROOT_COMPONENT = [COMPONENT_NAME.CONTAINER_BLOCK, COMPONENT_NAME.MODAL];
 
@@ -30,11 +31,16 @@ function usePageModal(options: IEditorOptions): IContext {
   const [historyStack, setHistoryStacK] = useState<string[]>([]);
   const [historyStackPointer, setHistoryStackPointer] = useState(0);
   const [isHistoryChange, setIsHistoryChange] = useState(false);
+  const [saveState, setSaveState] = useState<ISaveState>({
+    state: SAVE_STATE.SAVED,
+    lastSaveTime: undefined
+  });
 
   // do this for refresh currentComponent when tmpPageConfig changed
   useEffect(() => {
     setCurrentComponent(currentComponent);
     setComponentMap(flattenComponentTree(tmpPageConfig.data));
+    setHasEdit(true);
   }, [tmpPageConfig]);
 
   useEffect(() => {
@@ -63,7 +69,7 @@ function usePageModal(options: IEditorOptions): IContext {
       finalPage.data = computeBlockOverstep(finalPage.data);
     }
     setTmpPageConfig(finalPage);
-    setHasEdit(true);
+    // setHasEdit(true);
 
     setTimeout(() => {
       getMoveable()?.updateTarget();
@@ -173,7 +179,7 @@ function usePageModal(options: IEditorOptions): IContext {
     }
 
     setTmpPageConfig({ ...tmpPageConfig });
-    setHasEdit(true);
+    // setHasEdit(true);
     // default select new component
     setCurrentComponent([newComponent]);
   };
@@ -186,23 +192,35 @@ function usePageModal(options: IEditorOptions): IContext {
       pageConfig: tmpPageConfig,
       pageList: pageList ? pageList : [pageConfig],
       currentComponent,
-      moveableRef
+      moveableRef,
+      saveState
     },
     actions: {
       getMoveable,
       setCurrentComponent,
       onSave: async () => {
-        const dom: any = document.getElementById(tmpPageConfig.data.id)?.parentNode;
+        // const dom: any = document.getElementById(tmpPageConfig.data.id)?.parentNode;
 
-        let dataUrl = undefined;
-        let avatarUrl = undefined;
-        if (dom) {
-          // for compress, jpeg only
-          dataUrl = await toPng(dom, { quality: 0.8 });
-          avatarUrl = await options.onUpload([dataURItoBlob(dataUrl)]);
-          avatarUrl = avatarUrl[0];
-        }
-        onSave && onSave(tmpPageConfig.data, avatarUrl as string);
+        // let dataUrl = undefined;
+        // let avatarUrl = undefined;
+        // if (dom) {
+        //   // for compress, jpeg only
+        //   dataUrl = await toPng(dom, { quality: 0.8 });
+        //   avatarUrl = await options.onUpload([dataURItoBlob(dataUrl)]);
+        //   avatarUrl = avatarUrl[0];
+        // }
+
+        // nothing edit ignore save
+        if (!hasEdit) return;
+
+        setSaveState({
+          state: SAVE_STATE.SAVING
+        });
+        await (onSave && onSave(tmpPageConfig.data, undefined));
+        setSaveState({
+          state: SAVE_STATE.SAVED,
+          lastSaveTime: new Date()
+        });
         setHasEdit(false);
       },
       onChange: onSchemaChange,
@@ -308,7 +326,7 @@ function usePageModal(options: IEditorOptions): IContext {
         };
 
         currentComponent.forEach(toDelete);
-        setHasEdit(true);
+        // setHasEdit(true);
         // cancel select
         setCurrentComponent([tmpPageConfig.data]);
       },
@@ -396,7 +414,7 @@ function usePageModal(options: IEditorOptions): IContext {
         currentComponent.map(modify);
 
         setTmpPageConfig({ ...tmpPageConfig });
-        setHasEdit(true);
+        // setHasEdit(true);
       },
       prevStep: () => {
         const pointer = historyStackPointer - 1;

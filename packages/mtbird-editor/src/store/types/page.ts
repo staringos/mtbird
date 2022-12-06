@@ -2,6 +2,11 @@ import type { IComponentInstance, IPageConfig, IDataSource, IPosition } from '@m
 import { RefObject } from 'react';
 import Moveable from 'react-moveable';
 
+export interface ISaveState {
+  state: 'SAVED' | 'SAVING';
+  lastSaveTime?: Date;
+}
+
 export interface IState {
   componentMap: Map<string, IComponentInstance>;
   pageConfig: IPageConfig;
@@ -10,11 +15,12 @@ export interface IState {
   pageDataSource: IDataSource;
   pageList: IPageConfig[];
   moveableRef: RefObject<Moveable | undefined>;
+  saveState: ISaveState;
 }
 
 export interface IAction {
   setCurrentComponent: (currentComponent: IComponentInstance[]) => void;
-  onSave: (page: IPageConfig) => void;
+  onSave: () => void;
   onChange: (keyPath: string, value: any, componentId?: string) => void;
   // batch change many component
   // record: Map<componentId, Record<keyPath, value>>

@@ -8,13 +8,14 @@ import HeaderBars from './HeaderBars';
 import PlatformSelect from '../PlatformSelect';
 import UserList from '../UserList';
 import ShareDropdown from '../ShareDropdown';
+import SaveBtn from './SaveBtn';
 
 export default () => {
   const { actions, state } = useContext(Model);
 
-  const handleSave = () => {
-    actions.onSave && actions.onSave(state.pageConfig.data);
-  };
+  // const handleSave = () => {
+  //   actions.onSave && actions.onSave(state.pageConfig.data);
+  // };
 
   const handleBack = () => {
     state.options.onBack ? state.options.onBack() : history.back();
@@ -74,15 +75,15 @@ export default () => {
           </Button>
         </Tooltip>
         <div className={styles.splitLine} />
-        <Tooltip placement="bottom" title="保存">
-          <Button className={styles.headerButton} type="text" onClick={handleSave}>
-            <i className="mtbird-icon mtbird-save" />
-            保存
+        <SaveBtn />
+        {/* <Tooltip placement="bottom" title="保存">
+          <Button className={styles.headerButton} type="text" onClick={handleSave} disabled={true}>
+            已保存
           </Button>
-        </Tooltip>
+        </Tooltip> */}
         <Button className={styles.headerButton} type="text" onClick={handlePreview}>
           <i className="mtbird-icon mtbird-tablet" />
-          预览
+          预览发布
         </Button>
         {/* <Button className={styles.headerButton} type="text" onClick={handlePublish}>
           <i className="mtbird-icon mtbird-up-square" />
