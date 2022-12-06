@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.32](https://github.com/staringos/mtbird/compare/v0.0.3-beta.31...v0.0.3-beta.32) (2022-12-06)
+
+
+### Bug Fixes
+
+* event bug ([fa206c6](https://github.com/staringos/mtbird/commit/fa206c6f494358adf8908a93cc323dd991d57514))
+
+
+
+
+
 ## [0.0.3-beta.31](https://github.com/staringos/mtbird/compare/v0.0.3-beta.30...v0.0.3-beta.31) (2022-12-06)
 
 
