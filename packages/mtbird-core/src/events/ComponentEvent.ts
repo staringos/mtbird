@@ -85,7 +85,7 @@ export const generateEventHandlers = (events: Record<EventAction, IEvent[]>, con
         return context.changeVariable(`$modals.${event.modalId}`, false);
       case EventType.linkBlank:
         return window.open(event.src);
-      case EventType.linkBlank:
+      case EventType.link:
         return (location.href = event.src);
       case EventType.inlineCode:
         return generateFunction(event.inlineCode as string);

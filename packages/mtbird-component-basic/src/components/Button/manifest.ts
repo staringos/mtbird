@@ -34,6 +34,8 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
     events: {
       click: [
         {
+          name: '点击动作',
+          action: 'click',
           type: 'link',
           src: 'http://staringos.com'
         }
