@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Tooltip } from 'antd';
 import styles from './style.module.less';
 import Model from 'src/store/types';
@@ -12,6 +12,7 @@ import SaveBtn from './SaveBtn';
 
 export default () => {
   const { actions, state } = useContext(Model);
+  const [publishing, setPublishing] = useState(false);
 
   // const handleSave = () => {
   //   actions.onSave && actions.onSave(state.pageConfig.data);
@@ -25,8 +26,10 @@ export default () => {
     state.options?.onPreview && state.options?.onPreview(state.pageConfig.data);
   };
 
-  const handlePublish = () => {
-    actions.publishPage();
+  const handlePublish = async () => {
+    setPublishing(true);
+    await actions.publishPage();
+    setPublishing(false);
   };
 
   return (
@@ -83,12 +86,12 @@ export default () => {
         </Tooltip> */}
         <Button className={styles.headerButton} type="text" onClick={handlePreview}>
           <i className="mtbird-icon mtbird-tablet" />
-          预览发布
+          预览
         </Button>
-        {/* <Button className={styles.headerButton} type="text" onClick={handlePublish}>
+        <Button className={styles.headerButton} type="text" onClick={handlePublish} loading={publishing} disabled={publishing}>
           <i className="mtbird-icon mtbird-up-square" />
           发布
-        </Button> */}
+        </Button>
         <ShareDropdown page={state.pageConfig}>
           <Button className={styles.headerButton} type="text">
             <i className="mtbird-icon mtbird-share" />

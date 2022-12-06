@@ -17,6 +17,7 @@ import { SchemaDataSource } from '@mtbird/helper-component';
 import Moveable from 'react-moveable';
 import PageDataSource from 'src/data/PageDataSource';
 import { SAVE_STATE } from 'src/utils/constants';
+import { dataURItoBlob } from '@mtbird/core';
 
 const ADD_ROOT_COMPONENT = [COMPONENT_NAME.CONTAINER_BLOCK, COMPONENT_NAME.MODAL];
 
@@ -332,9 +333,20 @@ function usePageModal(options: IEditorOptions): IContext {
       },
       publishPage: async () => {
         if (hasEdit) {
-          return message.warning('当前页面未保存，请保存后再发布');
+          return message.warning('正在保存中，请稍后发布!');
         }
-        options.onPublish && options.onPublish();
+        const dom: any = document.getElementById(tmpPageConfig.data.id)?.parentNode;
+
+        let dataUrl = undefined;
+        let avatarUrl = undefined;
+        if (dom) {
+          // for compress, jpeg only
+          dataUrl = await toPng(dom, { quality: 0.8 });
+          avatarUrl = await options.onUpload([dataURItoBlob(dataUrl)]);
+          avatarUrl = avatarUrl[0];
+        }
+
+        options.onPublish && (await options.onPublish(avatarUrl as string));
       },
       goUpper: () => {
         if (!currentComponent) return;

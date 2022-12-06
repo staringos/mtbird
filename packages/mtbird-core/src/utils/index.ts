@@ -25,6 +25,11 @@ export const VALIABLE_TEMPLATE_REGAX = /\${{([\s\S]+?)}}/g;
 const nanoid = customAlphabet('1234567890qwertyuioplkjhgfdsazxcvbnm_$', 17);
 export const SYSTEM_VERIABLES = () => ({ $modals: {} });
 
+export const getFormKeypath = (node: IComponentInstanceForm) => {
+  const { formConfig, id } = node;
+  return formConfig?.keyPath || id || formConfig?.label;
+};
+
 export const findComponentByKey = (componentTree: IComponentInstance, key: string) => {
   const loop = (tree: IComponentInstance): any => {
     if (tree.id === key) {

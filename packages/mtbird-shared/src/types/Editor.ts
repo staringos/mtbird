@@ -34,7 +34,7 @@ export interface IEditorOptions {
   onSave: (page: IPageConfig, avatar?: string) => void;
   onPageChange: (id: string) => void;
   onPreview?: () => void;
-  onPublish?: () => void;
+  onPublish?: (avatar?: string) => void;
   onHistoryChange?: (historyId: string) => void;
   onSaveTemplate: (content: IComponentInstance, avatarUrl: string) => void;
 }

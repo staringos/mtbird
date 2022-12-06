@@ -6,7 +6,8 @@ import { IComponentProps } from '@mtbird/shared/src/types/Component';
 import manifest from './manifest';
 import { convertToRules } from '../../../utils/component';
 import { FormItemType } from '../constants';
-import { IComponentInstanceForm } from '@mtbird/shared/dist/types';
+import { IComponentInstanceForm } from '@mtbird/shared';
+import { getFormKeypath } from '@mtbird/core';
 
 interface IProps extends IComponentProps {
   renderChildrenOnly: boolean;
@@ -16,10 +17,10 @@ const FormItemComponent = (props: IProps) => {
   const { node, dataSource, children, onChangeValue, renderChildrenOnly } = props;
   const { formConfig } = node as IComponentInstanceForm;
   const FormComponent = FormItemType[formConfig?.componentName];
-
+  const keyPath = getFormKeypath(node);
   const { style } = node.props;
   const isMultiple = isArray(dataSource?.getState()['currentComponent']);
-  const value = isMultiple ? dataSource?.getValue('0.' + formConfig?.keyPath) : dataSource?.getValue(formConfig?.keyPath);
+  const value = isMultiple ? dataSource?.getValue('0.' + keyPath) : dataSource?.getValue(keyPath);
 
   let rules = convertToRules(node as any);
 
@@ -34,7 +35,7 @@ const FormItemComponent = (props: IProps) => {
       colon={false}
       rules={rules}
       label={<label style={{ ...(formConfig?.labelStyle || {}), width: formConfig?.labelStyle?.width || 80 }}>{formConfig?.label || ' '}</label>}
-      name={formConfig?.keyPath || formConfig?.id || formConfig?.label}
+      name={keyPath}
       required={formConfig?.isRequired}
     >
       <div className={styles.formItemContent}>

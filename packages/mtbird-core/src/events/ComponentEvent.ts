@@ -1,5 +1,6 @@
 import { EventAction, IEvent } from '@mtbird/shared';
 import keys from 'lodash/keys';
+import isArray from 'lodash/isArray';
 import { generateFunction } from '../utils';
 
 export const EVENT_ACTION = [
@@ -93,6 +94,7 @@ export const generateEventHandlers = (events: Record<EventAction, IEvent[]>, con
 
   keys(events).forEach((key: string) => {
     handers[EventActionEventHandler[key]] = () => {
+      if (!isArray(events[key])) return eventGenerator(events[key]);
       events[key].map((cur: IEvent) => {
         eventGenerator(cur);
       });
