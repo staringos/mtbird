@@ -7,16 +7,16 @@ export const ID_KEY = '%id%';
 
 export const DEFAULT_ENTITIES = [
   {
-    title: '显示值',
+    title: '显示名',
     keyPath: 'label',
-    type: 'string',
+    type: 'string' as 'string',
     default: '',
     isRequired: true
   },
   {
     title: '实际值',
     keyPath: 'value',
-    type: 'string',
+    type: 'string' as 'string',
     default: '',
     isRequired: true
   }

@@ -36,7 +36,7 @@
   },
   "peerDependencies": {
     "@mtbird/shared": "^0.0.1-beta.4",
-    "antd": "^4.22.4",
+    "antd": "^4.24.5",
     "axios": "^0.27.2",
     "lodash": "^4.17.21"
   },

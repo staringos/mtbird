@@ -29,7 +29,7 @@
   },
   "peerDependencies": {
     "@mtbird/shared": "^0.0.1-beta.4",
-    "antd": "^4.22.3"
+    "antd": "^4.24.5"
   },
   "devDependencies": {
     "react": "^18.1.0",

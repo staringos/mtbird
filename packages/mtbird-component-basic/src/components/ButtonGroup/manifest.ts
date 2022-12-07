@@ -1,6 +1,5 @@
 import type { IComponentManifest, IComponentInstanceForm } from '@mtbird/shared';
-import { generateList } from '../../utils';
-import { COMPONENT } from '@mtbird/core';
+import { COMPONENT, SchemaGenerator } from '@mtbird/core';
 
 const { COMPONENT_DEFAULT_STYLE, SCHEMA_COMPONENT_BASIC_STYLE } = COMPONENT;
 
@@ -11,7 +10,7 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
   icon: 'mtbird-icf_button_group',
   desc: '',
   category: 'basic',
-  schema: [...SCHEMA_COMPONENT_BASIC_STYLE, ...generateList('选项')],
+  schema: [...SCHEMA_COMPONENT_BASIC_STYLE, ...SchemaGenerator.list('选项')],
   instance: {
     type: 'component',
     componentName: 'ButtonGroup',

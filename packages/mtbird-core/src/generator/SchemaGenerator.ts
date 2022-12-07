@@ -98,6 +98,9 @@ export default {
         formConfig: {
           keyPath
         },
+        theme: {
+          type: 'dark'
+        },
         data: {
           type: 'entity',
           entity,

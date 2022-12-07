@@ -59,7 +59,7 @@ const DebugButton = () => {
   }, [state.extensionContributes]);
 
   return (
-    <Popover placement="bottom" title="拓展调试" content={DebugPanel} trigger="click">
+    <Popover overlayClassName={styles.debugButtonPanel} placement="bottom" title="拓展调试" content={DebugPanel} trigger="click">
       <div className={styles.debugButtonWrapper}>
         <Button className={styles.debugButton} size="small" type="text">
           <i className="mtbird-icon mtbird-bug" />

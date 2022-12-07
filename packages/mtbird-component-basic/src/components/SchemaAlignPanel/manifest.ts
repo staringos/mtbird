@@ -1,6 +1,5 @@
 import type { IComponentManifest, IComponentInstance } from '@mtbird/shared';
-import { generateList } from '../../utils';
-import { COMPONENT } from '@mtbird/core';
+import { COMPONENT, SchemaGenerator } from '@mtbird/core';
 const { COMPONENT_DEFAULT_STYLE, SCHEMA_COMPONENT_BASIC_STYLE, SCHEMA_FORM_CONFIG } = COMPONENT;
 
 const manifest: IComponentManifest<IComponentInstance> = {
@@ -11,7 +10,7 @@ const manifest: IComponentManifest<IComponentInstance> = {
   desc: '',
   category: 'form',
   hideInToolbar: true,
-  schema: [...SCHEMA_COMPONENT_BASIC_STYLE, ...SCHEMA_FORM_CONFIG, ...generateList('选项')],
+  schema: [...SCHEMA_COMPONENT_BASIC_STYLE, ...SCHEMA_FORM_CONFIG, ...SchemaGenerator.list('选项')],
   instance: {
     type: 'form',
     componentName: 'SchemaAlignPanel',

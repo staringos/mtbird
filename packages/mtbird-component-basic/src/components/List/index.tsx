@@ -29,6 +29,7 @@ const ListComponent = ({ node, value, onChangeValue, dataSource }: IComponentPro
   const [sort, setSort] = useState({});
   const modifyEntity = type === 'entity' ? entity : convertColumnsToEntity(columns, additionColumns);
   const needConfig = (type === 'model' || type === 'form') && !targetId;
+  const isDark = node.theme?.type === 'dark';
 
   const handleOpenAdd = () => {
     setEditData(null);
@@ -60,6 +61,12 @@ const ListComponent = ({ node, value, onChangeValue, dataSource }: IComponentPro
     const columns = await generateColumns(node as IComponentInstanceForm, dataSource as IDataSource, handleToEdit, handleToDelete);
 
     columns.forEach((col: any) => {
+      if (isDark) {
+        col.textWrap = 'word-break';
+        col.ellipsis = true;
+        col.width = 100;
+      }
+
       if (col.title === '操作') return;
       // search
       if (features?.search) {
@@ -97,7 +104,6 @@ const ListComponent = ({ node, value, onChangeValue, dataSource }: IComponentPro
         col.sortDirections = ['descend', 'ascend'];
       }
     });
-
     setColumns(columns);
   };
 
@@ -171,6 +177,7 @@ const ListComponent = ({ node, value, onChangeValue, dataSource }: IComponentPro
       </Modal>
       {columns && columns.length > 0 && (
         <Table
+          className={isDark ? styles.darkModeTable : ''}
           pagination={features?.pagination ? { total: tableData.total, pageSize: pagination.pageSize, onChange: handlePageChanged } : false}
           dataSource={tableData.data}
           columns={columns}

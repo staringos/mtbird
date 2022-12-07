@@ -7,4 +7,29 @@
       overflow: auto;
     }
   }
+
+  .darkModeTable {
+    :global {
+      .ant-table, .ant-table-cell, .ant-table-row {
+        background-color: var(--gray-8);
+        color: var(--color-text-4);
+
+        .mtbird-icon {
+          color: var(--color-text-4) !important;
+        }
+
+        &:hover {
+          background-color: var(--gray-8) !important;
+        }
+
+        .ant-table-row:hover > td {
+          background-color: var(--gray-8);
+        }
+
+        .ant-table-tbody > tr > td {
+          border-bottom: 1px solid var(--gray-7);
+        }
+      }
+    }
+  }
 }

@@ -37,7 +37,7 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
     data: {
       entity: [
         {
-          title: '显示值',
+          title: '显示名',
           keyPath: 'label',
           type: 'string',
           default: '',

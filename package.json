@@ -38,7 +38,7 @@
     "@types/svgr__rollup": "^4.3.1",
     "@typescript-eslint/eslint-plugin": "^5.22.0",
     "@typescript-eslint/parser": "^5.22.0",
-    "antd": "^4.23.0",
+    "antd": "^4.24.5",
     "eslint": "^8.15.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
@@ -77,7 +77,6 @@
     "yargs": "^17.4.1"
   },
   "dependencies": {
-    "@mtbird/core": "^0.0.3-beta.27",
     "react": "^18.1.0",
     "react-color": "^2.19.3",
     "react-dom": "^18.1.0"

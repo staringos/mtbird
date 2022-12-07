@@ -101,6 +101,9 @@ export interface IComponentInstance {
   };
   events?: Record<EventAction, IEvent[]>;
   parent?: string;
+  theme?: {
+    type: 'dark' | 'light';
+  };
   children: IComponentInstance[] | number | string;
   pattern?: {
     display?: string;

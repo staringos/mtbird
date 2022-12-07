@@ -14,10 +14,6 @@ export default () => {
   const { actions, state } = useContext(Model);
   const [publishing, setPublishing] = useState(false);
 
-  // const handleSave = () => {
-  //   actions.onSave && actions.onSave(state.pageConfig.data);
-  // };
-
   const handleBack = () => {
     state.options.onBack ? state.options.onBack() : history.back();
   };
