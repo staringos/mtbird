@@ -1,6 +1,7 @@
 {
   "name": "@mtbird/extension-image-library",
   "version": "0.0.3-beta.32",
+  "private": true,
   "description": "The image library plugin",
   "author": "zousongqi <george@staringos.com>",
   "homepage": "",

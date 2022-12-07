@@ -1,6 +1,7 @@
 {
   "name": "@mtbird/extension-sticky-panel",
   "version": "0.0.3-beta.32",
+  "private": true,
   "description": "屏幕跟随",
   "homepage": "",
   "license": "MIT",

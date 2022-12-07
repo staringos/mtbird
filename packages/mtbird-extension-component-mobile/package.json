@@ -1,6 +1,7 @@
 {
   "name": "mtbird-extension-component-mobile",
   "version": "0.0.3-beta.32",
+  "private": true,
   "description": "星搭星搭移动端组件库",
   "homepage": "",
   "license": "MIT",

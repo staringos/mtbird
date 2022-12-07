@@ -1,6 +1,7 @@
 {
   "name": "@mtbird/extension-rich-text",
   "version": "0.0.3-beta.32",
+  "private": true,
   "description": "星搭富文本编辑框",
   "homepage": "",
   "license": "MIT",

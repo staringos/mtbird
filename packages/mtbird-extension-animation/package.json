@@ -1,6 +1,7 @@
 {
   "name": "@mtbird/extension-animation",
   "version": "0.0.3-beta.32",
+  "private": true,
   "description": "星搭官方动画拓展",
   "homepage": "",
   "license": "MIT",
