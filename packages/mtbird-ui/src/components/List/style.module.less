@@ -1,0 +1,30 @@
+.fieldsList {
+  padding: 0;
+  margin-top: 10px;
+  border-top: 1px solid var(--gray-3);
+
+  .fieldItem {
+    height: 38px;
+    border-bottom: 1px solid var(--gray-3);
+    line-height: 38px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+
+    &:hover {
+      background-color: var(--gray-1);
+    }
+  }
+
+  .fieldItemLeft {
+    flex: 1;
+    display: flex;
+  }
+
+  .fieldItemProperty {
+    min-width: 100px;
+    display: inline-block;
+    flex: 1;
+  }
+}

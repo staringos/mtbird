@@ -155,3 +155,7 @@ export interface IExtensionComponent {
 }
 
 export type PipeStage = 'init' | 'render' | 'rendered' | 'beforeDestroy';
+
+export interface IExtensionFeatureProps {
+  context: IExtensionContext;
+}

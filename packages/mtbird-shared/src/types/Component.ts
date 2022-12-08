@@ -18,6 +18,8 @@ export interface IVariable {
   // type: 'local' | 'config' | 'global';
   // keyPath: string; // key path from the dataset to get value
   // useToKeyPath: string; // key path to put value get from keyPath
+  name?: string;
+  type: 'variable' | 'dataModel' | '';
   dataType: 'string' | 'number' | 'boolean';
   key: any;
   value: any;

@@ -1,0 +1,40 @@
+{
+  "name": "@mtbird/ui",
+  "version": "0.0.3-beta.32",
+  "description": "The basic ui components for mtbird",
+  "author": "GeorgeZou <zousongqi@foxmail.com>",
+  "homepage": "https://github.com/staringos/mtbird#readme",
+  "license": "MIT",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/types",
+  "directories": {
+    "dist": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/staringos/mtbird.git"
+  },
+  "scripts": {
+    "start": "NODE_ENV=development mtbird watch",
+    "build": "NODE_ENV=production mtbird build",
+    "preDev": "lerna link & yarn run link",
+    "link": "npm link ../../../mtbird-saas/node_modules/react"
+  },
+  "bugs": {
+    "url": "https://github.com/staringos/mtbird/issues"
+  },
+  "peerDependencies": {
+    "antd": "^4.24.5",
+    "react": "18.1.0",
+    "react-dom": "18.1.0"
+  }
+}

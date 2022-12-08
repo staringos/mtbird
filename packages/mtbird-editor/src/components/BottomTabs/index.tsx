@@ -11,7 +11,7 @@ const BottomBar = () => {
   const store = useContext(Model);
   const { actions, state } = store;
   const { extensionContributes, tabsState } = state;
-  const [activeKey, setActiveKey] = useState<string>('页面结构mtbird-extension-enterprise.enterprise.struct-tree.feature');
+  const [activeKey, setActiveKey] = useState<string>('图层mtbird-extension-enterprise.enterprise.struct-tree.feature');
   const schemaTabs = extensionContributes.get(EXTENSION_CONTRIBUTE_TYPE.BOTTOM.TABS);
 
   const onChange = (value: string) => {
