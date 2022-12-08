@@ -1,5 +1,6 @@
 // import React from 'react';
 import { IEntity } from './Common';
+import { DataType } from './Data';
 import type { IDataSource } from './DataSource';
 import { IPipe } from './Extension';
 
@@ -12,17 +13,17 @@ export interface IProps {
 }
 
 export interface IVariable {
-  // local: local variable
-  // config: get data from config
-  // global: global(page level) variable
-  // type: 'local' | 'config' | 'global';
-  // keyPath: string; // key path from the dataset to get value
-  // useToKeyPath: string; // key path to put value get from keyPath
   name?: string;
-  type: 'variable' | 'dataModel' | '';
-  dataType: 'string' | 'number' | 'boolean';
+  dataType: DataType;
   key: any;
   value: any;
+
+  // variable init value from
+  sourceType: 'api' | 'dataModels' | 'defaultValue' | 'pageParams';
+
+  dataModelsId?: string;
+  apiId?: string;
+  defaultValue?: string | number;
 }
 
 export type EventAction = 'click' | 'hover' | 'blur' | 'dbclick' | 'scroll';
@@ -151,16 +152,6 @@ export interface ISchemaOptions {
   [key: string]: unknown;
 }
 
-// export interface IComponentSchema {
-//   title: String;
-//   type: String;
-//   desc: string;
-//   options?: ISchemaOptions;
-//   properties?: {
-//     [key: string]: IComponentSchema;
-//   };
-// }
-
 export interface IComponentManifest<T> {
   type: string;
   componentName: string;
@@ -176,6 +167,8 @@ export interface IComponentManifest<T> {
 }
 
 export interface IComponent<T> extends IComponentManifest<T> {}
+
+export type IComponentInstanceCommon = IComponentInstance | IComponentInstanceForm;
 
 export interface IComponentCommon extends IComponentManifest<IComponentInstance | IComponentInstanceForm> {}
 

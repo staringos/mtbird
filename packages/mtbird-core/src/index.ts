@@ -1,6 +1,7 @@
 export * from './constants';
 export * from './utils';
 export * as COMPONENT from './constants/component';
+export * as DATA from './constants/data';
 export * as ComponentEvent from './events/ComponentEvent';
 export * from './events';
 export { default as Events } from './events';

@@ -1,5 +1,5 @@
 import { IContext } from 'packages/mtbird-editor/src/models';
-import { IExtensionContext, IExtensionManifest } from '@mtbird/shared';
+import { IComponentInstanceCommon, IExtensionContext, IExtensionManifest } from '@mtbird/shared';
 import { Component, FC } from 'react';
 import isArray from 'lodash/isArray';
 import get from 'lodash/get';
@@ -124,8 +124,18 @@ export default class ExtensionContext implements IExtensionContext {
     this.store.actions.goLower();
   };
 
-  public onChangeValue = (keyPath: string, value: any) => {
-    this.store.actions.onChange(keyPath, value);
+  // change component, if id not set, change all currentComponent
+  public onChangeValue = (keyPath: string, value: any, id?: string) => {
+    this.store.actions.onChange(keyPath, value, id);
+  };
+
+  // Replace root component
+  public onChangeRoot = (newRoot: IComponentInstanceCommon) => {
+    this.store.actions.onChangeRoot(newRoot);
+  };
+
+  public onChangeParent = (childId: string, parentId: string) => {
+    this.store.actions.onChangeParent(childId, parentId);
   };
 
   public injectRenderPipe = (extensionName: string, pipeName: string) => {

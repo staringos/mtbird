@@ -477,7 +477,7 @@ export const SCHEMA_EVENT_CLICK = SchemaGenerator.collapsePanel('点击事件', 
   })
 ]);
 
-const DATA_TYPE_OPTIONS = [
+const DATA_SOURCE_OPTIONS = [
   {
     label: '数据模型',
     value: 'model'
@@ -494,7 +494,7 @@ const DATA_TYPE_OPTIONS = [
 
 export const SCHEMA_DATA_BASIC = [
   SchemaGenerator.collapsePanel('数据', [
-    SchemaGenerator.select('数据类型', 'data.type', DATA_TYPE_OPTIONS),
+    SchemaGenerator.select('数据类型', 'data.type', DATA_SOURCE_OPTIONS),
     SchemaGenerator.select('模型', 'data.targetId', '${{$modelsOptions}}', {
       'pattern.display': `function(node) { return node.data?.type === 'model' }`
     })

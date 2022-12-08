@@ -1,4 +1,4 @@
-import { IComponentInstance, IEditorOptions, IPosition } from '@mtbird/shared';
+import { IComponentInstance, IComponentInstanceCommon, IEditorOptions, IPosition } from '@mtbird/shared';
 import { COMPONENT_NAME, generateKeys, getWrapperPosition } from '@mtbird/core';
 import { useState, useEffect, useRef } from 'react';
 import { computeBlockOverstep, flattenComponentTree, getComponentArray, needOverstep } from '../../utils';
@@ -17,7 +17,7 @@ import { SchemaDataSource } from '@mtbird/helper-component';
 import Moveable from 'react-moveable';
 import PageDataSource from 'src/data/PageDataSource';
 import { SAVE_STATE } from 'src/utils/constants';
-import { dataURItoBlob } from '@mtbird/core';
+import { dataURItoBlob, COMPONENT_TYPE } from '@mtbird/core';
 
 const ADD_ROOT_COMPONENT = [COMPONENT_NAME.CONTAINER_BLOCK, COMPONENT_NAME.MODAL];
 
@@ -188,7 +188,7 @@ function usePageModal(options: IEditorOptions): IContext {
   const context: IContext = {
     state: {
       componentMap,
-      pageDataSource,
+      pageDataSource: pageDataSource as any,
       schemaDataSource,
       pageConfig: tmpPageConfig,
       pageList: pageList ? pageList : [pageConfig],
@@ -200,17 +200,6 @@ function usePageModal(options: IEditorOptions): IContext {
       getMoveable,
       setCurrentComponent,
       onSave: async () => {
-        // const dom: any = document.getElementById(tmpPageConfig.data.id)?.parentNode;
-
-        // let dataUrl = undefined;
-        // let avatarUrl = undefined;
-        // if (dom) {
-        //   // for compress, jpeg only
-        //   dataUrl = await toPng(dom, { quality: 0.8 });
-        //   avatarUrl = await options.onUpload([dataURItoBlob(dataUrl)]);
-        //   avatarUrl = avatarUrl[0];
-        // }
-
         // nothing edit ignore save
         if (!hasEdit) return;
 
@@ -225,6 +214,29 @@ function usePageModal(options: IEditorOptions): IContext {
         setHasEdit(false);
       },
       onChange: onSchemaChange,
+      onChangeRoot: (rootComponent: IComponentInstanceCommon) => {
+        setTmpPageConfig(rootComponent);
+        setCurrentComponent([rootComponent]);
+      },
+      onChangeParent: (childId: string, parentId: string) => {
+        const child = componentMap.get(childId);
+        if (!child) return;
+        const oldParent = componentMap.get(child.parent as string);
+        const newParent = componentMap.get(parentId);
+        if (!oldParent || !newParent) return;
+
+        // not a container, no child
+        if (newParent.type !== COMPONENT_TYPE.CONTAINER) return;
+
+        child.parent = newParent.id;
+        // add to new parent children
+        (newParent.children as Array<IComponentInstanceCommon>).push(child);
+
+        // remove from old parent children
+        oldParent.children = (oldParent.children as Array<IComponentInstanceCommon>).filter((cur) => cur.id !== child.id);
+
+        setTmpPageConfig(tmpPageConfig);
+      },
       onBatchChange: (record: Map<string, Record<string, any>>) => {
         let checkOverstep = false;
         record.forEach((value, key) => {

@@ -102,7 +102,17 @@ export interface IExtensionContext {
   /**
    * modify currentComponent config
    */
-  onChangeValue: (keyPath: string, value: any) => void;
+  onChangeValue: (keyPath: string, value: any, id?: string) => void;
+
+  /**
+   * Replace root component
+   */
+  onChangeRoot: (newRoot: IComponentInstance | IComponentInstanceForm) => void;
+
+  /**
+   * Change childId's component's parent to parentId component
+   */
+  onChangeParent: (childId: string, newParentId: string) => void;
 
   /**
    * Inject render pipe handler and configuration into currentComponent's pipes.render attribute

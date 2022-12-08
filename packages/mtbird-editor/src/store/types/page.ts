@@ -1,4 +1,4 @@
-import type { IComponentInstance, IPageConfig, IDataSource, IPosition } from '@mtbird/shared';
+import type { IComponentInstance, IPageConfig, IDataSource, IPosition, IComponentInstanceCommon } from '@mtbird/shared';
 import { RefObject } from 'react';
 import Moveable from 'react-moveable';
 
@@ -22,6 +22,8 @@ export interface IAction {
   setCurrentComponent: (currentComponent: IComponentInstance[]) => void;
   onSave: () => void;
   onChange: (keyPath: string, value: any, componentId?: string) => void;
+  onChangeRoot: (rootComponent: IComponentInstanceCommon) => void;
+  onChangeParent: (childId: string, newParentId: string) => void;
   // batch change many component
   // record: Map<componentId, Record<keyPath, value>>
   onBatchChange: (record: Map<string, Record<string, any>>) => void;
