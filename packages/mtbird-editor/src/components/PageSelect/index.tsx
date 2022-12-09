@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Dropdown, Menu } from 'antd';
-import Model from 'src/store/types';
+import Model from '../../store/types';
 import styles from './style.module.less';
 
 const PageSelect = ({ value }: { value: string }) => {

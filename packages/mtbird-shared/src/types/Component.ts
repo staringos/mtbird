@@ -52,9 +52,12 @@ export interface IAnimate {
 }
 
 export interface ISearch {
+  // keyPath or field id
   keyPath: string;
   display: string;
+  operator: 'equals' | 'not-equals';
   default: boolean;
+  value: string;
 }
 
 export interface IColumn {
@@ -64,12 +67,13 @@ export interface IColumn {
 }
 
 export interface IFeatures {
-  pagination: { pageNum: number; pageSize: number };
+  pagination: { pageNum: number; pageSize: number } | boolean;
   modify: boolean;
   delete: boolean;
   add: boolean;
-  search: ISearch[];
+  search: ISearch[] | boolean;
   additionColumns: IColumn[];
+  sorts: string[] | boolean;
 }
 
 export interface IComponentInstance {
@@ -140,6 +144,7 @@ export interface IComponentProps {
   className?: string;
   dataSource?: IDataSource;
   isEdit: boolean;
+  variables: Record<string, any>;
   onSelectComponent: () => void;
   // for data source value change (eg: form data)
   onChangeValue: (value: any, keyPath?: string | null) => void;

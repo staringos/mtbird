@@ -3,11 +3,12 @@ import { Button, Tooltip } from 'antd';
 import styles from './style.module.less';
 import isArray from 'lodash/isArray';
 import { MoveableManagerInterface, Renderer } from 'react-moveable';
-import Model from '../../store/types';
+import Model from '../../../store/types';
 import { COMPONENT_NAME, LAYOUT_TYPE, dataURItoBlob, EXTENSION_CONTRIBUTE_TYPE } from '@mtbird/core';
 import { toPng } from 'html-to-image';
 import { helpers } from '@mtbird/helper-extension';
-import { IComponent, IComponentInstance } from '@mtbird/shared/src/types/Component';
+import { IComponentInstance } from '@mtbird/shared/src/types/Component';
+import DataItemEditableContainer from '../../DataItemEditable';
 
 interface IProps {
   moveable: MoveableManagerInterface<any, any>;
@@ -162,18 +163,23 @@ const DragToolbarContainer = ({ moveable }: IProps) => {
         top: `0px`
       }}
     >
-      {buttons.map((cur) => {
+      {/* <div className={styles.dataItemWrapper}>
+        <DataItemEditableContainer />
+      </div> */}
+
+      {buttons.map((cur, i) => {
         if (!cur.condition) return '';
         return (
-          <Tooltip placement="right" title={cur.title}>
+          <Tooltip placement="right" key={i} title={cur.title}>
             <Button className={styles.dragToolbarButton} key={cur.title} title={cur.title} icon={<i className={cur.icon} />} onClick={cur.action} />
           </Tooltip>
         );
       })}
 
-      {contributes?.map((cur) => {
+      {contributes?.map((cur, i) => {
         return (
           <Button
+            key={i}
             className={styles.dragToolbarButton}
             key={cur.params.name}
             title={cur.params.name}

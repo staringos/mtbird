@@ -5,7 +5,8 @@ export const COMPONENT_NAME = {
   FORM: 'Form',
   FORM_ITEM: 'FormItem',
   UPLOAD: 'Upload',
-  MODAL: 'Modal'
+  MODAL: 'Modal',
+  DATA_LIST: 'DataList'
 };
 
 export const COMPONENT_TYPE = {

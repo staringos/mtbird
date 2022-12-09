@@ -42,6 +42,17 @@ const title = (title: string, style?: any) => {
 };
 
 export default {
+  dataSourcePanel: () => {
+    return {
+      type: 'form',
+      componentName: 'SchemaDataSourcePanel',
+      props: {
+        style: {}
+      },
+      children: []
+    };
+  },
+
   formList: (pageId: string, targetId: string, features?: IFeature, additionColumns?: IColumn[]) => {
     return {
       type: 'form',

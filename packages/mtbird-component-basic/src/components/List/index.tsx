@@ -18,7 +18,7 @@ const ListComponent = ({ node, value, onChangeValue, dataSource }: IComponentPro
   const [editIndex, setEditIndex] = useState<number | undefined>(undefined);
   const [pagination, setPagination] = useState<IPageParams>({
     pageNum: 1,
-    pageSize: 3
+    pageSize: 20
   });
   const [columns, setColumns] = useState<ColumnsType<any>>([]);
   const [search, setSearch] = useState<Record<string, any>>({});

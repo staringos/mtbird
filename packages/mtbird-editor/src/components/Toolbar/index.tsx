@@ -7,7 +7,7 @@ import tools from './tools.json';
 import { ExtensionRender, helpers } from '@mtbird/helper-extension';
 import { IComponentInstance, IComponentInstanceForm, IComponentManifest } from '@mtbird/shared';
 import { EXTENSION_CONTRIBUTE_TYPE } from '@mtbird/core';
-import Model from 'src/store/types';
+import Model from '../../store/types';
 import { Events, EVENT_KEYS } from '@mtbird/core';
 import ToolBoxList from './ToolBoxList';
 

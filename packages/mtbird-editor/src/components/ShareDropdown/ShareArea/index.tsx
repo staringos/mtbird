@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { Input, Button, Dropdown, MenuProps, Space } from 'antd';
+import { Input, Button } from 'antd';
 import styles from './style.module.less';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import Model from 'src/store/types';
+import Model from '../../../store/types';
 import { toPng } from 'html-to-image';
 
 const QRCode = require('qrcode');

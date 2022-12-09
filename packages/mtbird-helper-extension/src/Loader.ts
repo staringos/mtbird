@@ -236,38 +236,6 @@ const loadComponents = async (params: IExtensionParams) => {
     });
   }
 
-  // await Promise.all(
-  //   components.map(async (key: string) => {
-  //     const url = `${urls.base}/${key}/index.js`;
-  //     const globalKey = 'components'; // (manifest?.name as string) + key;
-  //     const keyPath = `${GLOBAL_EXTENSION_COMPONENTS_KEY}.${globalKey}.default`;
-  //     const COMPONENT = await AssetsLoader.js(url, keyPath, !isDev, isDev);
-
-  //     const instanceExtension = {
-  //       isExtension: true,
-  //       extensionName: manifest.name,
-  //       componentName: key,
-  //       version: manifest.version
-  //     };
-
-  //     const componentManifest = {
-  //       ...COMPONENT.manifest,
-  //       componentName: globalKey,
-  //       extension: {
-  //         ...instanceExtension,
-  //         component: COMPONENT
-  //       },
-  //       instance: {
-  //         ...COMPONENT.manifest.instance,
-  //         componentName: globalKey,
-  //         extension: instanceExtension
-  //       }
-  //     };
-
-  //     return params.components.set(globalKey, componentManifest);
-  //   })
-  // );
-
   return params;
 };
 
@@ -282,16 +250,10 @@ const loadComponentCSS = async (params: IExtensionParams) => {
   if (!manifest || !manifest.components) return params;
 
   const { components } = manifest;
-  // await Promise.all(
-  //   components.map(async (key) => {
-  //     const url = `${urls.base}/${key}/index.css`;
-  //     return await AssetsLoader.css(url, !isDev, isDev);
-  //   })
-  // );
 
   try {
     if (components) {
-      const url = `${urls.base}/${manifest.name}/components.css`;
+      const url = `${urls.base}/components.css`;
       await AssetsLoader.css(url, !isDev, isDev);
     }
   } catch (e) {

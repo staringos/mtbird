@@ -492,11 +492,70 @@ const DATA_SOURCE_OPTIONS = [
   }
 ];
 
+const DATA_PAGINATION_TYPE = [
+  {
+    label: '点击（加载更多）',
+    value: 'click'
+  },
+  {
+    label: '滚动底部加载',
+    value: 'bottom'
+  },
+  {
+    label: '分页器',
+    value: 'pagination'
+  },
+  {
+    label: '不分页',
+    value: false
+  }
+];
+
+const SEARCH_CONDITION_ENTITY = [
+  {
+    title: '字段',
+    keyPath: 'field',
+    type: 'string',
+    default: '',
+    isRequired: true,
+    options: '${{fieldsOptions}}'
+  },
+  {
+    title: '操作',
+    keyPath: 'imageUrl',
+    type: 'string',
+    default: '',
+    isRequired: true,
+    options: [
+      {
+        label: '等于',
+        value: 'equals'
+      },
+      {
+        label: '不等于',
+        value: 'not-equals'
+      }
+    ]
+  },
+  {
+    title: '值',
+    keyPath: 'value',
+    type: 'string',
+    default: '',
+    isRequired: true
+  }
+];
+
 export const SCHEMA_DATA_BASIC = [
-  SchemaGenerator.collapsePanel('数据', [
-    SchemaGenerator.select('数据类型', 'data.type', DATA_SOURCE_OPTIONS),
+  SchemaGenerator.collapsePanel('数据源', [
+    SchemaGenerator.select('类型', 'data.type', DATA_SOURCE_OPTIONS),
     SchemaGenerator.select('模型', 'data.targetId', '${{$modelsOptions}}', {
       'pattern.display': `function(node) { return node.data?.type === 'model' }`
-    })
+    }),
+    // SchemaGenerator.list('筛选条件', 'data.features.search', SEARCH_CONDITION_ENTITY as any),
+    // SchemaGenerator.select('排序字段', 'data.features.sort'),
+    SchemaGenerator.select('分页', 'data.features.pagination.type', DATA_PAGINATION_TYPE),
+    SchemaGenerator.input('每页条数', 'data.features.pagination.pageSize'),
+    SchemaGenerator.dataSourcePanel()
   ])
 ];

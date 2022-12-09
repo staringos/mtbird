@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Button, Tooltip } from 'antd';
 import styles from './style.module.less';
-import Model from 'src/store/types';
+import Model from '../../store/types';
 import PageSelect from '../PageSelect';
 import DebugButton from '../DebugButton';
 import HeaderBars from './HeaderBars';

@@ -1,8 +1,7 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { Tooltip, Button, message } from 'antd';
-import stylesOut from '../style.module.less';
 import styles from './style.module.less';
-import Model from 'src/store/types';
+import Model from '../../../store/types';
 import { useInterval } from 'src/utils/hooks';
 
 /**

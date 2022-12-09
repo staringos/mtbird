@@ -6,10 +6,11 @@ interface IProps {
   options: IOptionItem[];
   placeholder?: string;
   value?: string;
+  multiple?: boolean;
   onChange: (value: string) => void;
 }
 
-const SchemaSelect = ({ options, disabled, value, placeholder, onChange }: IProps) => {
+const SchemaSelect = ({ options, disabled, value, placeholder, multiple, onChange }: IProps) => {
   const style = {
     backgroundColor: 'var(--gray-7)',
     color: 'white',
@@ -20,7 +21,7 @@ const SchemaSelect = ({ options, disabled, value, placeholder, onChange }: IProp
   };
 
   return (
-    <select style={style} disabled={disabled} value={value} onChange={(e) => onChange(e.target.value)}>
+    <select style={style} disabled={disabled} value={value} onChange={(e) => onChange(e.target.value)} multiple={multiple}>
       <option selected={value === undefined} value={undefined} disabled>
         {placeholder ? placeholder : '-- 请选择 --'}
       </option>

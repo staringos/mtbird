@@ -29,10 +29,11 @@ const Render = ({ node, className, zIndex, formId, parent }: IProps & IPageConfi
 
   const context = useContext(RenderContext);
   const { layoutMoveable, onClick, dataSource, onUpload, isEdit, renderExtra, Components, variables, onChangeSelf } = context;
+
   const Component = node.extension ? Components[node.extension.extensionName]?.[node.extension.componentName] : Components[node.componentName];
   const componentRef = useRef(null);
   const { props, editing, pattern } = node;
-  const { position, top, left, bottom, right, transform, flex, ...restStyle } = props?.style;
+  const { position, top, left, bottom, right, transform, flex, marginLeft, marginRight, marginTop, marginBottom, ...restStyle } = props?.style;
   const instanceFormId = node.componentName === 'Form' ? node.id : formId;
   const [showMask, setShowMask] = useState(true);
 
@@ -49,6 +50,10 @@ const Render = ({ node, className, zIndex, formId, parent }: IProps & IPageConfi
       height: props.style.height,
       zIndex,
       transform,
+      marginLeft,
+      marginRight,
+      marginTop,
+      marginBottom,
       flex
     }
   };
@@ -126,6 +131,7 @@ const Render = ({ node, className, zIndex, formId, parent }: IProps & IPageConfi
       onChangeValue={handleValueChange}
       onChangeSelf={onChangeSelf}
       parent={parent}
+      variables={variables}
     >
       {renderChildren}
       {extra}

@@ -1,4 +1,14 @@
-import { IComponentInstance, IPosition, IEntity, IEntityField, IVariable, IComponentInstanceForm, IOptionItem, IModelField } from '@mtbird/shared';
+import {
+  IComponentInstance,
+  IPosition,
+  IEntity,
+  IEntityField,
+  IVariable,
+  IComponentInstanceForm,
+  IOptionItem,
+  IModelField,
+  IComponentInstanceCommon
+} from '@mtbird/shared';
 import map from 'lodash/map';
 import union from 'lodash/union';
 import assign from 'lodash/assign';
@@ -328,4 +338,37 @@ export const convertModelToColumn = (fields: IModelField[]) => {
       }
     };
   });
+};
+
+export const getParentPath = (node: IComponentInstanceCommon, componentMap: Map<string, IComponentInstanceCommon>) => {
+  const path: string[] = [];
+
+  const loop = (target: IComponentInstanceCommon): string[] => {
+    path.push(target.id as string);
+    if (!target.parent) return path;
+    const parent = componentMap.get(target.parent);
+    if (!parent) return path;
+    return loop(parent);
+  };
+
+  return loop(node);
+};
+
+export const getNodeFromTreeBranch = (
+  node: IComponentInstanceCommon,
+  componentMap: Map<string, IComponentInstanceCommon>,
+  fn: (node: IComponentInstanceCommon) => boolean
+) => {
+  const loop = (target: IComponentInstanceCommon): IComponentInstanceCommon | number => {
+    if (!target) return -1;
+    if (fn(target)) {
+      return target;
+    }
+
+    if (!target.parent) return -1;
+
+    return loop(componentMap.get(target.parent) as IComponentInstance);
+  };
+
+  return loop(node);
 };

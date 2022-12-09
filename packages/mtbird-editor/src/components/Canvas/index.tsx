@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import styles from './style.module.less';
-import Renderer from '@mtbird/renderer-web';
 import InfiniteViewer from 'react-infinite-viewer';
 import type { IPageConfig, IComponentInstance } from '@mtbird/shared';
 import Model from '../../store/types';
@@ -10,6 +9,8 @@ import Selecto from 'react-selecto';
 import { getElementInfo } from 'react-moveable';
 import { getSelectedComponent } from '../../utils';
 import { CLASS_NAME_DRAG_BLOCK_HANDLER } from '../../utils/constants';
+import RendererWrapper from '../RendererWrapper';
+import DataItemEditableContainer from '../DataItemEditable';
 
 interface IProps {
   page: IPageConfig;
@@ -114,10 +115,6 @@ export default () => {
     }
   };
 
-  const handleChangeSelf = (keyPath: string, value: any) => {
-    return actions.onChange(keyPath, value);
-  };
-
   return (
     <div ref={containerRef} className={styles.canvasWrapper + ' selectoContainer'} onClick={handleCancelSelect}>
       <GuildLine
@@ -181,25 +178,8 @@ export default () => {
             infiniteViewerRef={infiniteViewerRef}
           />
           <div className={styles.canvasOutsider + ' ' + (currentModal ? styles.canvasOutsiderModal : '')}>
-            {!loading && (
-              <Renderer
-                isEdit={true}
-                pageConfig={state.pageConfig}
-                platform="mobile"
-                dataSource={state.pageDataSource}
-                onUpload={actions.onUpload}
-                variables={state.variables}
-                onChangeSelf={handleChangeSelf}
-                renderExtra={(node: IComponentInstance) => {
-                  if (node?.componentName !== 'ContainerBlock') return '';
-                  return (
-                    <div className={CLASS_NAME_DRAG_BLOCK_HANDLER} data-id={node.id}>
-                      ————————
-                    </div>
-                  );
-                }}
-              />
-            )}
+            <DataItemEditableContainer />
+            {!loading && <RendererWrapper pageConfig={state.pageConfig} />}
           </div>
         </div>
       </InfiniteViewer>

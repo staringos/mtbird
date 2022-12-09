@@ -5,9 +5,10 @@ import isArray from 'lodash/isArray';
 import { IComponentInstance } from '@mtbird/shared';
 import Model from '../../store/types';
 import { getDomTransform, getTransformMatrixRotate, setTransformRotate } from '../../utils';
-import DimensionViewable from '../DimensionViewable';
-import DragToolbar from '../DragToolbar';
+import DimensionViewable from './DimensionViewable';
+import DragToolbar from './DragToolbar';
 import useShiftKey from '../../store/useShiftKey';
+import DataItemEditable from '../DataItemEditable';
 
 export const NON_DRAGGABLE_COMPONENT = [COMPONENT_NAME.CONTAINER_ROOT, COMPONENT_NAME.CONTAINER_BLOCK];
 export const NON_RESIZEABLE_COMPONENT = [COMPONENT_NAME.CONTAINER_ROOT, COMPONENT_NAME.CONTAINER_BLOCK];
@@ -86,12 +87,13 @@ const AbsoluteLayoutMoveable = ({ selectoRef, horizontalGuidelines, verticalGuid
 
   return (
     <Moveable
-      ables={[DimensionViewable, DragToolbar]}
+      ables={[DimensionViewable, DragToolbar, DataItemEditable]}
       ref={moveableRef}
       targets={targets}
       props={{
         dimensionViewable: true,
-        editable: true
+        editable: true,
+        dataItemEditable: true
       }}
       draggable={draggable}
       resizable={resizeable}

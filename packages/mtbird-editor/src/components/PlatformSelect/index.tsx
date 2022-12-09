@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Radio } from 'antd';
 import { PreviewMobileType } from '@mtbird/core';
 import { IEditorSettings } from '@mtbird/shared';
-import Model from 'src/store/types';
+import Model from '../../store/types';
 import styles from './style.module.less';
 import { PC_SIZE } from '../../utils/constants';
 

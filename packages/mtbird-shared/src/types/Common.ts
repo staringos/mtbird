@@ -1,3 +1,5 @@
+import { IOptionItem } from './Data';
+
 export interface IPagination<T> {
   pageNum: number;
   pageSize: number;
@@ -25,6 +27,7 @@ export interface IEntityField {
   isRequired: boolean;
   type: 'string' | 'number' | 'select';
   default: string | number;
+  options?: IOptionItem[];
 }
 
 export type IEntity = IEntityField[];
