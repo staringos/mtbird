@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState } from 'react';
 import type { IComponentInstanceForm, IPageConfig } from '@mtbird/shared';
-import { LAYOUT_TYPE, COMPONENT_NAME } from '@mtbird/core';
+import { LAYOUT_TYPE } from '@mtbird/core';
 import isArray from 'lodash/isArray';
 import isObject from 'lodash/isObject';
 import isString from 'lodash/isString';
@@ -11,6 +11,7 @@ import { IComponentInstance } from '@mtbird/shared';
 import { generateFunction } from '@mtbird/core';
 import RenderContext from 'src/context/RenderContext';
 import styles from './style.module.less';
+import cloneDeep from 'lodash/cloneDeep';
 
 interface IProps {
   className: string;
@@ -20,15 +21,16 @@ interface IProps {
   platform: 'pc' | 'mobile';
   node: IComponentInstance | IComponentInstanceForm;
   zIndex: number;
+  variables: Record<string, any>;
 }
 
-const Render = ({ node, className, zIndex, formId, parent }: IProps & IPageConfig) => {
+const Render = ({ node, className, zIndex, formId, parent, variables }: IProps & IPageConfig) => {
   // 1. no need to render, return empty or directly
   if (!node) return <div />;
   if (isString(node) || isNumber(node)) return node;
 
   const context = useContext(RenderContext);
-  const { layoutMoveable, onClick, dataSource, onUpload, isEdit, renderExtra, Components, variables, onChangeSelf } = context;
+  const { layoutMoveable, onClick, dataSource, onUpload, isEdit, renderExtra, Components, onChangeSelf } = context;
 
   const Component = node.extension ? Components[node.extension.extensionName]?.[node.extension.componentName] : Components[node.componentName];
   const componentRef = useRef(null);
@@ -59,16 +61,29 @@ const Render = ({ node, className, zIndex, formId, parent }: IProps & IPageConfi
   };
 
   // 3. process with children
-  let renderChildren = node.children;
-  if (node.children) {
-    if (isArray(node.children)) {
-      renderChildren = node.children.map((child: IComponentInstance, i: number) => (
-        <Render key={i} parent={node} node={child} formId={instanceFormId} zIndex={i + 1} />
-      ));
-    } else if (isObject(node.children)) {
-      renderChildren = <Render node={node.children} parent={node} zIndex={1} />;
+  const childrenRender = (props?: Record<string, any>, index?: number) => {
+    let renderChildren: any = node.children;
+    if (node.children && isArray(node.children)) {
+      renderChildren = (node.children as IComponentInstance[]).map((child: IComponentInstance, i: number) => {
+        let curChildNode = child;
+        if (index !== undefined) curChildNode = cloneDeep(child);
+
+        return (
+          <Render
+            key={(curChildNode.id || i) + '' + index}
+            parent={node}
+            node={curChildNode}
+            formId={instanceFormId}
+            zIndex={i + 1}
+            variables={variables}
+            {...props}
+          />
+        );
+      });
     }
-  }
+
+    return renderChildren;
+  };
 
   // 4. node assembling pipeline
   // MRP https://zhuanlan.zhihu.com/p/384274011
@@ -132,8 +147,9 @@ const Render = ({ node, className, zIndex, formId, parent }: IProps & IPageConfi
       onChangeSelf={onChangeSelf}
       parent={parent}
       variables={variables}
+      childrenRender={childrenRender}
     >
-      {renderChildren}
+      {childrenRender()}
       {extra}
     </Component>
   );
