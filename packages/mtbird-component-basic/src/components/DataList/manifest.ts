@@ -1,6 +1,6 @@
 import type { IComponentManifest, IComponentInstanceForm } from '@mtbird/shared';
 import { COMPONENT, SchemaGenerator } from '@mtbird/core';
-const { COMPONENT_DEFAULT_STYLE, SCHEMA_COMPONENT_BASIC_STYLE, SCHEMA_DATA_BASIC } = COMPONENT;
+const { COMPONENT_DEFAULT_STYLE, SCHEMA_COMPONENT_BASIC_STYLE, SCHEMA_DATA_BASIC, SCHEMA_GRID_LAYOUT } = COMPONENT;
 
 const manifest: IComponentManifest<IComponentInstanceForm> = {
   type: 'component',
@@ -10,7 +10,7 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
   desc: '',
   category: 'basic',
   subCategory: 'data',
-  schema: [...SCHEMA_COMPONENT_BASIC_STYLE, ...SCHEMA_DATA_BASIC],
+  schema: [...SCHEMA_COMPONENT_BASIC_STYLE, ...SCHEMA_GRID_LAYOUT, ...SCHEMA_DATA_BASIC],
   instance: {
     type: 'component',
     componentName: 'DataList',
@@ -18,7 +18,10 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
       style: {
         ...COMPONENT_DEFAULT_STYLE,
         height: 200,
-        width: 260
+        width: 260,
+        display: 'flex',
+        flexFlow: 'wrap',
+        overflowY: 'auto'
       }
     },
     formConfig: {
@@ -28,7 +31,7 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
     data: {
       type: 'model'
     },
-    layout: 'flex',
+    layout: 'grid',
     children: [
       SchemaGenerator.container(
         [],

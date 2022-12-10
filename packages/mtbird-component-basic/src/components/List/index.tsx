@@ -117,7 +117,7 @@ const ListComponent = ({ node, value, onChangeValue, dataSource }: IComponentPro
       case 'model':
       case 'form':
         if (!dataSource?.queryData) return;
-        const res = await dataSource?.queryData(pageId, targetId, pagination, search);
+        const res = await dataSource?.queryData(data?.type, pageId, targetId, pagination, search);
         setTableData({ ...res, data: res.data.map((cur: any) => ({ ...cur, ...cur.data })) } as any);
         break;
       case 'entity':

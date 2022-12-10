@@ -22,6 +22,7 @@ const SelectComponent = (allProps: ISchemaProps) => {
         {formConfig?.placeholder ? formConfig.placeholder : '-- 请选择 --'}
       </option>
       {options &&
+        options.map &&
         options.map((cur: { value: string; label: string }) => {
           return (
             <option value={cur.value} key={cur.value}>

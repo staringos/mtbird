@@ -11,6 +11,7 @@ const EventPipe = (props: IPipeProps) => {
   const { node, context, isEdit } = props;
 
   if (!node.events || isEdit) return props;
+
   const events = ComponentEvent.generateEventHandlers(node.events, context);
   keys(events).forEach((key: string) => {
     props.wrapperProps[key] = events[key];

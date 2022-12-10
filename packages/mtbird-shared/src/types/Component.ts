@@ -1,4 +1,5 @@
 // import React from 'react';
+import { ReactDOM } from 'react';
 import { IEntity } from './Common';
 import { DataType } from './Data';
 import type { IDataSource } from './DataSource';
@@ -103,6 +104,7 @@ export interface IComponentInstance {
       | 'model'; // model
     entity?: IEntity; // 数据实体
     targetId?: string; // list target ID (formId for type=form or modelId for type=model)
+    fieldId?: string; // bind fieldId
     pageId?: string; // dataSource 中数据对象提取
     features?: IFeatures;
   };
@@ -145,6 +147,7 @@ export interface IComponentProps {
   dataSource?: IDataSource;
   isEdit: boolean;
   variables: Record<string, any>;
+  childrenRender?: (props: Record<string, any>, index: number) => ReactDOM;
   onSelectComponent: () => void;
   // for data source value change (eg: form data)
   onChangeValue: (value: any, keyPath?: string | null) => void;

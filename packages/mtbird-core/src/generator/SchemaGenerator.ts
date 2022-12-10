@@ -578,8 +578,8 @@ export default {
     return res;
   },
 
-  switch: (label: string, keyPath: string) => {
-    return {
+  switch: (label: string, keyPath: string, data: Record<string, any>) => {
+    let res = {
       type: 'form',
       componentName: 'Switch',
       props: {
@@ -600,7 +600,10 @@ export default {
         showMask: true
       },
       children: []
-    };
+    } as any;
+
+    if (data) res = mergeKeypath(res, data);
+    return res;
   },
 
   splitLine,

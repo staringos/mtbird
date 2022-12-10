@@ -1,12 +1,11 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import Tabs from '../Tabs';
 import set from 'lodash/set';
 import Model from '../../store/types';
-import { IModel } from '@mtbird/shared';
 import { SchemaEditorRender, IContributeManifest } from '@mtbird/helper-component';
 import { useContext } from 'react';
 import { generateSchemaForm } from '../../utils';
-import { EXTENSION_CONTRIBUTE_TYPE, getModalOptions } from '@mtbird/core';
+import { EXTENSION_CONTRIBUTE_TYPE } from '@mtbird/core';
 import { convertExtensionContributeToTab } from '../../utils/tools';
 
 export default () => {
@@ -26,14 +25,6 @@ export default () => {
 
   const firstCurrentComponent = currentComponent?.[0];
   const schemaConfig = generateSchemaForm(extensionComponents as any, firstCurrentComponent?.componentName);
-  const variables = useMemo(
-    () => ({
-      $modalsList: getModalOptions(pageConfig.data),
-      $models: options.models,
-      $modelsOptions: options.models?.map((cur: IModel) => ({ ...cur, label: cur.name, value: cur.id })) || []
-    }),
-    [pageConfig.data]
-  );
 
   const styleTab = {
     label: '样式',
@@ -45,7 +36,7 @@ export default () => {
         onChange={onChange}
         dataSource={schemaDataSource}
         onUpload={actions.onUpload}
-        variables={variables}
+        variables={state.variables}
       />
     )
   };

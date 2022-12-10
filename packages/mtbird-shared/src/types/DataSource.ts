@@ -17,7 +17,13 @@ export interface IDataSource {
   submit?: (formId: string) => void;
 
   // common
-  queryData?: (pageId: string, targetId: string, pagination: IPageParams, search: Record<string, any>) => Promise<IPagination<any>>;
+  queryData?: (
+    targetType: 'form' | 'model',
+    pageId: string,
+    targetId: string,
+    pagination: IPageParams,
+    search: Record<string, any>
+  ) => Promise<IPagination<any>>;
   deleteData?: (targetId: string, dataId: string | number, dataType?: string) => Promise<boolean>;
   getColumns?: (pageId: string, targetId: string) => Promise<IListColumn[]>;
   modifyData?: (targetId: string, dataId: string, data: Record<string, any>) => Promise<boolean>;

@@ -4,6 +4,7 @@ import Model from '../../store/types';
 import RendererWrapper from '../RendererWrapper';
 import { COMPONENT_NAME, getNodeFromTreeBranch } from '@mtbird/core';
 import { IComponentInstanceCommon } from '@mtbird/shared/dist/types';
+import cloneDeep from 'lodash/cloneDeep';
 
 interface IProps {
   moveable: any;
@@ -38,7 +39,7 @@ const DataItemEditableContainer = () => {
       className={styles.dataEditableItem}
       style={{ width: style.width, height: style.height, left: offsetLeft + rect.width - 50, top: offsetTop - (style.height + 50) }}
     >
-      <RendererWrapper pageConfig={{ data: child, title: '', id: '', headImage: '', type: 'mobile' }} />
+      <RendererWrapper pageConfig={{ data: cloneDeep(child), title: '', id: '', headImage: '', type: 'mobile' }} />
     </div>
   );
 };

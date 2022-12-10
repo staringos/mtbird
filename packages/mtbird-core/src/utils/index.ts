@@ -7,7 +7,9 @@ import {
   IComponentInstanceForm,
   IOptionItem,
   IModelField,
-  IComponentInstanceCommon
+  IComponentInstanceCommon,
+  IModel,
+  IEditorOptions
 } from '@mtbird/shared';
 import map from 'lodash/map';
 import union from 'lodash/union';
@@ -120,12 +122,17 @@ export const getModalOptions = (node: IComponentInstance) => {
   return $modalsList;
 };
 
-export const initVariables = (node: IComponentInstance) => {
+export const initVariables = (node: IComponentInstance, options?: IEditorOptions) => {
   const variablesConfig = get(node, 'data.variables');
 
   // $modalsList
   const $modalsList: any[] = getModalOptions(node);
-  const variables = { ...SYSTEM_VERIABLES(), $modalsList };
+  const variables = {
+    ...SYSTEM_VERIABLES(),
+    $modalsList,
+    $models: options ? options.models : [],
+    $modelsOptions: options?.models ? options?.models.map((cur: IModel) => ({ ...cur, label: cur.name, value: cur.id })) : []
+  };
 
   if (!variablesConfig) return variables;
 

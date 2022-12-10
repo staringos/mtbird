@@ -9,7 +9,7 @@ function useCommonModal(opts: IEditorOptions): IContext {
   const { onUpload, onSaveTemplate } = opts;
   const [options, setOptions] = useState(opts);
   const [editMode, setEditMode] = useState<EditMode>({ componentName: 'cursor' });
-  const [variables, setVariables] = useState(initVariables(options.pageConfig.data));
+  const [variables, setVariables] = useState(initVariables(options.pageConfig.data, opts));
   const [tabsState, setTabsState] = useState({ toolTabs: true, bottomTabs: true, schemaTabs: true });
 
   const context: IContext = {

@@ -10,11 +10,11 @@ import styles from './style.module.less';
 export default () => {
   return (
     <div className={styles.content}>
+      <ModalStatusBar />
       <Canvas />
       <BottomBar />
       <ModalSelect />
       <PanelRender />
-      <ModalStatusBar />
     </div>
   );
 };

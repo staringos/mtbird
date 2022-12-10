@@ -241,7 +241,15 @@ export const SCHEMA_BORDER_BASIC_STYLE = [
     'formConfig.suffix': 'px',
     'formConfig.editFormatter': 'function(v) { return isNaN(parseFloat(v)) ? "" : parseFloat(v) }',
     'formConfig.valueFormatter': 'function(v) { return v + "px"}'
-  })
+  }),
+  SchemaGenerator.containerFlex([
+    SchemaGenerator.inputNumber('左上角', 'props.style.borderTopLeftRadius', { 'formConfig.labelStyle.width': 40 }),
+    SchemaGenerator.inputNumber('右上角', 'props.style.borderTopRightRadius', { 'formConfig.labelStyle.width': 40 })
+  ]),
+  SchemaGenerator.containerFlex([
+    SchemaGenerator.inputNumber('左下角', 'props.style.borderBottomLeftRadius', { 'formConfig.labelStyle.width': 40 }),
+    SchemaGenerator.inputNumber('右下角', 'props.style.borderBottomRightRadius', { 'formConfig.labelStyle.width': 40 })
+  ])
 ];
 
 const shadowEditFormatter = (index: number, notFloat?: boolean) => `function(v) {
@@ -477,7 +485,7 @@ export const SCHEMA_EVENT_CLICK = SchemaGenerator.collapsePanel('点击事件', 
   })
 ]);
 
-const DATA_SOURCE_OPTIONS = [
+export const DATA_SOURCE_OPTIONS = [
   {
     label: '数据模型',
     value: 'model'
@@ -492,7 +500,7 @@ const DATA_SOURCE_OPTIONS = [
   }
 ];
 
-const DATA_PAGINATION_TYPE = [
+export const DATA_PAGINATION_TYPE = [
   {
     label: '点击（加载更多）',
     value: 'click'
@@ -557,5 +565,23 @@ export const SCHEMA_DATA_BASIC = [
     SchemaGenerator.select('分页', 'data.features.pagination.type', DATA_PAGINATION_TYPE),
     SchemaGenerator.input('每页条数', 'data.features.pagination.pageSize'),
     SchemaGenerator.dataSourcePanel()
+  ])
+];
+
+const SCROLL_OPTION = [
+  {
+    label: '隐藏',
+    value: 'none'
+  },
+  {
+    label: '自动',
+    value: 'auto'
+  }
+];
+
+export const SCHEMA_GRID_LAYOUT = [
+  SchemaGenerator.collapsePanel('栅格布局', [
+    SchemaGenerator.select('横滚动条', 'data.overflowX', SCROLL_OPTION),
+    SchemaGenerator.select('竖滚动条', 'data.overflowY', SCROLL_OPTION)
   ])
 ];

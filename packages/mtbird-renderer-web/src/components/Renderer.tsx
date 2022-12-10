@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './style.module.less';
 import type { IPageConfig, IDataSource } from '@mtbird/shared';
 import * as BasicComponents from '@mtbird/component-basic';
@@ -69,7 +69,7 @@ export default (props: IProps) => {
   return (
     <RenderContext.Provider value={context}>
       <div className={styles.rendererContainer} style={{ zoom: isZoom ? getZoom(PLATFORM_DEFAULT_WIDTH[platform]) : 0 }}>
-        <Render node={cloneDeep(pageConfig.data)} style={style} zIndex={1} />
+        <Render node={cloneDeep(pageConfig.data)} style={style} zIndex={1} variables={context.variables as Record<string, any>} />
       </div>
     </RenderContext.Provider>
   );

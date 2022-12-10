@@ -41,6 +41,10 @@ export default class ExtensionContext implements IExtensionContext {
     return this.store?.state.pageList || [];
   }
 
+  get variables() {
+    return this.store?.state.variables || {};
+  }
+
   extensionName = '';
 
   private store: IContext | null = null;
