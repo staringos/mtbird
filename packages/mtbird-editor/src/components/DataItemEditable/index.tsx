@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import styles from './style.module.less';
 import Model from '../../store/types';
 import RendererWrapper from '../RendererWrapper';
@@ -14,30 +14,26 @@ const DataItemEditableContainer = () => {
   const { state } = useContext(Model);
   const { currentComponent } = state;
   const node = currentComponent[0];
+  const endRef = useRef<any>();
 
-  if (currentComponent.length > 1) return '';
-
-  const dataListComponent = getNodeFromTreeBranch(
-    node,
-    state.componentMap,
-    (node: IComponentInstanceCommon) => node.componentName === COMPONENT_NAME.DATA_LIST
-  );
-
-  if (dataListComponent === -1) return '';
+  const dataListComponent = currentComponent
+    ? getNodeFromTreeBranch(node, state.componentMap, (node: IComponentInstanceCommon) => node.componentName === COMPONENT_NAME.DATA_LIST)
+    : undefined;
 
   const $dom = document.getElementById(dataListComponent.id || '');
 
-  if (!$dom) return '';
+  if (!dataListComponent || dataListComponent === -1 || !$dom) return '';
 
   const rect = $dom.getBoundingClientRect();
   const child = dataListComponent.children[0];
-  const { offsetTop, offsetLeft } = $dom;
   const { style } = child.props;
 
   return (
     <div
+      id="dataItemContainer"
+      ref={endRef}
       className={styles.dataEditableItem}
-      style={{ width: style.width, height: style.height, left: offsetLeft + rect.width - 50, top: offsetTop - (style.height + 50) }}
+      style={{ width: style.width, height: style.height, left: rect.left + rect.width - 50, top: rect.top - (style.height + 50) + 80 }}
     >
       <RendererWrapper pageConfig={{ data: cloneDeep(child), title: '', id: '', headImage: '', type: 'mobile' }} />
     </div>

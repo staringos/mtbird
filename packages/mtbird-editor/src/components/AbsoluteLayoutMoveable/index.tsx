@@ -20,13 +20,17 @@ interface IProps {
   zoom: number;
   infiniteViewerRef: any;
   selectoRef: any;
+  leaderLine: any;
 }
 
 export interface IDraggableManagementRef {
   getMoveable: () => Moveable | null;
 }
 
-const AbsoluteLayoutMoveable = ({ selectoRef, horizontalGuidelines, verticalGuidelines, zoom }: IProps, ref: Ref<IDraggableManagementRef>) => {
+const AbsoluteLayoutMoveable = (
+  { selectoRef, horizontalGuidelines, verticalGuidelines, zoom, leaderLine }: IProps,
+  ref: Ref<IDraggableManagementRef>
+) => {
   const { actions, state } = useContext(Model);
   const { onChange, onBatchChange } = actions;
   const { currentComponent, moveableRef, pageConfig } = state;
@@ -199,6 +203,7 @@ const AbsoluteLayoutMoveable = ({ selectoRef, horizontalGuidelines, verticalGuid
         };
 
         isArray(currentComponent) ? (currentComponent as any).forEach(handleResize) : handleResize(currentComponent);
+        leaderLine && leaderLine.position();
       }}
       onDragStart={(e) => {
         setMoveDom(Array.from(document.querySelectorAll('.mtbird-component')));
@@ -237,6 +242,7 @@ const AbsoluteLayoutMoveable = ({ selectoRef, horizontalGuidelines, verticalGuid
             right: parseInt(right)
           });
         });
+        leaderLine && leaderLine.position();
       }}
       onRotate={(e) => {
         if (!rotatable) return;

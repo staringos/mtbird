@@ -11,6 +11,7 @@ import { getSelectedComponent } from '../../utils';
 import { CLASS_NAME_DRAG_BLOCK_HANDLER } from '../../utils/constants';
 import RendererWrapper from '../RendererWrapper';
 import DataItemEditableContainer from '../DataItemEditable';
+import { useLeaderLine } from 'src/utils/hooks';
 
 interface IProps {
   page: IPageConfig;
@@ -21,7 +22,7 @@ let blockHandlerPositionStart: number = 0;
 
 export default () => {
   const { state, actions } = useContext(Model);
-  const { loading, options, editMode, moveableRef } = state;
+  const { loading, options, editMode, moveableRef, currentComponent } = state;
   const { editorSettings } = options;
   const [zoom, setZoom] = useState(1);
   const selectoRef = useRef<Selecto | null>(null);
@@ -34,6 +35,7 @@ export default () => {
   const [verticalSnapGuides, setVerticalSnapGuides] = useState<number[]>([]);
   const selectableTargets = ['.mtbird-selectable-component'];
   const toggleContinueSelect = ['shift'];
+  const leaderLine = useLeaderLine(currentComponent);
 
   const currentModal = actions.getCurrentModal();
 
@@ -44,13 +46,6 @@ export default () => {
   const handleGuidesLineSnapChange = (direction: 'horizontal' | 'vertical', guides: number[]) => {
     if (direction === 'horizontal') return setHorizontalSnapGuides(guides);
     setVerticalSnapGuides(guides);
-  };
-
-  const handleClick = (ref: any, e: React.MouseEvent<HTMLElement>) => {
-    // if (e.shiftKey) {
-    //   return actions.onSelectContinue(ref);
-    // }
-    // actions.onSelect(ref);
   };
 
   const handleCancelSelect = () => {
@@ -135,6 +130,7 @@ export default () => {
         maxPinchWheel={3}
         zoom={zoom}
         onScroll={(e) => {
+          leaderLine && leaderLine.position();
           if (!guildLineRef?.current) return;
           const horiz = guideDom?.getHori();
           if (horiz) {
@@ -176,6 +172,7 @@ export default () => {
             horizontalGuidelines={horizontalSnapGuides}
             verticalGuidelines={verticalSnapGuides}
             infiniteViewerRef={infiniteViewerRef}
+            leaderLine={leaderLine}
           />
           <div className={styles.canvasOutsider + ' ' + (currentModal ? styles.canvasOutsiderModal : '')}>
             <DataItemEditableContainer />
