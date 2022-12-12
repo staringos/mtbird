@@ -3,7 +3,7 @@ import { injectVariables } from '@mtbird/core';
 import { IPipeProps } from '@mtbird/shared';
 import isString from 'lodash/isString';
 
-const ENABLE_VARIABLE_KEYPATH = ['props.style', 'pattern', 'data'];
+const ENABLE_VARIABLE_KEYPATH = ['props', 'pattern', 'data'];
 
 /**
  * Get value from ENABLE_VARIABLE_KEYPATH list in node
