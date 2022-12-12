@@ -4,7 +4,7 @@
   "description": "The cli of mtbird",
   "author": "zousongqi <george@staringos.com>",
   "homepage": "https://github.com/staringos/mtbird#readme",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "main": "dist/index.js",
   "bin": {
     "mtbird": "./dist/index.js"

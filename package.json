@@ -1,6 +1,8 @@
 {
   "name": "mtbird",
   "private": true,
+  "author": "zousongqi <george@staringos.com>",
+  "license": "Apache-2.0",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"

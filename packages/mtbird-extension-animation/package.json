@@ -4,7 +4,7 @@
   "private": true,
   "description": "星搭官方动画拓展",
   "homepage": "",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "main": "dist/index.umd.js",
   "module": "dist/index.esm.js",
   "types": "dist/types",

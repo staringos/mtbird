@@ -5,7 +5,7 @@
   "description": "The image library plugin",
   "author": "zousongqi <george@staringos.com>",
   "homepage": "",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "main": "dist/index.umd.js",
   "module": "dist/index.esm.js",
   "types": "dist/types",

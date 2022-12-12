@@ -1,6 +1,7 @@
 {
   "name": "mtbird-storybook",
   "version": "0.0.3-beta.33",
+  "license": "Apache-2.0",
   "private": true,
   "browser": {
     "crypto": false,
