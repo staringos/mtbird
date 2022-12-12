@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.33](https://github.com/staringos/mtbird/compare/v0.0.3-beta.32...v0.0.3-beta.33) (2022-12-12)
+
+
+### Features
+
+* update antd version and change tab and table style ([c8fe67c](https://github.com/staringos/mtbird/commit/c8fe67cc3e95951228127b2a3405fdf1384e9d2e))
+
+
+
+
+
 ## [0.0.3-beta.32](https://github.com/staringos/mtbird/compare/v0.0.3-beta.31...v0.0.3-beta.32) (2022-12-06)
 
 **Note:** Version bump only for package mtbird-extension-component-mobile

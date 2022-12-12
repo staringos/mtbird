@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.33](https://github.com/staringos/mtbird/compare/v0.0.3-beta.32...v0.0.3-beta.33) (2022-12-12)
+
+
+### Features
+
+* data bind ([492dd9f](https://github.com/staringos/mtbird/commit/492dd9f0e9b22513c43e19a761a7440f3126f8d9))
+* data list and data model field bind ([b68bd20](https://github.com/staringos/mtbird/commit/b68bd20cee80c65379c76d7c21408c795e7bd272))
+* **dynamic:** DataList modify ([e7b78f9](https://github.com/staringos/mtbird/commit/e7b78f9949d84bd9c55d162e4de98bd7c84ff9ac))
+* field type image and DataList style adjust ([45a61ad](https://github.com/staringos/mtbird/commit/45a61ad331e2771b9fb0140d89d4fea45e0229f1))
+* support props.style to use variable ([d1f1253](https://github.com/staringos/mtbird/commit/d1f12537428e8fb863519baa94e2447ffc4632ec))
+* update antd version and change tab and table style ([c8fe67c](https://github.com/staringos/mtbird/commit/c8fe67cc3e95951228127b2a3405fdf1384e9d2e))
+
+
+
+
+
 ## [0.0.3-beta.32](https://github.com/staringos/mtbird/compare/v0.0.3-beta.31...v0.0.3-beta.32) (2022-12-06)
 
 **Note:** Version bump only for package @mtbird/renderer-web
