@@ -10,7 +10,7 @@ import FilterDropdown from './components/FilterDropdown';
 import { SorterResult } from 'antd/lib/table/interface';
 import { convertColumnsToEntity } from 'src/utils/component';
 
-const ListComponent = ({ node, value, onChangeValue, dataSource }: IComponentProps) => {
+const ListComponent = ({ node, value, onChangeValue, dataSource, onUpload }: IComponentProps) => {
   const { data } = node;
   const { pageId, targetId, entity, features, type, additionColumns } = data as any;
   const [editData, setEditData] = useState<null | any>(null);
@@ -129,7 +129,7 @@ const ListComponent = ({ node, value, onChangeValue, dataSource }: IComponentPro
 
   useEffect(() => {
     refreshTable();
-  }, [pagination, search, value]);
+  }, [pagination, search, value, targetId]);
 
   const handleFinish = () => {
     setEditData({});
@@ -152,6 +152,8 @@ const ListComponent = ({ node, value, onChangeValue, dataSource }: IComponentPro
 
   if (needConfig) return <div>请配置数据源</div>;
 
+  console.log('lllllll columns:', columns);
+
   return (
     <div className={styles.listWrapper}>
       <Space style={{ marginBottom: 16 }}>
@@ -168,6 +170,7 @@ const ListComponent = ({ node, value, onChangeValue, dataSource }: IComponentPro
             node={node as IComponentInstanceForm}
             value={value}
             entity={modifyEntity}
+            onUpload={onUpload}
             onFinish={handleFinish}
             onChangeValue={onChangeValue}
             editData={editData}

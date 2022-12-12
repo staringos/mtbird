@@ -16,7 +16,7 @@ const getColorString = function(color, format) {
   const innerFormat = getFormat(format);
   if (innerFormat === 'hex') {
     if (!color[innerFormat]) {
-      return color.toString()
+      return `rgb(${color.values.rgb.join(',')})`
     }
     return color[innerFormat]();
   }
@@ -111,7 +111,8 @@ function generate(color, options = {}) {
 module.exports = {
   install(_, __, functions) {
     functions.add('color-palette', (color, index) => {
-      return generate(color.value, { index: index.value });
+      const res = generate(color.value, { index: index.value });
+      return res;
     });
   },
 };

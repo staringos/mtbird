@@ -29,6 +29,7 @@
   "dependencies": {
     "@scena/guides": "^0.18.1",
     "@scena/react-guides": "^0.17.1",
+    "color": "^4.2.3",
     "hotkeys-js": "^3.10.1",
     "html-to-image": "^1.10.8",
     "qrcode": "^1.5.1",

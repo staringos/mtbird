@@ -16,6 +16,7 @@ export interface IState {
   pageList: IPageConfig[];
   moveableRef: RefObject<Moveable | undefined>;
   saveState: ISaveState;
+  currentDataContainer: IComponentInstanceCommon | undefined;
 }
 
 export interface IAction {

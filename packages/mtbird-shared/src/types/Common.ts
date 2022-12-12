@@ -1,4 +1,4 @@
-import { IOptionItem } from './Data';
+import { DataType, IOptionItem } from './Data';
 
 export interface IPagination<T> {
   pageNum: number;
@@ -25,7 +25,7 @@ export interface IEntityField {
   title: string;
   keyPath: string;
   isRequired: boolean;
-  type: 'string' | 'number' | 'select';
+  type: DataType;
   default: string | number;
   options?: IOptionItem[];
 }

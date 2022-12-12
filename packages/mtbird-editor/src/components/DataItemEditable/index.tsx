@@ -12,30 +12,33 @@ interface IProps {
 
 const DataItemEditableContainer = () => {
   const { state } = useContext(Model);
-  const { currentComponent } = state;
-  const node = currentComponent[0];
+  const { currentDataContainer } = state;
   const endRef = useRef<any>();
 
-  const dataListComponent = currentComponent
-    ? getNodeFromTreeBranch(node, state.componentMap, (node: IComponentInstanceCommon) => node.componentName === COMPONENT_NAME.DATA_LIST)
-    : undefined;
+  const $dom = document.getElementById(currentDataContainer?.id || '');
+  let display = 'block';
 
-  const $dom = document.getElementById(dataListComponent.id || '');
+  if (!currentDataContainer || !$dom) display = 'none';
 
-  if (!dataListComponent || dataListComponent === -1 || !$dom) return '';
+  // const rect = $dom ? $dom.getBoundingClientRect() : ({} as Record<string, number>);
+  const child = currentDataContainer?.children?.[0];
+  const { style } = child?.props || { style: {} };
+  // const { offsetLeft, offsetTop } = $dom || { offsetLeft: 0, offsetTop: 0 };
 
-  const rect = $dom.getBoundingClientRect();
-  const child = dataListComponent.children[0];
-  const { style } = child.props;
-
+  // const $toolbarDom = document.getElementById('toolbarContent')?.getBoundingClientRect() || { width: 0 };
   return (
     <div
       id="dataItemContainer"
       ref={endRef}
       className={styles.dataEditableItem}
-      style={{ width: style.width, height: style.height, left: rect.left + rect.width - 50, top: rect.top - (style.height + 50) + 80 }}
+      style={{
+        width: style.width,
+        height: style.height,
+        right: -style.width - 20,
+        display
+      }}
     >
-      <RendererWrapper pageConfig={{ data: cloneDeep(child), title: '', id: '', headImage: '', type: 'mobile' }} />
+      {display === 'block' && <RendererWrapper pageConfig={{ data: cloneDeep(child), title: '', id: '', headImage: '', type: 'mobile' }} />}
     </div>
   );
 };

@@ -121,6 +121,8 @@ export interface IComponentInstance {
 
     // 渲染器渲染组件时不包裹 wrapper
     noWrapper?: boolean;
+
+    spacing?: number;
   };
   pipes?: {
     render?: Record<string, IPipe>;

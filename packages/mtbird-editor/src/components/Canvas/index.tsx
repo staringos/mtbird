@@ -22,7 +22,7 @@ let blockHandlerPositionStart: number = 0;
 
 export default () => {
   const { state, actions } = useContext(Model);
-  const { loading, options, editMode, moveableRef, currentComponent } = state;
+  const { loading, options, editMode, moveableRef, currentDataContainer } = state;
   const { editorSettings } = options;
   const [zoom, setZoom] = useState(1);
   const selectoRef = useRef<Selecto | null>(null);
@@ -35,7 +35,7 @@ export default () => {
   const [verticalSnapGuides, setVerticalSnapGuides] = useState<number[]>([]);
   const selectableTargets = ['.mtbird-selectable-component'];
   const toggleContinueSelect = ['shift'];
-  const leaderLine = useLeaderLine(currentComponent);
+  const leaderLine = useLeaderLine(currentDataContainer);
 
   const currentModal = actions.getCurrentModal();
 

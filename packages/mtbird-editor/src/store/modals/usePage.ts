@@ -17,7 +17,7 @@ import { SchemaDataSource } from '@mtbird/helper-component';
 import Moveable from 'react-moveable';
 import PageDataSource from 'src/data/PageDataSource';
 import { SAVE_STATE } from 'src/utils/constants';
-import { dataURItoBlob, COMPONENT_TYPE } from '@mtbird/core';
+import { dataURItoBlob, COMPONENT_TYPE, getNodeFromTreeBranch } from '@mtbird/core';
 
 const ADD_ROOT_COMPONENT = [COMPONENT_NAME.CONTAINER_BLOCK, COMPONENT_NAME.MODAL];
 
@@ -32,6 +32,7 @@ function usePageModal(options: IEditorOptions): IContext {
   const [historyStack, setHistoryStacK] = useState<string[]>([]);
   const [historyStackPointer, setHistoryStackPointer] = useState(0);
   const [isHistoryChange, setIsHistoryChange] = useState(false);
+  const [currentDataContainer, setCurrentDataContainer] = useState<IComponentInstanceCommon | undefined>();
   const [saveState, setSaveState] = useState<ISaveState>({
     state: SAVE_STATE.SAVED,
     lastSaveTime: undefined
@@ -46,6 +47,7 @@ function usePageModal(options: IEditorOptions): IContext {
 
   useEffect(() => {
     refreshDataSource();
+    refreshDataContainer();
   }, [currentComponent]);
 
   const getMoveable = () => {
@@ -95,6 +97,33 @@ function usePageModal(options: IEditorOptions): IContext {
 
   const refreshDataSource = () => {
     setSchemaDataSource(new SchemaDataSource({ currentComponent, componentMap }, onSchemaChange));
+  };
+
+  const refreshDataContainer = () => {
+    if (currentComponent.length !== 1) {
+      if (currentDataContainer) setCurrentDataContainer(undefined);
+      return;
+    }
+
+    const currentFirstComponent = currentComponent[0];
+
+    if (currentFirstComponent.componentName === COMPONENT_NAME.DATA_LIST) {
+      if (currentDataContainer?.id !== currentFirstComponent.id) setCurrentDataContainer(currentFirstComponent);
+      return;
+    }
+
+    const dataContainerNode = getNodeFromTreeBranch(
+      currentFirstComponent,
+      componentMap,
+      (node: IComponentInstanceCommon) => node.componentName === COMPONENT_NAME.DATA_LIST
+    );
+
+    if (dataContainerNode === -1) {
+      if (currentDataContainer) setCurrentDataContainer(undefined);
+      return;
+    }
+
+    if (dataContainerNode.id !== currentDataContainer?.id) setCurrentDataContainer(dataContainerNode);
   };
 
   const onSelect = (component: IComponentInstance | Array<IComponentInstance>) => {
@@ -194,7 +223,8 @@ function usePageModal(options: IEditorOptions): IContext {
       pageList: pageList ? pageList : [pageConfig],
       currentComponent,
       moveableRef,
-      saveState
+      saveState,
+      currentDataContainer
     },
     actions: {
       getMoveable,

@@ -6,6 +6,12 @@ export const COMPONENT_NAME = {
   FORM_ITEM: 'FormItem',
   UPLOAD: 'Upload',
   MODAL: 'Modal',
+  VIDEO: 'Video',
+  IMAGE: 'Image',
+  SHAPE: 'Shape',
+  ICON: 'Icon',
+  BUTTON: 'Button',
+  TEXT: 'Text',
   DATA_LIST: 'DataList'
 };
 

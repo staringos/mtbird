@@ -8,6 +8,7 @@ import ExtensionPipesPipe from './ExtensionPipesPipe';
 import ClassNamePipe from './ClassNamePipe';
 import EventPipe from './EventPipe';
 import ModalPipe from './ModalPipe';
+import SpacingPipe from './SpacingPipe';
 
 export default [
   VariablePipe,
@@ -19,5 +20,6 @@ export default [
   ExtensionPipesPipe,
   ClassNamePipe,
   EventPipe,
-  ModalPipe
+  ModalPipe,
+  SpacingPipe
 ];

@@ -10,15 +10,15 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
   desc: '',
   category: 'basic',
   subCategory: 'data',
-  schema: [...SCHEMA_COMPONENT_BASIC_STYLE, ...SCHEMA_GRID_LAYOUT, ...SCHEMA_DATA_BASIC],
+  schema: [...SCHEMA_COMPONENT_BASIC_STYLE, ...SCHEMA_GRID_LAYOUT, SchemaGenerator.inputNumber('间距', 'pattern.spacing')],
   instance: {
     type: 'component',
     componentName: 'DataList',
     props: {
       style: {
         ...COMPONENT_DEFAULT_STYLE,
-        height: 200,
-        width: 260,
+        height: 400,
+        width: 355,
         display: 'flex',
         flexFlow: 'wrap',
         overflowY: 'auto'
@@ -31,13 +31,18 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
     data: {
       type: 'model'
     },
-    layout: 'grid',
+    pattern: {
+      spacing: 10
+    },
+    layout: 'flex',
     children: [
       SchemaGenerator.container(
         [],
-        { width: 200, height: 200 },
+        { width: 172.5, height: 200 },
         {
-          background: 'var(--gray-3)'
+          background: 'var(--gray-3)',
+          position: 'relative',
+          flexWrap: 'wrap'
         }
       )
     ]

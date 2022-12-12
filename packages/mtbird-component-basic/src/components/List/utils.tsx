@@ -39,6 +39,16 @@ export const generateColumns = async (
     columns = columns.concat(additionColumns.map((col: any) => ({ ...col, render: col.render ? generateFunction(col.render) : undefined })));
   }
 
+  columns.forEach((cur) => {
+    if (cur.field?.type === 'PHOTO') {
+      cur.type = cur.type + '1';
+      cur.render = (src: string) => {
+        if (!src) return src;
+        return <img src={src} style={{ width: 100 }} />;
+      };
+    }
+  });
+
   if (!features || features?.delete || features?.modify) {
     columns.push({
       title: '操作',

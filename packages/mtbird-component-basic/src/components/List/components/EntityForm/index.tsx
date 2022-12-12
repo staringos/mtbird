@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Form, Input, Button, message, Select } from 'antd';
 import { IEntity, IEntityField, IComponentInstanceForm, IDataSource } from '@mtbird/shared';
 import { generateKeys, generateEntityValue, COMPONENT } from '@mtbird/core';
+import { Upload } from '@mtbird/ui';
 import styles from './style.module.less';
 
 interface IProps {
@@ -13,9 +14,10 @@ interface IProps {
   value: any;
   index: number | undefined;
   dataSource: IDataSource;
+  onUpload: any;
 }
 
-const EntityForm = ({ entity, node, editData, value, onChangeValue, onFinish, index, dataSource }: IProps) => {
+const EntityForm = ({ entity, node, editData, value, onChangeValue, onFinish, index, dataSource, onUpload }: IProps) => {
   const { formConfig, data } = node;
   const { type, targetId } = data as any;
   const [form] = Form.useForm();
@@ -54,6 +56,12 @@ const EntityForm = ({ entity, node, editData, value, onChangeValue, onFinish, in
     onFinish();
   };
 
+  const fieldChangeHandler = (keyPath: string) => {
+    return (value: string) => {
+      form.setFieldValue(keyPath, value);
+    };
+  };
+
   return (
     <Form className={styles.entityFormContainer} onFinish={handleSubmit} form={form}>
       {entity.map((cur: IEntityField) => {
@@ -66,6 +74,15 @@ const EntityForm = ({ entity, node, editData, value, onChangeValue, onFinish, in
             </Form.Item>
           );
         }
+
+        if (cur.type === 'PHOTO' || cur.type === 'VIDEO') {
+          return (
+            <Form.Item label={label} name={cur.keyPath} rules={rules}>
+              <Upload maxCount={1} value={form.getFieldValue(cur.keyPath)} onChange={fieldChangeHandler(cur.keyPath)} onUpload={onUpload} />
+            </Form.Item>
+          );
+        }
+
         return (
           <Form.Item label={label} name={cur.keyPath} rules={rules}>
             <Input />
