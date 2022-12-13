@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.34](https://github.com/staringos/mtbird/compare/v0.0.3-beta.33...v0.0.3-beta.34) (2022-12-13)
+
+
+### Features
+
+* update docs and readme add data center ([d879b71](https://github.com/staringos/mtbird/commit/d879b71b954f4ad9432d45a5b20c968c090e4f18))
+* update license ([4cec540](https://github.com/staringos/mtbird/commit/4cec54052beefb5922956e2e169b70b3c24a7824))
+
+
+
+
+
 ## [0.0.3-beta.33](https://github.com/staringos/mtbird/compare/v0.0.3-beta.32...v0.0.3-beta.33) (2022-12-12)
 
 
