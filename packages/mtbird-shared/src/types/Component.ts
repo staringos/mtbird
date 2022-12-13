@@ -142,7 +142,7 @@ export interface IComponentInstance {
 export interface IComponentProps {
   value: string | number | boolean | any;
   formId?: string | undefined;
-  node: IComponentInstance;
+  node: IComponentInstanceCommon;
   children?: string | React.ReactNode;
   style: React.CSSProperties;
   className?: string;

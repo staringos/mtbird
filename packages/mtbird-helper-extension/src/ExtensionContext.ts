@@ -137,6 +137,11 @@ export default class ExtensionContext implements IExtensionContext {
     this.store.actions.onChange(keyPath, value, id);
   };
 
+  // refresh data model
+  public refreshDataModel = () => {
+    return this.store.state.options.refreshDataModel?.();
+  };
+
   // Replace root component
   public onChangeRoot = (newRoot: IComponentInstanceCommon) => {
     this.store.actions.onChangeRoot(newRoot);

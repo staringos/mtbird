@@ -29,6 +29,7 @@ export interface IEditorOptions {
   onlineUserList?: IUser[];
   models?: IModel[];
   modelDataSource?: IDataSource;
+  refreshDataModel?: () => Promise<void>;
   onBack: () => void;
   onUpload: (files: any) => Promise<string[]>;
   onSave: (page: IPageConfig, avatar?: string) => void;

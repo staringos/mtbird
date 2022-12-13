@@ -60,61 +60,55 @@ export const findComponentByKey = (componentTree: IComponentInstance, key: strin
   return loop(componentTree);
 };
 
+export const replaceVariable = (val: any, variables: Record<string, any>) => {
+  if (isObject(val)) return injectVariables(variables)(val);
+
+  // 如果字符串中只有变量，则将对应值赋为目标变量名
+  if (isString(val) && val.startsWith('${{') && val.indexOf('}}') === val.length - 2) {
+    return get(variables, val.replace('${{', '').replace('}}', ''));
+  }
+
+  // 如果字符串中非只有变量，为变量字符串模版，则使用 _.template 解析该模版
+  if (isString(val) && val.indexOf('${{') !== -1) {
+    const compiled = template(val);
+    let value = val;
+    try {
+      value = compiled(variables);
+    } catch (e) {}
+
+    // no attribute in variables, set it as undefined
+    if (VALIABLE_TEMPLATE_REGAX.test(value)) {
+      value = value.replaceAll(VALIABLE_TEMPLATE_REGAX, 'undefined');
+    }
+
+    // set value to its origin data type
+    if (isNumber(value)) return toNumber(value);
+    if (isBoolean(value)) return Boolean(value);
+    if (value === 'undefined') return undefined;
+
+    return value;
+  }
+
+  return val;
+};
+
 export const injectVariables = (variables: Record<string, any>) => {
   templateSettings.interpolate = VALIABLE_TEMPLATE_REGAX;
   return (obj: any) => {
     keys(obj).map((key: string) => {
       const val = obj[key];
-
-      if (isObject(val)) return injectVariables(variables)(val);
-
-      // 如果字符串中只有变量，则将对应值赋为目标变量名
-      if (isString(val) && val.startsWith('${{') && val.indexOf('}}') === val.length - 2) {
-        obj[key] = get(variables, val.replace('${{', '').replace('}}', ''));
-        return;
-      }
-
-      // 如果字符串中非只有变量，为变量字符串模版，则使用 _.template 解析该模版
-      if (isString(val) && val.indexOf('${{') !== -1) {
-        const compiled = template(val);
-        let value = val;
-        try {
-          value = compiled(variables);
-        } catch (e) {}
-
-        // no attribute in variables, set it as undefined
-        if (VALIABLE_TEMPLATE_REGAX.test(value)) {
-          value = value.replaceAll(VALIABLE_TEMPLATE_REGAX, 'undefined');
-        }
-
-        // set value to its origin data type
-        if (isNumber(value)) {
-          obj[key] = toNumber(value);
-          return;
-        }
-
-        if (isBoolean(value)) {
-          obj[key] = Boolean(value);
-          return;
-        }
-
-        if (value === 'undefined') {
-          obj[key] = undefined;
-          return;
-        }
-
-        obj[key] = value;
-      }
+      const res = replaceVariable(val, variables);
+      if (res) obj[key] = res;
     });
   };
 };
 
 export const getModalOptions = (node: IComponentInstance) => {
   const $modalsList: any[] = [];
-  node.children.forEach((cur: IComponentInstance) => {
+  (node.children as IComponentInstanceCommon[]).forEach((cur: IComponentInstance) => {
     if (cur?.componentName === COMPONENT_NAME.MODAL) {
       $modalsList.push({
-        label: cur.data.alias,
+        label: cur.data?.alias,
         value: cur.id
       });
     }

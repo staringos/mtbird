@@ -1,5 +1,5 @@
 import get from 'lodash/get';
-import { injectVariables } from '@mtbird/core';
+import { injectVariables, replaceVariable } from '@mtbird/core';
 import { IPipeProps } from '@mtbird/shared';
 import isString from 'lodash/isString';
 
@@ -21,13 +21,10 @@ const VariablePipe = (props: IPipeProps) => {
     injectVariables(variables)(value);
   });
 
-  // children process
+  // children process, replace only current children, not deep
   if (isString(node.children)) {
-    const children = node.children as string;
-
-    if (children.startsWith('${{') && children.indexOf('}}') === children.length - 2) {
-      node.children = get(variables, children.replace('${{', '').replace('}}', ''));
-    }
+    const res = replaceVariable(node.children, variables);
+    if (res) node.children = res;
   }
 
   return { ...props, node, dataSource };

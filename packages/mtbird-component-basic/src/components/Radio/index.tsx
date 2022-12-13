@@ -11,7 +11,7 @@ const RadioComponent = (allProps: IComponentProps) => {
 
   const component = (
     <Radio.Group className={styles.radioGroup} onChange={(e) => onChangeValue(e.target.value)} value={value}>
-      {data?.options.map((cur: any) => (
+      {data?.options?.map((cur: any) => (
         <Radio value={cur.value} key={cur.value} style={{ color: props?.style?.color }}>
           {cur.label}
         </Radio>

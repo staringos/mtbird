@@ -1,9 +1,7 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import styles from './style.module.less';
 import Model from '../../store/types';
 import RendererWrapper from '../RendererWrapper';
-import { COMPONENT_NAME, getNodeFromTreeBranch } from '@mtbird/core';
-import { IComponentInstanceCommon } from '@mtbird/shared/dist/types';
 import cloneDeep from 'lodash/cloneDeep';
 
 interface IProps {
@@ -23,9 +21,7 @@ const DataItemEditableContainer = () => {
   // const rect = $dom ? $dom.getBoundingClientRect() : ({} as Record<string, number>);
   const child = currentDataContainer?.children?.[0];
   const { style } = child?.props || { style: {} };
-  // const { offsetLeft, offsetTop } = $dom || { offsetLeft: 0, offsetTop: 0 };
 
-  // const $toolbarDom = document.getElementById('toolbarContent')?.getBoundingClientRect() || { width: 0 };
   return (
     <div
       id="dataItemContainer"
@@ -34,7 +30,7 @@ const DataItemEditableContainer = () => {
       style={{
         width: style.width,
         height: style.height,
-        right: -style.width - 20,
+        right: -style.width - 80,
         display
       }}
     >

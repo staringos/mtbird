@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import IContext from '../types/extension';
-import { IEditorOptions, IContribute, IComponentManifest, IComponentInstance, IComponentInstanceForm } from '@mtbird/shared';
+import { IEditorOptions, IContribute, IComponentCommon } from '@mtbird/shared';
 import { extensionLoader, extensionInit, helpers } from '@mtbird/helper-extension';
 import clone from 'lodash/clone';
 import { getManifests } from '@mtbird/component-basic';
@@ -15,9 +15,7 @@ function useExtensionModal(options: IEditorOptions, setLoading: (i: boolean) => 
   const [extensionFeatures, setExtensionFeatures] = useState(new Map());
   const [extensionLoadStatus, setExtensionLoadStatus] = useState<string>('not-start');
   const [extensionPanelVisible, setExtensionPanelVisible] = useState(new Map());
-  const [registeredComponents, setRegisteredComponents] = useState<Record<string, IComponentManifest<IComponentInstance | IComponentInstanceForm>>>(
-    getManifests()
-  );
+  const [registeredComponents, setRegisteredComponents] = useState<Record<string, IComponentCommon>>(getManifests() as any);
 
   const context: IContext = {
     state: {

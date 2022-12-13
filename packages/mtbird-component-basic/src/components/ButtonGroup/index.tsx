@@ -14,7 +14,7 @@ const ButtonGroup = ({ node, dataSource, onChangeValue }: IComponentProps) => {
 
   return (
     <div className={styles.buttonGroup}>
-      {options.map((cur: { keyPath: string; icon: string; label: string; value: string }) => {
+      {options?.map?.((cur: { keyPath: string; icon: string; label: string; value: string }) => {
         const actualValue = dataSource?.getValue('0.' + cur.keyPath);
         const isActive = actualValue === cur.value;
         const type = isActive ? 'primary' : 'default';

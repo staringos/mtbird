@@ -1,6 +1,6 @@
 import { IEditorOptions, IEditorSettings } from '@mtbird/shared';
 import { initVariables } from '@mtbird/core';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IContext, EditMode } from '../types/common';
 import set from 'lodash/set';
 import keys from 'lodash/keys';
