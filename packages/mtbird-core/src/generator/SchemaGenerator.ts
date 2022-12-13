@@ -605,6 +605,43 @@ export default {
     if (data) res = mergeKeypath(res, data);
     return res;
   },
+  image: (src: string, style: Record<string, any>, data: Record<string, any>) => {
+    let res = {
+      type: 'component',
+      componentName: 'Image',
+      props: {
+        src,
+        style: {
+          ...COMPONENT_DEFAULT_STYLE,
+          height: 105,
+          width: 200,
+          ...style
+        }
+      },
+      children: []
+    } as any;
+    if (data) res = mergeKeypath(res, data);
+    return res;
+  },
+
+  text: (children: string, style: Record<string, any>, data: Record<string, any>) => {
+    let res = {
+      type: 'component',
+      componentName: 'Text',
+      props: {
+        style: {
+          ...COMPONENT_DEFAULT_STYLE,
+          height: 100,
+          width: 200,
+          ...style
+        }
+      },
+      children: children || '<p>这是一段文本呀呀呀</p>'
+    } as any;
+
+    if (data) res = mergeKeypath(res, data);
+    return res;
+  },
 
   splitLine,
   title

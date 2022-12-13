@@ -21,7 +21,7 @@ StaringOS MtBird is a low-code platform for HTML Page、Website. We help use to 
 
 [中文文档](./README-CN.md)
 
-<img src="https://mtbird-cdn.staringos.com/modal.gif" />
+<img src="https://mtbird-cdn.staringos.com/product/movies/example.gif" />
 
 <img src="./packages/mtbird-storybook/src/assets/images/advance-en.png" />
 

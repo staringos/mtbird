@@ -1,0 +1,32 @@
+import { Meta } from '@storybook/addon-docs';
+import LinkTo from '@storybook/addon-links/react';
+
+<Meta title="数据中心/介绍" parameters={{ viewMode: 'docs' }} />
+
+# 数据中心
+
+## 介绍
+
+数据中心可以让星搭编辑器制作的页面对接数据，实现动态渲染。
+
+数据源类型有三种：
+
+- 表单(form): 同表单功能，可以查看 <LinkTo kind="编辑器-表单--page">表单文档</LinkTo>
+- 数据模型(model): 对接星搭在线数据模型
+- 自有接口(api): 对接自有 API
+
+## 数据模型 (Model)
+
+进入星搭 SaaS 后台，点击 `数据中心` -> `数据表` -> `数据` 可以查看数据、添加数据模型、编辑字段结构以及对数据进行增删改查。
+
+<video width="600" controls>
+  <source src="https://mtbird-cdn.staringos.com/product/movies/example-full.mov" />
+</video>
+
+如视频所示，`数据模型` 需要关联在 `数据容器`（视频中为 ` 数据列表` 组件）上， `数据列表` 用来对数据进行查询和存储。`数据容器`的子元素可以根据数据容器绑定的数据模型，绑定对应的`字段` ，从而展示不同的内容。
+
+## 自有接口 api
+
+API 功能正在开发中，敬请期待
+
+下一篇：<LinkTo Kind="%E7%BC%96%E8%BE%91%E5%99%A8-%E5%B5%8C%E5%85%A5%E7%BC%96%E8%BE%91%E5%99%A8--page">嵌入编辑器</LinkTo>

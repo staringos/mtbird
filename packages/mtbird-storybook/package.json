@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@mtbird/component-basic": "^0.0.3-beta.33",
+    "@mtbird/ui": "^0.0.3-beta.33",
     "@mtbird/core": "^0.0.3-beta.33",
     "@mtbird/editor": "^0.0.3-beta.33",
     "@mtbird/helper-component": "^0.0.3-beta.33",
@@ -34,7 +35,7 @@
   "scripts": {
     "test-storybook": "test-storybook",
     "start": "start-storybook -p 6006 -s public",
-    "link": "yarn link @mtbird/core & yarn link @mtbird/shared & yarn link @mtbird/component-basic & yarn link @mtbird/renderer-web & yarn link @mtbird/editor & yarn link @mtbird/helper-component & yarn link @mtbird/helper-extension",
+    "link": "yarn link @mtbird/ui & yarn link @mtbird/core & yarn link @mtbird/shared & yarn link @mtbird/component-basic & yarn link @mtbird/renderer-web & yarn link @mtbird/editor & yarn link @mtbird/helper-component & yarn link @mtbird/helper-extension",
     "build": "build-storybook -s public"
   },
   "eslintConfig": {

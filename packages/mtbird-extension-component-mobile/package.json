@@ -18,7 +18,7 @@
   "scripts": {
     "start": "NODE_ENV=development mtbird start",
     "build": "NODE_ENV=production mtbird build",
-    "publish-lib": "NODE_ENV=production mtbird publish --token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbDVpeDkzd2UwMDI5ZHc0emo5djBnNTFtIiwidGVhbUlkIjoiY2w2c3ZpcGFqMDkwN2oxczYxcWllNHY5YyIsImlhdCI6MTY2OTE5NDMzNiwiZXhwIjoxNjY5Nzk5MTM2fQ.Et3zKYTNNqiBL3oEU3T8vU3s02tnc931RquajEgxdlA"
+    "publish-lib": "NODE_ENV=production mtbird publish --token="
   },
   "dependencies": {
     "antd-mobile": "^5.25.1"

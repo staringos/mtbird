@@ -176,14 +176,20 @@ function usePageModal(options: IEditorOptions): IContext {
       Components[newComponent.componentName]?.initManifest(newComponent);
     }
 
-    // if newComponent has children
+    // if newComponent has children, loop to generate id and set parent
     if (newComponent.children && isArray(newComponent.children)) {
-      newComponent.children.forEach((cur: IComponentInstance | string) => {
-        if (typeof cur === 'string') return;
+      const loopChild = (cpt: IComponentInstance | string, parentId: string) => {
+        if (typeof cpt === 'string') return;
 
-        cur.id = generateKeys();
-        cur.parent = newComponent.id;
-      });
+        cpt.id = generateKeys();
+        cpt.parent = parentId;
+
+        if (cpt.children && isArray(cpt.children)) {
+          (cpt.children as IComponentInstance[]).map((cur: IComponentInstance | string) => loopChild(cur, cpt.id as string));
+        }
+      };
+
+      newComponent.children.forEach((cur: IComponentInstance | string) => loopChild(cur, newComponent.id));
     }
 
     // if parent not find, use root's first children
