@@ -149,7 +149,7 @@ export interface IComponentProps {
   dataSource?: IDataSource;
   isEdit: boolean;
   variables: Record<string, any>;
-  childrenRender?: (props: Record<string, any>, index: number) => ReactDOM;
+  childrenRender: (props: Record<string, any>, index: number) => ReactDOM;
   onSelectComponent: () => void;
   // for data source value change (eg: form data)
   onChangeValue: (value: any, keyPath?: string | null) => void;
