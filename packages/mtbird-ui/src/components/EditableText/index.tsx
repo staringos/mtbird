@@ -13,7 +13,8 @@ const EditableText = ({ text, onChange, editable }: IProps) => {
   const [editVal, setEditVal] = useState(text);
   const [loading, setLoading] = useState(false);
 
-  const handleEdit = () => {
+  const handleEdit = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
     if (editable) {
       setIsEdit(true);
     }
@@ -47,7 +48,7 @@ const EditableText = ({ text, onChange, editable }: IProps) => {
     <Spin spinning={loading}>
       {!isEdit && (
         <span className={styles.editableTextText} onDoubleClick={handleEdit}>
-          {text} <i className="mtbird-icon mtbird-edit" />
+          {text} <i className="mtbird-icon mtbird-edit" onClick={handleEdit} />
         </span>
       )}
       {isEdit && <Input value={editVal} onChange={handleEditValChange} onKeyDown={handleKeyDown} onBlur={handleChange} />}
