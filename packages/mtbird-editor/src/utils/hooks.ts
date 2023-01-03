@@ -2,7 +2,6 @@ import { useRef, useEffect, useState } from 'react';
 import { IComponentInstanceCommon } from '@mtbird/shared/dist/types';
 
 export function useLeaderLine(currentDataContainer: IComponentInstanceCommon | undefined) {
-  console.log('currentDataContainer:', currentDataContainer);
   const LeaderLine = require('react-leader-line');
   const [leaderLine, setLeaderLine] = useState<typeof LeaderLine | undefined>();
 
