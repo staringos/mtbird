@@ -107,7 +107,7 @@ function usePageModal(options: IEditorOptions): IContext {
 
     const currentFirstComponent = currentComponent[0];
 
-    if (currentFirstComponent.componentName === COMPONENT_NAME.DATA_LIST) {
+    if (currentFirstComponent.data?.isDataContainer) {
       if (currentDataContainer?.id !== currentFirstComponent.id) setCurrentDataContainer(currentFirstComponent);
       return;
     }
@@ -115,7 +115,7 @@ function usePageModal(options: IEditorOptions): IContext {
     const dataContainerNode = getNodeFromTreeBranch(
       currentFirstComponent,
       componentMap,
-      (node: IComponentInstanceCommon) => node.componentName === COMPONENT_NAME.DATA_LIST
+      (node: IComponentInstanceCommon) => node.data?.isDataContainer
     );
 
     if (dataContainerNode === -1) {
