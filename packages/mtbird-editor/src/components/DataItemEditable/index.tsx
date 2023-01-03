@@ -3,6 +3,7 @@ import styles from './style.module.less';
 import Model from '../../store/types';
 import RendererWrapper from '../RendererWrapper';
 import cloneDeep from 'lodash/cloneDeep';
+import { COMPONENT_NAME } from '@mtbird/core';
 
 interface IProps {
   moveable: any;
@@ -16,7 +17,7 @@ const DataItemEditableContainer = () => {
   const $dom = document.getElementById(currentDataContainer?.id || '');
   let display = 'block';
 
-  if (!currentDataContainer || !$dom) display = 'none';
+  if (!currentDataContainer || !$dom || currentDataContainer.componentName !== COMPONENT_NAME.DATA_LIST) display = 'none';
 
   // const rect = $dom ? $dom.getBoundingClientRect() : ({} as Record<string, number>);
   const child = currentDataContainer?.children?.[0];

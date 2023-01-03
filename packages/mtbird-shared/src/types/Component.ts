@@ -84,6 +84,7 @@ export interface IComponentInstance {
   props: IProps;
   layout?: 'absolute' | 'grid' | 'flex';
   data?: {
+    isDataContainer?: boolean; // 是否是数据容器（具备数据查询和暂存功能的组件）
     title?: string;
     alias?: string; // 组件自定义显示别名
     showIcon?: string; // 展示相关，某些组件是否展示icon

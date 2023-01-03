@@ -24,6 +24,8 @@ export interface IDataSource {
     pagination: IPageParams,
     search: Record<string, any>
   ) => Promise<IPagination<any>>;
+  queryDataDetail?: (targetType: 'form' | 'model', targetId: string, search: Record<string, IData>) => Promise<Record<string, IData>>;
+
   deleteData?: (targetId: string, dataId: string | number, dataType?: string) => Promise<boolean>;
   getColumns?: (pageId: string, targetId: string) => Promise<IListColumn[]>;
   modifyData?: (targetId: string, dataId: string, data: Record<string, any>) => Promise<boolean>;
