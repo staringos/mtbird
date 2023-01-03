@@ -43,7 +43,7 @@ const GridLayoutMoveable = ({ children }: IProps) => {
   };
 
   const handleLayoutChange: any = (layout: any, layouts: any) => {
-    console.log('layout, layouts:', layout, layouts);
+    console.log('layout:', layout, layouts);
   };
 
   return (
