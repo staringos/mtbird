@@ -5,14 +5,13 @@ import styles from './style.module.less';
 
 const DataDetail = ({ node, dataSource, childrenRender, variables, style }: IComponentProps) => {
   const { targetId, type } = node.data || {};
-  const [data, setData] = useState<Array<Record<string, any>>>([]);
+  const [data, setData] = useState<Record<string, any> | undefined>();
 
   const initData = async () => {
     if (!targetId) return;
     if (type === 'model') {
-      // TODO new api for data
-      // const res = await dataSource?.queryData?.(type, '', targetId, {}, {});
-      // setData(res as any);
+      const res = await dataSource?.queryDataDetail?.(type, targetId, {});
+      setData((res?.data || {}) as Record<string, any>);
     }
   };
 

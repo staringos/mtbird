@@ -12,7 +12,8 @@ export const COMPONENT_NAME = {
   ICON: 'Icon',
   BUTTON: 'Button',
   TEXT: 'Text',
-  DATA_LIST: 'DataList'
+  DATA_LIST: 'DataList',
+  DATA_DETAIL: 'DataDetail'
 };
 
 export const COMPONENT_TYPE = {
