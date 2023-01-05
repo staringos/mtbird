@@ -29,6 +29,14 @@ export interface IVariable {
 
 export type EventAction = 'click' | 'hover' | 'blur' | 'dbclick' | 'scroll';
 export type EventType = 'link' | 'link-blank' | 'submit' | 'clear' | 'open-modal' | 'close-modal' | 'inline-code' | 'change-variable';
+export type SearchOperator =
+  | 'eq' // 等于
+  | 'lt' // 小于
+  | 'gt' // 大于
+  | 'le' // 小于等于
+  | 'ge' // 大于等于
+  | 'ne' // 不等于
+  | 'like'; // 模糊匹配
 
 export interface IEvent {
   action?: EventAction;
@@ -56,8 +64,8 @@ export interface ISearch {
   // keyPath or field id
   keyPath: string;
   display: string;
-  operator: 'equals' | 'not-equals';
-  default: boolean;
+  operator: SearchOperator;
+  defaultValue: boolean;
   value: string;
 }
 
@@ -107,7 +115,9 @@ export interface IComponentInstance {
     targetId?: string; // list target ID (formId for type=form or modelId for type=model)
     fieldId?: string; // bind fieldId
     pageId?: string; // dataSource 中数据对象提取
-    features?: IFeatures;
+    features?: IFeatures; // extension features
+
+    search?: ISearch[];
   };
   events?: Record<EventAction, IEvent[]>;
   parent?: string;
