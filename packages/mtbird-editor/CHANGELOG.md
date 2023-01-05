@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.36](https://github.com/staringos/mtbird/compare/v0.0.3-beta.35...v0.0.3-beta.36) (2023-01-05)
+
+
+### Features
+
+* add data detail component ([457c529](https://github.com/staringos/mtbird/commit/457c5291dfbdfcbc810b47f021b2c690b3fb1fc3))
+* **data:** data detail component ([433dd46](https://github.com/staringos/mtbird/commit/433dd461c151ebed099a67ead0ccfb58f60b02d8))
+
+
+
+
+
 ## [0.0.3-beta.35](https://github.com/staringos/mtbird/compare/v0.0.3-beta.34...v0.0.3-beta.35) (2022-12-13)
 
 **Note:** Version bump only for package @mtbird/editor

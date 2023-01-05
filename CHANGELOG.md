@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.36](https://github.com/staringos/mtbird/compare/v0.0.3-beta.35...v0.0.3-beta.36) (2023-01-05)
+
+
+### Features
+
+* add click to icon ([14cf0a5](https://github.com/staringos/mtbird/commit/14cf0a5b210b61fb7764741232f0f298508d08c1))
+* add data detail component ([457c529](https://github.com/staringos/mtbird/commit/457c5291dfbdfcbc810b47f021b2c690b3fb1fc3))
+* adjust data detail with search condition ([f8ca82e](https://github.com/staringos/mtbird/commit/f8ca82ea389f867b2183fa8f0a0628cc1dc582d1))
+* adjust data detail with search condition ([5e34f1e](https://github.com/staringos/mtbird/commit/5e34f1e73badb692b65dd188fbd161d057af73d2))
+* change image ([2f00361](https://github.com/staringos/mtbird/commit/2f0036143af12d7d07109be8b3beb42c554d4bf5))
+* change image ([31a78f3](https://github.com/staringos/mtbird/commit/31a78f3074374671427d07e285ebfc0cc3ca68a1))
+* **data:** data detail component ([433dd46](https://github.com/staringos/mtbird/commit/433dd461c151ebed099a67ead0ccfb58f60b02d8))
+* init data detail component ([cbd208d](https://github.com/staringos/mtbird/commit/cbd208d19b68d8f4bfb99c56319cd5642f65ae3c))
+* **ui:** add editable text component ([9c16331](https://github.com/staringos/mtbird/commit/9c163318134904185da1755b23fdf3eb03375b6f))
+* upload bundle file of storybook to qiniu ([f3550eb](https://github.com/staringos/mtbird/commit/f3550ebc02ec6aa1376298bdecf9fa42506d0f8f))
+
+
+
+
+
 ## [0.0.3-beta.35](https://github.com/staringos/mtbird/compare/v0.0.3-beta.34...v0.0.3-beta.35) (2022-12-13)
 
 **Note:** Version bump only for package mtbird

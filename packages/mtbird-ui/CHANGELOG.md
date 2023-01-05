@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.36](https://github.com/staringos/mtbird/compare/v0.0.3-beta.35...v0.0.3-beta.36) (2023-01-05)
+
+
+### Features
+
+* add click to icon ([14cf0a5](https://github.com/staringos/mtbird/commit/14cf0a5b210b61fb7764741232f0f298508d08c1))
+* add data detail component ([457c529](https://github.com/staringos/mtbird/commit/457c5291dfbdfcbc810b47f021b2c690b3fb1fc3))
+* adjust data detail with search condition ([f8ca82e](https://github.com/staringos/mtbird/commit/f8ca82ea389f867b2183fa8f0a0628cc1dc582d1))
+* **ui:** add editable text component ([9c16331](https://github.com/staringos/mtbird/commit/9c163318134904185da1755b23fdf3eb03375b6f))
+
+
+
+
+
 ## [0.0.3-beta.35](https://github.com/staringos/mtbird/compare/v0.0.3-beta.34...v0.0.3-beta.35) (2022-12-13)
 
 **Note:** Version bump only for package @mtbird/ui
