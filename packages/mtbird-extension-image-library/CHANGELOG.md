@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.36](https://github.com/staringos/mtbird/compare/v0.0.3-beta.35...v0.0.3-beta.36) (2023-01-05)
+
+**Note:** Version bump only for package @mtbird/extension-image-library
+
+
+
+
+
 ## [0.0.3-beta.35](https://github.com/staringos/mtbird/compare/v0.0.3-beta.34...v0.0.3-beta.35) (2022-12-13)
 
 **Note:** Version bump only for package @mtbird/extension-image-library

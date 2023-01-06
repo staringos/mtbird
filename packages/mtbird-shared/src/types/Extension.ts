@@ -51,6 +51,8 @@ export interface IExtensionContext {
   request: IRequest;
   storage: Storage;
   router: IRouter;
+  variables: Record<string, any>;
+  currentDataContainer?: IComponentInstance;
 
   // event emit and subscription hub
   eventHub: IEventEmitter;
