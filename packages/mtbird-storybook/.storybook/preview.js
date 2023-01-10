@@ -1,4 +1,4 @@
-import "antd/dist/antd.css";
+import "antd/dist/reset.css";
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 export const parameters = {

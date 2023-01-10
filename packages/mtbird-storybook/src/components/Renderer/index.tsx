@@ -12,7 +12,7 @@ const RendererComponent = ({ pageConfig, dataSource }: IProps) => {
   if (!innerDataSource) {
     innerDataSource = new InnerDataSource();
   }
-  return <Renderer pageConfig={pageConfig} dataSource={innerDataSource} />;
+  return <Renderer pageConfig={pageConfig as any} dataSource={innerDataSource as any} />;
 };
 
 export default RendererComponent;
