@@ -131,7 +131,17 @@ export const initVariables = (node: IComponentInstance, options?: IEditorOptions
   if (!variablesConfig) return variables;
 
   variablesConfig.forEach((cur: IVariable) => {
-    variables[cur.key] = cur.value;
+    const name = cur.name || '';
+    switch (cur.sourceType) {
+      case 'pageParams':
+        const value = cur.name ? getParamFromURL(location.href, cur.name) : undefined;
+        variables[name] = value || cur.defaultValue;
+        break;
+      case 'defaultValue':
+      default:
+        variables[name] = cur.defaultValue;
+        break;
+    }
   });
 
   return variables;

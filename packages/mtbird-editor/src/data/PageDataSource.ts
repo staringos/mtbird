@@ -14,6 +14,10 @@ export default class PageDataSource extends SchemaDataSource {
     return this.modelDataSource?.queryData?.(pageId, targetId, pagination, search);
   };
 
+  queryDataDetail = (targetType: 'form' | 'model', targetId: string, search: Record<string, any>) => {
+    return this.modelDataSource?.queryDataDetail?.(targetType, targetId, search);
+  };
+
   deleteData = (targetId: string, dataId: string | number, dataType?: string) => {
     return this.modelDataSource?.deleteData?.(targetId, dataId, dataType);
   };

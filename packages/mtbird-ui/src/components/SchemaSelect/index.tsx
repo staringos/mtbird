@@ -2,7 +2,7 @@ import React from 'react';
 import { IOptionItem } from '@mtbird/shared';
 
 interface IProps {
-  disabled: boolean;
+  disabled?: boolean;
   options: IOptionItem[];
   placeholder?: string;
   value?: string;

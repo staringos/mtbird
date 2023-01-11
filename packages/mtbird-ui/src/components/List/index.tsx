@@ -7,7 +7,7 @@ interface IProps {
   editable?: (cur: Record<string, any>) => boolean;
   deleteable?: (cur: Record<string, any>) => boolean;
   data: Array<Record<string, any>>;
-  columns: { key: string; render?: ((cur: Record<string, any>) => any) | undefined }[];
+  columns: { key: string; name?: string; render?: ((cur: Record<string, any>) => any) | undefined }[];
   onToChange?: (cur: Record<string, any>, i?: number) => void;
   onDelete?: (cur: Record<string, any>, i?: number) => void;
 }

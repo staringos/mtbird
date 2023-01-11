@@ -31,6 +31,7 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
       keyPath: 'data.options'
     },
     data: {
+      isDataContainer: true,
       type: 'model',
       targetId: 'clbkdi8rb009ds6aadqodj8qz'
     },

@@ -68,7 +68,7 @@ export default (props: IProps) => {
 
   return (
     <RenderContext.Provider value={context}>
-      <div className={styles.rendererContainer} style={{ zoom: isZoom ? getZoom(PLATFORM_DEFAULT_WIDTH[platform]) : 0 }}>
+      <div className={styles.rendererContainer} style={{ zoom: isZoom ? getZoom(PLATFORM_DEFAULT_WIDTH[platform || '']) : 0 }}>
         <Render node={cloneDeep(pageConfig.data)} style={style} zIndex={1} variables={context.variables as Record<string, any>} />
       </div>
     </RenderContext.Provider>

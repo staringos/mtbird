@@ -1,6 +1,6 @@
 {
   "name": "mtbird-storybook",
-  "version": "0.0.3-beta.35",
+  "version": "0.0.3-beta.36",
   "license": "Apache-2.0",
   "private": true,
   "browser": {
@@ -8,14 +8,14 @@
     "stream": false
   },
   "dependencies": {
-    "@mtbird/component-basic": "^0.0.3-beta.35",
-    "@mtbird/core": "^0.0.3-beta.35",
-    "@mtbird/editor": "^0.0.3-beta.35",
-    "@mtbird/helper-component": "^0.0.3-beta.35",
-    "@mtbird/helper-extension": "^0.0.3-beta.35",
-    "@mtbird/renderer-web": "^0.0.3-beta.35",
-    "@mtbird/shared": "^0.0.3-beta.35",
-    "@mtbird/ui": "^0.0.3-beta.35",
+    "@mtbird/component-basic": "^0.0.3-beta.36",
+    "@mtbird/core": "^0.0.3-beta.36",
+    "@mtbird/editor": "^0.0.3-beta.36",
+    "@mtbird/helper-component": "^0.0.3-beta.36",
+    "@mtbird/helper-extension": "^0.0.3-beta.36",
+    "@mtbird/renderer-web": "^0.0.3-beta.36",
+    "@mtbird/shared": "^0.0.3-beta.36",
+    "@mtbird/ui": "^0.0.3-beta.36",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -36,7 +36,8 @@
     "test-storybook": "test-storybook",
     "start": "start-storybook -p 6006 -s public",
     "link": "yarn link @mtbird/ui & yarn link @mtbird/core & yarn link @mtbird/shared & yarn link @mtbird/component-basic & yarn link @mtbird/renderer-web & yarn link @mtbird/editor & yarn link @mtbird/helper-component & yarn link @mtbird/helper-extension",
-    "build": "build-storybook -s public"
+    "build": "build-storybook -s public -c .storybook",
+    "generate": "yarn build && npx sb extract && mv ./storybook-static/stories.json ./storybook-static/sitemap.json"
   },
   "eslintConfig": {
     "extends": [

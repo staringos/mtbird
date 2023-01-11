@@ -1,8 +1,8 @@
 import { useRef, useEffect, useState } from 'react';
-import { IComponentInstanceCommon } from '@mtbird/shared/dist/types';
+import { COMPONENT_NAME } from '@mtbird/core';
+import { IComponentInstanceCommon } from '@mtbird/shared';
 
 export function useLeaderLine(currentDataContainer: IComponentInstanceCommon | undefined) {
-  console.log('currentDataContainer:', currentDataContainer);
   const LeaderLine = require('react-leader-line');
   const [leaderLine, setLeaderLine] = useState<typeof LeaderLine | undefined>();
 
@@ -16,7 +16,7 @@ export function useLeaderLine(currentDataContainer: IComponentInstanceCommon | u
   };
 
   useEffect(() => {
-    if (currentDataContainer) {
+    if (currentDataContainer && currentDataContainer.componentName === COMPONENT_NAME.DATA_LIST) {
       setLeaderLine(
         new LeaderLine(document.getElementById(currentDataContainer.id as string), document.getElementById('dataItemContainer'), {
           dash: { animation: true },

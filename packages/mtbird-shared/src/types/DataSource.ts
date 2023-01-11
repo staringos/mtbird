@@ -1,4 +1,5 @@
 import { IListColumn, IPageParams, IPagination } from './Common';
+import { ISearch } from './Component';
 
 export type IData = string | number | boolean | Array<any> | Record<string, any>;
 
@@ -24,6 +25,8 @@ export interface IDataSource {
     pagination: IPageParams,
     search: Record<string, any>
   ) => Promise<IPagination<any>>;
+  queryDataDetail?: (targetType: 'form' | 'model', targetId: string, search: ISearch[]) => Promise<Record<string, IData>>;
+
   deleteData?: (targetId: string, dataId: string | number, dataType?: string) => Promise<boolean>;
   getColumns?: (pageId: string, targetId: string) => Promise<IListColumn[]>;
   modifyData?: (targetId: string, dataId: string, data: Record<string, any>) => Promise<boolean>;
