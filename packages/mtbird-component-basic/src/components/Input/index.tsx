@@ -22,7 +22,7 @@ const InputComponent = (allProps: IComponentProps) => {
     <div className={styles.inputWrapper}>
       {type === 'number' ? (
         <InputNumber
-          className={styles.inputComponent}
+          className={styles.inputComponent + ' ' + styles[`${restComponentProps.style.color}Color`]}
           ref={inputRef}
           size="small"
           {...restComponentProps}

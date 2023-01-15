@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Input, Button } from 'antd';
+import { Input, Button, Space, Alert } from 'antd';
 import styles from './style.module.less';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Model from '../../../store/types';
@@ -44,7 +44,7 @@ const ShareArea = ({ pageId }: IProps) => {
   return (
     <div className={styles.shareContainer}>
       <h2>分享页面</h2>
-      <p>请 预览 - 发布 后查看</p>
+      <p>请 预览 ➡️ 发布 后查看、分享</p>
       <Input.Group compact>
         <Input className={styles.shareContainerUrl} id="page-url" style={{ width: 'calc(100% - 63.8px)' }} value={url} />
         <CopyToClipboard text={url}>
@@ -56,21 +56,16 @@ const ShareArea = ({ pageId }: IProps) => {
       <div className={styles.qrcodeContainer}>
         <img className={styles.qrcode} src={qrcodeUrl} />
       </div>
-      <div className={styles.shareFooters}>
-        <Button type="primary" onClick={() => handleOpenOffical(url)} size="small">
-          打开
-        </Button>
-        <Button type="default" onClick={() => handleExportPNG()} size="small">
-          导出图片(.png)
-        </Button>
+      <div>
+        <Space className={styles.shareFooters}>
+          <Button type="primary" onClick={() => handleOpenOffical(url)} size="small">
+            打开
+          </Button>
+          <Button type="default" onClick={() => handleExportPNG()} size="small">
+            导出图片(.png)
+          </Button>
+        </Space>
       </div>
-      {/* <Button type="primary" onClick={() => handleExportPny(url)}>
-        导出
-      </Button>
-
-      <Button type="default" icon={<i className="mtbird-icon mtbird-download" />}>
-        导出
-      </Button> */}
     </div>
   );
 };

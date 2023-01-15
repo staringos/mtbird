@@ -1,4 +1,5 @@
 .uploadComponent {
+
   .uploadButton {
     height: 100%;
     display: flex;
@@ -9,6 +10,10 @@
   }
   
   :global {
+    .ant-upload.ant-upload-select {
+      border: 0 !important;
+    }
+
     .ant-upload.ant-upload-select-picture-card {
       border-width: 0;
       background-color: unset;
