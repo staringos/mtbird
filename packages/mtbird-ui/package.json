@@ -1,6 +1,6 @@
 {
   "name": "@mtbird/ui",
-  "version": "0.0.3-beta.36",
+  "version": "0.0.3-beta.37",
   "description": "The basic ui components for mtbird",
   "author": "GeorgeZou <george@staringos.com>",
   "homepage": "https://github.com/staringos/mtbird#readme",
@@ -33,7 +33,7 @@
     "url": "https://github.com/staringos/mtbird/issues"
   },
   "peerDependencies": {
-    "antd": "^4.24.5",
+    "antd": "^5.1.4",
     "react": "18.1.0",
     "react-dom": "18.1.0"
   }

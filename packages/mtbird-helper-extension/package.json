@@ -1,6 +1,6 @@
 {
   "name": "@mtbird/helper-extension",
-  "version": "0.0.3-beta.36",
+  "version": "0.0.3-beta.37",
   "description": "The extension helper for mtbird",
   "author": "zousongqi <george@staringos.com>",
   "homepage": "",
@@ -36,7 +36,7 @@
   },
   "peerDependencies": {
     "@mtbird/shared": "^0.0.1-beta.4",
-    "antd": "^4.24.5",
+    "antd": "^5.1.4",
     "axios": "^0.27.2",
     "lodash": "^4.17.21"
   },

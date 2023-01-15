@@ -1,7 +1,7 @@
 <img src="./packages/mtbird-storybook/src/assets/images/logo-banner-en.png" />
 
 <div align="center">
-  <a href="https://mtbird.staringos.com">Use for free</a> | <a href="https://staringos.com">Website</a> ｜ <a href="https://docs.staringos.com">Docs</a> ｜ <a href="/story/demos-编辑器--form-page">
+  <a href="https://mtbird.staringos.com?f=mbrm">Use for free</a> | <a href="https://staringos.com?f=mbrm">Website</a> ｜ <a href="https://docs.staringos.com?f=mbrm">Docs</a> ｜ <a href="/story/demos-编辑器--form-page">
     Demo
   </a>｜ <a href="https://github.com/staringos">Github</a>
 </div>
