@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.37](https://github.com/staringos/mtbird/compare/v0.0.3-beta.36...v0.0.3-beta.37) (2023-01-15)
+
+
+### Bug Fixes
+
+* update antd5 style problem ([b512a4d](https://github.com/staringos/mtbird/commit/b512a4de0cabd740e87142f45bbcd4fe2a014e07))
+
+
+### Features
+
+* add lead source ([2c94bfb](https://github.com/staringos/mtbird/commit/2c94bfb407d768ee6efc9410ffd6698320cae1cf))
+* add sitemap ([d18055a](https://github.com/staringos/mtbird/commit/d18055a134637b28585330d59e0017bee370e0c0))
+* update cli readme ([b625722](https://github.com/staringos/mtbird/commit/b625722ef5211b4f02ba7f02d59f48af697ba194))
+* upgrade antd version 4 -> 5 ([8f2c5fe](https://github.com/staringos/mtbird/commit/8f2c5fe39dd36b8aaa7f37d3d5d635a227bf2f95))
+
+
+
+
+
 ## [0.0.3-beta.36](https://github.com/staringos/mtbird/compare/v0.0.3-beta.35...v0.0.3-beta.36) (2023-01-05)
 
 
