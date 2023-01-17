@@ -1,6 +1,6 @@
 {
   "name": "mtbird-storybook",
-  "version": "0.0.3-beta.40",
+  "version": "0.0.3-beta.41",
   "license": "Apache-2.0",
   "private": true,
   "browser": {
@@ -8,14 +8,14 @@
     "stream": false
   },
   "dependencies": {
-    "@mtbird/component-basic": "^0.0.3-beta.40",
-    "@mtbird/core": "^0.0.3-beta.40",
-    "@mtbird/editor": "^0.0.3-beta.40",
-    "@mtbird/helper-component": "^0.0.3-beta.40",
-    "@mtbird/helper-extension": "^0.0.3-beta.40",
-    "@mtbird/renderer-web": "^0.0.3-beta.40",
-    "@mtbird/shared": "^0.0.3-beta.40",
-    "@mtbird/ui": "^0.0.3-beta.40",
+    "@mtbird/component-basic": "^0.0.3-beta.41",
+    "@mtbird/core": "^0.0.3-beta.41",
+    "@mtbird/editor": "^0.0.3-beta.41",
+    "@mtbird/helper-component": "^0.0.3-beta.41",
+    "@mtbird/helper-extension": "^0.0.3-beta.41",
+    "@mtbird/renderer-web": "^0.0.3-beta.41",
+    "@mtbird/shared": "^0.0.3-beta.41",
+    "@mtbird/ui": "^0.0.3-beta.41",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",

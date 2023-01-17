@@ -1,6 +1,6 @@
 {
   "name": "@mtbird/extension-animation",
-  "version": "0.0.3-beta.40",
+  "version": "0.0.3-beta.41",
   "private": true,
   "description": "星搭官方动画拓展",
   "homepage": "",
@@ -25,7 +25,7 @@
     "antd": "^5.1.4"
   },
   "devDependencies": {
-    "@mtbird/shared": "^0.0.3-beta.40",
+    "@mtbird/shared": "^0.0.3-beta.41",
     "lodash": "^4.17.21",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
