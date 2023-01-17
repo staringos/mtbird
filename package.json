@@ -18,7 +18,7 @@
     "update-version": "lerna version prerelease --force-publish --conventional-commits",
     "build": "lerna run build",
     "publish": "lerna publish from-package --yes --registry https://registry.npmjs.org/",
-    "link": "yarn link @mtbird/renderer-web & yarn link @mtbird/shared & yarn link @mtbird/component-basic"
+    "link": "yarn link @mtbird/renderer-web & yarn link @mtbird/shared"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
@@ -27,8 +27,8 @@
     "@babel/plugin-proposal-optional-chaining": "^7.16.7",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-syntax-jsx": "^7.16.7",
-    "@mtbird/renderer-web": "^0.0.3-beta.12",
-    "@mtbird/shared": "^0.0.3-beta.12",
+    "@mtbird/renderer-web": "^0.0.3-beta.37",
+    "@mtbird/shared": "^0.0.3-beta.37",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-json": "^4.1.0",

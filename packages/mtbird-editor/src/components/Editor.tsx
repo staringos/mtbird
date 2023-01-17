@@ -12,6 +12,7 @@ import useModels from '../store/useModels';
 import useHotKeys from '../store/useHotKeys';
 import ModalRender from './ModalRender';
 import './global.css';
+import Tour from './Tour';
 
 interface IProps {
   options: IOptions;
@@ -50,6 +51,7 @@ const Editor = ({ options }: IProps) => {
           <Configurator />
         </div>
         <ModalRender />
+        <Tour />
       </div>
     </Model.Provider>
   );

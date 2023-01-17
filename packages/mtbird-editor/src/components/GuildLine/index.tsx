@@ -69,7 +69,7 @@ const GuildLine = (
         zoom={zoom}
         unit={unit}
         ref={guideHoriRef}
-        style={{ zIndex: 999 }}
+        style={{ zIndex: 888 }}
         onChangeGuides={({ guides }) => {
           onGuidesChange('horizontal', guides);
         }}

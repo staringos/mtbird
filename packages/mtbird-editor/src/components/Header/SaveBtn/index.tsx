@@ -38,7 +38,7 @@ const SaveBtn = () => {
           : `已保存 上次保存时间: ${state.saveState.lastSaveTime ? state.saveState.lastSaveTime.toLocaleString().split(' ')[1] : ''}`
       }
     >
-      <Button className={styles.headerButtonSave} type="text" onClick={handleSave}>
+      <Button className={styles.headerButtonSave} type="text" onClick={handleSave} id="saveBtn">
         {isSaving ? '保存中...' : '已保存'}
       </Button>
     </Tooltip>

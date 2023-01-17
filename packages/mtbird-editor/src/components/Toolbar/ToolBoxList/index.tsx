@@ -57,7 +57,7 @@ const ToolBoxList = ({ category, categoriesGroup }: IProps) => {
           if (!cur.list || cur.list.length === 0) return;
 
           return (
-            <Collapse.Panel header={cur.label} key={cur.value}>
+            <Collapse.Panel header={cur.label} key={cur.value} id={`${cur.value}ToolBar`}>
               <div className={styles.toolbarList}>
                 {cur.list
                   ? cur.list.map((component: IComponentManifest<IComponentInstance>) => {

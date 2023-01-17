@@ -8,6 +8,7 @@ export interface IState {
   variables: Record<string, any>;
   editMode: EditMode;
   tabsState: Record<string, boolean>;
+  tourState: boolean;
 }
 
 export interface IAction {
@@ -18,6 +19,7 @@ export interface IAction {
   getCurrentModal: () => string | null;
   setEditMode: (mode: EditMode) => void;
   toggleTab: (tabKey: string) => void;
+  toggleTour: () => void;
 }
 
 export interface IContext {

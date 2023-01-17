@@ -1,6 +1,6 @@
 import { IEditorOptions, IEditorSettings } from '@mtbird/shared';
-import { initVariables } from '@mtbird/core';
-import { useEffect, useState } from 'react';
+import { initVariables, GlobalStorage } from '@mtbird/core';
+import { useState } from 'react';
 import { IContext, EditMode } from '../types/common';
 import set from 'lodash/set';
 import keys from 'lodash/keys';
@@ -10,7 +10,8 @@ function useCommonModal(opts: IEditorOptions): IContext {
   const [options, setOptions] = useState(opts);
   const [editMode, setEditMode] = useState<EditMode>({ componentName: 'cursor' });
   const [variables, setVariables] = useState(initVariables(options.pageConfig.data, opts));
-  const [tabsState, setTabsState] = useState({ toolTabs: true, bottomTabs: true, schemaTabs: true });
+  const [tabsState, setTabsState] = useState(GlobalStorage.tabState);
+  const [tourState, setTourState] = useState(GlobalStorage.tourState);
 
   const context: IContext = {
     state: {
@@ -18,11 +19,19 @@ function useCommonModal(opts: IEditorOptions): IContext {
       variables,
       editMode,
       onlineUserList: options.onlineUserList,
-      tabsState
+      tabsState,
+      tourState
     },
     actions: {
+      toggleTour: () => {
+        const value = !tourState;
+        setTourState(value);
+        GlobalStorage.tourState = value;
+      },
       toggleTab: (tabKey: string) => {
-        setTabsState({ ...tabsState, [tabKey]: !tabsState[tabKey] });
+        const value = { ...tabsState, [tabKey]: !tabsState[tabKey] };
+        setTabsState(value);
+        GlobalStorage.tabState = value;
       },
       setEditMode,
       onUpload,

@@ -75,21 +75,16 @@ export default () => {
         </Tooltip>
         <div className={styles.splitLine} />
         <SaveBtn />
-        {/* <Tooltip placement="bottom" title="保存">
-          <Button className={styles.headerButton} type="text" onClick={handleSave} disabled={true}>
-            已保存
-          </Button>
-        </Tooltip> */}
-        <Button className={styles.headerButton} type="text" onClick={handlePreview}>
+        <Button className={styles.headerButton} type="text" onClick={handlePreview} id="previewBtn">
           <i className="mtbird-icon mtbird-tablet" />
           预览
         </Button>
-        <Button className={styles.headerButton} type="text" onClick={handlePublish} loading={publishing} disabled={publishing}>
+        <Button className={styles.headerButton} type="text" onClick={handlePublish} loading={publishing} disabled={publishing} id="publishBtn">
           <i className="mtbird-icon mtbird-up-square" />
           发布
         </Button>
         <ShareDropdown page={state.pageConfig}>
-          <Button className={styles.headerButton} type="text">
+          <Button className={styles.headerButton} type="text" id="shareBtn">
             <i className="mtbird-icon mtbird-share" />
             分享
           </Button>

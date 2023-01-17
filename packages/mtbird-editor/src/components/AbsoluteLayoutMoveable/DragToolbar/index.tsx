@@ -171,7 +171,7 @@ const DragToolbarContainer = ({ moveable }: IProps) => {
         if (!cur.condition) return '';
         return (
           <Tooltip placement="right" key={i} title={cur.title}>
-            <Button className={styles.dragToolbarButton} key={cur.title} title={cur.title} icon={<i className={cur.icon} />} onClick={cur.action} />
+            <Button className={styles.dragToolbarButton} key={cur.title} icon={<i className={cur.icon} />} onClick={cur.action} />
           </Tooltip>
         );
       })}
