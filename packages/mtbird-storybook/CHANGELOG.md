@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.38](https://github.com/staringos/mtbird/compare/v0.0.3-beta.37...v0.0.3-beta.38) (2023-01-17)
+
+
+### Features
+
+* add docs ([9809f5a](https://github.com/staringos/mtbird/commit/9809f5a467e3c2d51f83f31fc7ca0b183de06a00))
+
+
+
+
+
 ## [0.0.3-beta.37](https://github.com/staringos/mtbird/compare/v0.0.3-beta.36...v0.0.3-beta.37) (2023-01-15)
 
 

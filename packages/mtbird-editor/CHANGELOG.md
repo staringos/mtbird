@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.38](https://github.com/staringos/mtbird/compare/v0.0.3-beta.37...v0.0.3-beta.38) (2023-01-17)
+
+
+### Features
+
+* add tour ([f3824f7](https://github.com/staringos/mtbird/commit/f3824f7f89086ffd60d351d74b24fdea59fbc7b5))
+* finish tour ([e84bdd2](https://github.com/staringos/mtbird/commit/e84bdd24db7ccfcb3c9c2f6ba3616e6b7e63fce9))
+* **select:** cancel select when click white in canvas ([c9beca5](https://github.com/staringos/mtbird/commit/c9beca57e19a3679ddb17395c1e06583b06c1f19))
+
+
+
+
+
 ## [0.0.3-beta.37](https://github.com/staringos/mtbird/compare/v0.0.3-beta.36...v0.0.3-beta.37) (2023-01-15)
 
 
