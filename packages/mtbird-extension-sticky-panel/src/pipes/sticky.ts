@@ -3,6 +3,7 @@ import { IPipeProps } from '@mtbird/shared';
 
 interface IProps extends IPipeProps {
   node: IStickyComponentInstance;
+  isEdit: boolean;
 }
 
 export default (params: IProps) => {
