@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.42](https://github.com/staringos/mtbird/compare/v0.0.3-beta.41...v0.0.3-beta.42) (2023-01-17)
+
+
+### Features
+
+* add tour saas ([e01d435](https://github.com/staringos/mtbird/commit/e01d435e82ab1fa9a91c7845ca8bc48b2bdbd419))
+
+
+
+
+
 ## [0.0.3-beta.41](https://github.com/staringos/mtbird/compare/v0.0.3-beta.40...v0.0.3-beta.41) (2023-01-17)
 
 **Note:** Version bump only for package mtbird
