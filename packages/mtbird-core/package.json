@@ -1,6 +1,6 @@
 {
   "name": "@mtbird/core",
-  "version": "0.0.3-beta.37",
+  "version": "0.0.3-beta.42",
   "description": "The core function utils and constants for mtbird",
   "author": "GeorgeZou <george@staringos.com>",
   "homepage": "https://github.com/staringos/mtbird#readme",
@@ -31,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/staringos/mtbird/issues"
   },
-  "gitHead": "2f918f1c199fc230eb68d1fdaf07890b1fb99206",
+  "gitHead": "ea38dfd580aba73703f26e04bbb577c904b67985",
   "dependencies": {
     "eventemitter2": "^6.4.9",
     "nanoid": "^4.0.0"

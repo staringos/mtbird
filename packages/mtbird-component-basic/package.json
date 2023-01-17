@@ -1,6 +1,6 @@
 {
   "name": "@mtbird/component-basic",
-  "version": "0.0.3-beta.37",
+  "version": "0.0.3-beta.42",
   "description": "The basic set of components",
   "author": "GeorgeZou <george@staringos.com>",
   "homepage": "https://github.com/staringos/mtbird#readme",
@@ -45,5 +45,5 @@
     "react-color": "^2.19.3",
     "react-sortable-hoc": "^2.0.0"
   },
-  "gitHead": "2f918f1c199fc230eb68d1fdaf07890b1fb99206"
+  "gitHead": "ea38dfd580aba73703f26e04bbb577c904b67985"
 }

@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.42](https://github.com/staringos/mtbird/compare/v0.0.3-beta.41...v0.0.3-beta.42) (2023-01-17)
+
+**Note:** Version bump only for package @mtbird/ui
+
+
+
+
+
+## [0.0.3-beta.41](https://github.com/staringos/mtbird/compare/v0.0.3-beta.40...v0.0.3-beta.41) (2023-01-17)
+
+**Note:** Version bump only for package @mtbird/ui
+
+
+
+
+
+## [0.0.3-beta.40](https://github.com/staringos/mtbird/compare/v0.0.3-beta.39...v0.0.3-beta.40) (2023-01-17)
+
+**Note:** Version bump only for package @mtbird/ui
+
+
+
+
+
+## [0.0.3-beta.39](https://github.com/staringos/mtbird/compare/v0.0.3-beta.38...v0.0.3-beta.39) (2023-01-17)
+
+**Note:** Version bump only for package @mtbird/ui
+
+
+
+
+
+## [0.0.3-beta.38](https://github.com/staringos/mtbird/compare/v0.0.3-beta.37...v0.0.3-beta.38) (2023-01-17)
+
+**Note:** Version bump only for package @mtbird/ui
+
+
+
+
+
 ## [0.0.3-beta.37](https://github.com/staringos/mtbird/compare/v0.0.3-beta.36...v0.0.3-beta.37) (2023-01-15)
 
 

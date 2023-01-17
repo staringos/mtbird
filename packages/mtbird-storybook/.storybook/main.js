@@ -5,17 +5,17 @@ module.exports = {
   webpackFinal: async (config, { configType }) => {
     config.resolve.fallback.crypto = false
 
-    config.plugins.push(new StorybookQiniuWebpackPlugin({
-      accessKey: '', // required
-      secretKey: '', // required
-      bucket: '', // required
-      bucketDomain: 'https://cdn.staringos.com/', // required
-      matchFiles: ['!*.html', '!*.map'],
-      uploadPath: '/',
-      usePublicPath: true,
-      batch: 10,
-      deltaUpdate: true
-    }))
+    // config.plugins.push(new StorybookQiniuWebpackPlugin({
+    //   accessKey: '', // required
+    //   secretKey: '', // required
+    //   bucket: '', // required
+    //   bucketDomain: 'https://cdn.staringos.com/', // required
+    //   matchFiles: ['!*.html', '!*.map'],
+    //   uploadPath: '/',
+    //   usePublicPath: true,
+    //   batch: 10,
+    //   deltaUpdate: true
+    // }))
 
     // config.output.publicPath = 'https://cdn.staringos.com/'
 

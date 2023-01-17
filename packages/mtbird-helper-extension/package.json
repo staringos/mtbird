@@ -1,6 +1,6 @@
 {
   "name": "@mtbird/helper-extension",
-  "version": "0.0.3-beta.37",
+  "version": "0.0.3-beta.42",
   "description": "The extension helper for mtbird",
   "author": "zousongqi <george@staringos.com>",
   "homepage": "",
@@ -43,5 +43,5 @@
   "dependencies": {
     "axios": "^0.27.2"
   },
-  "gitHead": "2f918f1c199fc230eb68d1fdaf07890b1fb99206"
+  "gitHead": "ea38dfd580aba73703f26e04bbb577c904b67985"
 }

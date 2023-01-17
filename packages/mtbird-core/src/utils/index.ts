@@ -365,6 +365,11 @@ export const getParentPath = (node: IComponentInstanceCommon, componentMap: Map<
   return loop(node);
 };
 
+export const getTabFromInnerText = (text: string) => {
+  const arr = document.getElementsByClassName('ant-tabs-tab');
+  return Array.from(arr).filter((cur) => (cur as any).innerText === text)[0] as any;
+};
+
 export const getNodeFromTreeBranch = (
   node: IComponentInstanceCommon,
   componentMap: Map<string, IComponentInstanceCommon>,

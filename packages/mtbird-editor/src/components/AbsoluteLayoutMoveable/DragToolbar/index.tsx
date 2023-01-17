@@ -143,11 +143,13 @@ const DragToolbarContainer = ({ moveable }: IProps) => {
     {
       title: '组合',
       icon: 'mtbird-icon mtbird-group',
+      id: 'groupBtn',
       action: handleGroup,
       condition: currentNumber > 1
     },
     {
       title: '保存为组件模版',
+      id: 'saveComponentTemplateBtn',
       icon: 'mtbird-icon mtbird-save',
       action: handleSaveTemplate,
       condition: currentNumber === 1
@@ -171,7 +173,7 @@ const DragToolbarContainer = ({ moveable }: IProps) => {
         if (!cur.condition) return '';
         return (
           <Tooltip placement="right" key={i} title={cur.title}>
-            <Button className={styles.dragToolbarButton} key={cur.title} title={cur.title} icon={<i className={cur.icon} />} onClick={cur.action} />
+            <Button className={styles.dragToolbarButton} id={cur.id} key={cur.title} icon={<i className={cur.icon} />} onClick={cur.action} />
           </Tooltip>
         );
       })}
@@ -181,7 +183,7 @@ const DragToolbarContainer = ({ moveable }: IProps) => {
           <Button
             key={i}
             className={styles.dragToolbarButton}
-            key={cur.params.name}
+            id={cur.params.id}
             title={cur.params.name}
             icon={<i className={cur.params.icon} />}
             onClick={helpers.generateEventHandler(store, cur)}

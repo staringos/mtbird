@@ -1876,15 +1876,15 @@
     npmlog "^4.1.2"
     write-file-atomic "^3.0.3"
 
-"@mtbird/renderer-web@^0.0.3-beta.12":
-  version "0.0.3-beta.12"
-  resolved "https://mirrors.cloud.tencent.com/npm/@mtbird%2frenderer-web/-/renderer-web-0.0.3-beta.12.tgz"
-  integrity sha512-PtPjd99+FD1c2zzm0Kor843fPIoKsqO9SvOxrOLhsA0MD+MDgD63pnyMfOC/9yhYlc3uSz6AugILEgf3KMn9eg==
+"@mtbird/renderer-web@^0.0.3-beta.37":
+  version "0.0.3-beta.37"
+  resolved "https://registry.yarnpkg.com/@mtbird/renderer-web/-/renderer-web-0.0.3-beta.37.tgz#0236421f705255ee23c7d1cb590331f26c672f92"
+  integrity sha512-u8hiboTd65/YhRcO0xTOIdr6AT1suTnCp18nG6BknDuCPJmiNo8vNv9udYDxU3xleBH4IKiFq1SjXCA48oTH3A==
 
-"@mtbird/shared@^0.0.3-beta.12":
-  version "0.0.3-beta.27"
-  resolved "https://registry.yarnpkg.com/@mtbird/shared/-/shared-0.0.3-beta.27.tgz#645c2bd1dbefdf00588a3a893b23d1700f5d487f"
-  integrity sha512-RZbesq2mpYbD2DNblq1Kr1dB+VJHQVoAXPZ9BYJkVkls77AWtOVoIUw6Iz83qi+XILEAuxsJg3f9JzYt/dSZsQ==
+"@mtbird/shared@^0.0.3-beta.37":
+  version "0.0.3-beta.37"
+  resolved "https://registry.yarnpkg.com/@mtbird/shared/-/shared-0.0.3-beta.37.tgz#d13b4b3ff214c7c70121f6a23787828948a41fcf"
+  integrity sha512-wUf2HRthwZyNy4RRAz5xEEcfQ+wrTDs1IgwrkJzBxUi64bzPPzbaiSTWILaIo+eD+6bILGq7N9TdzZ89t2WwSQ==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"

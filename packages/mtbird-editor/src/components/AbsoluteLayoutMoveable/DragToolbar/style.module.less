@@ -1,15 +1,16 @@
 .dragToolbarContainer {
   display: flex;
   flex-direction: column;
-  background-color: white;
-  width: 28px;
+  background-color: var(--gray-10);
+  width: 32px;
   position: absolute;
   left: 0px;
   top: 0px;
   will-change: transform;
   transform-origin: 0px 0px;
-  border: 1px solid var(--gray-4);
+  border: 1px solid var(--gray-9);
   box-sizing: content-box !important;
+  border-radius: 5px;
   
   .dataItemWrapper {
     position: relative;
@@ -18,13 +19,19 @@
 
   .dragToolbarButton {
     border: 0;
-    border-bottom: 1px solid var(--gray-4);
+    background-color: var(--gray-10);
     border-radius: 0;
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
+    color: var(--color-text-4);
+
+    &:hover {
+      color: var(--color-text-4);
+      background-color: var(--gray-8);
+    }
   }
 
-  &:last-child {
+  :last-child {
     border-bottom: 0;
   }
 }

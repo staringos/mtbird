@@ -3,6 +3,53 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.42](https://github.com/staringos/mtbird/compare/v0.0.3-beta.41...v0.0.3-beta.42) (2023-01-17)
+
+
+### Features
+
+* add tour saas ([e01d435](https://github.com/staringos/mtbird/commit/e01d435e82ab1fa9a91c7845ca8bc48b2bdbd419))
+
+
+
+
+
+## [0.0.3-beta.41](https://github.com/staringos/mtbird/compare/v0.0.3-beta.40...v0.0.3-beta.41) (2023-01-17)
+
+**Note:** Version bump only for package @mtbird/core
+
+
+
+
+
+## [0.0.3-beta.40](https://github.com/staringos/mtbird/compare/v0.0.3-beta.39...v0.0.3-beta.40) (2023-01-17)
+
+**Note:** Version bump only for package @mtbird/core
+
+
+
+
+
+## [0.0.3-beta.39](https://github.com/staringos/mtbird/compare/v0.0.3-beta.38...v0.0.3-beta.39) (2023-01-17)
+
+**Note:** Version bump only for package @mtbird/core
+
+
+
+
+
+## [0.0.3-beta.38](https://github.com/staringos/mtbird/compare/v0.0.3-beta.37...v0.0.3-beta.38) (2023-01-17)
+
+
+### Features
+
+* add tour ([f3824f7](https://github.com/staringos/mtbird/commit/f3824f7f89086ffd60d351d74b24fdea59fbc7b5))
+* finish tour ([e84bdd2](https://github.com/staringos/mtbird/commit/e84bdd24db7ccfcb3c9c2f6ba3616e6b7e63fce9))
+
+
+
+
+
 ## [0.0.3-beta.37](https://github.com/staringos/mtbird/compare/v0.0.3-beta.36...v0.0.3-beta.37) (2023-01-15)
 
 **Note:** Version bump only for package @mtbird/core

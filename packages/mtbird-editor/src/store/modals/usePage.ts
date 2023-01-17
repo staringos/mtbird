@@ -126,7 +126,7 @@ function usePageModal(options: IEditorOptions): IContext {
     if (dataContainerNode.id !== currentDataContainer?.id) setCurrentDataContainer(dataContainerNode);
   };
 
-  const onSelect = (component: IComponentInstance | Array<IComponentInstance>) => {
+  const onSelect = (component: IComponentInstance | Array<IComponentInstance> | null) => {
     const cpt = getComponentArray(component);
     // Cancel select, select root
     if (cpt.length === 0) {

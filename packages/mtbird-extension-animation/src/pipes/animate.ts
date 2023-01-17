@@ -2,8 +2,8 @@ import { IComponentInstance } from '@mtbird/shared';
 
 const ELEMENT_ID = 'animate-min-css';
 
-export default (params: { node: IComponentInstance }) => {
-  const { node } = params;
+export default (params: { node: IComponentInstance; wrapperProps: any }) => {
+  const { node, wrapperProps } = params;
   const { animate } = node.pattern || {};
 
   if (!animate || !animate.open) return params;
@@ -20,22 +20,22 @@ export default (params: { node: IComponentInstance }) => {
     head.appendChild(link);
   }
 
-  node.props.className = (node.props.className || '') + ` animate__animated animate__${animate.type}`;
+  wrapperProps.className = (wrapperProps.className || '') + ` animate__animated animate__${animate.type}`;
 
   if (animate.delay) {
-    node.props.className = node.props.className + ` animate__delay-${animate.delay}s`;
+    wrapperProps.className = wrapperProps.className + ` animate__delay-${animate.delay}s`;
   }
 
   if (animate.duration) {
-    node.props.className = node.props.className + ` animate__duration-${animate.duration}s`;
+    wrapperProps.className = wrapperProps.className + ` animate__duration-${animate.duration}s`;
   }
 
   if (animate.repeat) {
-    node.props.className = node.props.className + ` animate__repeat-${animate.repeat}`;
+    wrapperProps.className = wrapperProps.className + ` animate__repeat-${animate.repeat}`;
   }
 
   if (animate.infinite) {
-    node.props.className = node.props.className + ` animate__infinite`;
+    wrapperProps.className = wrapperProps.className + ` animate__infinite`;
   }
 
   return params;
