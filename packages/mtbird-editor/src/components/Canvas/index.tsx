@@ -48,10 +48,10 @@ export default () => {
     setVerticalSnapGuides(guides);
   };
 
-  const handleCancelSelect = () => {
-    // TODO cancel select and selecto event conflict
-    // actions.onSelect(null);
-  };
+  // const handleCancelSelect = () => {
+  //   // TODO cancel select and selecto event conflict
+  //   actions.onSelect(null);
+  // };
 
   const guideDom = guildLineRef.current;
 
@@ -111,7 +111,7 @@ export default () => {
   };
 
   return (
-    <div ref={containerRef} className={styles.canvasWrapper + ' selectoContainer'} onClick={handleCancelSelect}>
+    <div ref={containerRef} className={styles.canvasWrapper + ' selectoContainer'}>
       <GuildLine
         zoom={zoom}
         ref={guildLineRef}
@@ -265,10 +265,9 @@ export default () => {
             actions.onSelect(selected as any);
 
             isDragStart && moveableRef.current?.dragStart(e.inputEvent);
-
-            // setTimeout(() => {
-            //   moveable?.dragStart(e.inputEvent);
-            // });
+          } else {
+            // cancel current select
+            actions.onSelect(null);
           }
         }}
       />

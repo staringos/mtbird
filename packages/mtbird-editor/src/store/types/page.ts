@@ -28,7 +28,7 @@ export interface IAction {
   // batch change many component
   // record: Map<componentId, Record<keyPath, value>>
   onBatchChange: (record: Map<string, Record<string, any>>) => void;
-  onSelect: (component: IComponentInstance) => void;
+  onSelect: (component: IComponentInstance | Array<IComponentInstance> | null) => void;
   // for example, hold shift key to select, continue select
   onSelectContinue: (component: IComponentInstance | Array<IComponentInstance>) => void;
   // add a container compoennt outside components
