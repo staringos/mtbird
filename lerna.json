@@ -2,7 +2,7 @@
   "packages": [
     "packages/*"
   ],
-  "version": "0.0.3-beta.39",
+  "version": "0.0.3-beta.40",
   "publish": {
     "graphType": "all"
   }
