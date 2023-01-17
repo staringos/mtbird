@@ -1,6 +1,7 @@
 export const EXTENSION_DEBUG_KEY = 'EXTENSION_DEBUG';
 export const TAB_STATE_KEY = 'TAB_STATE_KEY';
 export const TOUR_STATE_KEY = 'TOUR_STATE_KEY';
+export const SAAS_TOUR_STATE_KEY = 'SAAS_TOUR_STATE_KEY';
 
 const getLocal = () => {
   if (typeof window !== 'undefined') {
@@ -79,6 +80,15 @@ class GlobalStorage {
 
   static set tourState(value: boolean) {
     setter(this.Storage, TOUR_STATE_KEY)(value.toString());
+  }
+
+  static get saasTourState() {
+    const value = getter(this.Storage, SAAS_TOUR_STATE_KEY)();
+    return value !== 'false' ? true : false;
+  }
+
+  static set saasTourState(value: boolean) {
+    setter(this.Storage, SAAS_TOUR_STATE_KEY)(value.toString());
   }
 }
 

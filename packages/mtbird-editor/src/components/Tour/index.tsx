@@ -1,11 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Tour, TourProps } from 'antd';
 import Model from '../../store/types';
-
-const getTabFromInnerText = (text: string) => {
-  const arr = document.getElementsByClassName('ant-tabs-tab');
-  return Array.from(arr).filter((cur) => (cur as any).innerText === text)[0] as any;
-};
+import { getTabFromInnerText } from '@mtbird/core';
 
 const steps: TourProps['steps'] = [
   {
@@ -85,8 +81,7 @@ const steps: TourProps['steps'] = [
         🎉 恭喜，您已经完成基础引导，快去体验无代码编辑吧！～如想进一步了解，可以查看<a href="https://docs.staringos.com">星搭文档中心</a>.
       </p>
     ),
-    cover: <img alt="tour.png" src="https://mtbird-cdn.staringos.com/product/assets/TourCover1.jpg" />,
-    target: () => document.getElementById('stickyPanelBtn') as HTMLElement
+    cover: <img alt="tour.png" src="https://mtbird-cdn.staringos.com/product/assets/TourCover1.jpg" />
   }
 ];
 
