@@ -78,7 +78,7 @@ class GlobalStorage {
   }
 
   static set tourState(value: boolean) {
-    setter(this.Storage, TOUR_STATE_KEY)(value);
+    setter(this.Storage, TOUR_STATE_KEY)(value.toString());
   }
 }
 

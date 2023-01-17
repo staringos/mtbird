@@ -12,7 +12,8 @@
         {
           "sort": 3,
           "params": {
-              "name": "图片"
+              "name": "图片",
+              "id": "imageLibraryPanel"
           },
           "link": "feature",
           "feature": "imagelib.tab"

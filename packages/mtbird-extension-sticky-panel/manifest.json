@@ -13,6 +13,7 @@
         "sort": 3,
         "params": {
             "name": "屏幕跟随",
+            "id": "stickyPanelBtn",
             "icon": "mtbird-icon mtbird-aim"
         },
         "link": "panel",
