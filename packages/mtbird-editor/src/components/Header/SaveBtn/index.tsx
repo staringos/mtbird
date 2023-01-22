@@ -25,7 +25,7 @@ const SaveBtn = () => {
     }
   };
 
-  useInterval(handleSave, 10 * 1000);
+  state.options.autoSave && useInterval(handleSave, 10 * 1000);
 
   const isSaving = state.saveState.state === 'SAVING';
 
@@ -39,7 +39,7 @@ const SaveBtn = () => {
       }
     >
       <Button className={styles.headerButtonSave} type="text" onClick={handleSave} id="saveBtn">
-        {isSaving ? '保存中...' : '已保存'}
+        {isSaving ? '保存中...' : state.options.autoSave ? '保存' : '已保存'}
       </Button>
     </Tooltip>
   );

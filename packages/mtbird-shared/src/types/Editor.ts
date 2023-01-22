@@ -22,6 +22,7 @@ export interface IUser {
 
 export interface IEditorOptions {
   debug?: string | null;
+  autoSave?: boolean;
   pageConfig: IPageConfig;
   pageList?: IPageConfig[];
   extensions?: IExtensionImportType[];
