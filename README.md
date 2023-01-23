@@ -36,7 +36,7 @@ lerna bootstrap
 yarn start
 ```
 
-Open: http://localhost:3000/editor
+Open: http://localhost:3000/
 
 ## More Usage
 

@@ -28,6 +28,17 @@
 
 <p></p>
 
+## 快速开始
+
+```
+git clone https://github.com/staringos/mtbird
+yarn
+lerna bootstrap
+yarn start
+```
+
+在浏览器打开: http://localhost:3000/
+
 ## 常用资料
 
 - 📃 页面绑定自定义域名，点击了解 [绑定域名](https://docs.staringos.com/?path=/docs/%E7%BC%96%E8%BE%91%E5%99%A8-%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D--page)
