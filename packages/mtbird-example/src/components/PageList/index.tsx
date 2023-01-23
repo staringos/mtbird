@@ -1,8 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
 
-console.log('Table:', Table);
-
 const dataSource = [
   {
     key: '1',

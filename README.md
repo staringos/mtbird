@@ -29,6 +29,17 @@ StaringOS MtBird is a low-code platform for HTML Page、Website. We help use to 
 
 ## Getting Start
 
+```
+git clone https://github.com/staringos/mtbird
+yarn
+lerna bootstrap
+yarn start
+```
+
+Open: http://localhost:3000/editor
+
+## More Usage
+
 - 📃 Bind your domain name [Bind Domain](https://docs.staringos.com/?path=/docs/%E7%BC%96%E8%BE%91%E5%99%A8-%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D--page)
 
 - 🌟 Develop mtbird extension [Getting Start](https://docs.staringos.com/?path=/docs/%E6%8B%93%E5%B1%95-%E4%BB%8B%E7%BB%8D--page)

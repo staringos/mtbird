@@ -30,12 +30,16 @@ import isBoolean from 'lodash/isBoolean';
 import get from 'lodash/get';
 import templateSettings from 'lodash/templateSettings';
 import isArray from 'lodash/isArray';
-import { COMPONENT_NAME } from '../constants';
+import { COMPONENT_NAME, GLOBAL_DEFAULT_TITLE } from '../constants';
 import compact from 'lodash/compact';
 
 export const VALIABLE_TEMPLATE_REGAX = /\${{([\s\S]+?)}}/g;
 const nanoid = customAlphabet('1234567890qwertyuioplkjhgfdsazxcvbnm_$', 17);
 export const SYSTEM_VERIABLES = () => ({ $modals: {} });
+
+export const isStringEmpty = (str: string) => {
+  return !str || str.length <= 0;
+};
 
 export const getFormKeypath = (node: IComponentInstanceForm) => {
   const { formConfig, id } = node;

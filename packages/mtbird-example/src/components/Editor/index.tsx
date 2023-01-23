@@ -3,17 +3,20 @@ import React, { useEffect, useState } from 'react';
 import Editor from '@mtbird/editor';
 import { Spin } from 'antd';
 import '@mtbird/editor/dist/index.css';
-import pageData from '../../data/pageData.json';
+import { DATA } from '@/utils/constants';
 
 const EditorComponent = () => {
   const [isSSR, setIsSSR] = useState(true);
   const args = {
     options: {
-      pageConfig: {
-        name: '测试H5',
-        data: pageData
+      pageConfig: DATA,
+      extensions: ['mtbird-extension-enterprise', 'mtbird-extension-animation'],
+      onPreview: () => {
+        window.open(`/preview`);
       },
-      extensions: ['mtbird-extension-enterprise', 'mtbird-extension-animation']
+      onBack: () => {
+        location.href = 'https://mtbird.staringos.com';
+      }
     }
   };
 

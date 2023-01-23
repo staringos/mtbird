@@ -3,7 +3,11 @@ import { Dropdown, Menu } from 'antd';
 import Model from '../../store/types';
 import styles from './style.module.less';
 
-const PageSelect = ({ value }: { value: string }) => {
+interface IProps {
+  value: string;
+}
+
+const PageSelect = ({ value }: IProps) => {
   const { state } = useContext(Model);
 
   const handlePageChanged = (page: { key: string }) => {

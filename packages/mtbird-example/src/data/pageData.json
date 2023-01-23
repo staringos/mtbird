@@ -232,39 +232,6 @@
                           "componentName":"InputPhone"
                       },
                       {
-                          "id":"51741311205-101736-4522-1117132-61011727121756511",
-                          "data":{
-                              "options":[
-                                  {
-                                      "label":"选项1",
-                                      "value":"a"
-                                  },
-                                  {
-                                      "label":"选项2",
-                                      "value":"b"
-                                  }
-                              ]
-                          },
-                          "type":"form",
-                          "props":{
-                              "style":{
-                                  "height":105,
-                                  "position":"relative"
-                              },
-                              "className":"relative"
-                          },
-                          "parent":"134172111760-541012-4743-121610-1317761016021114710",
-                          "children":[
-
-                          ],
-                          "formConfig":{
-                              "label":"地区",
-                              "isRequired":true,
-                              "rulesVerifyInside":true
-                          },
-                          "componentName":"RegionSelect"
-                      },
-                      {
                           "id":"65341315155-1361215-421414-1011173-021350217612151",
                           "type":"form",
                           "props":{
