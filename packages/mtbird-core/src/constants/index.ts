@@ -1,3 +1,5 @@
+export const GLOBAL_DEFAULT_TITLE = '星搭精卫 - 极速落地页搭建，业务组件灵活接入，自定义插件动态拓展';
+
 export const COMPONENT_NAME = {
   CONTAINER_ROOT: 'ContainerRoot',
   CONTAINER_BLOCK: 'ContainerBlock',

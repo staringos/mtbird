@@ -37,7 +37,7 @@ export const H5页面 = Template.bind({});
 H5页面.args = {
   options: {
     pageConfig: {
-      name: '测试H5',
+      title: '测试H5',
       data: pageData
     }
   }
