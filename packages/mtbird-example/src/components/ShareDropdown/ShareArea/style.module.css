@@ -1,0 +1,19 @@
+.shareContainer {
+  display: flex;
+  width: 260px;
+  height: 230px;
+  background: white;
+  box-shadow: 0 0.1em 0.5em #00000047;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.qrcodeContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.qrcode {
+  width: 100px;
+  height: 100px;
+}

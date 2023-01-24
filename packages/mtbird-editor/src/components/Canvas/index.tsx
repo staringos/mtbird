@@ -207,7 +207,8 @@ export default () => {
         }
         onDragStart={(e) => {
           const inputEvent = e.inputEvent;
-          const target = inputEvent.path.find((cur: any) => cur?.className?.indexOf?.('mtbird-component') !== -1);
+
+          const target = inputEvent.target; // inputEvent.path.find((cur: any) => cur?.className?.indexOf?.('mtbird-component') !== -1);
           const id = target.id;
           const cls = target.className?.split(' ') || [];
 

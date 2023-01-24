@@ -18,6 +18,31 @@ First off, thank you for considering contributing to MtBird. It's people like yo
 
 MtBird 项目库的提交规范采用 [Angular 提交规范](https://zj-git-guide.readthedocs.io/zh_CN/latest/message/Angular%E6%8F%90%E4%BA%A4%E4%BF%A1%E6%81%AF%E8%A7%84%E8%8C%83/)
 
+## 快速开始
+
+```shell
+git clone https://github.com/staringos/mtbird
+yarn
+lerna bootstrap
+yarn start
+```
+
+在浏览器打开: http://localhost:3000/
+
+## 调试本地模块
+
+```shell
+cd packages/mtbird-example
+yarn run link
+```
+
+这时候，example 中所有 mtbird 相关依赖都会被 link 到本地，您可以在本地开启代码监听，进行代码修改，example 中的引用会自动更新。比如修改 editor 模块:
+
+```shell
+cd packages/mtbrid-editor
+yarn run start
+```
+
 ## Packages
 
 - mtbird-cli: 命令行工具

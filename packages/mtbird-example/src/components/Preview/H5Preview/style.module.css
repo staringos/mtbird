@@ -1,0 +1,20 @@
+.h5PreviewWrapper {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.h5PreviewContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.h5PreviewContent {
+  border: 15px solid rgb(238 238 238 / 45%);
+  border-top: 20px solid rgb(238 238 238 / 45%);
+  box-sizing: content-box;
+  border-radius: 20px;
+}
