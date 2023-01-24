@@ -1,0 +1,53 @@
+{
+  "name": "@mtbird/component-common",
+  "version": "0.0.3-beta.42",
+  "description": "The common cross platform set of components",
+  "author": "GeorgeZou <george@staringos.com>",
+  "homepage": "https://github.com/staringos/mtbird#readme",
+  "license": "Apache-2.0",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/types",
+  "directories": {
+    "dist": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/staringos/mtbird.git"
+  },
+  "scripts": {
+    "start": "NODE_ENV=development mtbird watch",
+    "build": "NODE_ENV=production mtbird build",
+    "preDev": "lerna link & yarn run link",
+    "link": "npm link ../../../mtbird-saas/node_modules/react"
+  },
+  "bugs": {
+    "url": "https://github.com/staringos/mtbird/issues"
+  },
+  "peerDependencies": {
+    "@mtbird/core": "^0.0.1",
+    "@mtbird/shared": "^0.0.1",
+    "react": "18.1.0",
+    "react-dom": "18.1.0"
+  },
+  "dependencies": {
+    "@tarojs/components": "^3.5.12",
+    "react-color": "^2.19.3",
+    "react-sortable-hoc": "^2.0.0",
+    "taro-ui": "^2.3.4"
+  },
+  "gitHead": "ea38dfd580aba73703f26e04bbb577c904b67985",
+  "devDependencies": {
+    "@tarojs/react": "^3.5.12",
+    "@tarojs/taro": "^3.5.12",
+    "babel-preset-taro": "^3.5.12"
+  }
+}
