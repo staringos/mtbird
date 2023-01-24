@@ -30,10 +30,13 @@
 
 ## 快速开始
 
-```
+需要 NodeJS 版本: 14.18.0 or >=16.0.0
+
+```shell
 git clone https://github.com/staringos/mtbird
 yarn
-lerna bootstrap
+cd packages/mtbird-example
+yarn
 yarn start
 ```
 
