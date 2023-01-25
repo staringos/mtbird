@@ -29,7 +29,7 @@ function usePageModal(options: IEditorOptions): IContext {
   const [hasEdit, setHasEdit] = useState(false);
   const [componentMap, setComponentMap] = useState(new Map<string, IComponentInstance>());
   const moveableRef = useRef<Moveable | undefined>();
-  const [historyStack, setHistoryStacK] = useState<string[]>([]);
+  const [historyStack, setHistoryStack] = useState<string[]>([]);
   const [historyStackPointer, setHistoryStackPointer] = useState(0);
   const [isHistoryChange, setIsHistoryChange] = useState(false);
   const [currentDataContainer, setCurrentDataContainer] = useState<IComponentInstanceCommon | undefined>();
@@ -91,7 +91,7 @@ function usePageModal(options: IEditorOptions): IContext {
     if (isHistoryChange) return setIsHistoryChange(false);
     const newHistory = [...historyStack, JSON.stringify(tmpPageConfig)];
 
-    setHistoryStacK(newHistory);
+    setHistoryStack(newHistory);
     setHistoryStackPointer(historyStackPointer + 1);
   }, [tmpPageConfig]);
 
