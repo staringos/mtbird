@@ -4,9 +4,11 @@ import Editor from '@mtbird/editor';
 import { Spin } from 'antd';
 import '@mtbird/editor/dist/index.css';
 import { DATA } from '@/utils/constants';
+import useSSR from '@/hooks/useSSR';
 
 const EditorComponent = () => {
-  const [isSSR, setIsSSR] = useState(true);
+  const isSSR = useSSR();
+
   const args = {
     options: {
       pageConfig: DATA,
@@ -19,10 +21,6 @@ const EditorComponent = () => {
       }
     }
   };
-
-  useEffect(() => {
-    setIsSSR(false);
-  }, []);
 
   if (isSSR) return <Spin />;
 

@@ -29,7 +29,7 @@ const PreviewHeader = ({ page, historyId, currentMobile, onSizeChange, isMobile,
   );
 
   const PlatFormRadio = (
-    <Radio.Group key={3} value={platform} onChange={(e) => onPlatformChange(e.target.value)}>
+    <Radio.Group key="3" value={platform} onChange={(e) => onPlatformChange(e.target.value)}>
       <Radio.Button value="pc">
         <DesktopOutlined />
       </Radio.Button>
@@ -61,7 +61,7 @@ const PreviewHeader = ({ page, historyId, currentMobile, onSizeChange, isMobile,
     extra = [DeviceSelect, ...extra];
   }
 
-  return <PageHeader ghost={false} onBack={() => (location.href = '/')} title={page.title} extra={extra} />;
+  return <PageHeader ghost={false} onBack={() => (location.href = '/')} title={page.title} />;
 };
 
 export default PreviewHeader;

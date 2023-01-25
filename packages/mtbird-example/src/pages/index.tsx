@@ -1,9 +1,8 @@
-'use client';
 import React from 'react';
 import EditorComponent from '@/components/Editor';
-import styles from './page.module.css';
+import styles from './style.module.css';
 
-const EditorPage = () => {
+const IndexPage = () => {
   return (
     <div className={styles.editorPage}>
       <EditorComponent />
@@ -11,4 +10,4 @@ const EditorPage = () => {
   );
 };
 
-export default EditorPage;
+export default IndexPage;

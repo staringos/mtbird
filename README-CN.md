@@ -30,14 +30,18 @@
 
 ## 快速开始
 
-```
+需要 NodeJS 版本: >=14.18.0
+
+```shell
 git clone https://github.com/staringos/mtbird
 yarn
-lerna bootstrap
+yarn run bootstrap
 yarn start
 ```
 
 在浏览器打开: http://localhost:3000/
+
+本地开发 mtbird 相关包，请查看 [这个文档](https://github.com/staringos/mtbird/tree/master/packages/mtbird-example)
 
 ## 常用资料
 

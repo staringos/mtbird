@@ -29,14 +29,18 @@ StaringOS MtBird is a low-code platform for HTML Page、Website. We help use to 
 
 ## Getting Start
 
-```
+Require NodeJS version: >=14.18.0
+
+```shell
 git clone https://github.com/staringos/mtbird
 yarn
-lerna bootstrap
+yarn run bootstrap
 yarn start
 ```
 
 Open: http://localhost:3000/
+
+Develop mtbird library mode see [this document](https://github.com/staringos/mtbird/tree/master/packages/mtbird-example)
 
 ## More Usage
 
