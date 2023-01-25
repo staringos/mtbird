@@ -33,8 +33,8 @@ const H5Preview = ({ page, historyId, platform, onPlatformChange }: IProps) => {
             id="mtbird-page-render"
             frameBorder="no"
             src={`/render`}
-            width={PreviewMobileType[currentMobile].width}
-            height={PreviewMobileType[currentMobile].height}
+            width={(PreviewMobileType as any)[currentMobile]?.width || 375}
+            height={(PreviewMobileType as any)[currentMobile]?.height || 750}
           />
         </div>
       </div>

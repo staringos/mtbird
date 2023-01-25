@@ -3,9 +3,6 @@ const path = require('path');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
-  experimental: {
-    appDir: true,
-  },
   webpack: (config) => {
     config.externals.react = 'react'
 
