@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.43](https://github.com/staringos/mtbird/compare/v0.0.3-beta.42...v0.0.3-beta.43) (2023-01-25)
+
+
+### Features
+
+* update version ([74c2a51](https://github.com/staringos/mtbird/commit/74c2a51c01c9e314451fc68598249ce08857afff))
+
+
+
+
+
 ## [0.0.3-beta.42](https://github.com/staringos/mtbird/compare/v0.0.3-beta.41...v0.0.3-beta.42) (2023-01-17)
 
 **Note:** Version bump only for package @mtbird/extension-animation
