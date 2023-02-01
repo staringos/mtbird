@@ -1,4 +1,18 @@
-module.exports = function getBabelConfig() {
+const path = require('path')
+const fs = require('fs')
+
+export default function babelGenerate(cwd) {
+  console.log("cwd:", cwd)
+  const babelConfigPath = path.join(cwd, 'babel.config.json')
+  // console.log("babelConfigPath:", babelConfigPath)
+  let config = {presets: []}
+
+  if (fs.existsSync(babelConfigPath)) {
+    config = fs.readFileSync(babelConfigPath, 'utf-8')
+    console.log("config:", config)
+    return JSON.parse(config);
+  }
+
   return {
     presets: [
       [

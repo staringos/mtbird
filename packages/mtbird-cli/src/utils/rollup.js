@@ -28,6 +28,10 @@ const { DEFAULT_EXTENSIONS } = require('@babel/core');
 export const getPollupPlugins = (outDir, cwd, extractPlugins = [], outputCssName = 'index.css') => {
   const rootDir = path.join(cwd, `src`);
   const tsconfigPath = path.join(cwd, 'tsconfig.json')
+  const babelConfig = babelGenerate(cwd)
+
+  console.log("babelConfig:", babelConfig)
+
   const plugins = [
     dotenv(),
     postcss({
@@ -87,7 +91,7 @@ export const getPollupPlugins = (outDir, cwd, extractPlugins = [], outputCssName
       exclude: ['scripts/**', 'dist/**', 'node_modules/**', '*.d.ts', '*.test.{js+(|x), ts+(|x)}', '**/*.test.{js+(|x), ts+(|x)}']
     }),
     babel({
-      ...babelGenerate(),
+      ...babelConfig,
       extensions: [...DEFAULT_EXTENSIONS, '.ts', '.tsx'],
       babelHelpers: 'runtime',
       skipPreflightCheck: true,
