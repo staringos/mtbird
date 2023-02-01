@@ -3,6 +3,7 @@ if (typeof global.navigator === 'undefined') global.navigator = {};
 import * as Extension from './handler/extension';
 import builder from './builder';
 import {printLogo} from './utils';
+import pkgJson from '../package.json';
 
 const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');
@@ -21,9 +22,16 @@ const watch = builder.bind(null, {
 
 const concurrently = require('concurrently');
 
+// yargs(args)
+//   .command('version', '显示版本信息', () => { 
+//       console.log(`MtBird CLI Version: v${pkgJson.version}`);
+//    })
+//   .alias('version', 'v')
+//   .help().argv;
+
 yargs(args).command(
   'start',
-  '开启拓展服务，Watch拓展变化，并serve 拓展dist文件',
+  '开启拓展服务，watch 拓展变化，并 serve 拓展 dist 文件',
   () => {},
   (argv) => {
     if (!argv.noLogo) printLogo()
@@ -36,33 +44,27 @@ yargs(args).command(
     );
   }
 )
-.help().argv;
-
-yargs(args).command(
+.command(
     'create [name]',
-    '创建MTBird拓展',
+    '创建 MtBird 拓展',
     () => {},
     (argv) => {
       if (!argv.noLogo) printLogo()
       Extension.create(argv.name);
     }
   )
-  .help().argv;
-
-yargs(args).command(
+.command(
     'build',
-    '构建MTBird拓展',
+    '构建 MtBird 拓展',
     () => {},
     (argv) => {
       if (!argv.noLogo) printLogo()
       build(argv)
     }
   )
-  .help().argv;
-
-yargs(args).command(
+.command(
     'publish',
-    '发布MTBird拓展',
+    '发布 MtBird 拓展到官方镜像',
     () => {},
     async (argv) => {
       if (!argv.noLogo) printLogo();
@@ -73,9 +75,7 @@ yargs(args).command(
       Extension.publish(argv);
     }
   )
-  .help().argv;
-
-yargs(args).command(
+.command(
     'serve [featureType]',
     '本地启动对构建目录的服务, --port 端口',
     () => {},
@@ -84,9 +84,7 @@ yargs(args).command(
       Extension.serve(argv);
     }
   )
-  .help().argv;
-
-yargs(args).command(
+.command(
     'watch',
     '监听插件src源码目录变化，并重新构建',
     () => {},
