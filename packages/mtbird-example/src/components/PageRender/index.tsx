@@ -20,8 +20,6 @@ const PageRender = ({ preview, appId }: IProps) => {
 
   if (isSSR) return <div />;
 
-  const onClick = () => {};
-
   return (
     <div className={styles.previewContainer}>
       <Head>
@@ -29,7 +27,7 @@ const PageRender = ({ preview, appId }: IProps) => {
         <title>{page?.title}</title>
         <meta name="description">{page?.desc}</meta>
       </Head>
-      <Renderer isZoom={true} dataSource={dataSource} pageConfig={page as any} platform={page?.type === 'pc' ? 'pc' : 'mobile'} onClick={onClick} />
+      <Renderer isZoom={true} dataSource={dataSource} pageConfig={page as any} platform={page?.type === 'pc' ? 'pc' : 'mobile'} />
     </div>
   );
 };

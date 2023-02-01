@@ -39,7 +39,7 @@ const SaveBtn = () => {
       }
     >
       <Button className={styles.headerButtonSave} type="text" onClick={handleSave} id="saveBtn">
-        {isSaving ? '保存中...' : state.options.autoSave ? '保存' : '已保存'}
+        {isSaving ? '保存中...' : state.options.autoSave ? '已保存' : '保存'}
       </Button>
     </Tooltip>
   );
