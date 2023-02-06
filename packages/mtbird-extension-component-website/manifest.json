@@ -1,0 +1,21 @@
+{
+  "name": "mtbird-extension-component-website",
+  "title": "mtbird-extension-component-website",
+  "version": "0.0.1",
+  "desc": "星搭官方网站组件库",
+  "tags": [
+      "拓展案例"
+  ],
+  "contributes": {
+    "toolbars": [
+        {
+          "sort": 3,
+          "params": {
+              "name": "拓展案例"
+          },
+          "link": "feature",
+          "feature": "example.tab"
+        }
+    ]
+  }
+}

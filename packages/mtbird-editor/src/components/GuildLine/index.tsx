@@ -70,6 +70,8 @@ const GuildLine = (
         unit={unit}
         ref={guideHoriRef}
         style={{ zIndex: 888 }}
+        backgroundColor="#272e3b"
+        textColor="#c9cdd4"
         onChangeGuides={({ guides }) => {
           onGuidesChange('horizontal', guides);
         }}
@@ -82,6 +84,8 @@ const GuildLine = (
         snaps={verticalSnapGuides}
         displayDragPos={true}
         zoom={zoom}
+        backgroundColor="#272e3b"
+        textColor="#c9cdd4"
         unit={unit}
         onChangeGuides={({ guides }) => {
           onGuidesChange('vertical', guides);
