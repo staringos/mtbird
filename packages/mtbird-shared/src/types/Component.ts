@@ -91,6 +91,7 @@ export interface IComponentInstance {
   componentName: string;
   props: IProps;
   layout?: 'absolute' | 'grid' | 'flex';
+  componentLib?: string;
   data?: {
     isDataContainer?: boolean; // 是否是数据容器（具备数据查询和暂存功能的组件）
     title?: string;

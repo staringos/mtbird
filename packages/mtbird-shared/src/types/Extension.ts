@@ -53,6 +53,7 @@ export interface IExtensionContext {
   router: IRouter;
   variables: Record<string, any>;
   currentDataContainer?: IComponentInstance;
+  componentLibs: IComponentLibs;
 
   // event emit and subscription hub
   eventHub: IEventEmitter;
@@ -134,6 +135,14 @@ export interface IExtensionManifest {
   pipes: string[];
   contributes: ContributeMap;
   components: string[] | boolean;
+  componentLibs: IComponentLibs[];
+}
+
+export interface IComponentLibs {
+  key: string;
+  title: string;
+  desc?: string;
+  headImage?: string;
 }
 
 export interface IExtension {

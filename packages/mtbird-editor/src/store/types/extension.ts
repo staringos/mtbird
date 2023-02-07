@@ -6,7 +6,8 @@ import type {
   IComponentManifest,
   IComponentInstance,
   IComponentInstanceForm,
-  IContribute
+  IContribute,
+  IComponentLibs
 } from '@mtbird/shared';
 import { ContributesKeys, IContributeManifest } from '@mtbird/helper-extension';
 
@@ -20,6 +21,7 @@ export interface IState {
   extensionPipes: Map<string, IPipe>;
   extensionPanelVisible: Map<string, IContribute>;
   registeredComponents: Record<string, IComponentManifest<IComponentInstance | IComponentInstanceForm>>;
+  componentLibs: IComponentLibs[];
 }
 
 export interface IAction {

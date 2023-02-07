@@ -5,17 +5,20 @@ import isEmpty from 'lodash/isEmpty';
 import uniqWith from 'lodash/uniqWith';
 import AssetsLoader from './AssetsLoader';
 import { getParamFromURL } from '../utils';
+import GlobalStorage from '../storage/GlobalStorage';
 
 import { GLOBAL_EXTENSION_COMPONENTS_KEY } from '../constants';
 
 const REGISTRY = process.env.REGISTRY || 'https://registry.staringos.com/';
 
 const getRegistry = (extension: any) => {
-  const debug = localStorage.getItem('EXTENSION_DEBUG');
-  if (!isEmpty(debug)) {
-    const name = getParamFromURL(debug as string, 'name');
-    if (name === extension.extensionName) {
-      return `${debug?.split('?')[0]}`;
+  const debug = GlobalStorage.debugExtension.split('||');
+  if (!isEmpty(debug) && debug) {
+    for (let i = 0; i < debug.length; i++) {
+      const name = getParamFromURL(debug[i] as string, 'name');
+      if (name === extension.extensionName) {
+        return `${debug[i]?.split('?')[0]}`;
+      }
     }
   }
   return `${REGISTRY}${extension.extensionName}/latest`;

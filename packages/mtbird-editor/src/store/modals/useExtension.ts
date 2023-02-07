@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import IContext from '../types/extension';
-import { IEditorOptions, IContribute, IComponentCommon } from '@mtbird/shared';
+import { IEditorOptions, IContribute, IComponentCommon, IComponentLibs } from '@mtbird/shared';
 import { extensionLoader, extensionInit, helpers } from '@mtbird/helper-extension';
 import clone from 'lodash/clone';
 import { getManifests } from '@mtbird/component-basic';
@@ -8,6 +8,7 @@ import { getManifests } from '@mtbird/component-basic';
 function useExtensionModal(options: IEditorOptions, setLoading: (i: boolean) => void): IContext {
   const { extensions } = options;
   const [extensionsParams, setExtensionParams] = useState([]);
+  const [componentLibs, setComponentLibs] = useState<IComponentLibs[]>([]);
   const [extensionContributes, setExtensionContributes] = useState(new Map());
   const [extensionPipes, setExtensionPipes] = useState(new Map());
   const [extensionModalVisible, setExtensionModalVisible] = useState(new Map());
@@ -27,7 +28,8 @@ function useExtensionModal(options: IEditorOptions, setLoading: (i: boolean) => 
       extensionFeatures,
       extensionPipes,
       extensionPanelVisible,
-      registeredComponents
+      registeredComponents,
+      componentLibs
     },
     actions: {
       init: async (store: IContext) => {
@@ -46,6 +48,8 @@ function useExtensionModal(options: IEditorOptions, setLoading: (i: boolean) => 
           setExtensionPipes(res.pipes);
           setExtensionParams(res.extensionParams);
           setExtensionComponents(res.components);
+          setComponentLibs(res.componentLibs);
+
           await extensionInit(store);
 
           setRegisteredComponents({ ...registeredComponents, ...helpers.getExtensionComponentManifests(res.components) });

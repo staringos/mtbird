@@ -3,6 +3,6 @@
   "compilerOptions": {
     "baseUrl": "./"
   },
-  "include": ["../../types/externals.d.ts", "src/**/*"],
+  "include": ["../../types/externals.d.ts", "src/**/*", "../mtbird-ui/src/components/ToolBoxForm"],
   "exclude": ["node_modules", "lib", "es", "dist"]
 }

@@ -41,7 +41,7 @@ const DebugPanel = () => {
   return (
     <div className={styles.debugPanel}>
       <Form.Item label="拓展地址" rules={[{ required: true, message: 'Please input your username!' }]}>
-        <Input value={debug} onChange={handleDebugChange} disabled={state.options.debug} />
+        <Input value={debug} onChange={handleDebugChange} disabled={!!state.options.debug} />
       </Form.Item>
       {state.options.debug ? <Button onClick={handleStopDebug}>停止调试</Button> : <Button onClick={handleStartDebug}>开始调试</Button>}
     </div>
@@ -53,7 +53,7 @@ const DebugButton = () => {
 
   const status = useMemo(() => {
     if (!state.options.debug) return 'error';
-    const name = getParamFromURL(state.options.debug, 'name');
+    const name = getParamFromURL(state.options.debug.split('||')[0], 'name');
     const loaded = window[GLOBAL_EXTENSION_KEY][name];
     return loaded ? 'success' : 'error';
   }, [state.extensionContributes]);

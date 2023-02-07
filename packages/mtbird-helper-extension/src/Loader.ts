@@ -4,7 +4,7 @@ import jsxRuntime from 'react/jsx-runtime';
 import ReactDOM from 'react-dom';
 import type { IExtensionImportType, IContribute, IPipe, IExtensionComponent, IComponentInstance } from '@mtbird/shared';
 import { AssetsLoader, GLOBAL_EXTENSION_COMPONENTS_KEY, GLOBAL_EXTENSION_KEY, pipelineAsync, GlobalStorage } from '@mtbird/core';
-import { ContributesTypes, IExtensionManifest } from '../../mtbird-shared/src/types/Extension';
+import { ContributesTypes, IComponentLibs, IExtensionManifest } from '../../mtbird-shared/src/types/Extension';
 import keys from 'lodash/keys';
 import * as antd from 'antd';
 import cloneDeep from 'lodash/cloneDeep';
@@ -42,6 +42,7 @@ interface IExtensionParams {
   constributes?: IContribute;
   activityFn: any;
   isDev: boolean;
+  componentLibs: IComponentLibs[];
 }
 
 export const getExtensionFeatureUrl = (params: IExtensionParams): IExtensionParams => {
@@ -262,6 +263,14 @@ const loadComponentCSS = async (params: IExtensionParams) => {
   }
 };
 
+const loadComponentLibs = async (params: IExtensionParams) => {
+  if (!params || !params.manifest?.componentLibs) return params;
+  params.manifest?.componentLibs.map((cur) => {
+    params.componentLibs.push(cur);
+  });
+  return params;
+};
+
 /**
  * Append extensions type
  *
@@ -278,6 +287,7 @@ const extensionLoader = async (extensions: IExtensionImportType[]) => {
   const contributes = new Map<ContributesTypes, IContribute[]>();
   const pipes = new Map<string, IPipe>();
   const components = new Map<string, IExtensionComponent>();
+  const componentLibs = [] as IComponentLibs[];
 
   const promiseLoads = extensions.map(async (cur) => {
     try {
@@ -289,12 +299,14 @@ const extensionLoader = async (extensions: IExtensionImportType[]) => {
         loadCSS,
         loadPipes,
         loadComponents,
-        loadComponentCSS
+        loadComponentCSS,
+        loadComponentLibs
       ])({
         key: cur,
         pipes,
         contributes,
         components,
+        componentLibs,
         isDev: GlobalStorage.debugExtension === cur
       });
     } catch (e) {
@@ -307,7 +319,8 @@ const extensionLoader = async (extensions: IExtensionImportType[]) => {
     extensionParams,
     pipes,
     contributes,
-    components
+    components,
+    componentLibs
   };
 };
 

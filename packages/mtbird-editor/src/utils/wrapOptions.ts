@@ -31,9 +31,12 @@ const wrapOptions = (userOptions: IEditorOptions): IEditorOptions => {
 
   // add debug extension
   if (debug) {
-    const name = getParamFromURL(debug, 'name');
-    extensions = options.extensions.filter((cur: string) => cur.split('@')[0] !== name);
-    extensions.push(debug);
+    const debugs = debug.split('||');
+    debugs.map((curDebug: string) => {
+      const name = getParamFromURL(curDebug, 'name');
+      extensions = extensions.filter((cur: string) => cur.split('@')[0] !== name);
+      extensions.push(curDebug);
+    });
   }
 
   // add screen type

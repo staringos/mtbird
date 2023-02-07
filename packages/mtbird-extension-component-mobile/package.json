@@ -21,10 +21,10 @@
     "publish-lib": "NODE_ENV=production mtbird publish --token="
   },
   "dependencies": {
-    "antd-mobile": "^5.25.1"
+    "antd-mobile": "^5.25.1",
+    "@mtbird/core": "^0.0.3-beta.43"
   },
   "devDependencies": {
-    "@mtbird/core": "^0.0.3-beta.43"
   },
   "peerDependencies": {
     "@mtbird/cli": "^0.0.3-beta.15",

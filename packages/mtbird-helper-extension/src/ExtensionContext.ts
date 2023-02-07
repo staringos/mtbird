@@ -49,6 +49,10 @@ export default class ExtensionContext implements IExtensionContext {
     return this.store?.state.currentDataContainer;
   }
 
+  get componentLibs() {
+    return this.store?.state.componentLibs;
+  }
+
   extensionName = '';
 
   private store: IContext | null = null;

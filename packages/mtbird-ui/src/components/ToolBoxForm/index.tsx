@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
-import type { IComponent } from '@mtbird/shared';
 import styles from './style.module.less';
-import models from '../../../store/types';
+import models from '../../../../mtbird-editor/src/store/types';
 
-export default ({ component }: IComponent) => {
+export default ({ component }: any) => {
   const { addComponent } = useContext(models).actions;
   const handleClick = () => {
     addComponent(component.instance);

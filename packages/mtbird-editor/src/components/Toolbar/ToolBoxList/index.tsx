@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
-import { IComponentManifest, IComponentInstance, IComponentCommon } from '@mtbird/shared';
+import React, { useContext, useState } from 'react';
+import { IComponentCommon, IComponentInstance } from '@mtbird/shared';
 import { Collapse } from 'antd';
-import ToolBox from '../ToolBox';
-import ToolBoxForm from '../ToolBoxForm';
+import { ToolBoxList } from '@mtbird/ui';
 import styles from './style.module.less';
-import { Typography } from 'antd';
-const { Title } = Typography;
+import Model from '../../../store/types';
 
 interface IProps {
   category: any;
@@ -35,8 +33,9 @@ const subCategoryGroup = [
   }
 ];
 
-const ToolBoxList = ({ category, categoriesGroup }: IProps) => {
+const ToolBoxListComponent = ({ category, categoriesGroup }: IProps) => {
   const [activeKey, setActiveKey] = useState<string | string[]>(['common', 'container']);
+  const { actions } = useContext(Model);
   const list = categoriesGroup[category.key];
 
   if (!list) return <div />;
@@ -58,14 +57,11 @@ const ToolBoxList = ({ category, categoriesGroup }: IProps) => {
 
           return (
             <Collapse.Panel header={cur.label} key={cur.value} id={`${cur.value}ToolBar`}>
-              <div className={styles.toolbarList}>
-                {cur.list
-                  ? cur.list.map((component: IComponentManifest<IComponentInstance>) => {
-                      if (category.key === 'form') return <ToolBoxForm key={component.componentName} component={component} />;
-                      return <ToolBox key={component.componentName} component={component} />;
-                    })
-                  : ''}
-              </div>
+              <ToolBoxList
+                list={cur.list}
+                isForm={category.key === 'form'}
+                onItemClick={(instance: IComponentInstance) => actions.addComponent(instance)}
+              />
             </Collapse.Panel>
           );
         })}
@@ -74,4 +70,4 @@ const ToolBoxList = ({ category, categoriesGroup }: IProps) => {
   );
 };
 
-export default ToolBoxList;
+export default ToolBoxListComponent;

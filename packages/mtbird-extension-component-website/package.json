@@ -28,6 +28,7 @@
     "@mtbird/cli": "^0.0.3-beta.15",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "antd": "^4.23.0"
+    "antd": "^4.23.0",
+    "@mtbird/core": "^0.0.3-beta.43"
   }
 }

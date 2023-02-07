@@ -6,3 +6,5 @@ export { default as CollapsePanel } from './components/CollapsePanel';
 export { default as FormItem } from './components/FormItem';
 export { default as Upload } from './components/Upload';
 export { default as EditableText } from './components/EditableText';
+export { default as ToolBox } from './components/ToolBox';
+export { default as ToolBoxList } from './components/ToolBoxList';
