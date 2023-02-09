@@ -1,7 +1,6 @@
 import dotenv from "rollup-plugin-dotenv"
 import extensions from 'rollup-plugin-extensions';
 import babelGenerate from '../builder/babel.config';
-
 const babel = require('@rollup/plugin-babel').default;
 const json = require('@rollup/plugin-json');
 const commonjs = require('@rollup/plugin-commonjs');
@@ -105,6 +104,11 @@ export const getPollupPlugins = (outDir, cwd, extractPlugins = [], outputCssName
     global(),
     url(),
     svgr(),
+    // copy({
+    //   targets: [
+    //     { src: 'src/static/*', dest: 'dist', flatten: false }
+    //   ]
+    // }),
     ...extractPlugins
   ]
 
