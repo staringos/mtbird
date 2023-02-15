@@ -19,7 +19,7 @@ const RendererWrapper = ({ pageConfig }: IProps) => {
     <Renderer
       isEdit={true}
       pageConfig={pageConfig}
-      platform="mobile"
+      platform={pageConfig.type === 'pc' ? 'pc' : 'mobile'}
       dataSource={state.pageDataSource}
       onUpload={actions.onUpload}
       variables={state.variables}

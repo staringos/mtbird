@@ -27,7 +27,7 @@ interface IProps {
 const Render = ({ node, className, zIndex, formId, parent, variables }: IProps & IPageConfig) => {
   // 1. no need to render, return empty or directly
   if (!node) return <div />;
-  if (isString(node) || isNumber(node)) return node;
+  if (isString(node) || isNumber(node)) return node as any;
 
   const context = useContext(RenderContext);
   const { layoutMoveable, onClick, dataSource, onUpload, isEdit, renderExtra, Components, onChangeSelf } = context;
