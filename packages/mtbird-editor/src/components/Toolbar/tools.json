@@ -5,11 +5,6 @@
       "key": "basic",
       "title": "基础",
       "sort": 1
-    },
-    {
-      "key": "extension",
-      "title": "更多",
-      "sort": -1
     }
   ]
 }

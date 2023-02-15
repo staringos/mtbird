@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Button } from 'antd';
 import Tabs from '../Tabs';
-import { EXTENSION_CONTRIBUTE_TYPE, getModalOptions } from '@mtbird/core';
+import { EXTENSION_CONTRIBUTE_TYPE } from '@mtbird/core';
 import Model from '../../store/types';
 import { convertExtensionContributeToTab } from '../../utils/tools';
 import { IContributeManifest } from '@mtbird/helper-extension';
@@ -16,6 +16,7 @@ const BottomBar = () => {
 
   const onChange = (value: string) => {
     setActiveKey(value);
+    !tabsState['bottomTabs'] && actions.toggleTab('bottomTabs');
   };
 
   const tabItems = convertExtensionContributeToTab(schemaTabs as IContributeManifest, store);

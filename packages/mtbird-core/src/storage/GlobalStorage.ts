@@ -66,7 +66,7 @@ class GlobalStorage {
   }
 
   static get tabState() {
-    return getterJson(this.Storage, TAB_STATE_KEY, { toolTabs: true, bottomTabs: true, schemaTabs: true })();
+    return getterJson(this.Storage, TAB_STATE_KEY, { toolTabs: true, bottomTabs: false, schemaTabs: true })();
   }
 
   static set tabState(value: Record<string, any>) {

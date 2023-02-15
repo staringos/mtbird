@@ -1886,6 +1886,11 @@
   resolved "https://registry.yarnpkg.com/@mtbird/shared/-/shared-0.0.3-beta.37.tgz#d13b4b3ff214c7c70121f6a23787828948a41fcf"
   integrity sha512-wUf2HRthwZyNy4RRAz5xEEcfQ+wrTDs1IgwrkJzBxUi64bzPPzbaiSTWILaIo+eD+6bILGq7N9TdzZ89t2WwSQ==
 
+"@mtbird/ui@^0.0.3-beta.43":
+  version "0.0.3-beta.43"
+  resolved "https://registry.yarnpkg.com/@mtbird/ui/-/ui-0.0.3-beta.43.tgz#5a2bb23c7dbd3651697e71e9728d40284c433d2d"
+  integrity sha512-cjrer6NcHyJW8sxrLWJJiwFWeakI0z+Em2LYsI3clndKNC37QRW7RtmhrcVzg7kydAfasawfOuuH5ClJmbKFAA==
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.npmmirror.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz"

@@ -13,7 +13,7 @@ import ToolBoxList from './ToolBoxList';
 
 export default () => {
   const store = useContext(Model);
-  const { state } = store;
+  const { state, actions } = store;
   const { editorSettings } = state.options;
   const [activeKey, setAcitveKey] = useState(editorSettings?.defaultToolbar);
   const categories = [...tools.categories];
@@ -64,6 +64,7 @@ export default () => {
 
   const handleTabChange = (e: string) => {
     setAcitveKey(e);
+    !state.tabsState['toolTabs'] && actions.toggleTab('toolTabs');
   };
 
   const tabItems = categories.map((category: any, i: number) => {
