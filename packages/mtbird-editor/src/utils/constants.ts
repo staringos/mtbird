@@ -1,3 +1,5 @@
+import { COMPONENT_NAME } from '@mtbird/core';
+
 export const PC_SIZE = {
   width: 1280,
   height: 800
@@ -14,3 +16,5 @@ export const SAVE_STATE_LABEL = {
 };
 
 export const CLASS_NAME_DRAG_BLOCK_HANDLER = 'container-block-dragging-handler';
+
+export const ADD_ROOT_COMPONENT = [COMPONENT_NAME.CONTAINER_BLOCK, COMPONENT_NAME.MODAL];

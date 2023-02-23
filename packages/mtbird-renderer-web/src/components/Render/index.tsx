@@ -1,15 +1,12 @@
 import React, { useContext, useRef, useState } from 'react';
 import type { IComponentInstanceForm, IPageConfig } from '@mtbird/shared';
-import { LAYOUT_TYPE } from '@mtbird/core';
+import { LAYOUT_TYPE, generateFunction, RenderContext } from '@mtbird/core';
 import isArray from 'lodash/isArray';
-import isObject from 'lodash/isObject';
 import isString from 'lodash/isString';
 import isNumber from 'lodash/isNumber';
 import flow from 'lodash/flow';
 import pipes from '../../pipes';
 import { IComponentInstance } from '@mtbird/shared';
-import { generateFunction } from '@mtbird/core';
-import RenderContext from 'src/context/RenderContext';
 import styles from './style.module.less';
 import cloneDeep from 'lodash/cloneDeep';
 

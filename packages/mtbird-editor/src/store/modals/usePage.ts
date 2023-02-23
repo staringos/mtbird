@@ -1,7 +1,7 @@
 import { IComponentInstance, IComponentInstanceCommon, IEditorOptions, IPosition } from '@mtbird/shared';
 import { COMPONENT_NAME, generateKeys, getWrapperPosition } from '@mtbird/core';
 import { useState, useEffect, useRef } from 'react';
-import { computeBlockOverstep, flattenComponentTree, getComponentArray, needOverstep } from '../../utils';
+import { computeBlockOverstep, findParentComponent, flattenComponentTree, getComponentArray, initComponentDeeply, needOverstep } from '../../utils';
 import { message } from 'antd';
 import IContext, { ISaveState } from '../types/page';
 import * as Components from '@mtbird/component-basic';
@@ -18,8 +18,6 @@ import Moveable from 'react-moveable';
 import PageDataSource from 'src/data/PageDataSource';
 import { SAVE_STATE } from 'src/utils/constants';
 import { dataURItoBlob, COMPONENT_TYPE, getNodeFromTreeBranch } from '@mtbird/core';
-
-const ADD_ROOT_COMPONENT = [COMPONENT_NAME.CONTAINER_BLOCK, COMPONENT_NAME.MODAL];
 
 function usePageModal(options: IEditorOptions): IContext {
   const { pageConfig, onSave, pageList, modelDataSource } = options;
@@ -148,54 +146,9 @@ function usePageModal(options: IEditorOptions): IContext {
 
   const addComponent = (component: IComponentInstance, parentComponentId?: string) => {
     const current = currentComponent ? currentComponent[0] : tmpPageConfig.data;
-    let parent;
-    let isCurrentBeParent = false;
 
-    if (parentComponentId) {
-      parent = componentMap.get(parentComponentId);
-      // if Modal or ContainerBlock, parent should be root only
-    } else if (ADD_ROOT_COMPONENT.indexOf(component.componentName) !== -1) {
-      parent = tmpPageConfig.data;
-    } else {
-      if (current.componentName === COMPONENT_NAME.CONTAINER_ROOT) {
-        parent = current.children[0];
-      } else if (current.type === 'container' || current.componentName === COMPONENT_NAME.FORM) {
-        parent = current;
-        isCurrentBeParent = true;
-      } else {
-        parent = componentMap.get(current.parent);
-      }
-    }
-
-    const newComponent = cloneDeep(component);
-
-    newComponent.id = generateKeys();
-    newComponent.parent = parent.id;
-
-    if (Components[newComponent.componentName]?.initManifest) {
-      Components[newComponent.componentName]?.initManifest(newComponent);
-    }
-
-    // if newComponent has children, loop to generate id and set parent
-    if (newComponent.children && isArray(newComponent.children)) {
-      const loopChild = (cpt: IComponentInstance | string, parentId: string) => {
-        if (typeof cpt === 'string') return;
-
-        cpt.id = generateKeys();
-        cpt.parent = parentId;
-
-        if (cpt.children && isArray(cpt.children)) {
-          (cpt.children as IComponentInstance[]).map((cur: IComponentInstance | string) => loopChild(cur, cpt.id as string));
-        }
-      };
-
-      newComponent.children.forEach((cur: IComponentInstance | string) => loopChild(cur, newComponent.id));
-    }
-
-    // if parent not find, use root's first children
-    if (!parent) {
-      parent = tmpPageConfig.data.children[0];
-    }
+    let { parent, isCurrentBeParent } = findParentComponent(componentMap, tmpPageConfig.data, current, component, parentComponentId);
+    const newComponent = initComponentDeeply(cloneDeep(component), parent, Components);
 
     if (parent.children) {
       if (isArray(parent.children)) {
@@ -203,12 +156,12 @@ function usePageModal(options: IEditorOptions): IContext {
         // and if current is the parent, insert into last
         if (currentComponent.length === 1 && !isCurrentBeParent) {
           const index = findIndex(parent.children, (cur: IComponentInstance) => cur.id === current.id);
-          parent.children.splice(index + 1, 0, newComponent);
+          (parent.children as IComponentInstance[]).splice(index + 1, 0, newComponent);
         } else {
-          parent.children.push(newComponent);
+          (parent.children as IComponentInstance[]).push(newComponent);
         }
       } else {
-        parent.children = [parent.children, newComponent];
+        parent.children = [parent.children as any, newComponent];
       }
     } else {
       parent.children = [newComponent];

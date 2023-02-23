@@ -38,7 +38,9 @@ const build = async ({ cwd, watch, isMini }) => {
 
       console.log(`[SUCCESS] 编译结束 ${o.file}`);
     })
-  );
+  ).catch(e => {
+    console.log("Build error:", e)
+  })
 
   if (manifest?.pipes) {
     await Promise.all(

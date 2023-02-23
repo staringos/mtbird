@@ -3,11 +3,13 @@ import isArray from 'lodash/isArray';
 import find from 'lodash/find';
 import get from 'lodash/get';
 import set from 'lodash/set';
-import { COMPONENT_NAME, COMPONENT_TYPE, SchemaGenerator, findComponentByKey } from '@mtbird/core';
+import { COMPONENT_NAME, COMPONENT_TYPE, SchemaGenerator, findComponentByKey, generateKeys } from '@mtbird/core';
 import { getManifests } from '@mtbird/component-basic';
 
 import keys from 'lodash/keys';
 import has from 'lodash/has';
+import values from 'lodash/values';
+import { ADD_ROOT_COMPONENT } from './constants';
 
 export const needOverstep = (keyPath: string, value: any) => {
   return /\.height|\.top/.test(keyPath) || (/.style/.test(keyPath) && has(value, 'top')) || has(value, 'height');
@@ -239,3 +241,74 @@ export function getTransformMatrixRotate(stringTransform?: string) {
   let angle = Math.round(Math.atan2(parseFloat(values[1]), parseFloat(values[0])) * (180 / Math.PI));
   return angle < 0 ? angle + 360 : angle; //adding 360 degrees here when angle < 0 is equivalent to adding (2 * Math.PI) radians before
 }
+
+export const findParentComponent = (
+  componentMap: Map<string, IComponentInstance>,
+  rootComponent: IComponentInstance,
+  currentComponent: IComponentInstance,
+  addComponent: IComponentInstance,
+  parentComponentId?: string
+) => {
+  let parent: any;
+  let isCurrentBeParent = false;
+  if (parentComponentId) {
+    parent = componentMap.get(parentComponentId);
+    // if Modal or ContainerBlock, parent should be root only
+  } else if (ADD_ROOT_COMPONENT.indexOf(addComponent.componentName) !== -1) {
+    parent = rootComponent;
+  } else {
+    if (currentComponent.componentName === COMPONENT_NAME.CONTAINER_ROOT) {
+      parent = currentComponent.children[0];
+    } else if (currentComponent.type === 'container' || currentComponent.componentName === COMPONENT_NAME.FORM) {
+      parent = currentComponent;
+      isCurrentBeParent = true;
+    } else {
+      parent = componentMap.get(currentComponent.parent as string);
+    }
+  }
+
+  // if parent not find, use root's first children
+  if (!parent) parent = rootComponent.children[0];
+  return { parent, isCurrentBeParent };
+};
+
+export const initComponent = (cmpt: IComponentInstance, isSlot: boolean, parentId: string, Components: Record<string, any>) => {
+  cmpt.id = generateKeys();
+  cmpt.parent = parentId;
+  cmpt.isSlot = isSlot;
+  const CurComponent = Components[cmpt.componentName];
+
+  if (CurComponent?.initManifest) CurComponent.initManifest(cmpt);
+
+  return cmpt;
+};
+
+const loopInitChild = (cpt: IComponentInstance | string, parentId: string, isSlot: boolean, Components: Record<string, any>) => {
+  if (typeof cpt === 'string') return;
+
+  initComponent(cpt, false, parentId, Components);
+
+  if (cpt.children && isArray(cpt.children)) {
+    (cpt.children as IComponentInstance[]).map((cur: IComponentInstance | string) => loopInitChild(cur, cpt.id as string, isSlot, Components));
+  }
+};
+
+export const initComponentDeeply = (newComponent: IComponentInstance, parent: IComponentInstance, Components: Record<string, any>) => {
+  initComponent(newComponent, false, parent.id as string, Components);
+
+  // if newComponent has children, loop to generate id and set parent
+  if (newComponent.children && isArray(newComponent.children)) {
+    (newComponent.children as IComponentInstance[]).forEach((cur: IComponentInstance | string) =>
+      loopInitChild(cur, newComponent.id as string, false, Components)
+    );
+  }
+
+  if (newComponent.slots) {
+    values(newComponent.slots).forEach((key: string) => {
+      const slotCpt = (newComponent.slots as Record<string, IComponentInstance>)[key];
+      loopInitChild(slotCpt, newComponent.id as string, true, Components);
+    });
+  }
+
+  return newComponent;
+};

@@ -1,5 +1,6 @@
 
 import { GLOBAL_EXTENSION_KEY } from '@mtbird/core';
+import { RollupExternal, RollupGlobal } from '../utils/constants';
 import { getPollupPlugins } from '../utils/rollup';
 
 const path = require('path');
@@ -10,12 +11,7 @@ export default ({ cwd, format, outputDir, input, outputPrefix, extensionName }) 
   const cfgList = format.map((f) => {
     const cfg = {
       file: path.join(outputDir, `${outputPrefix || 'index'}.${f}.js`),
-      globals: {
-        react: 'react',
-        'react-dom': 'react-dom',
-        antd: 'antd',
-        crypto: 'crypto'
-      },
+      globals: RollupGlobal,
       name: `${GLOBAL_EXTENSION_KEY}.${extensionName}`,
       format: f,
       exports: 'named',
@@ -46,6 +42,10 @@ export default ({ cwd, format, outputDir, input, outputPrefix, extensionName }) 
           dest: 'dist/statics'
         },
         {
+          src: ['src/public/*'],
+          dest: 'dist'
+        },
+        {
           src: ['manifest.json'],
           dest: 'dist'
         }
@@ -59,7 +59,7 @@ export default ({ cwd, format, outputDir, input, outputPrefix, extensionName }) 
     watch: {
       include: 'src/**'
     },
-    external: ["react", "react-dom", "antd"],
+    external: RollupExternal,
     plugins,
     onwarn(warning) {
       // Skip certain warnings

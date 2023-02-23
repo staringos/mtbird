@@ -22,12 +22,12 @@ const watch = builder.bind(null, {
 
 const concurrently = require('concurrently');
 
-// yargs(args)
-//   .command('version', '显示版本信息', () => { 
-//       console.log(`MtBird CLI Version: v${pkgJson.version}`);
-//    })
-//   .alias('version', 'v')
-//   .help().argv;
+yargs(args)
+  .command('version', '显示版本信息', () => { 
+      console.log(`MtBird CLI Version: v${pkgJson.version} | ENV: ${process.env.NODE_ENV}`);
+   })
+  .alias('version', 'v')
+  .help().argv;
 
 yargs(args).command(
   'start',

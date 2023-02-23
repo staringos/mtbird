@@ -2,14 +2,12 @@ import React, { useEffect, useState } from 'react';
 import styles from './style.module.less';
 import type { IPageConfig, IDataSource } from '@mtbird/shared';
 import * as BasicComponents from '@mtbird/component-basic';
-import { getZoom } from '@mtbird/core';
+import { getZoom, ExtensionComponentLoader, RenderContext } from '@mtbird/core';
 import { PLATFORM_DEFAULT_WIDTH } from '../constants';
-import { ExtensionComponentLoader } from '@mtbird/core';
 import isEqual from 'lodash/isEqual';
 import Render from './Render';
 import cloneDeep from 'lodash/cloneDeep';
 import { IComponentInstance } from '../../../mtbird-shared/src/types/Component';
-import RenderContext from 'src/context/RenderContext';
 import useRenderContext from 'src/context/useRenderContext';
 
 interface IProps {
@@ -63,7 +61,8 @@ export default (props: IProps) => {
     layoutMoveable,
     Components,
     platform,
-    onChangeSelf
+    onChangeSelf,
+    Render
   });
 
   return (

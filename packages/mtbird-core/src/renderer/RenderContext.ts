@@ -15,7 +15,8 @@ interface IRenderContext {
   // change page's component tree data
   onChangeSelf: (keyPath: string, value: any) => void;
   changeVariables: (keyPath: string, value: any) => void;
-  Components: React.Component | React.FC;
+  Components: Record<string, React.Component | React.FC>;
+  Render: React.Component | React.FC;
 }
 
 const RenderContext = React.createContext<IRenderContext>(context as any);

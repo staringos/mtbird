@@ -643,6 +643,22 @@ export default {
     return res;
   },
 
+  slotText: (children: string, style: Record<string, any>, className: string, data: Record<string, any>) => {
+    let res = {
+      type: 'component',
+      componentName: 'Text',
+      isSlot: true,
+      props: {
+        className,
+        style
+      },
+      children: children || '<p>这是一段文本呀呀呀</p>'
+    } as any;
+
+    if (data) res = mergeKeypath(res, data);
+    return res;
+  },
+
   splitLine,
   title
 };

@@ -1,3 +1,4 @@
+import { RollupExternal, RollupGlobal } from '../utils/constants';
 import {getPollupPlugins} from '../utils/rollup';
 
 export default ({ cwd, extensionName }) => {
@@ -12,14 +13,10 @@ export default ({ cwd, extensionName }) => {
       name: `MTBIRD_EXTENSION_COMPONENTS.${extensionName}.components`,
       format: 'umd',
       exports: 'named',
-      globals: {
-        react: 'react',
-        'react-dom': 'react-dom',
-        antd: 'antd'
-      },
+      globals: RollupGlobal,
       sourcemap: false
     },
-    external: [],
+    external: RollupExternal,
     watch: {
       include: 'src/**'
     },

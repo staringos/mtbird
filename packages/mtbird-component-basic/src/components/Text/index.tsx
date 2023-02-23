@@ -21,7 +21,7 @@ const Text = ({ children, node, style, isEdit, onChangeSelf }: IComponentProps) 
     <div
       {...node.props}
       style={style}
-      className={styles.mtText + (editable ? ' mtTextEditing' : '')}
+      className={styles.mtText + ' ' + (editable ? ' mtTextEditing' : '') + ' ' + (node.props.className || '')}
       onDoubleClick={handleDBClick}
       contentEditable={editable}
       dangerouslySetInnerHTML={{ __html: isArray(children) ? children.join('') : children }}

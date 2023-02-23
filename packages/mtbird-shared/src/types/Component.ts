@@ -90,6 +90,7 @@ export interface IComponentInstance {
   type: string;
   componentName: string;
   props: IProps;
+  isSlot?: boolean;
   layout?: 'absolute' | 'grid' | 'flex';
   componentLib?: string;
   data?: {
@@ -139,6 +140,7 @@ export interface IComponentInstance {
   pipes?: {
     render?: Record<string, IPipe>;
   };
+  slots?: Record<string, IComponentInstance>;
   extension?: {
     isExtension: boolean;
     extensionName: string;

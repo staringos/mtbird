@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import set from 'lodash/set';
-import { initVariables } from '../../../mtbird-core/src/utils';
+import { initVariables } from '@mtbird/core';
 
 const useRenderContext = (context: any) => {
   const initVars = initVariables(context.pageConfig.data);

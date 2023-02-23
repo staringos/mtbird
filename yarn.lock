@@ -1876,6 +1876,14 @@
     npmlog "^4.1.2"
     write-file-atomic "^3.0.3"
 
+"@mtbird/core@^0.0.3-beta.43":
+  version "0.0.3-beta.43"
+  resolved "https://registry.yarnpkg.com/@mtbird/core/-/core-0.0.3-beta.43.tgz#e508228f76161bfda6455d5d7222a63686760dc9"
+  integrity sha512-WoxVtXmHnRFVX5RIWW4yzZmejTp3Bt9YDIJE9ob+hw/A7bdA3zsDzowUdOzouRlf11oAndvuCEvChtkky8M+VQ==
+  dependencies:
+    eventemitter2 "^6.4.9"
+    nanoid "^4.0.0"
+
 "@mtbird/renderer-web@^0.0.3-beta.37":
   version "0.0.3-beta.37"
   resolved "https://registry.yarnpkg.com/@mtbird/renderer-web/-/renderer-web-0.0.3-beta.37.tgz#0236421f705255ee23c7d1cb590331f26c672f92"
@@ -4646,6 +4654,11 @@ esutils@^2.0.2:
   resolved "https://registry.npmmirror.com/esutils/-/esutils-2.0.3.tgz"
   integrity sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==
 
+eventemitter2@^6.4.9:
+  version "6.4.9"
+  resolved "https://registry.yarnpkg.com/eventemitter2/-/eventemitter2-6.4.9.tgz#41f2750781b4230ed58827bc119d293471ecb125"
+  integrity sha512-JEPTiaOt9f04oa6NOkc4aH+nVp5I3wEjpHbIPqfgCdD5v5bUzy7xQqwcVO2aDQgOWhI28da57HksMrzK9HlRxg==
+
 eventemitter3@^4.0.4:
   version "4.0.7"
   resolved "https://registry.npmmirror.com/eventemitter3/-/eventemitter3-4.0.7.tgz"
@@ -6583,6 +6596,11 @@ nanoid@^3.3.3:
   version "3.3.4"
   resolved "https://registry.npmmirror.com/nanoid/-/nanoid-3.3.4.tgz"
   integrity sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==
+
+nanoid@^4.0.0:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-4.0.1.tgz#398d7ccfdbf9faf2231b2ca7e8fff5dbca6a509b"
+  integrity sha512-udKGtCCUafD3nQtJg9wBhRP3KMbPglUsgV5JVsXhvyBs/oefqb4sqMEhKBBgqZncYowu58p1prsZQBYvAj/Gww==
 
 natives@^1.1.3:
   version "1.1.6"
