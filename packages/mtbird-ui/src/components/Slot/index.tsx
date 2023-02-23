@@ -32,8 +32,6 @@ export const Slot = ({ slotKey, node, className, zIndex, formId, variables }: IP
     );
   }
 
-  console.log('111 node:', node);
-
   if (className) slot.props.className = slot.props.className ? slot.props.className + ' ' + className : className;
 
   return <AnyRender node={slot} parent={node.id} zIndex={zIndex} formId={formId} parent={node} variables={variables}></AnyRender>;

@@ -10,3 +10,4 @@ export { default as AssetsLoader } from './loader/AssetsLoader';
 export { default as ExtensionComponentLoader } from './loader/ExtensionComponentLoader';
 export { default as GlobalStorage, EXTENSION_DEBUG_KEY } from './storage/GlobalStorage';
 export { default as RenderContext } from './renderer/RenderContext';
+export { default as useModelData } from './hooks/useModelData';
