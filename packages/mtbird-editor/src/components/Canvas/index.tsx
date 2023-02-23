@@ -258,7 +258,6 @@ export default () => {
             actions.setEditMode({ componentName: 'cursor' });
             return;
           }
-          // const moveable = moveableRef.current;
 
           // select
           if (e.selected.length && e.selected[0]?.id) {

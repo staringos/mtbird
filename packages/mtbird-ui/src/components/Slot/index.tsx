@@ -4,7 +4,7 @@ import { RenderContext } from '@mtbird/core';
 
 interface IProps {
   slotKey: string;
-  className: string;
+  className?: string;
   parent?: IComponentInstance;
   formId?: string | undefined;
   platform?: 'pc' | 'mobile';
@@ -20,7 +20,7 @@ const slotEditStyle = {
 
 export const Slot = ({ slotKey, node, className, zIndex, formId, variables }: IProps) => {
   const context = useContext(RenderContext);
-  const { Render, isEdit } = context;
+  const { Render, isEdit } = context as any;
   const AnyRender = Render as any;
   const slot = node?.slots?.[slotKey];
 
@@ -32,9 +32,9 @@ export const Slot = ({ slotKey, node, className, zIndex, formId, variables }: IP
     );
   }
 
-  if (className) {
-    slot.props.className = slot.props.className ? slot.props.className + ' ' + className : className;
-  }
+  console.log('111 node:', node);
+
+  if (className) slot.props.className = slot.props.className ? slot.props.className + ' ' + className : className;
 
   return <AnyRender node={slot} parent={node.id} zIndex={zIndex} formId={formId} parent={node} variables={variables}></AnyRender>;
 };

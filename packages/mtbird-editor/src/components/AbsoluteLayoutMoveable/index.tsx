@@ -57,17 +57,17 @@ const AbsoluteLayoutMoveable = (
   const parent = state.componentMap.get(currentFirstComponent?.parent as string);
 
   const resizeable = useMemo(() => {
-    if (!currentComponent || !currentFirstComponent) return false;
+    if (!currentComponent || !currentFirstComponent || currentFirstComponent.isSlot) return false;
     return NON_RESIZEABLE_COMPONENT.indexOf(currentFirstComponent?.componentName) === -1 && (!parent || parent?.layout !== 'flex');
   }, [currentComponent]);
 
   const draggable = useMemo(() => {
-    if (!currentComponent || !currentFirstComponent) return false;
+    if (!currentComponent || !currentFirstComponent || currentFirstComponent.isSlot) return false;
     return NON_DRAGGABLE_COMPONENT.indexOf(currentFirstComponent?.componentName) === -1 && (!parent || parent?.layout !== 'flex');
   }, [currentComponent]);
 
   const rotatable = useMemo(() => {
-    if (!currentComponent || !currentFirstComponent) return false;
+    if (!currentComponent || !currentFirstComponent || currentFirstComponent.isSlot) return false;
     return NON_ROTATEABLE_COMPONENT.indexOf(currentFirstComponent?.componentName) === -1 && (!parent || parent?.layout !== 'flex');
   }, [currentComponent]);
 

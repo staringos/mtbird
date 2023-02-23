@@ -149,9 +149,18 @@ export const flattenComponentTree = (componentTree: IComponentInstance): Map<str
   const map = new Map<string, IComponentInstance>();
 
   const loop = (tree: IComponentInstance) => {
-    map.set(tree.id, tree);
+    map.set(tree.id as string, tree);
     if (tree.children && isArray(tree.children)) {
-      tree.children.forEach((cur: IComponentInstance) => loop(cur));
+      (tree.children as IComponentInstance[]).forEach((cur: IComponentInstance) => loop(cur));
+    }
+
+    if (tree.slots) {
+      values(tree.slots).forEach((slot: IComponentInstance) => {
+        if (slot) {
+          map.set(slot.id as string, tree);
+          loop(slot);
+        }
+      });
     }
   };
 
@@ -286,10 +295,20 @@ export const initComponent = (cmpt: IComponentInstance, isSlot: boolean, parentI
 const loopInitChild = (cpt: IComponentInstance | string, parentId: string, isSlot: boolean, Components: Record<string, any>) => {
   if (typeof cpt === 'string') return;
 
-  initComponent(cpt, false, parentId, Components);
+  initComponent(cpt, isSlot, parentId, Components);
 
   if (cpt.children && isArray(cpt.children)) {
-    (cpt.children as IComponentInstance[]).map((cur: IComponentInstance | string) => loopInitChild(cur, cpt.id as string, isSlot, Components));
+    (cpt.children as IComponentInstance[]).forEach((cur: IComponentInstance | string) => loopInitChild(cur, cpt.id as string, isSlot, Components));
+  }
+
+  initSlotComponent(cpt, Components);
+};
+
+const initSlotComponent = (cpt: IComponentInstance, Components: Record<string, any>) => {
+  if (cpt.slots) {
+    values(cpt.slots).forEach((slot: string) => {
+      loopInitChild(slot, cpt.id as string, true, Components);
+    });
   }
 };
 
@@ -303,12 +322,6 @@ export const initComponentDeeply = (newComponent: IComponentInstance, parent: IC
     );
   }
 
-  if (newComponent.slots) {
-    values(newComponent.slots).forEach((key: string) => {
-      const slotCpt = (newComponent.slots as Record<string, IComponentInstance>)[key];
-      loopInitChild(slotCpt, newComponent.id as string, true, Components);
-    });
-  }
-
+  initSlotComponent(newComponent, Components);
   return newComponent;
 };

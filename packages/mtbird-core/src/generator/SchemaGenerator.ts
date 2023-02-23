@@ -647,14 +647,35 @@ export default {
     let res = {
       type: 'component',
       componentName: 'Text',
-      isSlot: true,
       props: {
         className,
-        style
+        style: {
+          width: 'unset',
+          height: 'unset',
+          ...style
+        }
       },
       children: children || '<p>这是一段文本呀呀呀</p>'
     } as any;
 
+    if (data) res = mergeKeypath(res, data);
+    return res;
+  },
+
+  slotImage: (src: string, style: Record<string, any>, data: Record<string, any>) => {
+    let res = {
+      type: 'component',
+      componentName: 'Image',
+      props: {
+        src,
+        style: {
+          height: 'unset',
+          width: 'unset',
+          ...style
+        }
+      },
+      children: []
+    } as any;
     if (data) res = mergeKeypath(res, data);
     return res;
   },
