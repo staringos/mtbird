@@ -1,22 +1,22 @@
-import type { IComponentInstanceForm } from '@mtbird/shared';
+import type { IComponentInstanceForm, IEntityField } from '@mtbird/shared';
 import React from 'react';
 import SchemaGenerator from '../generator/SchemaGenerator';
 import { EVENT_TYPE } from '../events/ComponentEvent';
 
 export const ID_KEY = '%id%';
 
-export const DEFAULT_ENTITIES = [
+export const DEFAULT_ENTITIES: IEntityField[] = [
   {
     title: '显示名',
     keyPath: 'label',
-    type: 'string' as 'string',
+    type: 'STRING',
     default: '',
     isRequired: true
   },
   {
     title: '实际值',
     keyPath: 'value',
-    type: 'string' as 'string',
+    type: 'STRING',
     default: '',
     isRequired: true
   }

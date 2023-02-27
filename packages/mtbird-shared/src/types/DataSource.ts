@@ -3,6 +3,14 @@ import { ISearch } from './Component';
 
 export type IData = string | number | boolean | Array<any> | Record<string, any>;
 
+export interface IModelData<T> {
+  id: string;
+  createAt: string;
+  updateAt: string;
+  data: Record<string, any> | T;
+  creatorId: string;
+}
+
 /**
  * Page data source: for data query storage and modify
  * Support component:

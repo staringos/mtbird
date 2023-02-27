@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Form, Input, Button, message, Select } from 'antd';
+import { Form, Input, Button, message, Select, Space } from 'antd';
 import { IEntity, IEntityField, IComponentInstanceForm, IDataSource } from '@mtbird/shared';
 import { generateKeys, generateEntityValue, COMPONENT } from '@mtbird/core';
 import { Upload } from '@mtbird/ui';
@@ -40,14 +40,15 @@ const EntityForm = ({ entity, node, editData, value, onChangeValue, onFinish, in
       else await dataSource.createData?.(targetId, formData as Record<string, any>);
       // for entity
     } else {
-      if (!editData) value[COMPONENT.ID_KEY] = generateKeys();
+      const curValue = value || []
+      if (!editData) curValue[COMPONENT.ID_KEY] = generateKeys();
 
       onChangeValue(
         editData
-          ? value.map((cur: any, i: number) => {
+          ? curValue.map((cur: any, i: number) => { // update by replace
               return i === index ? formData : cur;
             })
-          : [...value, formData]
+          : [...curValue, formData] // create by push
       );
     }
 
@@ -57,7 +58,7 @@ const EntityForm = ({ entity, node, editData, value, onChangeValue, onFinish, in
   };
 
   const fieldChangeHandler = (keyPath: string) => {
-    return (value: string) => {
+    return (value: any) => {
       form.setFieldValue(keyPath, value);
     };
   };
@@ -78,7 +79,10 @@ const EntityForm = ({ entity, node, editData, value, onChangeValue, onFinish, in
         if (cur.type === 'PHOTO' || cur.type === 'VIDEO') {
           return (
             <Form.Item label={label} name={cur.keyPath} rules={rules}>
-              <Upload maxCount={1} value={form.getFieldValue(cur.keyPath)} onChange={fieldChangeHandler(cur.keyPath)} onUpload={onUpload} />
+              <Space direction="vertical">
+                <Input value={form.getFieldValue(cur.keyPath)} onChange={(e) => fieldChangeHandler(cur.keyPath)(e.target.value)} />
+                <Upload maxCount={1} value={form.getFieldValue(cur.keyPath)} onChange={fieldChangeHandler(cur.keyPath)} onUpload={onUpload} />
+              </Space>
             </Form.Item>
           );
         }

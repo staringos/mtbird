@@ -179,6 +179,7 @@ export interface ISchemaOptions {
 export interface IComponentManifest<T> {
   type: string;
   componentName: string;
+  componentLib: string;
   category?: 'basic' | 'form' | 'icon' | 'extension';
   subCategory?: 'common' | 'mobile' | 'container' | 'data';
   title: string;
