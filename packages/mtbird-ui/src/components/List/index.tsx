@@ -1,18 +1,30 @@
-import React from 'react';
-import styles from './style.module.less';
-import { Button } from 'antd';
+import React from "react";
+import styles from "./style.module.less";
+import { Button } from "antd";
 
 interface IProps {
   color?: string;
   editable?: (cur: Record<string, any>) => boolean;
   deleteable?: (cur: Record<string, any>) => boolean;
   data: Array<Record<string, any>>;
-  columns: { key: string; name?: string; render?: ((cur: Record<string, any>) => any) | undefined }[];
+  columns: {
+    key: string;
+    name?: string;
+    render?: ((cur: Record<string, any>) => any) | undefined;
+  }[];
   onToChange?: (cur: Record<string, any>, i?: number) => void;
   onDelete?: (cur: Record<string, any>, i?: number) => void;
 }
 
-const List = ({ data, columns, onToChange, onDelete, editable, deleteable, color }: IProps) => {
+const List = ({
+  data,
+  columns,
+  onToChange,
+  onDelete,
+  editable,
+  deleteable,
+  color,
+}: IProps) => {
   return (
     <ul className={styles.fieldsList}>
       {data &&
@@ -22,17 +34,29 @@ const List = ({ data, columns, onToChange, onDelete, editable, deleteable, color
               <div className={styles.fieldItemLeft}>
                 {columns.map((field, i) => {
                   return (
-                    <span key={i} className={styles.fieldItemProperty} style={{ color }}>
+                    <span
+                      key={i}
+                      className={styles.fieldItemProperty}
+                      style={{ color }}
+                    >
                       {field.render ? field.render(cur) : cur?.[field.key]}
                     </span>
                   );
                 })}
               </div>
               <div>
-                <Button type="link" disabled={editable ? editable(cur) : false} onClick={() => onToChange && onToChange(cur, j)}>
+                <Button
+                  type="link"
+                  disabled={editable ? editable(cur) : false}
+                  onClick={() => onToChange && onToChange(cur, j)}
+                >
                   <i className="mtbird-icon mtbird-edit" />
                 </Button>
-                <Button type="link" disabled={deleteable ? deleteable(cur) : false} onClick={() => onDelete && onDelete(cur, j)}>
+                <Button
+                  type="link"
+                  disabled={deleteable ? deleteable(cur) : false}
+                  onClick={() => onDelete && onDelete(cur, j)}
+                >
                   <i className="mtbird-icon mtbird-delete" />
                 </Button>
               </div>

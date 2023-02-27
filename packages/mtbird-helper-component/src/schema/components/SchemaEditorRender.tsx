@@ -1,7 +1,7 @@
-import React from 'react';
-import type { IComponentInstanceForm, IDataSource } from '@mtbird/shared';
-import Renderer from '@mtbird/renderer-web';
-import styles from './style.module.less';
+import React from "react";
+import type { IComponentInstanceForm, IDataSource } from "@mtbird/shared";
+import Renderer from "@mtbird/renderer-web";
+import styles from "./style.module.less";
 
 interface IProps {
   schemaConfig: IComponentInstanceForm;
@@ -12,7 +12,14 @@ interface IProps {
   onUpload: (files: any) => Promise<string[]>;
 }
 
-const SchemaEditorRender = ({ schemaConfig, data, dataSource, variables, onChange, onUpload }: IProps) => {
+const SchemaEditorRender = ({
+  schemaConfig,
+  data,
+  dataSource,
+  variables,
+  onChange,
+  onUpload,
+}: IProps) => {
   return (
     <div className={styles.schemaEditorContainer}>
       <Renderer

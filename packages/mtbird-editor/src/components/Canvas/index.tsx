@@ -1,17 +1,20 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import styles from './style.module.less';
-import InfiniteViewer from 'react-infinite-viewer';
-import type { IPageConfig, IComponentInstance } from '@mtbird/shared';
-import Model from '../../store/types';
-import GuildLine, { IGuildLineRef } from '../GuildLine';
-import AbsoluteLayoutMoveable, { IDraggableManagementRef, NON_DRAGGABLE_COMPONENT } from '../AbsoluteLayoutMoveable';
-import Selecto from 'react-selecto';
-import { getElementInfo } from 'react-moveable';
-import { getSelectedComponent } from '../../utils';
-import { CLASS_NAME_DRAG_BLOCK_HANDLER } from '../../utils/constants';
-import RendererWrapper from '../RendererWrapper';
-import DataItemEditableContainer from '../DataItemEditable';
-import { useLeaderLine } from 'src/utils/hooks';
+import React, { useContext, useEffect, useRef, useState } from "react";
+import styles from "./style.module.less";
+import InfiniteViewer from "react-infinite-viewer";
+import type { IPageConfig, IComponentInstance } from "@mtbird/shared";
+import Model from "../../store/types";
+import GuildLine, { IGuildLineRef } from "../GuildLine";
+import AbsoluteLayoutMoveable, {
+  IDraggableManagementRef,
+  NON_DRAGGABLE_COMPONENT,
+} from "../AbsoluteLayoutMoveable";
+import Selecto from "react-selecto";
+import { getElementInfo } from "react-moveable";
+import { getSelectedComponent } from "../../utils";
+import { CLASS_NAME_DRAG_BLOCK_HANDLER } from "../../utils/constants";
+import RendererWrapper from "../RendererWrapper";
+import DataItemEditableContainer from "../DataItemEditable";
+import { useLeaderLine } from "src/utils/hooks";
 
 interface IProps {
   page: IPageConfig;
@@ -22,7 +25,8 @@ let blockHandlerPositionStart: number = 0;
 
 export default () => {
   const { state, actions } = useContext(Model);
-  const { loading, options, editMode, moveableRef, currentDataContainer } = state;
+  const { loading, options, editMode, moveableRef, currentDataContainer } =
+    state;
   const { editorSettings } = options;
   const [zoom, setZoom] = useState(1);
   const selectoRef = useRef<Selecto | null>(null);
@@ -31,10 +35,12 @@ export default () => {
   const draggableManagementRef = useRef<IDraggableManagementRef>(null);
   const infiniteViewerRef = useRef<InfiniteViewer>(null);
 
-  const [horizontalSnapGuides, setHorizontalSnapGuides] = useState<number[]>([]);
+  const [horizontalSnapGuides, setHorizontalSnapGuides] = useState<number[]>(
+    []
+  );
   const [verticalSnapGuides, setVerticalSnapGuides] = useState<number[]>([]);
-  const selectableTargets = ['.mtbird-selectable-component'];
-  const toggleContinueSelect = ['shift'];
+  const selectableTargets = [".mtbird-selectable-component"];
+  const toggleContinueSelect = ["shift"];
   const leaderLine = useLeaderLine(currentDataContainer);
 
   const currentModal = actions.getCurrentModal();
@@ -43,8 +49,11 @@ export default () => {
     return <div>加载中...</div>;
   }
 
-  const handleGuidesLineSnapChange = (direction: 'horizontal' | 'vertical', guides: number[]) => {
-    if (direction === 'horizontal') return setHorizontalSnapGuides(guides);
+  const handleGuidesLineSnapChange = (
+    direction: "horizontal" | "vertical",
+    guides: number[]
+  ) => {
+    if (direction === "horizontal") return setHorizontalSnapGuides(guides);
     setVerticalSnapGuides(guides);
   };
 
@@ -74,7 +83,7 @@ export default () => {
       e.preventDefault();
       e.stopPropagation();
       domBlockContainerHandler = target;
-      target.style.display = 'block';
+      target.style.display = "block";
       blockHandlerPositionStart = clientY;
     }
   };
@@ -84,7 +93,9 @@ export default () => {
       e.preventDefault();
       e.stopPropagation();
       const { clientY } = e.nativeEvent;
-      domBlockContainerHandler.style.bottom = `${-clientY + blockHandlerPositionStart}px`;
+      domBlockContainerHandler.style.bottom = `${
+        -clientY + blockHandlerPositionStart
+      }px`;
       domBlockContainerHandler.parentNode.style.zIndex = 1;
     }
   };
@@ -95,14 +106,16 @@ export default () => {
       e.stopPropagation();
       const { clientY } = e.nativeEvent;
 
-      const component = state.componentMap.get(domBlockContainerHandler.dataset.id) as IComponentInstance;
+      const component = state.componentMap.get(
+        domBlockContainerHandler.dataset.id
+      ) as IComponentInstance;
       const height = component.props.style?.height;
       const distance = clientY - blockHandlerPositionStart;
       const newHeight = height + distance;
 
-      actions.onChange('props.style.height', newHeight, component.id);
+      actions.onChange("props.style.height", newHeight, component.id);
 
-      domBlockContainerHandler.style.display = '';
+      domBlockContainerHandler.style.display = "";
       domBlockContainerHandler.style.bottom = 0;
       domBlockContainerHandler.parentNode.style.zIndex = -1;
       blockHandlerPositionStart = 0;
@@ -111,7 +124,10 @@ export default () => {
   };
 
   return (
-    <div ref={containerRef} className={styles.canvasWrapper + ' selectoContainer'}>
+    <div
+      ref={containerRef}
+      className={styles.canvasWrapper + " selectoContainer"}
+    >
       <GuildLine
         zoom={zoom}
         ref={guildLineRef}
@@ -123,10 +139,12 @@ export default () => {
       />
       <InfiniteViewer
         ref={infiniteViewerRef}
-        className={styles.infiniteViewer + ' viewer'}
+        className={styles.infiniteViewer + " viewer"}
         id="convas-container"
         usePinch={true}
-        useWheelScroll={!state.currentComponent || state.currentComponent.length === 0}
+        useWheelScroll={
+          !state.currentComponent || state.currentComponent.length === 0
+        }
         maxPinchWheel={3}
         zoom={zoom}
         onScroll={(e) => {
@@ -159,7 +177,7 @@ export default () => {
         }}
       >
         <div
-          className={styles.canvasContent + ' viewport'}
+          className={styles.canvasContent + " viewport"}
           style={{ width: editorSettings?.screenWidth }}
           onMouseUpCapture={handlerMouseUp}
           onMouseMoveCapture={handlerMouseMove}
@@ -174,7 +192,13 @@ export default () => {
             infiniteViewerRef={infiniteViewerRef}
             leaderLine={leaderLine}
           />
-          <div className={styles.canvasOutsider + ' ' + (currentModal ? styles.canvasOutsiderModal : '')}>
+          <div
+            className={
+              styles.canvasOutsider +
+              " " +
+              (currentModal ? styles.canvasOutsiderModal : "")
+            }
+          >
             <DataItemEditableContainer />
             {!loading && <RendererWrapper pageConfig={state.pageConfig} />}
           </div>
@@ -201,7 +225,7 @@ export default () => {
                 getScrollPosition: () => {
                   const current = infiniteViewerRef.current!;
                   return [current.getScrollLeft(), current.getScrollTop()];
-                }
+                },
               }
             : undefined
         }
@@ -210,25 +234,30 @@ export default () => {
 
           const target = inputEvent.target; // inputEvent.path.find((cur: any) => cur?.className?.indexOf?.('mtbird-component') !== -1);
           const id = target.id;
-          const cls = target.className?.split(' ') || [];
+          const cls = target.className?.split(" ") || [];
 
           if (!target) return e.stop();
 
           if (
             // moving temporarily group
-            inputEvent.target?.className?.indexOf('moveable-area') !== -1 ||
-            (inputEvent.type === 'touchstart' && e.isTrusted) ||
+            inputEvent.target?.className?.indexOf("moveable-area") !== -1 ||
+            (inputEvent.type === "touchstart" && e.isTrusted) ||
             moveableRef.current?.isDragging() ||
             // moving component draggable
             (!NON_DRAGGABLE_COMPONENT.find((cur) => cls.indexOf(cur) !== -1) &&
               // moving component already selected
-              state.currentComponent.some((t: IComponentInstance) => t.id === id))
+              state.currentComponent.some(
+                (t: IComponentInstance) => t.id === id
+              ))
           ) {
             return e.stop();
           }
         }}
         onScroll={({ direction }) => {
-          infiniteViewerRef.current!.scrollBy(direction[0] * 10, direction[1] * 10);
+          infiniteViewerRef.current!.scrollBy(
+            direction[0] * 10,
+            direction[1] * 10
+          );
         }}
         onSelectEnd={(e) => {
           const { isDragStart, inputEvent, selected } = e;
@@ -239,7 +268,7 @@ export default () => {
           e.inputEvent.stopPropagation();
 
           // added
-          if (editMode.componentName !== 'cursor') {
+          if (editMode.componentName !== "cursor") {
             const dom = e.inputEvent.path[0];
             const id = dom.id || dom.parentNode.id;
             const { left, top } = dom.getBoundingClientRect();
@@ -249,19 +278,22 @@ export default () => {
                 width: e.rect.width / zoom,
                 height: e.rect.height / zoom,
                 left: (e.rect.left - left) / zoom,
-                top: (e.rect.top - top) / zoom
+                top: (e.rect.top - top) / zoom,
               },
               editMode as IComponentInstance,
               id
             );
 
-            actions.setEditMode({ componentName: 'cursor' });
+            actions.setEditMode({ componentName: "cursor" });
             return;
           }
 
           // select
           if (e.selected.length && e.selected[0]?.id) {
-            const selected = getSelectedComponent(e.selected, state.componentMap);
+            const selected = getSelectedComponent(
+              e.selected,
+              state.componentMap
+            );
             actions.onSelect(selected as any);
 
             isDragStart && moveableRef.current?.dragStart(e.inputEvent);

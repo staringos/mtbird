@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { Switch, Form, InputNumber } from 'antd';
-import { IAnimate } from '@mtbird/shared';
-import styles from './style.module.less';
+import React, { useEffect } from "react";
+import { Switch, Form, InputNumber } from "antd";
+import { IAnimate } from "@mtbird/shared";
+import styles from "./style.module.less";
 
 interface IProps {
   onChange: (type: string, value: any) => void;
@@ -12,7 +12,10 @@ const AttributeForm = ({ onChange, value }: IProps) => {
   return (
     <Form size="small" labelCol={{ span: 8 }}>
       <Form.Item label={<label className={styles.label}>循环</label>}>
-        <Switch checked={value.infinite} onChange={(e: boolean) => onChange('pattern.animate.infinite', e)} />
+        <Switch
+          checked={value.infinite}
+          onChange={(e: boolean) => onChange("pattern.animate.infinite", e)}
+        />
       </Form.Item>
       <Form.Item label={<label className={styles.label}>延迟时间</label>}>
         <InputNumber
@@ -23,8 +26,8 @@ const AttributeForm = ({ onChange, value }: IProps) => {
           max={99}
           min={0}
           controls={false}
-          onChange={(e: number) => onChange('pattern.animate.delay', e)}
-        />{' '}
+          onChange={(e: number) => onChange("pattern.animate.delay", e)}
+        />{" "}
         <span className={styles.label}>s</span>
       </Form.Item>
       <Form.Item label={<label className={styles.label}>持续时间</label>}>
@@ -36,8 +39,8 @@ const AttributeForm = ({ onChange, value }: IProps) => {
           max={99}
           min={0}
           controls={false}
-          onChange={(e: number) => onChange('pattern.animate.duration', e)}
-        />{' '}
+          onChange={(e: number) => onChange("pattern.animate.duration", e)}
+        />{" "}
         <span className={styles.label}>s</span>
       </Form.Item>
     </Form>

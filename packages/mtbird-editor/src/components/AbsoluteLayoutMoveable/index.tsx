@@ -1,18 +1,39 @@
-import React, { Ref, useImperativeHandle, useEffect, useState, useContext, useMemo, forwardRef } from 'react';
-import Moveable from 'react-moveable';
-import { COMPONENT_NAME } from '@mtbird/core';
-import isArray from 'lodash/isArray';
-import { IComponentInstance } from '@mtbird/shared';
-import Model from '../../store/types';
-import { getDomTransform, getTransformMatrixRotate, setTransformRotate } from '../../utils';
-import DimensionViewable from './DimensionViewable';
-import DragToolbar from './DragToolbar';
-import useShiftKey from '../../store/useShiftKey';
-import DataItemEditable from '../DataItemEditable';
+import React, {
+  Ref,
+  useImperativeHandle,
+  useEffect,
+  useState,
+  useContext,
+  useMemo,
+  forwardRef,
+} from "react";
+import Moveable from "react-moveable";
+import { COMPONENT_NAME } from "@mtbird/core";
+import isArray from "lodash/isArray";
+import { IComponentInstance } from "@mtbird/shared";
+import Model from "../../store/types";
+import {
+  getDomTransform,
+  getTransformMatrixRotate,
+  setTransformRotate,
+} from "../../utils";
+import DimensionViewable from "./DimensionViewable";
+import DragToolbar from "./DragToolbar";
+import useShiftKey from "../../store/useShiftKey";
+import DataItemEditable from "../DataItemEditable";
 
-export const NON_DRAGGABLE_COMPONENT = [COMPONENT_NAME.CONTAINER_ROOT, COMPONENT_NAME.CONTAINER_BLOCK];
-export const NON_RESIZEABLE_COMPONENT = [COMPONENT_NAME.CONTAINER_ROOT, COMPONENT_NAME.CONTAINER_BLOCK];
-export const NON_ROTATEABLE_COMPONENT = [COMPONENT_NAME.CONTAINER_ROOT, COMPONENT_NAME.CONTAINER_BLOCK];
+export const NON_DRAGGABLE_COMPONENT = [
+  COMPONENT_NAME.CONTAINER_ROOT,
+  COMPONENT_NAME.CONTAINER_BLOCK,
+];
+export const NON_RESIZEABLE_COMPONENT = [
+  COMPONENT_NAME.CONTAINER_ROOT,
+  COMPONENT_NAME.CONTAINER_BLOCK,
+];
+export const NON_ROTATEABLE_COMPONENT = [
+  COMPONENT_NAME.CONTAINER_ROOT,
+  COMPONENT_NAME.CONTAINER_BLOCK,
+];
 
 interface IProps {
   horizontalGuidelines: any;
@@ -28,13 +49,21 @@ export interface IDraggableManagementRef {
 }
 
 const AbsoluteLayoutMoveable = (
-  { selectoRef, horizontalGuidelines, verticalGuidelines, zoom, leaderLine }: IProps,
+  {
+    selectoRef,
+    horizontalGuidelines,
+    verticalGuidelines,
+    zoom,
+    leaderLine,
+  }: IProps,
   ref: Ref<IDraggableManagementRef>
 ) => {
   const { actions, state } = useContext(Model);
   const { onChange, onBatchChange } = actions;
   const { currentComponent, moveableRef, pageConfig } = state;
-  const [moveDom, setMoveDom] = useState<(HTMLElement | SVGElement)[]>([] as any);
+  const [moveDom, setMoveDom] = useState<(HTMLElement | SVGElement)[]>(
+    [] as any
+  );
   const [targets, setTargets] = useState<any[]>([]);
   const currentFirstComponent = currentComponent?.[0];
   const isShift = useShiftKey();
@@ -42,37 +71,72 @@ const AbsoluteLayoutMoveable = (
   useEffect(() => {
     const currentComponentArr = currentComponent as any as IComponentInstance[];
     // don't select root container and empty currentComponent means cancel select
-    if (!currentComponent || (currentComponentArr.length === 1 && currentFirstComponent?.componentName === 'ContainerRoot')) {
+    if (
+      !currentComponent ||
+      (currentComponentArr.length === 1 &&
+        currentFirstComponent?.componentName === "ContainerRoot")
+    ) {
       return setTargets([]);
     }
 
     const getTarget = (cur: { id?: string }) => {
-      return document.getElementById(cur.id || '');
+      return document.getElementById(cur.id || "");
     };
 
-    const tmpTargets = currentComponent ? currentComponentArr.map(getTarget) : [];
+    const tmpTargets = currentComponent
+      ? currentComponentArr.map(getTarget)
+      : [];
     setTargets([...tmpTargets]);
   }, [pageConfig, currentComponent]);
 
-  const parent = state.componentMap.get(currentFirstComponent?.parent as string);
+  const parent = state.componentMap.get(
+    currentFirstComponent?.parent as string
+  );
 
   const resizeable = useMemo(() => {
-    if (!currentComponent || !currentFirstComponent || currentFirstComponent.isSlot) return false;
-    return NON_RESIZEABLE_COMPONENT.indexOf(currentFirstComponent?.componentName) === -1 && (!parent || parent?.layout !== 'flex');
+    if (
+      !currentComponent ||
+      !currentFirstComponent ||
+      currentFirstComponent.isSlot
+    )
+      return false;
+    return (
+      NON_RESIZEABLE_COMPONENT.indexOf(currentFirstComponent?.componentName) ===
+        -1 &&
+      (!parent || parent?.layout !== "flex")
+    );
   }, [currentComponent]);
 
   const draggable = useMemo(() => {
-    if (!currentComponent || !currentFirstComponent || currentFirstComponent.isSlot) return false;
-    return NON_DRAGGABLE_COMPONENT.indexOf(currentFirstComponent?.componentName) === -1 && (!parent || parent?.layout !== 'flex');
+    if (
+      !currentComponent ||
+      !currentFirstComponent ||
+      currentFirstComponent.isSlot
+    )
+      return false;
+    return (
+      NON_DRAGGABLE_COMPONENT.indexOf(currentFirstComponent?.componentName) ===
+        -1 &&
+      (!parent || parent?.layout !== "flex")
+    );
   }, [currentComponent]);
 
   const rotatable = useMemo(() => {
-    if (!currentComponent || !currentFirstComponent || currentFirstComponent.isSlot) return false;
-    return NON_ROTATEABLE_COMPONENT.indexOf(currentFirstComponent?.componentName) === -1 && (!parent || parent?.layout !== 'flex');
+    if (
+      !currentComponent ||
+      !currentFirstComponent ||
+      currentFirstComponent.isSlot
+    )
+      return false;
+    return (
+      NON_ROTATEABLE_COMPONENT.indexOf(currentFirstComponent?.componentName) ===
+        -1 &&
+      (!parent || parent?.layout !== "flex")
+    );
   }, [currentComponent]);
 
   useImperativeHandle(ref, () => ({
-    getMoveable: () => moveableRef?.current
+    getMoveable: () => moveableRef?.current,
   }));
 
   const elementGuidelines = useMemo(() => {
@@ -80,13 +144,24 @@ const AbsoluteLayoutMoveable = (
       return []; // Array.from(state.componentMap.keys()).map((cur) => document.getElementById(cur));
     }
 
-    const parent = state.componentMap.get(currentFirstComponent.parent as string);
+    const parent = state.componentMap.get(
+      currentFirstComponent.parent as string
+    );
     let brothers: IComponentInstance[] | undefined =
-      parent && parent.children ? [parent, ...(parent.children as any)] : parent ? [parent] : undefined;
+      parent && parent.children
+        ? [parent, ...(parent.children as any)]
+        : parent
+        ? [parent]
+        : undefined;
 
-    if (!brothers) brothers = isArray(currentComponent) ? currentComponent : ([currentComponent] as any);
+    if (!brothers)
+      brothers = isArray(currentComponent)
+        ? currentComponent
+        : ([currentComponent] as any);
 
-    return (brothers as any).map((cur: IComponentInstance) => document.getElementById(cur.id || ''));
+    return (brothers as any).map((cur: IComponentInstance) =>
+      document.getElementById(cur.id || "")
+    );
   }, [state.componentMap]);
 
   return (
@@ -97,7 +172,7 @@ const AbsoluteLayoutMoveable = (
       props={{
         dimensionViewable: true,
         editable: true,
-        dataItemEditable: true
+        dataItemEditable: true,
       }}
       draggable={draggable}
       resizable={resizeable}
@@ -109,8 +184,20 @@ const AbsoluteLayoutMoveable = (
       keepRatio={targets.length > 1 ? true : isShift}
       rotatable={rotatable}
       snappable={true}
-      snapDirections={{ top: true, left: true, right: true, center: true, middle: true }}
-      elementSnapDirections={{ top: true, left: true, right: true, center: true, middle: true }}
+      snapDirections={{
+        top: true,
+        left: true,
+        right: true,
+        center: true,
+        middle: true,
+      }}
+      elementSnapDirections={{
+        top: true,
+        left: true,
+        right: true,
+        center: true,
+        middle: true,
+      }}
       snapGap={true}
       isDisplaySnapDigit={true}
       origin={false}
@@ -121,7 +208,7 @@ const AbsoluteLayoutMoveable = (
       horizontalGuidelines={horizontalGuidelines}
       verticalGuidelines={verticalGuidelines}
       elementGuidelines={elementGuidelines as any}
-      defaultClipPath={'inset'}
+      defaultClipPath={"inset"}
       // clipArea={true}
       // clipVerticalGuidelines={[0, '50%', '100%']}
       // clipHorizontalGuidelines={[0, '50%', '100%']}
@@ -144,7 +231,7 @@ const AbsoluteLayoutMoveable = (
         }
       }}
       onDragGroupStart={(e) => {
-        setMoveDom(Array.from(document.querySelectorAll('.mtbird-component')));
+        setMoveDom(Array.from(document.querySelectorAll(".mtbird-component")));
       }}
       onDragGroup={(e) => {
         e.events.forEach((cur) => {
@@ -165,8 +252,8 @@ const AbsoluteLayoutMoveable = (
         const changeMap = new Map<string, Record<string, any>>();
         e.targets.forEach((target) => {
           changeMap.set(target.id, {
-            'props.style.left': parseFloat(target.style.left),
-            'props.style.top': parseFloat(target.style.top)
+            "props.style.left": parseFloat(target.style.left),
+            "props.style.top": parseFloat(target.style.top),
           });
         });
         onBatchChange(changeMap);
@@ -176,12 +263,12 @@ const AbsoluteLayoutMoveable = (
         const { width, height } = e;
         const style = e.target.style;
 
-        style['top'] = translateY + 'px';
-        style['left'] = translateX + 'px';
-        style['right'] = -translateX + 'px';
-        style['bottom'] = -translateY + 'px';
-        style['width'] = width + 'px';
-        style['height'] = height + 'px';
+        style["top"] = translateY + "px";
+        style["left"] = translateX + "px";
+        style["right"] = -translateX + "px";
+        style["bottom"] = -translateY + "px";
+        style["width"] = width + "px";
+        style["height"] = height + "px";
       }}
       onResizeEnd={(e) => {
         const target = e.target;
@@ -191,28 +278,32 @@ const AbsoluteLayoutMoveable = (
 
         const handleResize = (cur: IComponentInstance) => {
           const { style } = cur.props;
-          onChange('props.style', {
+          onChange("props.style", {
             ...style,
             top: parseInt(top),
             left: parseInt(left),
             bottom: parseInt(bottom),
             right: parseInt(right),
             width: parseInt(width),
-            height: parseInt(height)
+            height: parseInt(height),
           });
         };
 
-        isArray(currentComponent) ? (currentComponent as any).forEach(handleResize) : handleResize(currentComponent);
+        isArray(currentComponent)
+          ? (currentComponent as any).forEach(handleResize)
+          : handleResize(currentComponent);
         leaderLine && leaderLine.position();
       }}
       onDragStart={(e) => {
-        setMoveDom(Array.from(document.querySelectorAll('.mtbird-component')));
+        setMoveDom(Array.from(document.querySelectorAll(".mtbird-component")));
       }}
       onDrag={(e) => {
         if (!draggable) return;
 
         const target = e.target;
-        const node = currentComponent.find((cur: IComponentInstance) => cur.id === target.id);
+        const node = currentComponent.find(
+          (cur: IComponentInstance) => cur.id === target.id
+        );
 
         if (!node) return;
 
@@ -222,10 +313,10 @@ const AbsoluteLayoutMoveable = (
         top = top || 0;
         left = left || 0;
 
-        target.style['top'] = top + translateY + 'px';
-        target.style['left'] = left + translateX + 'px';
-        target.style['right'] = left - translateX + 'px';
-        target.style['bottom'] = top - translateY + 'px';
+        target.style["top"] = top + translateY + "px";
+        target.style["left"] = left + translateX + "px";
+        target.style["right"] = left - translateX + "px";
+        target.style["bottom"] = top - translateY + "px";
       }}
       onDragEnd={(e) => {
         const target = e.target;
@@ -234,12 +325,12 @@ const AbsoluteLayoutMoveable = (
         currentComponent.forEach((cur: IComponentInstance) => {
           const { style } = cur.props;
 
-          onChange('props.style', {
+          onChange("props.style", {
             ...style,
             top: parseInt(top),
             left: parseInt(left),
             bottom: parseInt(bottom),
-            right: parseInt(right)
+            right: parseInt(right),
           });
         });
         leaderLine && leaderLine.position();
@@ -248,7 +339,9 @@ const AbsoluteLayoutMoveable = (
         if (!rotatable) return;
 
         const target = e.target;
-        const node = currentComponent.find((cur: IComponentInstance) => cur.id === target.id);
+        const node = currentComponent.find(
+          (cur: IComponentInstance) => cur.id === target.id
+        );
 
         if (!node) return;
 
@@ -256,9 +349,12 @@ const AbsoluteLayoutMoveable = (
         const rotateBefore = getTransformMatrixRotate(transformStr);
         const rotateNew = e.beforeDelta;
 
-        const value = setTransformRotate(transformStr, rotateBefore + rotateNew);
+        const value = setTransformRotate(
+          transformStr,
+          rotateBefore + rotateNew
+        );
 
-        target.style['transform'] = value;
+        target.style["transform"] = value;
       }}
       onRotateEnd={(e) => {
         if (!rotatable) return;
@@ -268,9 +364,9 @@ const AbsoluteLayoutMoveable = (
         currentComponent.forEach((cur: IComponentInstance) => {
           const { style } = cur.props;
 
-          onChange('props.style', {
+          onChange("props.style", {
             ...style,
-            transform
+            transform,
           });
         });
       }}

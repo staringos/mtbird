@@ -1,17 +1,32 @@
-const path = require('path');
-const { existsSync } = require('fs');
-const fsPromise = require('fs/promises');
+const path = require("path");
+const { existsSync } = require("fs");
+const fsPromise = require("fs/promises");
 
-const build = async ({ cwd, entryDir = 'packages', output = 'dist', metadataDirName = 'metadata' }) => {
+const build = async ({
+  cwd,
+  entryDir = "packages",
+  output = "dist",
+  metadataDirName = "metadata",
+}) => {
   const rootDir = path.join(cwd, entryDir);
 
   const packages = await fsPromise.readdir(rootDir);
 
   let manifestList = await Promise.all(
     packages.map(async (pkgName) => {
-      const manifestPathJS = path.join(rootDir, pkgName, metadataDirName, 'manifest.json');
-      const manifestPathJSON = path.join(rootDir, pkgName, metadataDirName, 'manifest.json');
-      const pkgPath = path.join(rootDir, pkgName, 'package.json');
+      const manifestPathJS = path.join(
+        rootDir,
+        pkgName,
+        metadataDirName,
+        "manifest.json"
+      );
+      const manifestPathJSON = path.join(
+        rootDir,
+        pkgName,
+        metadataDirName,
+        "manifest.json"
+      );
+      const pkgPath = path.join(rootDir, pkgName, "package.json");
 
       // eslint-disable-next-line import/no-dynamic-require
       const package = (existsSync(pkgPath) && require(pkgPath)) || {};
@@ -20,14 +35,14 @@ const build = async ({ cwd, entryDir = 'packages', output = 'dist', metadataDirN
       if (existsSync(manifestPathJS)) {
         // eslint-disable-next-line import/no-dynamic-require
         const mf = require(manifestPathJS);
-        if (typeof mf === 'function') {
+        if (typeof mf === "function") {
           manifest = mf();
         } else {
           manifest = mf;
         }
       } else if (existsSync(manifestPathJSON)) {
         const manifestJSON = await fsPromise.readFile(manifestPathJSON, {
-          encoding: 'utf-8'
+          encoding: "utf-8",
         });
 
         try {
@@ -52,7 +67,7 @@ const build = async ({ cwd, entryDir = 'packages', output = 'dist', metadataDirN
   await writeFile(manifestString, path.join(cwd, output));
 
   // eslint-disable-next-line no-console
-  console.log('manifest.json build success!');
+  console.log("manifest.json build success!");
 };
 
 const writeFile = async (content, outputPath) => {
@@ -61,9 +76,12 @@ const writeFile = async (content, outputPath) => {
   }
 
   // eslint-disable-next-line no-console
-  console.log('Prepare generate manifest.json', path.join(outputPath, 'manifest.json'));
-  await fsPromise.writeFile(path.join(outputPath, 'manifest.json'), content, {
-    encoding: 'utf-8'
+  console.log(
+    "Prepare generate manifest.json",
+    path.join(outputPath, "manifest.json")
+  );
+  await fsPromise.writeFile(path.join(outputPath, "manifest.json"), content, {
+    encoding: "utf-8",
   });
 };
 

@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
-import styles from './style.module.less';
-import models from '../../../../mtbird-editor/src/store/types';
+import React, { useContext } from "react";
+import styles from "./style.module.less";
+import models from "../../../../mtbird-editor/src/store/types";
 
 export default ({ component }: any) => {
   const { addComponent } = useContext(models).actions;

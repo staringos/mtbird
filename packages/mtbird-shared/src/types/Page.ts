@@ -1,4 +1,4 @@
-import { IComponentInstance } from './Component';
+import { IComponentInstance } from "./Component";
 
 export interface IPageConfig {
   id: string;
@@ -6,5 +6,5 @@ export interface IPageConfig {
   headImage: string;
   publishedHistoryId?: string;
   data: IComponentInstance;
-  type: 'pc' | 'mobile' | 'form' | 'dashboard';
+  type: "pc" | "mobile" | "form" | "dashboard";
 }

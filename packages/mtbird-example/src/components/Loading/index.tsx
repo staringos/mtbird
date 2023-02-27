@@ -1,6 +1,6 @@
-import React from 'react';
-import { Spin } from 'antd';
-import styles from './style.module.css';
+import React from "react";
+import { Spin } from "antd";
+import styles from "./style.module.css";
 
 interface IProps {
   spinning?: boolean;

@@ -1,4 +1,4 @@
-import { IPipeProps } from '@mtbird/shared';
+import { IPipeProps } from "@mtbird/shared";
 
 /**
  * Set componentName to className
@@ -7,7 +7,7 @@ import { IPipeProps } from '@mtbird/shared';
  */
 const ClassNamePipe = (props: IPipeProps) => {
   const { node } = props;
-  node.props.className = node.props.className + ' ' + node.componentName;
+  node.props.className = node.props.className + " " + node.componentName;
 
   return { ...props, node };
 };

@@ -4,76 +4,88 @@ import { mergeKeypath } from "../utils";
 export default {
   button: (children?: string, click?: IEvent, style?: any) => {
     return {
-      type: 'component',
-      componentName: 'Button',
+      type: "component",
+      componentName: "Button",
       props: {
         style,
-        type: 'primary',
-        shape: 'default'
+        type: "primary",
+        shape: "default",
       },
       events: {
         click: click || {
-          type: 'link',
-          src: 'http://staringos.com'
-        }
+          type: "link",
+          src: "http://staringos.com",
+        },
       },
       editing: {
         showMask: true,
-        maskText: '双击操作'
+        maskText: "双击操作",
       },
-      children: children || '按钮'
+      children: children || "按钮",
     };
   },
 
-  text: (children: string, style?: Record<string, any>, className?: string, data?: Record<string, any>) => {
+  text: (
+    children: string,
+    style?: Record<string, any>,
+    className?: string,
+    data?: Record<string, any>
+  ) => {
     let res = {
-      type: 'component',
-      componentName: 'Text',
+      type: "component",
+      componentName: "Text",
       props: {
         className,
         style: {
-          width: 'unset',
-          height: 'unset',
-          ...style
-        }
+          width: "unset",
+          height: "unset",
+          ...style,
+        },
       },
-      children: children || '<p>这是一段文本呀呀呀</p>'
+      children: children || "<p>这是一段文本呀呀呀</p>",
     } as any;
 
     if (data) res = mergeKeypath(res, data);
     return res;
   },
 
-  image: (src: string, style: Record<string, any>, data: Record<string, any>) => {
+  image: (
+    src: string,
+    style: Record<string, any>,
+    data: Record<string, any>
+  ) => {
     let res = {
-      type: 'component',
-      componentName: 'Image',
+      type: "component",
+      componentName: "Image",
       props: {
         src,
         style: {
-          height: 'unset',
-          width: 'unset',
-          ...style
-        }
+          height: "unset",
+          width: "unset",
+          ...style,
+        },
       },
-      children: []
+      children: [],
     } as any;
     if (data) res = mergeKeypath(res, data);
     return res;
   },
 
-  icon: (className: string, style: Record<string, any>, data: Record<string, any>) => {
+  icon: (
+    className: string,
+    style: Record<string, any>,
+    data: Record<string, any>
+  ) => {
     let res = {
-      type: 'component',
-      componentName: 'Icon',
+      type: "component",
+      componentName: "Icon",
       props: {
-        style: {
-        },
-        className
+        style: {},
+        className,
       },
-      children: []
+      children: [],
     } as any;
     if (data) res = mergeKeypath(res, data);
     return res;
   },
-}
+};

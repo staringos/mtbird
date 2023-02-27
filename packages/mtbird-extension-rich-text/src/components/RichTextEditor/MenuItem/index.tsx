@@ -1,5 +1,5 @@
-import styles from './style.module.less';
-import React from 'react';
+import styles from "./style.module.less";
+import React from "react";
 
 interface IProps {
   icon: string;
@@ -9,7 +9,11 @@ interface IProps {
 }
 
 export default ({ icon, title, action, isActive = () => false }: IProps) => (
-  <button className={`${styles.menuItem} ${isActive() ? styles.isActive : ''}`} onClick={action} title={title}>
+  <button
+    className={`${styles.menuItem} ${isActive() ? styles.isActive : ""}`}
+    onClick={action}
+    title={title}
+  >
     <i className={icon} />
   </button>
 );

@@ -1,27 +1,43 @@
 // import axios from 'axios';
-import React from 'react';
-import jsxRuntime from 'react/jsx-runtime';
-import ReactDOM from 'react-dom';
-import type { IExtensionImportType, IContribute, IPipe, IExtensionComponent, IComponentInstance } from '@mtbird/shared';
-import { AssetsLoader, GLOBAL_EXTENSION_COMPONENTS_KEY, GLOBAL_EXTENSION_KEY, pipelineAsync, GlobalStorage } from '@mtbird/core';
-import { ContributesTypes, IComponentLibs, IExtensionManifest } from '../../mtbird-shared/src/types/Extension';
-import keys from 'lodash/keys';
-import * as antd from 'antd';
-import cloneDeep from 'lodash/cloneDeep';
-import isArray from 'lodash/isArray';
+import React from "react";
+import jsxRuntime from "react/jsx-runtime";
+import ReactDOM from "react-dom";
+import type {
+  IExtensionImportType,
+  IContribute,
+  IPipe,
+  IExtensionComponent,
+  IComponentInstance,
+} from "@mtbird/shared";
+import {
+  AssetsLoader,
+  GLOBAL_EXTENSION_COMPONENTS_KEY,
+  GLOBAL_EXTENSION_KEY,
+  pipelineAsync,
+  GlobalStorage,
+} from "@mtbird/core";
+import {
+  ContributesTypes,
+  IComponentLibs,
+  IExtensionManifest,
+} from "../../mtbird-shared/src/types/Extension";
+import keys from "lodash/keys";
+import * as antd from "antd";
+import cloneDeep from "lodash/cloneDeep";
+import isArray from "lodash/isArray";
 
-const basicUrl = 'https://registry.staringos.com';
+const basicUrl = "https://registry.staringos.com";
 
-if (typeof window !== 'undefined') {
+if (typeof window !== "undefined") {
   if (!window[GLOBAL_EXTENSION_KEY]) {
     window[GLOBAL_EXTENSION_KEY] = {};
-    window['react'] = React;
-    window['jsxRuntime'] = jsxRuntime;
-    window['react-dom'] = ReactDOM;
+    window["react"] = React;
+    window["jsxRuntime"] = jsxRuntime;
+    window["react-dom"] = ReactDOM;
   }
 
-  if (!window['antd']) {
-    window['antd'] = antd;
+  if (!window["antd"]) {
+    window["antd"] = antd;
   }
 }
 
@@ -45,21 +61,26 @@ interface IExtensionParams {
   componentLibs: IComponentLibs[];
 }
 
-export const getExtensionFeatureUrl = (params: IExtensionParams): IExtensionParams => {
-  const [plugin, version] = params.key.split('@');
-  const pluginLink = plugin.startsWith('https://') || plugin.startsWith('http://') ? plugin : `${basicUrl}/${plugin}/${version || 'latest'}`;
-  const [link, urlParams] = pluginLink.split('?');
+export const getExtensionFeatureUrl = (
+  params: IExtensionParams
+): IExtensionParams => {
+  const [plugin, version] = params.key.split("@");
+  const pluginLink =
+    plugin.startsWith("https://") || plugin.startsWith("http://")
+      ? plugin
+      : `${basicUrl}/${plugin}/${version || "latest"}`;
+  const [link, urlParams] = pluginLink.split("?");
   const date = new Date().valueOf();
 
   const urls = {
     base: link,
     js: `${link}/index.umd.js`,
-    manifest: `${link}/manifest.json?${params.isDev ? `id=${date}` : ''}`,
-    style: `${link}/index.css`
+    manifest: `${link}/manifest.json?${params.isDev ? `id=${date}` : ""}`,
+    style: `${link}/index.css`,
   };
   return {
     ...params,
-    urls
+    urls,
   };
 };
 
@@ -71,11 +92,16 @@ export const getExtensionFeatureUrl = (params: IExtensionParams): IExtensionPara
  */
 const loadJS = async (params: IExtensionParams) => {
   const { manifest, urls } = params;
-  const COMPONENT = await AssetsLoader.js(urls.js, `${GLOBAL_EXTENSION_KEY}.${manifest?.name}.default`, !params.isDev, params.isDev);
+  const COMPONENT = await AssetsLoader.js(
+    urls.js,
+    `${GLOBAL_EXTENSION_KEY}.${manifest?.name}.default`,
+    !params.isDev,
+    params.isDev
+  );
 
   return {
     ...params,
-    activityFn: COMPONENT
+    activityFn: COMPONENT,
   };
 };
 
@@ -94,19 +120,23 @@ const loadCSS = async (params: IExtensionParams) => {
   }
 };
 
-const loadManifest = async (extensionParams: IExtensionParams): Promise<IExtensionParams> => {
+const loadManifest = async (
+  extensionParams: IExtensionParams
+): Promise<IExtensionParams> => {
   try {
-    const res: IExtensionManifest = await fetch(extensionParams.urls.manifest).then(async (response) => {
+    const res: IExtensionManifest = await fetch(
+      extensionParams.urls.manifest
+    ).then(async (response) => {
       return await response.json();
     });
     return {
       ...extensionParams,
-      manifest: res
+      manifest: res,
     };
   } catch (e) {
     return {
       ...extensionParams,
-      manifest: {} as any
+      manifest: {} as any,
     };
   }
 };
@@ -121,36 +151,37 @@ const loadPipes = async (extensionParams: IExtensionParams) => {
     if (!manifest || !manifest.pipes || manifest.pipes.length === 0) {
       return {
         ...extensionParams,
-        pipes: {} as any
+        pipes: {} as any,
       };
     }
 
     const pipes = {};
     manifest.pipes.map(async (pipeName) => {
-      const res: string = await fetch(`${extensionParams.urls.base}/pipe-${pipeName}.js?t=` + (isDev ? new Date().getTime() : '')).then(
-        async (response) => {
-          return await response.text();
-        }
-      );
+      const res: string = await fetch(
+        `${extensionParams.urls.base}/pipe-${pipeName}.js?t=` +
+          (isDev ? new Date().getTime() : "")
+      ).then(async (response) => {
+        return await response.text();
+      });
 
       const key = `${manifest.name}-${pipeName}`;
 
       pipes[key] = {
         name: pipeName,
         extensionName: manifest.name,
-        handler: res
+        handler: res,
       };
 
       extensionParams.pipes.set(key, pipes[key]);
     });
     return {
       ...extensionParams,
-      pipes
+      pipes,
     };
   } catch (e) {
     return {
       ...extensionParams,
-      pipes: {} as any
+      pipes: {} as any,
     };
   }
 };
@@ -169,10 +200,13 @@ const loadContributes = async (params: IExtensionParams) => {
     const crt = contributes[key] as any;
     crt.map((cur: IContribute) => {
       if (cur.feature) {
-        cur.feature = params.manifest?.name + '.' + cur.feature;
+        cur.feature = params.manifest?.name + "." + cur.feature;
       }
     });
-    params.contributes.set(key, (params.contributes.get(key) || []).concat(crt) || []);
+    params.contributes.set(
+      key,
+      (params.contributes.get(key) || []).concat(crt) || []
+    );
   });
 
   return params;
@@ -204,7 +238,7 @@ const loadComponents = async (params: IExtensionParams) => {
         isExtension: true,
         extensionName: manifest.name,
         componentName: key,
-        version: manifest.version
+        version: manifest.version,
       };
 
       const instance = cloneDeep(curComponent.manifest?.instance);
@@ -217,7 +251,9 @@ const loadComponents = async (params: IExtensionParams) => {
         }
 
         if (cmpt.children && isArray(cmpt.children)) {
-          (cmpt.children as IComponentInstance[]).forEach((n: IComponentInstance) => loop(n));
+          (cmpt.children as IComponentInstance[]).forEach(
+            (n: IComponentInstance) => loop(n)
+          );
         }
       };
 
@@ -228,9 +264,9 @@ const loadComponents = async (params: IExtensionParams) => {
         componentName: componentKey,
         extension: {
           ...instanceExtension,
-          component: curComponent
+          component: curComponent,
         },
-        instance: instance
+        instance: instance,
       };
 
       return params.components.set(componentKey, componentManifest);
@@ -300,17 +336,17 @@ const extensionLoader = async (extensions: IExtensionImportType[]) => {
         loadPipes,
         loadComponents,
         loadComponentCSS,
-        loadComponentLibs
+        loadComponentLibs,
       ])({
         key: cur,
         pipes,
         contributes,
         components,
         componentLibs,
-        isDev: GlobalStorage.debugExtension === cur
+        isDev: GlobalStorage.debugExtension === cur,
       });
     } catch (e) {
-      console.error('[MtBird ERROR] Extension (' + cur + ') loaded failed', e);
+      console.error("[MtBird ERROR] Extension (" + cur + ") loaded failed", e);
       // loaded failed pass
     }
   });
@@ -320,7 +356,7 @@ const extensionLoader = async (extensions: IExtensionImportType[]) => {
     pipes,
     contributes,
     components,
-    componentLibs
+    componentLibs,
   };
 };
 

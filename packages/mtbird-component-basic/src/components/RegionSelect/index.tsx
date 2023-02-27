@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { Select, Form } from 'antd';
-import { ISchemaProps } from '../../../types/schema';
-import styles from './style.module.less';
-import manifest from './manifest';
-import FormItemComponent from '../Form/FormItem';
-import { getProvince, getRegions } from './services';
+import React, { useEffect, useState } from "react";
+import { Select, Form } from "antd";
+import { ISchemaProps } from "../../../types/schema";
+import styles from "./style.module.less";
+import manifest from "./manifest";
+import FormItemComponent from "../Form/FormItem";
+import { getProvince, getRegions } from "./services";
 
 interface IAddress {
   id: number;
@@ -14,7 +14,7 @@ interface IAddress {
 const RegionSelectComponent = (allProps: ISchemaProps) => {
   const { value, onChangeValue, componentOnly, node } = allProps;
   const { formConfig } = node;
-  const [address, setAddress] = useState(value?.split(',') || new Array(3));
+  const [address, setAddress] = useState(value?.split(",") || new Array(3));
   const [provinces, setProvinces] = useState<IAddress[]>([]);
   const [cities, setCities] = useState<IAddress[]>([]);
   const [areas, setAreas] = useState<IAddress[]>([]);
@@ -29,7 +29,7 @@ const RegionSelectComponent = (allProps: ISchemaProps) => {
   }, []);
 
   useEffect(() => {
-    onChangeValue(address.join(','));
+    onChangeValue(address.join(","));
   }, [address]);
 
   const handleChange = async (e: any, target: number) => {
@@ -57,8 +57,17 @@ const RegionSelectComponent = (allProps: ISchemaProps) => {
 
   const component = (
     <div className={styles.regionSelectItemContainer}>
-      <Form.Item name={['address', 'province']} noStyle rules={[{ required: formConfig?.isRequired, message: '省不能为空！' }]}>
-        <Select placeholder="请选择省" value={address[0]} className={styles.regionSelectItem} onChange={(e) => handleChange(e, 0)}>
+      <Form.Item
+        name={["address", "province"]}
+        noStyle
+        rules={[{ required: formConfig?.isRequired, message: "省不能为空！" }]}
+      >
+        <Select
+          placeholder="请选择省"
+          value={address[0]}
+          className={styles.regionSelectItem}
+          onChange={(e) => handleChange(e, 0)}
+        >
           {provinces &&
             provinces.map((cur: IAddress) => {
               return (
@@ -69,8 +78,17 @@ const RegionSelectComponent = (allProps: ISchemaProps) => {
             })}
         </Select>
       </Form.Item>
-      <Form.Item name={['address', 'cities']} noStyle rules={[{ required: formConfig?.isRequired, message: '市不能为空！' }]}>
-        <Select placeholder="请选择城市" value={address[1]} className={styles.regionSelectItem} onChange={(e) => handleChange(e, 1)}>
+      <Form.Item
+        name={["address", "cities"]}
+        noStyle
+        rules={[{ required: formConfig?.isRequired, message: "市不能为空！" }]}
+      >
+        <Select
+          placeholder="请选择城市"
+          value={address[1]}
+          className={styles.regionSelectItem}
+          onChange={(e) => handleChange(e, 1)}
+        >
           {cities &&
             cities.map((cur: IAddress) => {
               return (
@@ -81,8 +99,17 @@ const RegionSelectComponent = (allProps: ISchemaProps) => {
             })}
         </Select>
       </Form.Item>
-      <Form.Item name={['address', 'areas']} noStyle rules={[{ required: formConfig?.isRequired, message: '区不能为空！' }]}>
-        <Select placeholder="请选择区县" value={address[2]} className={styles.regionSelectItem} onChange={(e) => handleChange(e, 2)}>
+      <Form.Item
+        name={["address", "areas"]}
+        noStyle
+        rules={[{ required: formConfig?.isRequired, message: "区不能为空！" }]}
+      >
+        <Select
+          placeholder="请选择区县"
+          value={address[2]}
+          className={styles.regionSelectItem}
+          onChange={(e) => handleChange(e, 2)}
+        >
           {areas &&
             areas.map((cur: IAddress) => {
               return (

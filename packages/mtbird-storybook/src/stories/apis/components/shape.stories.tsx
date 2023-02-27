@@ -1,6 +1,6 @@
-import SBComponentGenerator from '../../../utils/SBComponentGenerator';
+import SBComponentGenerator from "../../../utils/SBComponentGenerator";
 
-const Component = SBComponentGenerator('Shape');
+const Component = SBComponentGenerator("Shape");
 
 export default Component.main;
 

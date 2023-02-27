@@ -1,11 +1,11 @@
-import isNumber from 'lodash/isNumber';
+import isNumber from "lodash/isNumber";
 
 export function wrapStyle(style: any) {
   const resStyle = {
-    ...style
+    ...style,
   };
   if (resStyle.fontSize && isNumber(resStyle.fontSize)) {
-    resStyle.fontSize = resStyle.fontSize + 'px';
+    resStyle.fontSize = resStyle.fontSize + "px";
   }
 
   return resStyle;

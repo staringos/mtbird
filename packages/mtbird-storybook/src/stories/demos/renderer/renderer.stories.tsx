@@ -1,21 +1,21 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Renderer from '@mtbird/renderer-web';
-import '@mtbird/editor/dist/index.css';
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import Renderer from "@mtbird/renderer-web";
+import "@mtbird/editor/dist/index.css";
 
-import formData from '../../../data/formData.json';
-import pageData from '../../../data/pageData.json';
-import InnerDataSource from '../../../utils/InnerDataSource';
+import formData from "../../../data/formData.json";
+import pageData from "../../../data/pageData.json";
+import InnerDataSource from "../../../utils/InnerDataSource";
 
 export default {
-  title: 'Demos/渲染器',
+  title: "Demos/渲染器",
   component: Renderer,
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
     viewport: {
-      defaultViewport: 'iphone6',
-      viewMode: 'story'
-    }
-  }
+      defaultViewport: "iphone6",
+      viewMode: "story",
+    },
+  },
 } as ComponentMeta<typeof Renderer>;
 
 const Template: ComponentStory<typeof Renderer> = (args) => (
@@ -29,17 +29,17 @@ export const FormPage = Template.bind({});
 
 FormPage.args = {
   pageConfig: {
-    name: '测试表单',
-    data: formData
+    name: "测试表单",
+    data: formData,
   } as any,
-  dataSource: new InnerDataSource()
+  dataSource: new InnerDataSource(),
 };
 
 export const H5Page = Template.bind({});
 H5Page.args = {
   pageConfig: {
-    name: '测试H5页面',
-    data: pageData
+    name: "测试H5页面",
+    data: pageData,
   } as any,
-  dataSource: new InnerDataSource()
+  dataSource: new InnerDataSource(),
 };

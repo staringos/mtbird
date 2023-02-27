@@ -1,5 +1,5 @@
-import RichTextEditor from './RichTextEditor';
+import RichTextEditor from "./RichTextEditor";
 
 export default {
-  RichTextEditor
+  RichTextEditor,
 };

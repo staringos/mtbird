@@ -12,7 +12,17 @@ export interface IOptionItem {
   value: string;
 }
 
-export type DataType = 'STRING' | 'DATE' | 'DATETIME' | 'NUMBER' | 'BOOLEAN' | 'ENUM' | 'FILE' | 'PHOTO' | 'VIDEO' | 'RELATE';
+export type DataType =
+  | "STRING"
+  | "DATE"
+  | "DATETIME"
+  | "NUMBER"
+  | "BOOLEAN"
+  | "ENUM"
+  | "FILE"
+  | "PHOTO"
+  | "VIDEO"
+  | "RELATE";
 
 /**
  * 数据模型字段

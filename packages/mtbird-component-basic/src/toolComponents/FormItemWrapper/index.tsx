@@ -1,6 +1,6 @@
-import React from 'react';
-import { ISchemaProps } from '../../../types/schema';
-import FormItemComponent from '../../components/Form/FormItem';
+import React from "react";
+import { ISchemaProps } from "../../../types/schema";
+import FormItemComponent from "../../components/Form/FormItem";
 
 const FormItemWrapper = (allProps: ISchemaProps) => {
   const { componentOnly } = allProps;

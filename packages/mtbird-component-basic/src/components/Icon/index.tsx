@@ -1,6 +1,6 @@
-import React from 'react';
-import manifest from './manifest';
-import { IComponentProps } from '@mtbird/shared/src/types/Component';
+import React from "react";
+import manifest from "./manifest";
+import { IComponentProps } from "@mtbird/shared/src/types/Component";
 
 const IconComponent = ({ node, style }: IComponentProps) => {
   const { props } = node;
@@ -9,7 +9,7 @@ const IconComponent = ({ node, style }: IComponentProps) => {
     innerStyle.fontSize = props?.style?.width;
   }
 
-  innerStyle.color = '#08c';
+  innerStyle.color = "#08c";
   return <i {...props} style={innerStyle} />;
 };
 

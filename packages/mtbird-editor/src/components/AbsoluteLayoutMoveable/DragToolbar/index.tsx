@@ -1,14 +1,19 @@
-import React, { useContext } from 'react';
-import { Button, Tooltip } from 'antd';
-import styles from './style.module.less';
-import isArray from 'lodash/isArray';
-import { MoveableManagerInterface, Renderer } from 'react-moveable';
-import Model from '../../../store/types';
-import { COMPONENT_NAME, LAYOUT_TYPE, dataURItoBlob, EXTENSION_CONTRIBUTE_TYPE } from '@mtbird/core';
-import { toPng } from 'html-to-image';
-import { helpers } from '@mtbird/helper-extension';
-import { IComponentInstance } from '@mtbird/shared/src/types/Component';
-import DataItemEditableContainer from '../../DataItemEditable';
+import React, { useContext } from "react";
+import { Button, Tooltip } from "antd";
+import styles from "./style.module.less";
+import isArray from "lodash/isArray";
+import { MoveableManagerInterface, Renderer } from "react-moveable";
+import Model from "../../../store/types";
+import {
+  COMPONENT_NAME,
+  LAYOUT_TYPE,
+  dataURItoBlob,
+  EXTENSION_CONTRIBUTE_TYPE,
+} from "@mtbird/core";
+import { toPng } from "html-to-image";
+import { helpers } from "@mtbird/helper-extension";
+import { IComponentInstance } from "@mtbird/shared/src/types/Component";
+import DataItemEditableContainer from "../../DataItemEditable";
 
 interface IProps {
   moveable: MoveableManagerInterface<any, any>;
@@ -19,10 +24,12 @@ const DragToolbarContainer = ({ moveable }: IProps) => {
   const { state, actions } = store;
   const rect = moveable.getRect();
   const { pos2 } = moveable.state;
-  const contributes = state.extensionContributes.get(EXTENSION_CONTRIBUTE_TYPE.CANVAS.TOOLS);
+  const contributes = state.extensionContributes.get(
+    EXTENSION_CONTRIBUTE_TYPE.CANVAS.TOOLS
+  );
 
   const EditableViewer = moveable.useCSS(
-    'div',
+    "div",
     `
     {
       position: absolute;
@@ -33,8 +40,12 @@ const DragToolbarContainer = ({ moveable }: IProps) => {
   );
 
   const currentFirstComponent = state.currentComponent[0] as IComponentInstance;
-  const currentNumber = isArray(state.currentComponent) ? state.currentComponent.length : 1;
-  const parent = state.componentMap.get(currentFirstComponent?.parent as string) as IComponentInstance;
+  const currentNumber = isArray(state.currentComponent)
+    ? state.currentComponent.length
+    : 1;
+  const parent = state.componentMap.get(
+    currentFirstComponent?.parent as string
+  ) as IComponentInstance;
 
   const handleUpper = () => {
     // absolute is move layer, upper is upper, lower is lower. grid and flex is move order then upside down
@@ -93,40 +104,40 @@ const DragToolbarContainer = ({ moveable }: IProps) => {
 
   const buttons = [
     {
-      title: '复制',
-      icon: 'mtbird-icon mtbird-file-copy',
+      title: "复制",
+      icon: "mtbird-icon mtbird-file-copy",
       condition: true,
-      action: actions.copyComponent
+      action: actions.copyComponent,
     },
     {
-      title: '删除',
-      icon: 'mtbird-icon mtbird-delete',
+      title: "删除",
+      icon: "mtbird-icon mtbird-delete",
       condition: true,
-      action: actions.deleteComponent
+      action: actions.deleteComponent,
     },
     {
-      title: '上移一层',
-      icon: 'mtbird-icon mtbird-arrowup',
+      title: "上移一层",
+      icon: "mtbird-icon mtbird-arrowup",
       condition: true,
-      action: handleUpper
+      action: handleUpper,
     },
     {
-      title: '下移一层',
-      icon: 'mtbird-icon mtbird-arrowdown',
+      title: "下移一层",
+      icon: "mtbird-icon mtbird-arrowdown",
       condition: true,
-      action: handleLower
+      action: handleLower,
     },
     {
-      title: '置于顶层',
-      icon: 'mtbird-icon mtbird-vertical-align-top',
+      title: "置于顶层",
+      icon: "mtbird-icon mtbird-vertical-align-top",
       condition: true,
-      action: handleTop
+      action: handleTop,
     },
     {
-      title: '置于底层',
-      icon: 'mtbird-icon mtbird-vertical-align-botto',
+      title: "置于底层",
+      icon: "mtbird-icon mtbird-vertical-align-botto",
       condition: true,
-      action: handleBottom
+      action: handleBottom,
     },
     // {
     //   title: '增加',
@@ -135,34 +146,36 @@ const DragToolbarContainer = ({ moveable }: IProps) => {
     //   condition: currentFirstComponent?.componentName === COMPONENT_NAME.CONTAINER_BLOCK
     // },
     {
-      title: '解除组合',
-      icon: 'mtbird-icon mtbird-ungroup',
+      title: "解除组合",
+      icon: "mtbird-icon mtbird-ungroup",
       action: handleUngroup,
-      condition: currentNumber === 1 && currentFirstComponent?.componentName === COMPONENT_NAME.CONTAINER
+      condition:
+        currentNumber === 1 &&
+        currentFirstComponent?.componentName === COMPONENT_NAME.CONTAINER,
     },
     {
-      title: '组合',
-      icon: 'mtbird-icon mtbird-group',
-      id: 'groupBtn',
+      title: "组合",
+      icon: "mtbird-icon mtbird-group",
+      id: "groupBtn",
       action: handleGroup,
-      condition: currentNumber > 1
+      condition: currentNumber > 1,
     },
     {
-      title: '保存为组件模版',
-      id: 'saveComponentTemplateBtn',
-      icon: 'mtbird-icon mtbird-save',
+      title: "保存为组件模版",
+      id: "saveComponentTemplateBtn",
+      icon: "mtbird-icon mtbird-save",
       action: handleSaveTemplate,
-      condition: currentNumber === 1
-    }
+      condition: currentNumber === 1,
+    },
   ];
 
   return (
     <EditableViewer
-      className={styles.dragToolbarContainer + ' ' + 'moveable-editable'}
+      className={styles.dragToolbarContainer + " " + "moveable-editable"}
       style={{
         transform: `translate(${pos2[0]}px, (${pos2[1]}px) rotate((${rect.rotation}deg) translate(10px)`,
         left: `${rect.width + 10}px`,
-        top: `0px`
+        top: `0px`,
       }}
     >
       {/* <div className={styles.dataItemWrapper}>
@@ -170,10 +183,16 @@ const DragToolbarContainer = ({ moveable }: IProps) => {
       </div> */}
 
       {buttons.map((cur, i) => {
-        if (!cur.condition) return '';
+        if (!cur.condition) return "";
         return (
           <Tooltip placement="right" key={i} title={cur.title}>
-            <Button className={styles.dragToolbarButton} id={cur.id} key={cur.title} icon={<i className={cur.icon} />} onClick={cur.action} />
+            <Button
+              className={styles.dragToolbarButton}
+              id={cur.id}
+              key={cur.title}
+              icon={<i className={cur.icon} />}
+              onClick={cur.action}
+            />
           </Tooltip>
         );
       })}
@@ -195,12 +214,12 @@ const DragToolbarContainer = ({ moveable }: IProps) => {
 };
 
 const DragToolbar = {
-  name: 'editable',
+  name: "editable",
   props: {},
   events: {},
   render: (moveable: MoveableManagerInterface<any, any>, React: Renderer) => {
     return <DragToolbarContainer moveable={moveable} />;
-  }
+  },
 };
 
 export default DragToolbar;

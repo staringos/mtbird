@@ -9,32 +9,32 @@ import {
   IModelField,
   IComponentInstanceCommon,
   IModel,
-  IEditorOptions
-} from '@mtbird/shared';
-import map from 'lodash/map';
-import union from 'lodash/union';
-import assign from 'lodash/assign';
-import omit from 'lodash/omit';
-import set from 'lodash/set';
-import keys from 'lodash/keys';
-import flattenDeep from 'lodash/flattenDeep';
-import { CSSProperties } from 'react';
-import { customAlphabet } from 'nanoid';
-import isObject from 'lodash/isObject';
-import template from 'lodash/template';
-import isString from 'lodash/isString';
+  IEditorOptions,
+} from "@mtbird/shared";
+import map from "lodash/map";
+import union from "lodash/union";
+import assign from "lodash/assign";
+import omit from "lodash/omit";
+import set from "lodash/set";
+import keys from "lodash/keys";
+import flattenDeep from "lodash/flattenDeep";
+import { CSSProperties } from "react";
+import { customAlphabet } from "nanoid";
+import isObject from "lodash/isObject";
+import template from "lodash/template";
+import isString from "lodash/isString";
 
-import isNumber from 'lodash/isNumber';
-import toNumber from 'lodash/toNumber';
-import isBoolean from 'lodash/isBoolean';
-import get from 'lodash/get';
-import templateSettings from 'lodash/templateSettings';
-import isArray from 'lodash/isArray';
-import { COMPONENT_NAME, GLOBAL_DEFAULT_TITLE } from '../constants';
-import compact from 'lodash/compact';
+import isNumber from "lodash/isNumber";
+import toNumber from "lodash/toNumber";
+import isBoolean from "lodash/isBoolean";
+import get from "lodash/get";
+import templateSettings from "lodash/templateSettings";
+import isArray from "lodash/isArray";
+import { COMPONENT_NAME, GLOBAL_DEFAULT_TITLE } from "../constants";
+import compact from "lodash/compact";
 
 export const VALIABLE_TEMPLATE_REGAX = /\${{([\s\S]+?)}}/g;
-const nanoid = customAlphabet('1234567890qwertyuioplkjhgfdsazxcvbnm_$', 17);
+const nanoid = customAlphabet("1234567890qwertyuioplkjhgfdsazxcvbnm_$", 17);
 export const SYSTEM_VERIABLES = () => ({ $modals: {} });
 
 export const isStringEmpty = (str: string) => {
@@ -46,7 +46,10 @@ export const getFormKeypath = (node: IComponentInstanceForm) => {
   return formConfig?.keyPath || id || formConfig?.label;
 };
 
-export const findComponentByKey = (componentTree: IComponentInstance, key: string) => {
+export const findComponentByKey = (
+  componentTree: IComponentInstance,
+  key: string
+) => {
   const loop = (tree: IComponentInstance): any => {
     if (tree.id === key) {
       return tree;
@@ -68,12 +71,16 @@ export const replaceVariable = (val: any, variables: Record<string, any>) => {
   if (isObject(val)) return injectVariables(variables)(val);
 
   // 如果字符串中只有变量，则将对应值赋为目标变量名
-  if (isString(val) && val.startsWith('${{') && val.indexOf('}}') === val.length - 2) {
-    return get(variables, val.replace('${{', '').replace('}}', ''));
+  if (
+    isString(val) &&
+    val.startsWith("${{") &&
+    val.indexOf("}}") === val.length - 2
+  ) {
+    return get(variables, val.replace("${{", "").replace("}}", ""));
   }
 
   // 如果字符串中非只有变量，为变量字符串模版，则使用 _.template 解析该模版
-  if (isString(val) && val.indexOf('${{') !== -1) {
+  if (isString(val) && val.indexOf("${{") !== -1) {
     const compiled = template(val);
     let value = val;
     try {
@@ -82,13 +89,13 @@ export const replaceVariable = (val: any, variables: Record<string, any>) => {
 
     // no attribute in variables, set it as undefined
     if (VALIABLE_TEMPLATE_REGAX.test(value)) {
-      value = value.replaceAll(VALIABLE_TEMPLATE_REGAX, 'undefined');
+      value = value.replaceAll(VALIABLE_TEMPLATE_REGAX, "undefined");
     }
 
     // set value to its origin data type
     if (isNumber(value)) return toNumber(value);
     if (isBoolean(value)) return Boolean(value);
-    if (value === 'undefined') return undefined;
+    if (value === "undefined") return undefined;
 
     return value;
   }
@@ -109,19 +116,24 @@ export const injectVariables = (variables: Record<string, any>) => {
 
 export const getModalOptions = (node: IComponentInstance) => {
   const $modalsList: any[] = [];
-  (node.children as IComponentInstanceCommon[]).forEach((cur: IComponentInstance) => {
-    if (cur?.componentName === COMPONENT_NAME.MODAL) {
-      $modalsList.push({
-        label: cur.data?.alias,
-        value: cur.id
-      });
+  (node.children as IComponentInstanceCommon[]).forEach(
+    (cur: IComponentInstance) => {
+      if (cur?.componentName === COMPONENT_NAME.MODAL) {
+        $modalsList.push({
+          label: cur.data?.alias,
+          value: cur.id,
+        });
+      }
     }
-  });
+  );
   return $modalsList;
 };
 
-export const initVariables = (node: IComponentInstance, options?: IEditorOptions) => {
-  const variablesConfig = get(node, 'data.variables');
+export const initVariables = (
+  node: IComponentInstance,
+  options?: IEditorOptions
+) => {
+  const variablesConfig = get(node, "data.variables");
 
   // $modalsList
   const $modalsList: any[] = getModalOptions(node);
@@ -129,19 +141,27 @@ export const initVariables = (node: IComponentInstance, options?: IEditorOptions
     ...SYSTEM_VERIABLES(),
     $modalsList,
     $models: options ? options.models : [],
-    $modelsOptions: options?.models ? options?.models.map((cur: IModel) => ({ ...cur, label: cur.name, value: cur.id })) : []
+    $modelsOptions: options?.models
+      ? options?.models.map((cur: IModel) => ({
+          ...cur,
+          label: cur.name,
+          value: cur.id,
+        }))
+      : [],
   };
 
   if (!variablesConfig) return variables;
 
   variablesConfig.forEach((cur: IVariable) => {
-    const name = cur.name || '';
+    const name = cur.name || "";
     switch (cur.sourceType) {
-      case 'pageParams':
-        const value = cur.name ? getParamFromURL(location.href, cur.name) : undefined;
+      case "pageParams":
+        const value = cur.name
+          ? getParamFromURL(location.href, cur.name)
+          : undefined;
         variables[name] = value || cur.defaultValue;
         break;
-      case 'defaultValue':
+      case "defaultValue":
       default:
         variables[name] = cur.defaultValue;
         break;
@@ -152,10 +172,10 @@ export const initVariables = (node: IComponentInstance, options?: IEditorOptions
 };
 
 export const safeEval = (codeStr: string) => {
-  const script = document.createElement('script');
-  script.type = 'text/javascript';
+  const script = document.createElement("script");
+  script.type = "text/javascript";
   script.text = codeStr;
-  document.getElementsByTagName('head')[0].appendChild(script);
+  document.getElementsByTagName("head")[0].appendChild(script);
   // document.head.removeChild(document.head.lastChild)
 };
 
@@ -170,7 +190,9 @@ export const generateEntityValue = (entity: IEntity) => {
   return res;
 };
 
-export const getWrapperPosition = (components: IComponentInstance[]): IPosition => {
+export const getWrapperPosition = (
+  components: IComponentInstance[]
+): IPosition => {
   const { style } = components[0].props;
   let left = style.left;
   let top = style.top;
@@ -200,7 +222,16 @@ export const getWrapperPosition = (components: IComponentInstance[]): IPosition 
  */
 export const pureStyle = (style: CSSProperties) => {
   if (!style) return {};
-  const { left, right, height, width, bottom, position, display, ...restStyle } = style;
+  const {
+    left,
+    right,
+    height,
+    width,
+    bottom,
+    position,
+    display,
+    ...restStyle
+  } = style;
   return restStyle;
 };
 
@@ -216,7 +247,7 @@ export const pureStyle = (style: CSSProperties) => {
  * @returns
  */
 export function generateFunction(codeTemplate: string) {
-  return new Function('return ' + codeTemplate)();
+  return new Function("return " + codeTemplate)();
 }
 
 export function getParamFromURL(url: string, key: string) {
@@ -229,7 +260,13 @@ export function flattenComponentTree(tree: IComponentInstance[]) {
     return map(nodes, function (node: IComponentInstance) {
       if (!node) return [];
       let newPath = union(path, [node.name]);
-      return [assign({ pathname: newPath.join(' > '), level: path.length }, omit(node, 'children')), recurse(node.children, newPath)];
+      return [
+        assign(
+          { pathname: newPath.join(" > "), level: path.length },
+          omit(node, "children")
+        ),
+        recurse(node.children, newPath),
+      ];
     });
   }
 
@@ -238,12 +275,15 @@ export function flattenComponentTree(tree: IComponentInstance[]) {
 
 export function uuidv4(number: number) {
   return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c: any) =>
-    (c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))).toString(number)
+    (
+      c ^
+      (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
+    ).toString(number)
   );
 }
 
 export const generateKeys = () => {
-  return 'i' + nanoid();
+  return "i" + nanoid();
 };
 
 export const getZoom = (standardWidth: number = 375) => {
@@ -279,7 +319,10 @@ export const pipelineAsync = (fns: Function[]) => {
  * @param mergeMap
  * @returns
  */
-export const mergeKeypath = (target: Record<string, any>, mergeMap: Record<string, any>) => {
+export const mergeKeypath = (
+  target: Record<string, any>,
+  mergeMap: Record<string, any>
+) => {
   keys(mergeMap).forEach((keyPath: string) => {
     set(target, keyPath, mergeMap[keyPath]);
   });
@@ -289,10 +332,10 @@ export const mergeKeypath = (target: Record<string, any>, mergeMap: Record<strin
 export const dataURItoBlob = (dataURI: string) => {
   // convert base64 to raw binary data held in a string
   // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
-  let byteString = atob(dataURI.split(',')[1]);
+  let byteString = atob(dataURI.split(",")[1]);
 
   // separate out the mime component
-  let mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+  let mimeString = dataURI.split(",")[0].split(":")[1].split(";")[0];
 
   // write the bytes of the string to an ArrayBuffer
   let ab = new ArrayBuffer(byteString.length);
@@ -314,28 +357,41 @@ export const dataURItoBlob = (dataURI: string) => {
  * @param component
  * @returns
  */
-export const isFormComponent = ({ children, type, formConfig }: IComponentInstanceForm) => {
+export const isFormComponent = ({
+  children,
+  type,
+  formConfig,
+}: IComponentInstanceForm) => {
   // 如果没有formConfig，无法展示、提交数据（无label 和 keyPath），按照不是表单组件处理
-  if (!isArray(children) || (children as IComponentInstanceForm[]).length === 0) return type === 'form' && formConfig;
-  return !!(children as IComponentInstanceForm[]).find((chi: IComponentInstanceForm) => chi.type === 'form');
+  if (!isArray(children) || (children as IComponentInstanceForm[]).length === 0)
+    return type === "form" && formConfig;
+  return !!(children as IComponentInstanceForm[]).find(
+    (chi: IComponentInstanceForm) => chi.type === "form"
+  );
 };
 
 export const covertFormToColumn = (node: IComponentInstanceForm) => {
   if (!isArray(node.children)) return [];
-  const res = (node.children as IComponentInstanceForm[]).map((cur: IComponentInstanceForm) => {
-    const { formConfig, id } = cur;
+  const res = (node.children as IComponentInstanceForm[]).map(
+    (cur: IComponentInstanceForm) => {
+      const { formConfig, id } = cur;
 
-    if (!isFormComponent(cur)) return null;
+      if (!isFormComponent(cur)) return null;
 
-    return {
-      field: cur,
-      title: formConfig.label || formConfig.keyPath || id,
-      dataIndex: formConfig.keyPath || id || formConfig.label,
-      render: (value: any, row: Record<string, any>) => {
-        return row[formConfig.keyPath as string] || row[id as string] || row[formConfig.label as string];
-      }
-    };
-  });
+      return {
+        field: cur,
+        title: formConfig.label || formConfig.keyPath || id,
+        dataIndex: formConfig.keyPath || id || formConfig.label,
+        render: (value: any, row: Record<string, any>) => {
+          return (
+            row[formConfig.keyPath as string] ||
+            row[id as string] ||
+            row[formConfig.label as string]
+          );
+        },
+      };
+    }
+  );
   return compact(res);
 };
 
@@ -346,16 +402,22 @@ export const convertModelToColumn = (fields: IModelField[]) => {
       title: cur.displayName,
       dataIndex: cur.key,
       render: (val: any, row: any) => {
-        if (row.type === 'ENUM') {
-          return row.options.find((cur: IOptionItem) => cur.value === row.type)?.label || val;
+        if (row.type === "ENUM") {
+          return (
+            row.options.find((cur: IOptionItem) => cur.value === row.type)
+              ?.label || val
+          );
         }
         return val;
-      }
+      },
     };
   });
 };
 
-export const getParentPath = (node: IComponentInstanceCommon, componentMap: Map<string, IComponentInstanceCommon>) => {
+export const getParentPath = (
+  node: IComponentInstanceCommon,
+  componentMap: Map<string, IComponentInstanceCommon>
+) => {
   const path: string[] = [];
 
   const loop = (target: IComponentInstanceCommon): string[] => {
@@ -370,8 +432,10 @@ export const getParentPath = (node: IComponentInstanceCommon, componentMap: Map<
 };
 
 export const getTabFromInnerText = (text: string) => {
-  const arr = document.getElementsByClassName('ant-tabs-tab');
-  return Array.from(arr).filter((cur) => (cur as any).innerText === text)[0] as any;
+  const arr = document.getElementsByClassName("ant-tabs-tab");
+  return Array.from(arr).filter(
+    (cur) => (cur as any).innerText === text
+  )[0] as any;
 };
 
 export const getNodeFromTreeBranch = (
@@ -379,7 +443,9 @@ export const getNodeFromTreeBranch = (
   componentMap: Map<string, IComponentInstanceCommon>,
   fn: (node: IComponentInstanceCommon) => boolean
 ) => {
-  const loop = (target: IComponentInstanceCommon): IComponentInstanceCommon | number => {
+  const loop = (
+    target: IComponentInstanceCommon
+  ): IComponentInstanceCommon | number => {
     if (!target) return -1;
     if (fn(target)) {
       return target;

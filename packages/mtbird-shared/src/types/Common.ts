@@ -1,4 +1,4 @@
-import { DataType, IOptionItem } from './Data';
+import { DataType, IOptionItem } from "./Data";
 
 export interface IPagination<T> {
   pageNum: number;

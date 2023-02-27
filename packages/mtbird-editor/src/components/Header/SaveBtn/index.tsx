@@ -1,8 +1,8 @@
-import React, { useState, useContext } from 'react';
-import { Tooltip, Button, message } from 'antd';
-import styles from './style.module.less';
-import Model from '../../../store/types';
-import { useInterval } from 'src/utils/hooks';
+import React, { useState, useContext } from "react";
+import { Tooltip, Button, message } from "antd";
+import styles from "./style.module.less";
+import Model from "../../../store/types";
+import { useInterval } from "src/utils/hooks";
 
 /**
  * Save page every each 10s
@@ -20,26 +20,35 @@ const SaveBtn = () => {
       // when network error, report only once
       if (!netError) {
         setNetError(true);
-        message.error('网络异常，未自动保存，请点击保存按钮重试!');
+        message.error("网络异常，未自动保存，请点击保存按钮重试!");
       }
     }
   };
 
   state.options.autoSave && useInterval(handleSave, 10 * 1000);
 
-  const isSaving = state.saveState.state === 'SAVING';
+  const isSaving = state.saveState.state === "SAVING";
 
   return (
     <Tooltip
       placement="bottom"
       title={
         isSaving
-          ? '保存中...'
-          : `已保存 上次保存时间: ${state.saveState.lastSaveTime ? state.saveState.lastSaveTime.toLocaleString().split(' ')[1] : ''}`
+          ? "保存中..."
+          : `已保存 上次保存时间: ${
+              state.saveState.lastSaveTime
+                ? state.saveState.lastSaveTime.toLocaleString().split(" ")[1]
+                : ""
+            }`
       }
     >
-      <Button className={styles.headerButtonSave} type="text" onClick={handleSave} id="saveBtn">
-        {isSaving ? '保存中...' : state.options.autoSave ? '已保存' : '保存'}
+      <Button
+        className={styles.headerButtonSave}
+        type="text"
+        onClick={handleSave}
+        id="saveBtn"
+      >
+        {isSaving ? "保存中..." : state.options.autoSave ? "已保存" : "保存"}
       </Button>
     </Tooltip>
   );

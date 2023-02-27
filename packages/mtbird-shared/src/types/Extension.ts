@@ -1,12 +1,17 @@
-import { IComponentCommon, IComponentInstance, IComponentInstanceForm, IComponentManifest } from './Component';
-import { IPageConfig } from './Page';
+import {
+  IComponentCommon,
+  IComponentInstance,
+  IComponentInstanceForm,
+  IComponentManifest,
+} from "./Component";
+import { IPageConfig } from "./Page";
 
-export type ContributesTypes = 'toolbars' | 'headers' | 'schemas';
+export type ContributesTypes = "toolbars" | "headers" | "schemas";
 
 export interface IContribute {
   sort: number;
   params: Record<string, any>;
-  link: 'feature' | 'modal' | 'link' | 'default';
+  link: "feature" | "modal" | "link" | "default";
   href?: string;
   feature?: string;
 }
@@ -175,7 +180,7 @@ export interface IExtensionComponent {
   manifest: IComponentManifest<IComponentInstance>;
 }
 
-export type PipeStage = 'init' | 'render' | 'rendered' | 'beforeDestroy';
+export type PipeStage = "init" | "render" | "rendered" | "beforeDestroy";
 
 export interface IExtensionFeatureProps {
   context: IExtensionContext;

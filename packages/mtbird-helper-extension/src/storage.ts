@@ -18,7 +18,7 @@ const StorageFactory = (storage: Storage) => {
     clear: () => {
       if (!storage) return;
       storage.clear();
-    }
+    },
   };
 };
 

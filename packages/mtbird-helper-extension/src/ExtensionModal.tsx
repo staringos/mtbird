@@ -1,6 +1,6 @@
-import React from 'react';
-import { Modal } from 'antd';
-import ExtensionRender from './ExtensionRender';
+import React from "react";
+import { Modal } from "antd";
+import ExtensionRender from "./ExtensionRender";
 
 interface IProps {
   store: any;

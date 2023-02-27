@@ -1,6 +1,6 @@
-import SBComponentGenerator from '../../../utils/SBComponentGenerator';
+import SBComponentGenerator from "../../../utils/SBComponentGenerator";
 
-const Component = SBComponentGenerator('List');
+const Component = SBComponentGenerator("List");
 
 export default Component.main;
 

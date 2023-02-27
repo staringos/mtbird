@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { Input, Space, Button } from 'antd';
+import React, { useRef, useState } from "react";
+import { Input, Space, Button } from "antd";
 
 interface IProps {
   value: any;
@@ -29,10 +29,16 @@ const FilterDropdown = ({ value, onChange, onClear, label }: IProps) => {
         value={value}
         onChange={(e) => setTmpValue(e.target.value)}
         onPressEnter={handleSearch}
-        style={{ marginBottom: 8, display: 'block' }}
+        style={{ marginBottom: 8, display: "block" }}
       />
       <Space>
-        <Button type="primary" onClick={handleSearch} icon={<i className="mtbird-icon mtbird-search-outlined" />} size="small" style={{ width: 90 }}>
+        <Button
+          type="primary"
+          onClick={handleSearch}
+          icon={<i className="mtbird-icon mtbird-search-outlined" />}
+          size="small"
+          style={{ width: 90 }}
+        >
           搜索
         </Button>
         <Button onClick={handleClear} size="small" style={{ width: 90 }}>

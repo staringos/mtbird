@@ -3,10 +3,7 @@
   "title": "星搭富文本编辑框",
   "version": "0.0.3",
   "desc": "星搭富文本编辑框",
-  "tags": [
-      "拓展案例"
-  ],
-  "contributes": {
-  },
+  "tags": ["拓展案例"],
+  "contributes": {},
   "components": ["RichTextEditor"]
 }

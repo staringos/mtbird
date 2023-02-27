@@ -1,29 +1,35 @@
-import type { IComponentManifest, IComponentInstanceForm } from '@mtbird/shared';
-import { COMPONENT } from '@mtbird/core';
+import type {
+  IComponentManifest,
+  IComponentInstanceForm,
+} from "@mtbird/shared";
+import { COMPONENT } from "@mtbird/core";
 
 const manifest: IComponentManifest<IComponentInstanceForm> = {
-  type: 'form',
-  componentName: 'ColorPicker',
-  title: '颜色选择',
-  icon: 'mtbird-Color',
-  desc: '',
-  category: 'form',
-  schema: [...COMPONENT.SCHEMA_CONTAINER_BASIC_STYLE, ...COMPONENT.SCHEMA_FORM_CONFIG],
+  type: "form",
+  componentName: "ColorPicker",
+  title: "颜色选择",
+  icon: "mtbird-Color",
+  desc: "",
+  category: "form",
+  schema: [
+    ...COMPONENT.SCHEMA_CONTAINER_BASIC_STYLE,
+    ...COMPONENT.SCHEMA_FORM_CONFIG,
+  ],
   instance: {
-    type: 'component',
-    componentName: 'ColorPicker',
+    type: "component",
+    componentName: "ColorPicker",
     formConfig: {
-      label: '颜色',
+      label: "颜色",
       componentProps: {
-        style: {}
+        style: {},
       },
-      labelStyle: {}
+      labelStyle: {},
     },
     props: {
-      style: {}
+      style: {},
     },
-    children: []
-  }
+    children: [],
+  },
 };
 
 export default manifest;

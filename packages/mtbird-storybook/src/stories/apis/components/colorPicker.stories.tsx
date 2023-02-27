@@ -1,6 +1,6 @@
-import SBComponentGenerator from '../../../utils/SBComponentGenerator';
+import SBComponentGenerator from "../../../utils/SBComponentGenerator";
 
-const Component = SBComponentGenerator('ColorPicker');
+const Component = SBComponentGenerator("ColorPicker");
 
 export default Component.main;
 

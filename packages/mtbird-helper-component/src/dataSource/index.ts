@@ -1,5 +1,5 @@
-import get from 'lodash/get';
-import type { IDataSource, IData } from '@mtbird/shared';
+import get from "lodash/get";
+import type { IDataSource, IData } from "@mtbird/shared";
 
 export class SchemaDataSource implements IDataSource {
   state?: IData;
@@ -10,14 +10,14 @@ export class SchemaDataSource implements IDataSource {
   }
 
   getValue = (keyPath: string) => {
-    return get(this.state, 'currentComponent.' + keyPath);
+    return get(this.state, "currentComponent." + keyPath);
   };
 
   query = (keyPath: string, dataId: string) => {};
 
   modify = (keyPath: string, data: IData) => {
-    const keys = keyPath.split('.');
-    this.setState && this.setState(keys.splice(1, keys.length).join('.'), data);
+    const keys = keyPath.split(".");
+    this.setState && this.setState(keys.splice(1, keys.length).join("."), data);
     return Promise.resolve(true);
   };
 

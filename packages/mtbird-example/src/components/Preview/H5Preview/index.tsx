@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { IPageConfig } from '@mtbird/shared';
-import PreviewHeader from '../PreviewHeader';
-import styles from './style.module.css';
-import { PreviewMobileType } from '@mtbird/core';
+import React, { useState } from "react";
+import { IPageConfig } from "@mtbird/shared";
+import PreviewHeader from "../PreviewHeader";
+import styles from "./style.module.css";
+import { PreviewMobileType } from "@mtbird/core";
 
 interface IProps {
   page: IPageConfig;
@@ -12,7 +12,7 @@ interface IProps {
 }
 
 const H5Preview = ({ page, historyId, platform, onPlatformChange }: IProps) => {
-  const [currentMobile, setCurrentMobile] = useState('iPhone SE');
+  const [currentMobile, setCurrentMobile] = useState("iPhone SE");
   const handleSizeChanged = (e: any) => {
     setCurrentMobile(e);
   };

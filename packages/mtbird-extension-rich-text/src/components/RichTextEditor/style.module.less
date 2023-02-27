@@ -17,16 +17,16 @@
 
   :global {
     .ProseMirror {
-      outline:none;
+      outline: none;
       > * + * {
         margin-top: 0.75em;
       }
-    
+
       ul,
       ol {
         padding: 0 1rem;
       }
-    
+
       h1,
       h2,
       h3,
@@ -35,19 +35,19 @@
       h6 {
         line-height: 1.1;
       }
-    
+
       code {
         background-color: rgba(#616161, 0.1);
         color: #616161;
       }
-    
+
       pre {
         background: #0d0d0d;
         border-radius: 0.5rem;
         color: #fff;
         font-family: "JetBrainsMono", monospace;
         padding: 0.75rem 1rem;
-        
+
         code {
           background: none;
           color: inherit;
@@ -55,32 +55,32 @@
           padding: 0;
         }
       }
-    
+
       mark {
         background-color: #faf594;
       }
-    
+
       img {
         height: auto;
         max-width: 100%;
       }
-    
+
       hr {
         margin: 1rem 0;
       }
-    
+
       blockquote {
         border-left: 2px solid rgba(#0d0d0d, 0.1);
         padding-left: 1rem;
       }
-    
+
       hr {
         border: none;
         border-top: 2px solid rgba(#0d0d0d, 0.1);
         margin: 2rem 0;
       }
     }
-  
+
     .editor__footer {
       align-items: center;
       border-top: 3px solid #0d0d0d;
@@ -94,13 +94,13 @@
       padding: 0.25rem 0.75rem;
       white-space: nowrap;
     }
-  
+
     /* Some information about the status */
     .editor__status {
       align-items: center;
       border-radius: 5px;
       display: flex;
-  
+
       &::before {
         background: rgba(#0d0d0d, 0.5);
         border-radius: 50%;
@@ -111,16 +111,16 @@
         margin-right: 0.5rem;
         width: 0.5rem;
       }
-  
+
       &--connecting::before {
         background: #616161;
       }
-  
+
       &--connected::before {
         background: #b9f18d;
       }
     }
-  
+
     .editor__name {
       button {
         background: none;
@@ -131,7 +131,7 @@
         font-size: 12px;
         font-weight: 600;
         padding: 0.25rem 0.5rem;
-  
+
         &:hover {
           background-color: #0d0d0d;
           color: #fff;

@@ -1,9 +1,11 @@
-import { useRef, useEffect, useState } from 'react';
-import { COMPONENT_NAME } from '@mtbird/core';
-import { IComponentInstanceCommon } from '@mtbird/shared';
+import { useRef, useEffect, useState } from "react";
+import { COMPONENT_NAME } from "@mtbird/core";
+import { IComponentInstanceCommon } from "@mtbird/shared";
 
-export function useLeaderLine(currentDataContainer: IComponentInstanceCommon | undefined) {
-  const LeaderLine = require('react-leader-line');
+export function useLeaderLine(
+  currentDataContainer: IComponentInstanceCommon | undefined
+) {
+  const LeaderLine = require("react-leader-line");
   const [leaderLine, setLeaderLine] = useState<typeof LeaderLine | undefined>();
 
   const destroy = () => {
@@ -16,12 +18,19 @@ export function useLeaderLine(currentDataContainer: IComponentInstanceCommon | u
   };
 
   useEffect(() => {
-    if (currentDataContainer && currentDataContainer.componentName === COMPONENT_NAME.DATA_LIST) {
+    if (
+      currentDataContainer &&
+      currentDataContainer.componentName === COMPONENT_NAME.DATA_LIST
+    ) {
       setLeaderLine(
-        new LeaderLine(document.getElementById(currentDataContainer.id as string), document.getElementById('dataItemContainer'), {
-          dash: { animation: true },
-          endLabel: LeaderLine.pathLabel('数据项', { strokeWidth: '2px' })
-        })
+        new LeaderLine(
+          document.getElementById(currentDataContainer.id as string),
+          document.getElementById("dataItemContainer"),
+          {
+            dash: { animation: true },
+            endLabel: LeaderLine.pathLabel("数据项", { strokeWidth: "2px" }),
+          }
+        )
       );
     } else {
       destroy();

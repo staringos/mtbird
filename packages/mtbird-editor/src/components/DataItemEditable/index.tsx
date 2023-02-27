@@ -1,9 +1,9 @@
-import React, { useContext, useRef } from 'react';
-import styles from './style.module.less';
-import Model from '../../store/types';
-import RendererWrapper from '../RendererWrapper';
-import cloneDeep from 'lodash/cloneDeep';
-import { COMPONENT_NAME } from '@mtbird/core';
+import React, { useContext, useRef } from "react";
+import styles from "./style.module.less";
+import Model from "../../store/types";
+import RendererWrapper from "../RendererWrapper";
+import cloneDeep from "lodash/cloneDeep";
+import { COMPONENT_NAME } from "@mtbird/core";
 
 interface IProps {
   moveable: any;
@@ -14,10 +14,15 @@ const DataItemEditableContainer = () => {
   const { currentDataContainer } = state;
   const endRef = useRef<any>();
 
-  const $dom = document.getElementById(currentDataContainer?.id || '');
-  let display = 'block';
+  const $dom = document.getElementById(currentDataContainer?.id || "");
+  let display = "block";
 
-  if (!currentDataContainer || !$dom || currentDataContainer.componentName !== COMPONENT_NAME.DATA_LIST) display = 'none';
+  if (
+    !currentDataContainer ||
+    !$dom ||
+    currentDataContainer.componentName !== COMPONENT_NAME.DATA_LIST
+  )
+    display = "none";
 
   // const rect = $dom ? $dom.getBoundingClientRect() : ({} as Record<string, number>);
   const child = currentDataContainer?.children?.[0];
@@ -32,10 +37,20 @@ const DataItemEditableContainer = () => {
         width: style.width,
         height: style.height,
         right: -style.width - 80,
-        display
+        display,
       }}
     >
-      {display === 'block' && <RendererWrapper pageConfig={{ data: cloneDeep(child), title: '', id: '', headImage: '', type: 'mobile' }} />}
+      {display === "block" && (
+        <RendererWrapper
+          pageConfig={{
+            data: cloneDeep(child),
+            title: "",
+            id: "",
+            headImage: "",
+            type: "mobile",
+          }}
+        />
+      )}
     </div>
   );
 };

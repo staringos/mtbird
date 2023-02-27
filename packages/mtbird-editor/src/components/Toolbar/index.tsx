@@ -1,15 +1,19 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Tabs, Button } from 'antd';
-import styles from './style.module.less';
-import values from 'lodash/values';
+import React, { useContext, useEffect, useState } from "react";
+import { Tabs, Button } from "antd";
+import styles from "./style.module.less";
+import values from "lodash/values";
 
-import tools from './tools.json';
-import { ExtensionRender, helpers } from '@mtbird/helper-extension';
-import { IComponentInstance, IComponentInstanceForm, IComponentManifest } from '@mtbird/shared';
-import { EXTENSION_CONTRIBUTE_TYPE } from '@mtbird/core';
-import Model from '../../store/types';
-import { Events, EVENT_KEYS } from '@mtbird/core';
-import ToolBoxList from './ToolBoxList';
+import tools from "./tools.json";
+import { ExtensionRender, helpers } from "@mtbird/helper-extension";
+import {
+  IComponentInstance,
+  IComponentInstanceForm,
+  IComponentManifest,
+} from "@mtbird/shared";
+import { EXTENSION_CONTRIBUTE_TYPE } from "@mtbird/core";
+import Model from "../../store/types";
+import { Events, EVENT_KEYS } from "@mtbird/core";
+import ToolBoxList from "./ToolBoxList";
 
 export default () => {
   const store = useContext(Model);
@@ -17,14 +21,18 @@ export default () => {
   const { editorSettings } = state.options;
   const [activeKey, setAcitveKey] = useState(editorSettings?.defaultToolbar);
   const categories = [...tools.categories];
-  const tooltabs = state.extensionContributes.get(EXTENSION_CONTRIBUTE_TYPE.TOOL.BARS);
-  const toolbarsBottom = state.extensionContributes.get(EXTENSION_CONTRIBUTE_TYPE.TOOL.BOTTOM);
+  const tooltabs = state.extensionContributes.get(
+    EXTENSION_CONTRIBUTE_TYPE.TOOL.BARS
+  );
+  const toolbarsBottom = state.extensionContributes.get(
+    EXTENSION_CONTRIBUTE_TYPE.TOOL.BOTTOM
+  );
 
   tooltabs?.map((cur) => {
     categories.push({
       ...cur,
       title: cur.params.name,
-      key: cur.params.name
+      key: cur.params.name,
     });
   });
 
@@ -33,7 +41,10 @@ export default () => {
   const getCategoriesGroup = () => {
     return values(manifest).reduce(
       (
-        all: Record<string, IComponentManifest<IComponentInstance | IComponentInstanceForm>>,
+        all: Record<
+          string,
+          IComponentManifest<IComponentInstance | IComponentInstanceForm>
+        >,
         cur: IComponentManifest<IComponentInstance | IComponentInstanceForm>
       ) => {
         if (!cur) return all;
@@ -53,7 +64,13 @@ export default () => {
       <div className={styles.toolbarBottom}>
         {buttons?.map((cur: any, i: number) => {
           return (
-            <Button type="text" className={styles.toolbarBottomButton} title={cur.name} onClick={helpers.generateEventHandler(store, cur)} key={i}>
+            <Button
+              type="text"
+              className={styles.toolbarBottomButton}
+              title={cur.name}
+              onClick={helpers.generateEventHandler(store, cur)}
+              key={i}
+            >
               <i className={cur.params.icon} />
             </Button>
           );
@@ -64,7 +81,7 @@ export default () => {
 
   const handleTabChange = (e: string) => {
     setAcitveKey(e);
-    !state.tabsState['toolTabs'] && actions.toggleTab('toolTabs');
+    !state.tabsState["toolTabs"] && actions.toggleTab("toolTabs");
   };
 
   const tabItems = categories.map((category: any, i: number) => {
@@ -72,11 +89,11 @@ export default () => {
       label: category.title,
       key: category.key,
       children:
-        category.link === 'feature' ? (
+        category.link === "feature" ? (
           <ExtensionRender store={store} featureKey={category.feature} />
         ) : (
           <ToolBoxList category={category} categoriesGroup={categoriesGroup} />
-        )
+        ),
     };
   });
 
@@ -92,7 +109,14 @@ export default () => {
   }, []);
 
   return (
-    <div id="toolTabs" className={styles.toolbarContainer + ' ' + (state.tabsState['toolTabs'] ? '' : styles.toolbarContentHidden)}>
+    <div
+      id="toolTabs"
+      className={
+        styles.toolbarContainer +
+        " " +
+        (state.tabsState["toolTabs"] ? "" : styles.toolbarContentHidden)
+      }
+    >
       <div className={styles.toolbarContent} id="toolbarContent">
         <Tabs
           activeKey={activeKey}

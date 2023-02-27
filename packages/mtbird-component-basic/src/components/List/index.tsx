@@ -1,35 +1,50 @@
-import React, { useEffect, useState } from 'react';
-import { Table, Button, Space, Modal, message } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import { IComponentInstanceForm, IComponentProps, IDataSource, IPageParams } from '@mtbird/shared';
-import styles from './style.module.less';
-import EntityForm from './components/EntityForm';
-import manifest from './manifest';
-import { generateColumns } from './utils';
-import FilterDropdown from './components/FilterDropdown';
-import { SorterResult } from 'antd/lib/table/interface';
-import { convertColumnsToEntity } from 'src/utils/component';
+import React, { useEffect, useState } from "react";
+import { Table, Button, Space, Modal, message } from "antd";
+import type { ColumnsType } from "antd/es/table";
+import {
+  IComponentInstanceForm,
+  IComponentProps,
+  IDataSource,
+  IPageParams,
+} from "@mtbird/shared";
+import styles from "./style.module.less";
+import EntityForm from "./components/EntityForm";
+import manifest from "./manifest";
+import { generateColumns } from "./utils";
+import FilterDropdown from "./components/FilterDropdown";
+import { SorterResult } from "antd/lib/table/interface";
+import { convertColumnsToEntity } from "src/utils/component";
 
-const ListComponent = ({ node, value, onChangeValue, dataSource, onUpload }: IComponentProps) => {
+const ListComponent = ({
+  node,
+  value,
+  onChangeValue,
+  dataSource,
+  onUpload,
+}: IComponentProps) => {
   const { data } = node;
-  const { pageId, targetId, entity, features, type, additionColumns } = data as any;
+  const { pageId, targetId, entity, features, type, additionColumns } =
+    data as any;
   const [editData, setEditData] = useState<null | any>(null);
   const [showEditor, setShowEditor] = useState<boolean>(false);
   const [editIndex, setEditIndex] = useState<number | undefined>(undefined);
   const [pagination, setPagination] = useState<IPageParams>({
     pageNum: 1,
-    pageSize: 20
+    pageSize: 20,
   });
   const [columns, setColumns] = useState<ColumnsType<any>>([]);
   const [search, setSearch] = useState<Record<string, any>>({});
   const [tableData, setTableData] = useState({
     data: value,
-    total: 0
+    total: 0,
   });
   const [sort, setSort] = useState({});
-  const modifyEntity = type === 'entity' ? entity : convertColumnsToEntity(columns, additionColumns);
-  const needConfig = (type === 'model' || type === 'form') && !targetId;
-  const isDark = node.theme?.type === 'dark';
+  const modifyEntity =
+    type === "entity"
+      ? entity
+      : convertColumnsToEntity(columns, additionColumns);
+  const needConfig = (type === "model" || type === "form") && !targetId;
+  const isDark = node.theme?.type === "dark";
 
   const handleOpenAdd = () => {
     setEditData(null);
@@ -44,30 +59,37 @@ const ListComponent = ({ node, value, onChangeValue, dataSource, onUpload }: ICo
 
   const handleToDelete = async (id: number | string, index: number) => {
     switch (type) {
-      case 'form':
-      case 'model':
+      case "form":
+      case "model":
         await dataSource?.deleteData?.(targetId, id, type);
-        message.success('操作成功!');
+        message.success("操作成功!");
         refreshTable();
         break;
-      case 'entity':
+      case "entity":
       default:
         // TODO delete by index, optimize delete by id later
-        onChangeValue(tableData.data.filter((cur: any, i: number) => index !== i));
+        onChangeValue(
+          tableData.data.filter((cur: any, i: number) => index !== i)
+        );
     }
   };
 
   const init = async () => {
-    const columns = await generateColumns(node as IComponentInstanceForm, dataSource as IDataSource, handleToEdit, handleToDelete);
+    const columns = await generateColumns(
+      node as IComponentInstanceForm,
+      dataSource as IDataSource,
+      handleToEdit,
+      handleToDelete
+    );
 
     columns.forEach((col: any) => {
       if (isDark) {
-        col.textWrap = 'word-break';
+        col.textWrap = "word-break";
         col.ellipsis = true;
         col.width = 100;
       }
 
-      if (col.title === '操作') return;
+      if (col.title === "操作") return;
       // search
       if (features?.search) {
         col.filterDropdown = () => {
@@ -83,7 +105,12 @@ const ListComponent = ({ node, value, onChangeValue, dataSource, onUpload }: ICo
             />
           );
         };
-        col.filterIcon = (filtered: boolean) => <i className="mtbird-icon mtbird-search" style={{ color: filtered ? '#1890ff' : undefined }} />;
+        col.filterIcon = (filtered: boolean) => (
+          <i
+            className="mtbird-icon mtbird-search"
+            style={{ color: filtered ? "#1890ff" : undefined }}
+          />
+        );
         col.onFilter = () => {};
 
         // col.onFilterDropdownOpenChange = (visible: boolean) => {};
@@ -101,7 +128,7 @@ const ListComponent = ({ node, value, onChangeValue, dataSource, onUpload }: ICo
 
       if (features?.sort) {
         col.sorter = true;
-        col.sortDirections = ['descend', 'ascend'];
+        col.sortDirections = ["descend", "ascend"];
       }
     });
     setColumns(columns);
@@ -114,13 +141,22 @@ const ListComponent = ({ node, value, onChangeValue, dataSource, onUpload }: ICo
 
   const refreshTable = async () => {
     switch (data?.type) {
-      case 'model':
-      case 'form':
+      case "model":
+      case "form":
         if (!dataSource?.queryData) return;
-        const res = await dataSource?.queryData(data?.type, pageId, targetId, pagination, search);
-        setTableData({ ...res, data: res.data.map((cur: any) => ({ ...cur, ...cur.data })) } as any);
+        const res = await dataSource?.queryData(
+          data?.type,
+          pageId,
+          targetId,
+          pagination,
+          search
+        );
+        setTableData({
+          ...res,
+          data: res.data.map((cur: any) => ({ ...cur, ...cur.data })),
+        } as any);
         break;
-      case 'entity':
+      case "entity":
       default:
         setTableData({ ...tableData, data: value });
     }
@@ -134,7 +170,7 @@ const ListComponent = ({ node, value, onChangeValue, dataSource, onUpload }: ICo
   const handleFinish = () => {
     setEditData({});
     setShowEditor(false);
-    if (type === 'model') {
+    if (type === "model") {
       refreshTable();
     }
   };
@@ -142,17 +178,21 @@ const ListComponent = ({ node, value, onChangeValue, dataSource, onUpload }: ICo
   const handlePageChanged = (e: number) => {
     setPagination({
       ...pagination,
-      pageNum: e
+      pageNum: e,
     });
   };
 
-  const handleTableChange = (pagination: any, filters: Record<string, any>, sorter: SorterResult<any>) => {
-    console.log('pagination:', pagination, filters, sorter);
+  const handleTableChange = (
+    pagination: any,
+    filters: Record<string, any>,
+    sorter: SorterResult<any>
+  ) => {
+    console.log("pagination:", pagination, filters, sorter);
   };
 
   if (needConfig) return <div>请配置数据源</div>;
 
-  console.log('lllllll columns:', columns);
+  console.log("lllllll columns:", columns);
 
   return (
     <div className={styles.listWrapper}>
@@ -180,8 +220,16 @@ const ListComponent = ({ node, value, onChangeValue, dataSource, onUpload }: ICo
       </Modal>
       {columns && columns.length > 0 && (
         <Table
-          className={isDark ? styles.darkModeTable : ''}
-          pagination={features?.pagination ? { total: tableData.total, pageSize: pagination.pageSize, onChange: handlePageChanged } : false}
+          className={isDark ? styles.darkModeTable : ""}
+          pagination={
+            features?.pagination
+              ? {
+                  total: tableData.total,
+                  pageSize: pagination.pageSize,
+                  onChange: handlePageChanged,
+                }
+              : false
+          }
           dataSource={tableData.data}
           columns={columns}
           size="small"

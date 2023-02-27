@@ -1,6 +1,6 @@
-import { CSSProperties } from 'react';
-import { IComponentInstance, IComponentInstanceForm } from './Component';
-import { IDataSource } from './DataSource';
+import { CSSProperties } from "react";
+import { IComponentInstance, IComponentInstanceForm } from "./Component";
+import { IDataSource } from "./DataSource";
 
 export interface IPipeProps {
   node: IComponentInstanceForm;

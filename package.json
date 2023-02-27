@@ -20,7 +20,8 @@
     "update-version": "lerna version prerelease --force-publish --conventional-commits",
     "build": "lerna run build",
     "publish": "lerna publish from-package --yes --registry https://registry.npmjs.org/",
-    "link": "yarn link @mtbird/renderer-web & yarn link @mtbird/shared & yarn link @mtbird/ui"
+    "link": "yarn link @mtbird/renderer-web & yarn link @mtbird/shared & yarn link @mtbird/ui",
+    "lint": "yarn prettier --write ."
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
@@ -67,7 +68,7 @@
     "postcss-px2rem": "^0.3.0",
     "postcss-safe-parser": "5.0.2",
     "postcss-simple-vars": "^5.0.2",
-    "prettier": "^2.6.2",
+    "prettier": "^2.8.4",
     "rollup": "^2.72.1",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-extensions": "^0.1.0",

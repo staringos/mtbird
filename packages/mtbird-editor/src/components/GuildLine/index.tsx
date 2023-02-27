@@ -1,6 +1,13 @@
-import React, { forwardRef, Ref, useEffect, useImperativeHandle, useRef, useState } from 'react';
-import Guides from '@scena/react-guides';
-import styles from './style.module.less';
+import React, {
+  forwardRef,
+  Ref,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from "react";
+import Guides from "@scena/react-guides";
+import styles from "./style.module.less";
 
 export interface IGuildLineRef {
   getHori: () => Guides | null;
@@ -12,12 +19,22 @@ export interface IProps {
   infiniteViewerRef: any;
   horizontalSnapGuides: number[];
   verticalSnapGuides: number[];
-  onGuidesChange: (direction: 'horizontal' | 'vertical', guides: number[]) => void;
+  onGuidesChange: (
+    direction: "horizontal" | "vertical",
+    guides: number[]
+  ) => void;
   zoom: number;
 }
 
 const GuildLine = (
-  { containerRef, zoom, infiniteViewerRef, horizontalSnapGuides, verticalSnapGuides, onGuidesChange }: IProps,
+  {
+    containerRef,
+    zoom,
+    infiniteViewerRef,
+    horizontalSnapGuides,
+    verticalSnapGuides,
+    onGuidesChange,
+  }: IProps,
   ref: Ref<IGuildLineRef>
 ) => {
   const guideHoriRef = useRef<Guides>(null);
@@ -48,7 +65,7 @@ const GuildLine = (
 
   useImperativeHandle(ref, () => ({
     getHori: () => guideHoriRef.current,
-    getVert: () => guideVertRef.current
+    getVert: () => guideVertRef.current,
   }));
 
   const handleClick = () => {
@@ -61,7 +78,7 @@ const GuildLine = (
     <>
       <Guides
         type="horizontal"
-        className={styles.ruler + ' ' + styles.horizontal}
+        className={styles.ruler + " " + styles.horizontal}
         snapThreshold={5}
         snaps={horizontalSnapGuides}
         displayDragPos={true}
@@ -73,13 +90,13 @@ const GuildLine = (
         backgroundColor="#272e3b"
         textColor="#c9cdd4"
         onChangeGuides={({ guides }) => {
-          onGuidesChange('horizontal', guides);
+          onGuidesChange("horizontal", guides);
         }}
       />
       <Guides
         ref={guideVertRef}
         type="vertical"
-        className={styles.ruler + ' ' + styles.vertical}
+        className={styles.ruler + " " + styles.vertical}
         snapThreshold={5}
         snaps={verticalSnapGuides}
         displayDragPos={true}
@@ -88,10 +105,14 @@ const GuildLine = (
         textColor="#c9cdd4"
         unit={unit}
         onChangeGuides={({ guides }) => {
-          onGuidesChange('vertical', guides);
+          onGuidesChange("vertical", guides);
         }}
       />
-      <div className={styles.centerButton} title="回到中心" onClick={handleClick}>
+      <div
+        className={styles.centerButton}
+        title="回到中心"
+        onClick={handleClick}
+      >
         <i className="mtbird-icon mtbird-border-outer" />
       </div>
     </>

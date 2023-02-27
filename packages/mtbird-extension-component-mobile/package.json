@@ -24,8 +24,7 @@
     "antd-mobile": "^5.25.1",
     "@mtbird/core": "^0.0.3-beta.43"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "peerDependencies": {
     "@mtbird/cli": "^0.0.3-beta.15",
     "@mtbird/shared": "^0.0.3-beta.15",

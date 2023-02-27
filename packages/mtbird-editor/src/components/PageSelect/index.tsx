@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
-import { Dropdown, Menu } from 'antd';
-import Model from '../../store/types';
-import styles from './style.module.less';
+import React, { useContext } from "react";
+import { Dropdown, Menu } from "antd";
+import Model from "../../store/types";
+import styles from "./style.module.less";
 
 interface IProps {
   value: string;
@@ -21,7 +21,7 @@ const PageSelect = ({ value }: IProps) => {
       items={state.pageList.map((cur) => {
         return {
           key: cur.id,
-          label: cur.title
+          label: cur.title,
         };
       })}
     />
@@ -30,7 +30,9 @@ const PageSelect = ({ value }: IProps) => {
   return (
     <div className={styles.pageSelectContainer}>
       <span className={styles.pageName}>{state.pageConfig.title}</span>
-      {(!state.pageList || state.pageList.length === 0) && <span>{state.options.pageConfig.title}</span>}
+      {(!state.pageList || state.pageList.length === 0) && (
+        <span>{state.options.pageConfig.title}</span>
+      )}
       {(state.pageList || (state.pageList as any).length) && (
         <Dropdown overlay={menu}>
           <i className="mtbird-icon mtbird-down" />

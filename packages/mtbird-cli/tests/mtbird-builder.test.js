@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
-const mtbirdBuilder = require('..');
+const mtbirdBuilder = require("..");
 
-describe('mtbird-builder', () => {
-  it('needs tests');
+describe("mtbird-builder", () => {
+  it("needs tests");
 });

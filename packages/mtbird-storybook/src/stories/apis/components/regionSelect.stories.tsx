@@ -1,6 +1,6 @@
-import SBComponentGenerator from '../../../utils/SBComponentGenerator';
+import SBComponentGenerator from "../../../utils/SBComponentGenerator";
 
-const Component = SBComponentGenerator('RegionSelect');
+const Component = SBComponentGenerator("RegionSelect");
 
 export default Component.main;
 

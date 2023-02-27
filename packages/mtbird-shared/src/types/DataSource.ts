@@ -1,7 +1,12 @@
-import { IListColumn, IPageParams, IPagination } from './Common';
-import { ISearch } from './Component';
+import { IListColumn, IPageParams, IPagination } from "./Common";
+import { ISearch } from "./Component";
 
-export type IData = string | number | boolean | Array<any> | Record<string, any>;
+export type IData =
+  | string
+  | number
+  | boolean
+  | Array<any>
+  | Record<string, any>;
 
 export interface IModelData<T> {
   id: string;
@@ -27,18 +32,33 @@ export interface IDataSource {
 
   // common
   queryData?: (
-    targetType: 'form' | 'model',
+    targetType: "form" | "model",
     pageId: string,
     targetId: string,
     pagination: IPageParams,
     search: Record<string, any>
   ) => Promise<IPagination<any>>;
-  queryDataDetail?: (targetType: 'form' | 'model', targetId: string, search: ISearch[]) => Promise<Record<string, IData>>;
+  queryDataDetail?: (
+    targetType: "form" | "model",
+    targetId: string,
+    search: ISearch[]
+  ) => Promise<Record<string, IData>>;
 
-  deleteData?: (targetId: string, dataId: string | number, dataType?: string) => Promise<boolean>;
+  deleteData?: (
+    targetId: string,
+    dataId: string | number,
+    dataType?: string
+  ) => Promise<boolean>;
   getColumns?: (pageId: string, targetId: string) => Promise<IListColumn[]>;
-  modifyData?: (targetId: string, dataId: string, data: Record<string, any>) => Promise<boolean>;
-  createData?: (targetId: string, data: Record<string, any>) => Promise<boolean>;
+  modifyData?: (
+    targetId: string,
+    dataId: string,
+    data: Record<string, any>
+  ) => Promise<boolean>;
+  createData?: (
+    targetId: string,
+    data: Record<string, any>
+  ) => Promise<boolean>;
 
   // for DataSource entity
   modify?: (key: string, data: IData) => Promise<boolean>;

@@ -1,10 +1,13 @@
-import { useState } from 'react';
-import set from 'lodash/set';
-import { initVariables } from '@mtbird/core';
+import { useState } from "react";
+import set from "lodash/set";
+import { initVariables } from "@mtbird/core";
 
 const useRenderContext = (context: any) => {
   const initVars = initVariables(context.pageConfig.data);
-  const [variables, setVariables] = useState({ ...initVars, ...context.variables });
+  const [variables, setVariables] = useState({
+    ...initVars,
+    ...context.variables,
+  });
 
   const changeVariable = (keyPath: string, value: string) => {
     set(variables, keyPath, value);
@@ -14,7 +17,7 @@ const useRenderContext = (context: any) => {
   return {
     ...context,
     variables,
-    changeVariable
+    changeVariable,
   };
 };
 

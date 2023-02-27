@@ -1,4 +1,4 @@
-import { IExtensionContext } from '@mtbird/shared';
+import { IExtensionContext } from "@mtbird/shared";
 
 const activity = (context: IExtensionContext) => {};
 

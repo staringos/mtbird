@@ -1,6 +1,6 @@
-import Renderer from '@mtbird/renderer-web';
-import { IPageConfig, IDataSource, IData } from '@mtbird/shared';
-import InnerDataSource from '../../utils/InnerDataSource';
+import Renderer from "@mtbird/renderer-web";
+import { IPageConfig, IDataSource, IData } from "@mtbird/shared";
+import InnerDataSource from "../../utils/InnerDataSource";
 
 interface IProps {
   pageConfig: IPageConfig;
@@ -12,7 +12,12 @@ const RendererComponent = ({ pageConfig, dataSource }: IProps) => {
   if (!innerDataSource) {
     innerDataSource = new InnerDataSource();
   }
-  return <Renderer pageConfig={pageConfig as any} dataSource={innerDataSource as any} />;
+  return (
+    <Renderer
+      pageConfig={pageConfig as any}
+      dataSource={innerDataSource as any}
+    />
+  );
 };
 
 export default RendererComponent;

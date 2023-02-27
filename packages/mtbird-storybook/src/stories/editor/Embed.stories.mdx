@@ -1,7 +1,7 @@
-import { Meta } from '@storybook/addon-docs';
-import LinkTo from '@storybook/addon-links/react';
+import { Meta } from "@storybook/addon-docs";
+import LinkTo from "@storybook/addon-links/react";
 
-<Meta title="编辑器/嵌入编辑器" parameters={{ viewMode: 'docs' }} />
+<Meta title="编辑器/嵌入编辑器" parameters={{ viewMode: "docs" }} />
 
 # 嵌入编辑器
 
@@ -18,10 +18,10 @@ yarn add @mtbird/editor @mtbird/shared
 ### 在组件中使用
 
 ```tsx
-import React from 'react';
-import Editor from '@mtbird/editor';
+import React from "react";
+import Editor from "@mtbird/editor";
 
-import { IPageConfig } from '@mtbird/shared';
+import { IPageConfig } from "@mtbird/shared";
 
 interface IProps {
   pageConfig: IPageConfig;
@@ -29,7 +29,7 @@ interface IProps {
 
 const EditorPage = ({ pageConfig }: IProps) => {
   const options = {
-    pageConfig
+    pageConfig,
   };
   return <Editor options={options} />;
 };
@@ -50,7 +50,7 @@ export default EditorPage;
 const EditorPage = ({ pageConfig }: IProps) => {
   const options = {
     pageConfig,
-    extensions: ['mtbird-extension-enterprise']
+    extensions: ["mtbird-extension-enterprise"],
   };
   return <Editor options={options} />;
 };
@@ -64,7 +64,10 @@ export default EditorPage;
 const EditorPage = ({ pageConfig }: IProps) => {
   const options = {
     pageConfig,
-    extensions: ['mtbird-extension-enterprise', 'http://localhost:3100?name=mtbird-extension-component-mobile']
+    extensions: [
+      "mtbird-extension-enterprise",
+      "http://localhost:3100?name=mtbird-extension-component-mobile",
+    ],
   };
   return <Editor options={options} />;
 };

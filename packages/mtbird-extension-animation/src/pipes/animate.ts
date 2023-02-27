@@ -1,6 +1,6 @@
-import { IComponentInstance } from '@mtbird/shared';
+import { IComponentInstance } from "@mtbird/shared";
 
-const ELEMENT_ID = 'animate-min-css';
+const ELEMENT_ID = "animate-min-css";
 
 export default (params: { node: IComponentInstance; wrapperProps: any }) => {
   const { node, wrapperProps } = params;
@@ -10,28 +10,33 @@ export default (params: { node: IComponentInstance; wrapperProps: any }) => {
 
   const cssDom = document.getElementById(ELEMENT_ID);
   if (!cssDom) {
-    const head = document.getElementsByTagName('head')[0];
-    const link = document.createElement('link');
+    const head = document.getElementsByTagName("head")[0];
+    const link = document.createElement("link");
     link.id = ELEMENT_ID;
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
+    link.rel = "stylesheet";
+    link.type = "text/css";
     link.href = `${process.env.REGISTRY_URL}/statics/animate.min.css`;
-    link.media = 'all';
+    link.media = "all";
     head.appendChild(link);
   }
 
-  wrapperProps.className = (wrapperProps.className || '') + ` animate__animated animate__${animate.type}`;
+  wrapperProps.className =
+    (wrapperProps.className || "") +
+    ` animate__animated animate__${animate.type}`;
 
   if (animate.delay) {
-    wrapperProps.className = wrapperProps.className + ` animate__delay-${animate.delay}s`;
+    wrapperProps.className =
+      wrapperProps.className + ` animate__delay-${animate.delay}s`;
   }
 
   if (animate.duration) {
-    wrapperProps.className = wrapperProps.className + ` animate__duration-${animate.duration}s`;
+    wrapperProps.className =
+      wrapperProps.className + ` animate__duration-${animate.duration}s`;
   }
 
   if (animate.repeat) {
-    wrapperProps.className = wrapperProps.className + ` animate__repeat-${animate.repeat}`;
+    wrapperProps.className =
+      wrapperProps.className + ` animate__repeat-${animate.repeat}`;
   }
 
   if (animate.infinite) {

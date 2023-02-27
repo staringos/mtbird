@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
-import { Form } from 'antd';
-import styles from './style.module.less';
+import React, { ReactNode } from "react";
+import { Form } from "antd";
+import styles from "./style.module.less";
 
 interface IProps {
   children: ReactNode;
@@ -10,14 +10,20 @@ interface IProps {
   suffix?: string;
 }
 
-const FormItemComponent = ({ children, isRequired, labelWidth, label, suffix }: IProps) => {
+const FormItemComponent = ({
+  children,
+  isRequired,
+  labelWidth,
+  label,
+  suffix,
+}: IProps) => {
   return (
     <Form.Item
       className={styles.formItem}
       colon={false}
       label={
         <label className={styles.label} style={{ width: labelWidth || 80 }}>
-          {label || ' '}
+          {label || " "}
         </label>
       }
       required={isRequired}

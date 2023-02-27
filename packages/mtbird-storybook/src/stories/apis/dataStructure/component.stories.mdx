@@ -1,7 +1,7 @@
-import { Meta } from '@storybook/addon-docs';
-import LinkTo from '@storybook/addon-links/react';
+import { Meta } from "@storybook/addon-docs";
+import LinkTo from "@storybook/addon-links/react";
 
-<Meta title="APIs/数据结构/组件" parameters={{ viewMode: 'docs' }} />
+<Meta title="APIs/数据结构/组件" parameters={{ viewMode: "docs" }} />
 
 # 组件 ComponentInstance
 
@@ -17,7 +17,7 @@ export interface IComponentInstance {
   componentName: string; // 唯一的组件名称
   parent?: string; // 父组件ID
   props: IProps; // 要直接传给组件 dom 元素的 props，如 style 和 className
-  layout?: 'absolute' | 'grid' | 'flex'; // 布局方式，目前只支持 absolute 和 flex
+  layout?: "absolute" | "grid" | "flex"; // 布局方式，目前只支持 absolute 和 flex
   data?: {
     alias?: string; // 组件自定义显示别名
     variables?: IVariable[]; // 局部变量，如果是 ContainerRoot 组件的 variables，则为全局变量
@@ -25,7 +25,7 @@ export interface IComponentInstance {
   };
   pattern?: {
     display?: string; // 组件是否显示
-    background?: 'image' | 'graduual' | 'color';
+    background?: "image" | "graduual" | "color";
     animate?: IAnimate;
   };
   editing?: {
@@ -146,20 +146,20 @@ EventType 事件执行类型
 
 ```typescript
 export type EventType =
-  | 'link' // 链接
-  | 'link-blank' // 链接 新打开页面
-  | 'submit' // 提交表单
-  | 'clear' // 清空表单
-  | 'open-modal' // 打开弹窗
-  | 'close-modal' // 关闭弹窗
-  | 'inline-code' // 行内代码
-  | 'change-variable'; // 修改变量
+  | "link" // 链接
+  | "link-blank" // 链接 新打开页面
+  | "submit" // 提交表单
+  | "clear" // 清空表单
+  | "open-modal" // 打开弹窗
+  | "close-modal" // 关闭弹窗
+  | "inline-code" // 行内代码
+  | "change-variable"; // 修改变量
 ```
 
 EventAction 事件触发类型
 
 ```typescript
-export type EventAction = 'click' | 'hover' | 'blur' | 'dbclick' | 'scroll';
+export type EventAction = "click" | "hover" | "blur" | "dbclick" | "scroll";
 ```
 
 ## 拓展 extension

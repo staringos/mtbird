@@ -1,6 +1,6 @@
-import { useContext } from 'react';
+import { useContext } from "react";
 // import ReactJson from 'react-json-view'
-import Model from '../../store/types';
+import Model from "../../store/types";
 
 const JsonViewer = () => {
   const context = useContext(Model);
