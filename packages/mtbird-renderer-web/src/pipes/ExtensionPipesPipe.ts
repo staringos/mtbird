@@ -1,9 +1,9 @@
-import { IPipeProps } from '@mtbird/shared';
-import { generateFunction } from '../../../mtbird-core/src/utils';
-import get from 'lodash/get';
-import keys from 'lodash/keys';
+import { IPipeProps } from "@mtbird/shared";
+import { generateFunction } from "../../../mtbird-core/src/utils";
+import get from "lodash/get";
+import keys from "lodash/keys";
 
-import { safeEval } from '@mtbird/core';
+import { safeEval } from "@mtbird/core";
 
 /**
  * If parent.layout is flex, then positon: relative and flex: 1;
@@ -13,7 +13,7 @@ import { safeEval } from '@mtbird/core';
 const ExtensionPipesPipe = (props: IPipeProps) => {
   const { node } = props;
   const windowGlobal = window as any;
-  const renderPipes = get(node, 'pipes.render');
+  const renderPipes = get(node, "pipes.render");
 
   keys(renderPipes).forEach((pipeName: string) => {
     const handler = renderPipes[pipeName].handler;

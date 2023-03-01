@@ -1,6 +1,6 @@
-import { ComponentEvent } from '@mtbird/core';
-import { IPipeProps } from '@mtbird/shared';
-import keys from 'lodash/keys';
+import { ComponentEvent } from "@mtbird/core";
+import { IPipeProps } from "@mtbird/shared";
+import keys from "lodash/keys";
 
 /**
  * Get config from events to generate events handler

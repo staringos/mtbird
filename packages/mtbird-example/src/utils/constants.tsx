@@ -1,7 +1,7 @@
-import pageData from '../data/pageData.json';
+import pageData from "../data/pageData.json";
 
 export const DATA = {
-  title: '测试页面',
+  title: "测试页面",
   data: pageData,
-  platform: 'mobile'
+  platform: "mobile",
 };

@@ -1,4 +1,4 @@
-import { DataType, IOptionItem } from './Data';
+import { DataType, IOptionItem } from "./Data";
 
 export interface IPagination<T> {
   pageNum: number;
@@ -28,6 +28,7 @@ export interface IEntityField {
   type: DataType;
   default: string | number;
   options?: IOptionItem[];
+  childEntity?: IEntityField[]; // if type is DATA_ARRAY
 }
 
 export type IEntity = IEntityField[];

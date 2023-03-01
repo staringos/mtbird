@@ -1,9 +1,9 @@
-import get from 'lodash/get';
-import { injectVariables, replaceVariable } from '@mtbird/core';
-import { IPipeProps } from '@mtbird/shared';
-import isString from 'lodash/isString';
+import get from "lodash/get";
+import { injectVariables, replaceVariable } from "@mtbird/core";
+import { IPipeProps } from "@mtbird/shared";
+import isString from "lodash/isString";
 
-const ENABLE_VARIABLE_KEYPATH = ['props', 'pattern', 'data'];
+const ENABLE_VARIABLE_KEYPATH = ["props", "pattern", "data"];
 
 /**
  * Get value from ENABLE_VARIABLE_KEYPATH list in node

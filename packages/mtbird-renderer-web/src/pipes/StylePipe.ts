@@ -1,5 +1,5 @@
-import { IPipeProps } from '@mtbird/shared';
-import isNumber from 'lodash/isNumber';
+import { IPipeProps } from "@mtbird/shared";
+import isNumber from "lodash/isNumber";
 
 /**
  * Adjust styles
@@ -11,8 +11,12 @@ import isNumber from 'lodash/isNumber';
 const StylePipe = (props: IPipeProps) => {
   const { containerStyle } = props;
 
-  if (containerStyle && containerStyle.fontSize && isNumber(containerStyle.fontSize)) {
-    containerStyle.fontSize = containerStyle.fontSize + 'px';
+  if (
+    containerStyle &&
+    containerStyle.fontSize &&
+    isNumber(containerStyle.fontSize)
+  ) {
+    containerStyle.fontSize = containerStyle.fontSize + "px";
   }
   return props;
 };

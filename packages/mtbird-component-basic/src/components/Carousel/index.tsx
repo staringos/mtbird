@@ -1,8 +1,8 @@
-import React from 'react';
-import { IComponentProps } from '@mtbird/shared';
-import { Carousel } from 'antd';
-import styles from './style.module.less';
-import manifest from './manifest';
+import React from "react";
+import { IComponentProps } from "@mtbird/shared";
+import { Carousel } from "antd";
+import styles from "./style.module.less";
+import manifest from "./manifest";
 
 const CarouselComponent = ({ node, style }: IComponentProps) => {
   const handleChange = () => {};

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import RGL, { WidthProvider } from 'react-grid-layout';
-import map from 'lodash/map';
-import range from 'lodash/range';
+import React, { useState } from "react";
+import RGL, { WidthProvider } from "react-grid-layout";
+import map from "lodash/map";
+import range from "lodash/range";
 
 const ReactGridLayout = WidthProvider(RGL);
 
@@ -18,7 +18,7 @@ const generateLayout = () => {
       w: 2,
       h: y,
       i: i.toString(),
-      static: Math.random() < 0.05
+      static: Math.random() < 0.05,
     };
   });
 };
@@ -29,9 +29,16 @@ const GridLayoutMoveable = ({ children }: IProps) => {
   const generateDOM = () => {
     return map(layout.lg, function (l: any, i: number) {
       return (
-        <div key={i} className={l.static ? 'static' : ''} style={{ background: 'red' }}>
+        <div
+          key={i}
+          className={l.static ? "static" : ""}
+          style={{ background: "red" }}
+        >
           {l.static ? (
-            <span className="text" title="This item is static and cannot be removed or resized.">
+            <span
+              className="text"
+              title="This item is static and cannot be removed or resized."
+            >
               Static - {i}
             </span>
           ) : (
@@ -43,11 +50,17 @@ const GridLayoutMoveable = ({ children }: IProps) => {
   };
 
   const handleLayoutChange: any = (layout: any, layouts: any) => {
-    console.log('layout:', layout, layouts);
+    console.log("layout:", layout, layouts);
   };
 
   return (
-    <ReactGridLayout style={{ background: '#333' }} layout={layout} onLayoutChange={handleLayoutChange} useCSSTransforms={true} allowOverlap={true}>
+    <ReactGridLayout
+      style={{ background: "#333" }}
+      layout={layout}
+      onLayoutChange={handleLayoutChange}
+      useCSSTransforms={true}
+      allowOverlap={true}
+    >
       {generateDOM()}
     </ReactGridLayout>
   );

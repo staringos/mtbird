@@ -1,6 +1,6 @@
-import SBComponentGenerator from '../../../utils/SBComponentGenerator';
+import SBComponentGenerator from "../../../utils/SBComponentGenerator";
 
-const Component = SBComponentGenerator('Checkbox');
+const Component = SBComponentGenerator("Checkbox");
 
 export default Component.main;
 

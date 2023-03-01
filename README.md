@@ -67,3 +67,7 @@ Develop mtbird library mode see [this document](https://github.com/staringos/mtb
 PRs & Issues are all welcome, feel free to ask question or submit your code.
 
 [CONTRIBUTING](./CONTRIBUTING.md)
+
+## Join Group
+
+<img src="https://github.com/staringos/staringai-mini-program/raw/master/images/ew-qrcode.jpg" width="160px" />

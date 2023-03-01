@@ -3,21 +3,18 @@
   "title": "图库",
   "version": "0.0.16",
   "desc": "星搭图库",
-  "tags": [
-      "图片",
-      "素材"
-  ],
+  "tags": ["图片", "素材"],
   "contributes": {
     "toolbars": [
-        {
-          "sort": 3,
-          "params": {
-              "name": "图片",
-              "id": "imageLibraryPanel"
-          },
-          "link": "feature",
-          "feature": "imagelib.tab"
-        }
+      {
+        "sort": 3,
+        "params": {
+          "name": "图片",
+          "id": "imageLibraryPanel"
+        },
+        "link": "feature",
+        "feature": "imagelib.tab"
+      }
     ]
   }
 }

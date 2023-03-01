@@ -1,31 +1,37 @@
-import type { IComponentManifest, IComponentInstance } from '@mtbird/shared';
-import { COMPONENT, SchemaGenerator } from '@mtbird/core';
+import type { IComponentManifest, IComponentInstance } from "@mtbird/shared";
+import { COMPONENT, SchemaGenerator } from "@mtbird/core";
 const { SCHEMA_COMPONENT_BASIC_STYLE, SCHEMA_LAYOUT } = COMPONENT;
 
 const manifest: IComponentManifest<IComponentInstance> = {
-  type: 'container',
-  componentName: 'CollapsePanel',
-  title: '折叠面板',
-  icon: 'mtbird-insertrowabove',
-  desc: '',
-  category: 'basic',
-  subCategory: 'container',
-  schema: [...SCHEMA_COMPONENT_BASIC_STYLE, ...SCHEMA_LAYOUT, SchemaGenerator.collapsePanel('内容', [SchemaGenerator.input('标题', 'data.title')])],
+  type: "container",
+  componentName: "CollapsePanel",
+  title: "折叠面板",
+  icon: "mtbird-insertrowabove",
+  desc: "",
+  category: "basic",
+  subCategory: "container",
+  schema: [
+    ...SCHEMA_COMPONENT_BASIC_STYLE,
+    ...SCHEMA_LAYOUT,
+    SchemaGenerator.collapsePanel("内容", [
+      SchemaGenerator.input("标题", "data.title"),
+    ]),
+  ],
   instance: {
-    type: 'container',
-    componentName: 'CollapsePanel',
-    layout: 'flex',
+    type: "container",
+    componentName: "CollapsePanel",
+    layout: "flex",
     data: {
-      title: '分组'
+      title: "分组",
     },
     pattern: {
-      noWrapper: true
+      noWrapper: true,
     },
     props: {
-      style: {}
+      style: {},
     },
-    children: []
-  }
+    children: [],
+  },
 };
 
 export default manifest;

@@ -1,6 +1,6 @@
-import React from 'react';
-import { IComponentProps } from '@mtbird/shared';
-import FormItemComponent from '../components/Form/FormItem';
+import React from "react";
+import { IComponentProps } from "@mtbird/shared";
+import FormItemComponent from "../components/Form/FormItem";
 
 const withFormItem = (Component: React.ComponentType) => {
   return (allProps: IComponentProps) => {

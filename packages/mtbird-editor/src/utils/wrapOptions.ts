@@ -1,22 +1,28 @@
-import { PC_SIZE } from './constants';
-import { IEditorOptions } from '@mtbird/shared';
-import cloneDeep from 'lodash/cloneDeep';
-import { getParamFromURL, PreviewMobileType, GlobalStorage } from '@mtbird/core';
+import { PC_SIZE } from "./constants";
+import { IEditorOptions } from "@mtbird/shared";
+import cloneDeep from "lodash/cloneDeep";
+import {
+  getParamFromURL,
+  PreviewMobileType,
+  GlobalStorage,
+} from "@mtbird/core";
 
 const wrapEditorSettings = (options: IEditorOptions) => {
   const { pageConfig, editorSettings } = options;
-  const platform = pageConfig.type === 'pc' ? 'pc' : 'mobile';
+  const platform = pageConfig.type === "pc" ? "pc" : "mobile";
   let mobileType = editorSettings?.mobileType as string;
 
-  if (platform === 'mobile' && !mobileType) mobileType = 'iPhone SE';
+  if (platform === "mobile" && !mobileType) mobileType = "iPhone SE";
 
   return {
     platform,
     ...editorSettings,
     mobileType,
-    defaultToolbar: pageConfig.type === 'form' ? 'form' : 'basic',
-    screenWidth: platform === 'pc' ? PC_SIZE.width : PreviewMobileType[mobileType].width,
-    screenHeight: platform === 'pc' ? PC_SIZE.height : PreviewMobileType[mobileType].height
+    defaultToolbar: pageConfig.type === "form" ? "form" : "basic",
+    screenWidth:
+      platform === "pc" ? PC_SIZE.width : PreviewMobileType[mobileType].width,
+    screenHeight:
+      platform === "pc" ? PC_SIZE.height : PreviewMobileType[mobileType].height,
   };
 };
 
@@ -30,10 +36,15 @@ const wrapOptions = (userOptions: IEditorOptions): IEditorOptions => {
   if (!pageList) pageList = [pageConfig];
 
   // add debug extension
-  if (debug) {
-    const name = getParamFromURL(debug, 'name');
-    extensions = options.extensions.filter((cur: string) => cur.split('@')[0] !== name);
-    extensions.push(debug);
+  if (debug && debug.trim().length > 0) {
+    const debugs = debug.split("||");
+    debugs.map((curDebug: string) => {
+      const name = getParamFromURL(curDebug, "name");
+      extensions = extensions.filter(
+        (cur: string) => cur.split("@")[0] !== name
+      );
+      extensions.push(curDebug);
+    });
   }
 
   // add screen type
@@ -44,7 +55,7 @@ const wrapOptions = (userOptions: IEditorOptions): IEditorOptions => {
     extensions,
     onlineUserList,
     pageList,
-    debug
+    debug,
   };
 };
 

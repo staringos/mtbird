@@ -1,6 +1,6 @@
-import React from 'react';
-import { Input } from 'antd';
-import { IOptionItem } from '@mtbird/shared';
+import React from "react";
+import { Input } from "antd";
+import { IOptionItem } from "@mtbird/shared";
 
 interface IProps {
   disabled?: boolean;
@@ -11,15 +11,22 @@ interface IProps {
   styleInner: Record<string, any>;
 }
 
-const SchemaInput = ({ disabled, value, placeholder, onChange, onBlur, styleInner }: IProps) => {
+const SchemaInput = ({
+  disabled,
+  value,
+  placeholder,
+  onChange,
+  onBlur,
+  styleInner,
+}: IProps) => {
   const finalStyle = {
-    backgroundColor: 'var(--gray-7)',
-    color: 'white',
+    backgroundColor: "var(--gray-7)",
+    color: "white",
     border: 0,
     height: 22,
-    width: '100%',
-    borderRadius: '2px',
-    ...styleInner
+    width: "100%",
+    borderRadius: "2px",
+    ...styleInner,
   };
 
   return (

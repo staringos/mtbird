@@ -1,20 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const useShiftKey = () => {
   const [shiftKey, setShiftKey] = useState(false);
 
   const handleHotKey = (event: string) => () => {
-    if (event === 'keyup') return setShiftKey(false);
-    if (event === 'keydown') return setShiftKey(true);
+    if (event === "keyup") return setShiftKey(false);
+    if (event === "keydown") return setShiftKey(true);
   };
 
   useEffect(() => {
-    window.addEventListener('keyup', handleHotKey('keyup'), false);
-    window.addEventListener('keydown', handleHotKey('keydown'), false);
+    window.addEventListener("keyup", handleHotKey("keyup"), false);
+    window.addEventListener("keydown", handleHotKey("keydown"), false);
 
     return () => {
-      window.removeEventListener('keyup', handleHotKey('keyup'), false);
-      window.removeEventListener('keydown', handleHotKey('keydown'), false);
+      window.removeEventListener("keyup", handleHotKey("keyup"), false);
+      window.removeEventListener("keydown", handleHotKey("keydown"), false);
     };
   }, []);
 

@@ -1,6 +1,6 @@
-import React from 'react'
-import {Button} from 'antd'
-import styles from './style.module.less'
+import React from "react";
+import { Button } from "antd";
+import styles from "./style.module.less";
 
 export interface Animation {
   title: string;
@@ -9,7 +9,7 @@ export interface Animation {
 
 interface AnimateCategory {
   title: string;
-  children: Animation[]
+  children: Animation[];
 }
 
 interface IProps {
@@ -18,17 +18,27 @@ interface IProps {
   currentType: string;
 }
 
-const CategoryPanel = ({category, onSelect, currentType}: IProps) => {
+const CategoryPanel = ({ category, onSelect, currentType }: IProps) => {
   return (
     <div className={styles.categoryPanel}>
       <div className={styles.categoryTitle}>{category.title}</div>
       <div className={styles.animationsContainer}>
-        {category.children.map(ani => {
-          return <Button type={ani.type === currentType ? 'primary' : ''} className={styles.animationButton} onClick={() => onSelect(ani)} size="small" key={ani.title}>{ani.title}</Button>
+        {category.children.map((ani) => {
+          return (
+            <Button
+              type={ani.type === currentType ? "primary" : ""}
+              className={styles.animationButton}
+              onClick={() => onSelect(ani)}
+              size="small"
+              key={ani.title}
+            >
+              {ani.title}
+            </Button>
+          );
         })}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CategoryPanel
+export default CategoryPanel;

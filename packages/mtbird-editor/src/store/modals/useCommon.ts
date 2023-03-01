@@ -1,15 +1,19 @@
-import { IEditorOptions, IEditorSettings } from '@mtbird/shared';
-import { initVariables, GlobalStorage } from '@mtbird/core';
-import { useState } from 'react';
-import { IContext, EditMode } from '../types/common';
-import set from 'lodash/set';
-import keys from 'lodash/keys';
+import { IEditorOptions, IEditorSettings } from "@mtbird/shared";
+import { initVariables, GlobalStorage } from "@mtbird/core";
+import { useState } from "react";
+import { IContext, EditMode } from "../types/common";
+import set from "lodash/set";
+import keys from "lodash/keys";
 
 function useCommonModal(opts: IEditorOptions): IContext {
   const { onUpload, onSaveTemplate } = opts;
   const [options, setOptions] = useState(opts);
-  const [editMode, setEditMode] = useState<EditMode>({ componentName: 'cursor' });
-  const [variables, setVariables] = useState(initVariables(options.pageConfig.data, opts));
+  const [editMode, setEditMode] = useState<EditMode>({
+    componentName: "cursor",
+  });
+  const [variables, setVariables] = useState(
+    initVariables(options.pageConfig.data, opts)
+  );
   const [tabsState, setTabsState] = useState(GlobalStorage.tabState);
   const [tourState, setTourState] = useState(GlobalStorage.tourState);
 
@@ -20,7 +24,7 @@ function useCommonModal(opts: IEditorOptions): IContext {
       editMode,
       onlineUserList: options.onlineUserList,
       tabsState,
-      tourState
+      tourState,
     },
     actions: {
       toggleTour: () => {
@@ -46,14 +50,16 @@ function useCommonModal(opts: IEditorOptions): IContext {
           ...options,
           editorSettings: {
             ...options.editorSettings,
-            ...settings
-          }
+            ...settings,
+          },
         });
       },
       getCurrentModal: () => {
-        return keys(variables.$modals).filter((cur: string) => !!variables.$modals[cur])[0];
-      }
-    }
+        return keys(variables.$modals).filter(
+          (cur: string) => !!variables.$modals[cur]
+        )[0];
+      },
+    },
   };
 
   return context;

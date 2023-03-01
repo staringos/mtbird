@@ -68,3 +68,7 @@ yarn start
 PRs & Issues are all welcome, feel free to ask question or submit your code.
 
 [CONTRIBUTING](./CONTRIBUTING.md)
+
+## 加入社群
+
+<img src="https://github.com/staringos/staringai-mini-program/raw/master/images/ew-qrcode.jpg" width="160px" />

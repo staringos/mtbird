@@ -1,9 +1,9 @@
-import React from 'react';
-import { Checkbox } from 'antd';
-import manifest from './manifest';
+import React from "react";
+import { Checkbox } from "antd";
+import manifest from "./manifest";
 
-import FormItemComponent from '../Form/FormItem';
-import { IComponentProps } from '@mtbird/shared/src/types/Component';
+import FormItemComponent from "../Form/FormItem";
+import { IComponentProps } from "@mtbird/shared/src/types/Component";
 
 const CheckboxComponent = (allProps: IComponentProps) => {
   const { node, style, onChangeValue, value } = allProps;

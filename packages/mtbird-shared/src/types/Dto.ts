@@ -5,7 +5,7 @@ export interface ITemplateDTO {
   content: any;
   teamId?: string;
   pageType?: string;
-  type: 'component' | 'page';
+  type: "component" | "page";
   isPrivate?: boolean;
   componentName?: string;
 }

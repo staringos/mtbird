@@ -1,5 +1,5 @@
-import { IPipeProps } from '@mtbird/shared';
-import { COMPONENT_NAME } from '../../../mtbird-core/src/constants';
+import { IPipeProps } from "@mtbird/shared";
+import { COMPONENT_NAME } from "../../../mtbird-core/src/constants";
 
 /**
  * Adjust styles

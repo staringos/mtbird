@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from './schemaRow.module.less';
+import React from "react";
+import styles from "./schemaRow.module.less";
 
 interface IProps {
   title: string;

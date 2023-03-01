@@ -1,7 +1,7 @@
-import { Meta } from '@storybook/addon-docs';
-import LinkTo from '@storybook/addon-links/react';
+import { Meta } from "@storybook/addon-docs";
+import LinkTo from "@storybook/addon-links/react";
 
-<Meta title="APIs/数据结构/组件描述" parameters={{ viewMode: 'docs' }} />
+<Meta title="APIs/数据结构/组件描述" parameters={{ viewMode: "docs" }} />
 
 # 组件描述 ComponentManifest
 
@@ -9,8 +9,8 @@ import LinkTo from '@storybook/addon-links/react';
 export interface IComponentManifest<T> {
   type: string; // 组件类型，包括 component(组件)、form(表单项)、container(容器)
   componentName: string; // 组件名（唯一）
-  category?: 'basic' | 'form' | 'icon' | 'extension'; // 组件Tab分类
-  subCategory?: 'common' | 'mobile' | 'container' | 'data'; // 组件子分类
+  category?: "basic" | "form" | "icon" | "extension"; // 组件Tab分类
+  subCategory?: "common" | "mobile" | "container" | "data"; // 组件子分类
   title: string; // 组件显示名
   icon: string; // 组件显示 ICON
   desc: string;

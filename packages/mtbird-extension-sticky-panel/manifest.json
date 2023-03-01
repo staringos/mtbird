@@ -3,18 +3,16 @@
   "title": "屏幕跟随",
   "version": "0.0.5",
   "desc": "屏幕跟随",
-  "tags": [
-      "拓展案例"
-  ],
+  "tags": ["拓展案例"],
   "pipes": ["sticky"],
   "contributes": {
     "canvasTools": [
       {
         "sort": 3,
         "params": {
-            "name": "屏幕跟随",
-            "id": "stickyPanelBtn",
-            "icon": "mtbird-icon mtbird-aim"
+          "name": "屏幕跟随",
+          "id": "stickyPanelBtn",
+          "icon": "mtbird-icon mtbird-aim"
         },
         "link": "panel",
         "feature": "sticky.panel"

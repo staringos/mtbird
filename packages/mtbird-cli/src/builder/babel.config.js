@@ -2,20 +2,20 @@ module.exports = function getBabelConfig() {
   return {
     presets: [
       [
-        'react-app',
+        "react-app",
         {
-          typescript: true
-        }
+          typescript: true,
+        },
       ],
-      ['@babel/preset-react', { runtime: 'automatic' }]
+      ["@babel/preset-react", { runtime: "automatic" }],
     ],
     plugins: [
-      '@babel/plugin-proposal-object-rest-spread',
-      '@babel/plugin-proposal-optional-chaining',
-      '@babel/plugin-syntax-dynamic-import',
-      ['@babel/plugin-proposal-class-properties', { loose: true }],
-      '@babel/plugin-syntax-jsx'
+      "@babel/plugin-proposal-object-rest-spread",
+      "@babel/plugin-proposal-optional-chaining",
+      "@babel/plugin-syntax-dynamic-import",
+      ["@babel/plugin-proposal-class-properties", { loose: true }],
+      "@babel/plugin-syntax-jsx",
     ],
-    exclude: 'node_modules/**'
+    exclude: "node_modules/**",
   };
 };

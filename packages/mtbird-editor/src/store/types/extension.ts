@@ -1,4 +1,4 @@
-import { Component, FC } from 'react';
+import { Component, FC } from "react";
 import type {
   IExtensionImportType,
   IPipe,
@@ -6,9 +6,10 @@ import type {
   IComponentManifest,
   IComponentInstance,
   IComponentInstanceForm,
-  IContribute
-} from '@mtbird/shared';
-import { ContributesKeys, IContributeManifest } from '@mtbird/helper-extension';
+  IContribute,
+  IComponentLibs,
+} from "@mtbird/shared";
+import { ContributesKeys, IContributeManifest } from "@mtbird/helper-extension";
 
 export interface IState {
   extensions: IExtensionImportType[];
@@ -19,7 +20,11 @@ export interface IState {
   extensionLoadStatus: string;
   extensionPipes: Map<string, IPipe>;
   extensionPanelVisible: Map<string, IContribute>;
-  registeredComponents: Record<string, IComponentManifest<IComponentInstance | IComponentInstanceForm>>;
+  registeredComponents: Record<
+    string,
+    IComponentManifest<IComponentInstance | IComponentInstanceForm>
+  >;
+  componentLibs: IComponentLibs[];
 }
 
 export interface IAction {

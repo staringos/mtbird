@@ -1,11 +1,11 @@
-import { IExtensionImportType } from './Extension';
-import { IPageConfig } from './Page';
-import { IComponentInstance } from './Component';
-import { IModel } from './Data';
-import { IDataSource } from './DataSource';
+import { IExtensionImportType } from "./Extension";
+import { IPageConfig } from "./Page";
+import { IComponentInstance } from "./Component";
+import { IModel } from "./Data";
+import { IDataSource } from "./DataSource";
 
 export interface IEditorSettings {
-  platform: 'mobile' | 'pc';
+  platform: "mobile" | "pc";
   mobileType?: string;
   screenWidth?: number;
   screenHeight?: number;

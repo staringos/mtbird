@@ -1,21 +1,29 @@
-import { IContext } from 'packages/mtbird-editor/src/models';
-import { IComponentInstanceCommon, IExtensionContext, IExtensionManifest } from '@mtbird/shared';
-import { Component, FC } from 'react';
-import isArray from 'lodash/isArray';
-import get from 'lodash/get';
-import set from 'lodash/set';
+import { IContext } from "packages/mtbird-editor/src/models";
+import {
+  IComponentInstanceCommon,
+  IExtensionContext,
+  IExtensionManifest,
+} from "@mtbird/shared";
+import { Component, FC } from "react";
+import isArray from "lodash/isArray";
+import get from "lodash/get";
+import set from "lodash/set";
 
-import { IComponentInstance } from '@mtbird/shared';
-import RequestFactory from './request';
-import StorageFactory from './storage';
-import { Events, EVENT_KEYS } from '@mtbird/core';
+import { IComponentInstance } from "@mtbird/shared";
+import RequestFactory from "./request";
+import StorageFactory from "./storage";
+import { Events, EVENT_KEYS } from "@mtbird/core";
 
 /**
  * Extension Context
  * With global context data and utilities, For operation auth control, limited store access and those tools extension required only
  */
 export default class ExtensionContext implements IExtensionContext {
-  constructor(store: IContext, extensionName: string, manifest?: IExtensionManifest) {
+  constructor(
+    store: IContext,
+    extensionName: string,
+    manifest?: IExtensionManifest
+  ) {
     this.store = store;
     this.manifest = manifest;
     this.extensionName = extensionName;
@@ -49,7 +57,11 @@ export default class ExtensionContext implements IExtensionContext {
     return this.store?.state.currentDataContainer;
   }
 
-  extensionName = '';
+  get componentLibs() {
+    return this.store?.state.componentLibs;
+  }
+
+  extensionName = "";
 
   private store: IContext | null = null;
   private manifest: IExtensionManifest | undefined = undefined;
@@ -68,7 +80,7 @@ export default class ExtensionContext implements IExtensionContext {
    * router
    */
   public router = {
-    refresh: () => location.reload()
+    refresh: () => location.reload(),
   };
 
   public eventHub = Events;
@@ -76,7 +88,7 @@ export default class ExtensionContext implements IExtensionContext {
   public EVENT_KEYS = {
     TEMPLATE_ADDED: EVENT_KEYS.TEMPLATE_ADDED,
     TOOLBAR_SWITCH: EVENT_KEYS.TOOLBAR_SWITCH,
-    SELECT_COMPONENT: EVENT_KEYS.SELECT_COMPONENT
+    SELECT_COMPONENT: EVENT_KEYS.SELECT_COMPONENT,
   };
 
   /**
@@ -85,11 +97,17 @@ export default class ExtensionContext implements IExtensionContext {
    * @param component
    */
   public registerFeature = (key: string, feature: FC | Component) => {
-    this.store?.actions?.registerFeature(`${this.extensionName}.${key}`, feature);
+    this.store?.actions?.registerFeature(
+      `${this.extensionName}.${key}`,
+      feature
+    );
   };
 
   public registerModal = (key: string, component: FC | Component) => {
-    this.store?.actions?.registerModal(`${this.extensionName}.${key}`, component);
+    this.store?.actions?.registerModal(
+      `${this.extensionName}.${key}`,
+      component
+    );
   };
 
   /**
@@ -156,20 +174,22 @@ export default class ExtensionContext implements IExtensionContext {
     this.store.actions.onChange(`pipes.render.${extensionName}-${pipeName}`, {
       name: pipeName,
       handler: extensionPipes.get(`${extensionName}-${pipeName}`).handler,
-      extensionName
+      extensionName,
     });
   };
 
   public removeRenderPipe = (extensionName: string, pipeName: string) => {
     const { actions } = this.store;
-    const currentComponent = isArray(this.currentComponent) ? this.currentComponent : [this.currentComponent];
+    const currentComponent = isArray(this.currentComponent)
+      ? this.currentComponent
+      : [this.currentComponent];
     currentComponent.map((cur: IComponentInstance) => {
-      const renderPipes = get(cur, 'pipes.render');
+      const renderPipes = get(cur, "pipes.render");
       const key = `${extensionName}-${pipeName}`;
       if (!renderPipes || !renderPipes[key]) return;
 
       delete renderPipes[key];
-      set(cur, 'pipes.render', renderPipes);
+      set(cur, "pipes.render", renderPipes);
     });
 
     actions.setCurrentComponent(currentComponent);

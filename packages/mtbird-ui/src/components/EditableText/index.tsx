@@ -1,6 +1,6 @@
-import React, { ChangeEvent, useState, KeyboardEvent } from 'react';
-import { Input, Spin } from 'antd';
-import styles from './style.module.less';
+import React, { ChangeEvent, useState, KeyboardEvent } from "react";
+import { Input, Spin } from "antd";
+import styles from "./style.module.less";
 
 interface IProps {
   text: string;
@@ -38,7 +38,7 @@ const EditableText = ({ text, onChange, editable }: IProps) => {
   };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       event.preventDefault();
       handleChange();
     }
@@ -51,7 +51,14 @@ const EditableText = ({ text, onChange, editable }: IProps) => {
           {text} <i className="mtbird-icon mtbird-edit" onClick={handleEdit} />
         </span>
       )}
-      {isEdit && <Input value={editVal} onChange={handleEditValChange} onKeyDown={handleKeyDown} onBlur={handleChange} />}
+      {isEdit && (
+        <Input
+          value={editVal}
+          onChange={handleEditValChange}
+          onKeyDown={handleKeyDown}
+          onBlur={handleChange}
+        />
+      )}
     </Spin>
   );
 };

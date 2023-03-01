@@ -1,304 +1,335 @@
-import { IComponentInstance, IComponentInstanceForm, IPosition, IEntity, ShapePoolItem, IEvent, IColumn } from '@mtbird/shared';
-import { CSSProperties } from 'react';
-import { mergeKeypath } from '..';
+import {
+  IComponentInstance,
+  IComponentInstanceForm,
+  IPosition,
+  IEntity,
+  ShapePoolItem,
+  IEvent,
+  IColumn,
+} from "@mtbird/shared";
+import { CSSProperties } from "react";
+import { mergeKeypath } from "..";
 import {
   COMPONENT_DEFAULT_STYLE,
   DEFAULT_OPTIONS,
   SCHEMA_FORM_ITEM_COMPONENT_STYLE,
   SCHEMA_FORM_ITEM_LABEL_STYLE,
-  DEFAULT_ENTITIES
-} from '../constants/component';
-import { IFeature } from '@mtbird/core';
+  DEFAULT_ENTITIES,
+} from "../constants/component";
+import { IFeature } from "@mtbird/core";
 
 const splitLine = (size: number = 1) => {
   return {
-    type: 'form',
-    componentName: 'SplitLine',
+    type: "form",
+    componentName: "SplitLine",
     props: {
       style: {
         ...SCHEMA_FORM_ITEM_COMPONENT_STYLE,
         height: size,
-        backgroundColor: 'var(--gray-8)'
-      }
+        backgroundColor: "var(--gray-8)",
+      },
     },
-    children: []
+    children: [],
   };
 };
 
 const title = (title: string, style?: any) => {
   return {
-    type: 'form',
-    componentName: 'Text',
+    type: "form",
+    componentName: "Text",
     props: {
       style: style || {
-        color: 'white',
-        fontWeight: '700',
+        color: "white",
+        fontWeight: "700",
         height: 30,
-        paddingTop: 5
-      }
+        paddingTop: 5,
+      },
     },
-    children: title
+    children: title,
   };
 };
 
 export default {
   dataSourcePanel: () => {
     return {
-      type: 'form',
-      componentName: 'SchemaDataSourcePanel',
+      type: "form",
+      componentName: "SchemaDataSourcePanel",
       props: {
-        style: {}
+        style: {},
       },
-      children: []
+      children: [],
     };
   },
 
-  formList: (pageId: string, targetId: string, features?: IFeature, additionColumns?: IColumn[]) => {
+  formList: (
+    pageId: string,
+    targetId: string,
+    features?: IFeature,
+    additionColumns?: IColumn[]
+  ) => {
     return {
-      type: 'form',
-      componentName: 'List',
+      type: "form",
+      componentName: "List",
       props: {
         style: {
           // ...COMPONENT_DEFAULT_STYLE
-        }
+        },
       },
       formConfig: {},
       data: {
-        type: 'form',
+        type: "form",
         pageId,
         targetId,
         features,
-        additionColumns
+        additionColumns,
       },
-      children: []
+      children: [],
     };
   },
 
-  modelList: (targetId: string, features?: IFeature, additionColumns?: IColumn[]) => {
+  modelList: (
+    targetId: string,
+    features?: IFeature,
+    additionColumns?: IColumn[]
+  ) => {
     return {
-      type: 'form',
-      componentName: 'List',
+      type: "form",
+      componentName: "List",
       props: {
         style: {
           // ...COMPONENT_DEFAULT_STYLE
-        }
+        },
       },
       formConfig: {},
       data: {
-        type: 'model',
+        type: "model",
         targetId,
         features,
-        additionColumns
+        additionColumns,
       },
-      children: []
+      children: [],
     };
   },
 
-  list: (label: string = '列表', keyPath: string = 'data.options', entity: IEntity = DEFAULT_ENTITIES) => {
+  list: (
+    label: string = "列表",
+    keyPath: string = "data.options",
+    entity: IEntity = DEFAULT_ENTITIES
+  ) => {
     return [
       splitLine(),
       title(label),
       {
-        type: 'form',
-        componentName: 'List',
+        type: "form",
+        componentName: "List",
         props: {
           style: {
             // ...COMPONENT_DEFAULT_STYLE
-          }
+          },
         },
         formConfig: {
-          keyPath
+          keyPath,
         },
         theme: {
-          type: 'dark'
+          type: "dark",
         },
         data: {
-          type: 'entity',
+          type: "entity",
           entity,
           features: {
             add: true,
             modify: true,
-            delete: true
-          }
+            delete: true,
+          },
         },
-        children: []
-      }
+        children: [],
+      },
     ];
   },
 
-  formItem: (label: string, keyPath: string | null, children: IComponentInstance[], style?: any): IComponentInstanceForm => {
+  formItem: (
+    label: string,
+    keyPath: string | null,
+    children: IComponentInstance[],
+    style?: any
+  ): IComponentInstanceForm => {
     return {
-      type: 'form',
-      componentName: 'FormItem',
+      type: "form",
+      componentName: "FormItem",
       formConfig: {
         label,
         keyPath,
-        labelStyle: SCHEMA_FORM_ITEM_LABEL_STYLE
+        labelStyle: SCHEMA_FORM_ITEM_LABEL_STYLE,
       },
       props: {
         style: style || {
-          position: 'relative',
-          height: 35
-        }
+          position: "relative",
+          height: 35,
+        },
       },
-      children
+      children,
     };
   },
 
   input: (label: string, keyPath?: string, data?: any) => {
     let res: any = {
-      type: 'form',
-      componentName: 'Input',
+      type: "form",
+      componentName: "Input",
       formConfig: {
         label,
         keyPath,
         labelStyle: { ...SCHEMA_FORM_ITEM_LABEL_STYLE },
         componentProps: {
-          type: 'text',
-          style: SCHEMA_FORM_ITEM_COMPONENT_STYLE
-        }
+          type: "text",
+          style: SCHEMA_FORM_ITEM_COMPONENT_STYLE,
+        },
       },
       props: {
         style: {
-          width: '100%'
-        }
+          width: "100%",
+        },
       },
-      children: []
+      children: [],
     };
     if (data) res = mergeKeypath(res, data);
     return res;
   },
   inputNumber: (label: string, keyPath?: string, data?: any) => {
     let res: any = {
-      type: 'form',
-      componentName: 'Input',
+      type: "form",
+      componentName: "Input",
       formConfig: {
         label,
         keyPath,
         labelStyle: { ...SCHEMA_FORM_ITEM_LABEL_STYLE },
         componentProps: {
-          type: 'number',
-          style: SCHEMA_FORM_ITEM_COMPONENT_STYLE
-        }
+          type: "number",
+          style: SCHEMA_FORM_ITEM_COMPONENT_STYLE,
+        },
       },
       props: {
         style: {
-          width: '100%'
-        }
+          width: "100%",
+        },
       },
-      children: []
+      children: [],
     };
     if (data) res = mergeKeypath(res, data);
     return res;
   },
-  select: (label: string, keyPath: string, options: Record<string, any> | string, data?: any) => {
+  select: (
+    label: string,
+    keyPath: string,
+    options: Record<string, any> | string,
+    data?: any
+  ) => {
     let res: any = {
-      type: 'form',
-      componentName: 'Select',
+      type: "form",
+      componentName: "Select",
       formConfig: {
         keyPath,
         label,
         componentProps: {
-          style: SCHEMA_FORM_ITEM_COMPONENT_STYLE
+          style: SCHEMA_FORM_ITEM_COMPONENT_STYLE,
         },
-        labelStyle: SCHEMA_FORM_ITEM_LABEL_STYLE
+        labelStyle: SCHEMA_FORM_ITEM_LABEL_STYLE,
       },
       data: {
-        options
+        options,
       },
       props: {
-        style: {}
+        style: {},
       },
-      children: []
+      children: [],
     };
     if (data) res = mergeKeypath(res, data);
     return res;
   },
 
-  form: (props: Record<string, any>) => {
+  form: (props: Record<string, any> = {}): IComponentInstanceForm => {
     return {
-      type: 'form',
-      componentName: 'Form',
-      layout: 'flex',
+      type: "form",
+      componentName: "Form",
+      layout: "flex",
       formConfig: {
-        formLayout: 'horizontal'
+        formLayout: "horizontal",
       },
       props: {
         ...props,
         style: {
-          position: 'relative',
+          position: "relative",
           width: 260,
-          height: 300
-        }
+          height: 300,
+        },
       },
-      children: []
+      children: [],
     };
   },
 
   button: (children?: string, click?: IEvent, style?: any) => {
     return {
-      type: 'component',
-      componentName: 'Button',
+      type: "component",
+      componentName: "Button",
       props: {
         style: style || {
           height: 40,
-          width: 80
+          width: 80,
         },
-        type: 'primary',
-        shape: 'default'
+        type: "primary",
+        shape: "default",
       },
       events: {
         click: click || {
-          type: 'link',
-          src: 'http://staringos.com'
-        }
+          type: "link",
+          src: "http://staringos.com",
+        },
       },
       editing: {
         showMask: true,
-        maskText: '双击操作'
+        maskText: "双击操作",
       },
-      children: children || '按钮'
+      children: children || "按钮",
     };
   },
 
   buttonGroup: (options: any) => {
     return {
-      type: 'form',
-      componentName: 'ButtonGroup',
+      type: "form",
+      componentName: "ButtonGroup",
       data: {
-        options
+        options,
       },
       props: {
-        style: {}
+        style: {},
       },
       formConfig: {
         componentProps: {
-          style: SCHEMA_FORM_ITEM_COMPONENT_STYLE
-        }
+          style: SCHEMA_FORM_ITEM_COMPONENT_STYLE,
+        },
       },
-      children: []
+      children: [],
     };
   },
 
   radio: (label: string, keyPath: string, options: any, data?: any) => {
     let res: any = {
-      type: 'form',
-      componentName: 'Radio',
+      type: "form",
+      componentName: "Radio",
       props: {
         style: {
           // ...COMPONENT_DEFAULT_STYLE,
-          color: 'white'
-        }
+          color: "white",
+        },
       },
       formConfig: {
         label,
         keyPath,
-        labelStyle: SCHEMA_FORM_ITEM_LABEL_STYLE
+        labelStyle: SCHEMA_FORM_ITEM_LABEL_STYLE,
       },
       data: {
-        options
+        options,
       },
-      children: []
+      children: [],
     };
     if (data) res = mergeKeypath(res, data);
     return res;
@@ -306,28 +337,28 @@ export default {
 
   upload: (label: string, keyPath: string, data?: any) => {
     let schema: any = {
-      type: 'form',
-      componentName: 'Upload',
+      type: "form",
+      componentName: "Upload",
       props: {
         maxCount: 1,
         style: {
           // ...COMPONENT_DEFAULT_STYLE,
           width: 200,
-          borderWidth: 0
-        }
+          borderWidth: 0,
+        },
       },
       formConfig: {
         label,
         keyPath,
         labelStyle: SCHEMA_FORM_ITEM_LABEL_STYLE,
         componentProps: {
-          style: SCHEMA_FORM_ITEM_COMPONENT_STYLE
-        }
+          style: SCHEMA_FORM_ITEM_COMPONENT_STYLE,
+        },
       },
       data: {
-        options: DEFAULT_OPTIONS
+        options: DEFAULT_OPTIONS,
       },
-      children: []
+      children: [],
     };
     if (schema) schema = mergeKeypath(schema, data);
     return schema;
@@ -335,13 +366,13 @@ export default {
 
   textArea: (label: string, keyPath: string, data?: any) => {
     let schema: any = {
-      type: 'form',
-      componentName: 'TextArea',
+      type: "form",
+      componentName: "TextArea",
       props: {
         maxCount: 1,
         style: {
           // ...COMPONENT_DEFAULT_STYLE
-        }
+        },
       },
       formConfig: {
         label,
@@ -350,14 +381,14 @@ export default {
         componentProps: {
           style: {
             ...SCHEMA_FORM_ITEM_COMPONENT_STYLE,
-            height: 100
-          }
-        }
+            height: 100,
+          },
+        },
       },
       data: {
-        options: DEFAULT_OPTIONS
+        options: DEFAULT_OPTIONS,
       },
-      children: []
+      children: [],
     };
     if (schema) schema = mergeKeypath(schema, data);
     return schema;
@@ -365,13 +396,13 @@ export default {
 
   richTextEditor: (label: string, keyPath: string, data?: any) => {
     let schema: any = {
-      type: 'form',
-      componentName: 'mtbird-extension-rich-textRichTextEditor',
+      type: "form",
+      componentName: "mtbird-extension-rich-textRichTextEditor",
       props: {
         maxCount: 1,
         style: {
           // ...COMPONENT_DEFAULT_STYLE
-        }
+        },
       },
       formConfig: {
         label,
@@ -380,19 +411,19 @@ export default {
         componentProps: {
           style: {
             ...SCHEMA_FORM_ITEM_COMPONENT_STYLE,
-            height: 500
-          }
-        }
+            height: 500,
+          },
+        },
       },
       data: {
-        options: DEFAULT_OPTIONS
+        options: DEFAULT_OPTIONS,
       },
       children: [],
       extension: {
         isExtension: true,
-        extensionName: 'mtbird-extension-rich-text',
-        componentName: 'RichTextEditor'
-      }
+        extensionName: "mtbird-extension-rich-text",
+        componentName: "RichTextEditor",
+      },
     };
     if (schema) schema = mergeKeypath(schema, data);
     return schema;
@@ -400,107 +431,123 @@ export default {
 
   shape: (shape: ShapePoolItem, size = 28) => {
     return {
-      type: 'component',
-      componentName: 'Shape',
+      type: "component",
+      componentName: "Shape",
       props: {
         style: {
           ...COMPONENT_DEFAULT_STYLE,
           height: size,
           width: size,
-          backgroundColor: 'var(--gray-3)'
-        }
+          backgroundColor: "var(--gray-3)",
+        },
       },
       data: {
         viewBox: shape.viewBox,
         path: shape.path,
-        pathFormula: shape.pathFormula
+        pathFormula: shape.pathFormula,
       },
-      children: []
+      children: [],
     };
   },
 
   containerFlex: (children: any) => {
     return {
-      type: 'container',
-      componentName: 'Container',
-      layout: 'flex',
+      type: "container",
+      componentName: "Container",
+      layout: "flex",
       props: {
         style: {
-          display: 'flex'
-        }
+          display: "flex",
+        },
       },
-      children
+      children,
     };
   },
 
-  container: (children: Array<IComponentInstance>, pos: IPosition, style: Record<string, any> = {}, layout: 'flex' | 'absolute') => {
+  container: (
+    children: Array<IComponentInstance>,
+    pos: IPosition,
+    style: Record<string, any> = {},
+    layout: "flex" | "absolute"
+  ) => {
     return {
-      type: 'container',
-      componentName: 'Container',
-      layout: 'absolute',
+      type: "container",
+      componentName: "Container",
+      layout: "absolute",
       props: {
         style: {
           ...COMPONENT_DEFAULT_STYLE,
           ...pos,
-          ...style
-        }
+          ...style,
+        },
       },
-      children
+      children,
     };
   },
 
-  containerBlock: (children: Array<IComponentInstance>, data?: Record<string, any>) => {
+  containerBlock: (
+    children: Array<IComponentInstance>,
+    data?: Record<string, any>
+  ) => {
     let init = {
-      type: 'container',
-      componentName: 'ContainerBlock',
+      type: "container",
+      componentName: "ContainerBlock",
       props: {
         style: {
-          position: 'relative',
-          height: 500
-        }
+          position: "relative",
+          height: 500,
+        },
       },
-      children
+      children,
     } as any;
     if (data) init = mergeKeypath(init, data);
     return init;
   },
 
-  icon: (style: CSSProperties, className?: string, data?: Record<string, any>) => {
+  icon: (
+    style: CSSProperties,
+    className?: string,
+    data?: Record<string, any>
+  ) => {
     let init: any = {
-      type: 'component',
-      componentName: 'Icon',
+      type: "component",
+      componentName: "Icon",
       props: {
         style: {
           ...COMPONENT_DEFAULT_STYLE,
           fontSize: 30,
           width: 30,
           height: 30,
-          ...style
+          ...style,
         },
-        className: className || 'mtbird-icon mtbird-close'
+        className: className || "mtbird-icon mtbird-close",
       },
-      children: []
+      children: [],
     };
     if (data) init = mergeKeypath(init, data);
     return init;
   },
 
-  colorPicker: (label: string = '颜色', keyPath: string = 'props.style.backgroundColor', data?: any) => {
+  colorPicker: (
+    label: string = "颜色",
+    keyPath: string = "props.style.backgroundColor",
+    data?: any
+  ) => {
     let init = {
-      type: 'component',
-      componentName: 'ColorPicker',
+      type: "component",
+      componentName: "ColorPicker",
       formConfig: {
         keyPath,
         label,
         componentProps: {
-          style: SCHEMA_FORM_ITEM_COMPONENT_STYLE
+          style: SCHEMA_FORM_ITEM_COMPONENT_STYLE,
         },
-        labelStyle: SCHEMA_FORM_ITEM_LABEL_STYLE
+        labelStyle: SCHEMA_FORM_ITEM_LABEL_STYLE,
       },
       props: {
-        style: {}
+        style: {},
       },
-      children: []
+      children: [],
     } as any;
 
     if (data) init = mergeKeypath(init, data);
@@ -509,49 +556,54 @@ export default {
 
   collapse: (children: IComponentInstance[]) => {
     return {
-      type: 'container',
-      componentName: 'Collapse',
-      layout: 'flex',
+      type: "container",
+      componentName: "Collapse",
+      layout: "flex",
       props: {
         style: {
-          minHeight: 100
-        }
+          minHeight: 100,
+        },
       },
-      children: children || []
+      children: children || [],
     };
   },
 
-  collapsePanel: (title: string, children: IComponentInstance[], open: boolean = false, style: any = undefined) => {
+  collapsePanel: (
+    title: string,
+    children: IComponentInstance[],
+    open: boolean = false,
+    style: any = undefined
+  ) => {
     return {
-      type: 'container',
-      componentName: 'CollapsePanel',
-      layout: 'flex',
+      type: "container",
+      componentName: "CollapsePanel",
+      layout: "flex",
       data: {
-        title: title || '分组',
-        open
+        title: title || "分组",
+        open,
       },
       pattern: {
-        noWrapper: true
+        noWrapper: true,
       },
       props: {
         style: style || {
-          color: SCHEMA_FORM_ITEM_LABEL_STYLE.color
-        }
+          color: SCHEMA_FORM_ITEM_LABEL_STYLE.color,
+        },
       },
-      children: children || []
+      children: children || [],
     };
   },
 
   alignPanel: (data?: Record<string, any>) => {
     let res: any = {
-      type: 'form',
-      componentName: 'SchemaAlignPanel',
+      type: "form",
+      componentName: "SchemaAlignPanel",
       props: {
         style: {
-          ...COMPONENT_DEFAULT_STYLE
-        }
+          ...COMPONENT_DEFAULT_STYLE,
+        },
       },
-      children: []
+      children: [],
     };
 
     if (data) res = mergeKeypath(res, data);
@@ -560,18 +612,18 @@ export default {
 
   spacingPanel: (data?: Record<string, any>) => {
     let res: any = {
-      type: 'form',
-      componentName: 'SchemaSpacingPanel',
+      type: "form",
+      componentName: "SchemaSpacingPanel",
       props: {
         style: {
           ...COMPONENT_DEFAULT_STYLE,
-          marginLeft: 50
-        }
+          marginLeft: 50,
+        },
       },
       formConfig: {
-        keyPath: 'props.style'
+        keyPath: "props.style",
       },
-      children: []
+      children: [],
     };
 
     if (data) res = mergeKeypath(res, data);
@@ -580,63 +632,71 @@ export default {
 
   switch: (label: string, keyPath: string, data: Record<string, any>) => {
     let res = {
-      type: 'form',
-      componentName: 'Switch',
+      type: "form",
+      componentName: "Switch",
       props: {
         style: {
-          ...COMPONENT_DEFAULT_STYLE
-        }
+          ...COMPONENT_DEFAULT_STYLE,
+        },
       },
       formConfig: {
-        label: label || '开关',
+        label: label || "开关",
         keyPath,
         labelStyle: SCHEMA_FORM_ITEM_LABEL_STYLE,
         componentProps: {
-          type: 'text',
-          style: SCHEMA_FORM_ITEM_COMPONENT_STYLE
-        }
+          type: "text",
+          style: SCHEMA_FORM_ITEM_COMPONENT_STYLE,
+        },
       },
       editing: {
-        showMask: true
+        showMask: true,
       },
-      children: []
+      children: [],
     } as any;
 
     if (data) res = mergeKeypath(res, data);
     return res;
   },
-  image: (src: string, style: Record<string, any>, data: Record<string, any>) => {
+  image: (
+    src: string,
+    style: Record<string, any>,
+    data: Record<string, any>
+  ) => {
     let res = {
-      type: 'component',
-      componentName: 'Image',
+      type: "component",
+      componentName: "Image",
       props: {
         src,
         style: {
           ...COMPONENT_DEFAULT_STYLE,
           height: 105,
           width: 200,
-          ...style
-        }
+          ...style,
+        },
       },
-      children: []
+      children: [],
     } as any;
     if (data) res = mergeKeypath(res, data);
     return res;
   },
 
-  text: (children: string, style: Record<string, any>, data: Record<string, any>) => {
+  text: (
+    children: string,
+    style: Record<string, any>,
+    data: Record<string, any>
+  ) => {
     let res = {
-      type: 'component',
-      componentName: 'Text',
+      type: "component",
+      componentName: "Text",
       props: {
         style: {
           ...COMPONENT_DEFAULT_STYLE,
           height: 100,
           width: 200,
-          ...style
-        }
+          ...style,
+        },
       },
-      children: children || '<p>这是一段文本呀呀呀</p>'
+      children: children || "<p>这是一段文本呀呀呀</p>",
     } as any;
 
     if (data) res = mergeKeypath(res, data);
@@ -644,7 +704,7 @@ export default {
   },
 
   splitLine,
-  title
+  title,
 };
 
 export const generateFormItemSelect = (
@@ -654,25 +714,25 @@ export const generateFormItemSelect = (
   data?: Record<string, any>
 ) => {
   let res: any = {
-    type: 'component',
-    componentName: 'FormItem',
+    type: "component",
+    componentName: "FormItem",
     formConfig: {
       keyPath,
       label,
-      componentName: 'Select',
+      componentName: "Select",
       componentProps: {
-        style: SCHEMA_FORM_ITEM_COMPONENT_STYLE
+        style: SCHEMA_FORM_ITEM_COMPONENT_STYLE,
       },
       labelStyle: SCHEMA_FORM_ITEM_LABEL_STYLE,
-      suffix: 'px'
+      suffix: "px",
     },
     data: {
-      options
+      options,
     },
     props: {
-      style: {}
+      style: {},
     },
-    children: []
+    children: [],
   };
 
   if (data) res = mergeKeypath(res, data);

@@ -3,20 +3,18 @@
   "title": "动画",
   "version": "0.0.3",
   "desc": "星搭官方动画拓展",
-  "tags": [
-      "拓展案例"
-  ],
+  "tags": ["拓展案例"],
   "pipes": ["animate"],
   "contributes": {
     "schemaTabs": [
-        {
-          "sort": 3,
-          "params": {
-              "name": "动画"
-          },
-          "link": "feature",
-          "feature": "animation.tab"
-        }
+      {
+        "sort": 3,
+        "params": {
+          "name": "动画"
+        },
+        "link": "feature",
+        "feature": "animation.tab"
+      }
     ]
   }
 }

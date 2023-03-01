@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import style from './style.module.less';
-import { Input, Radio, Spin, Pagination, RadioChangeEvent } from 'antd';
-import ImageList from '../ImageList';
-import { IExtensionContext, IPagination } from '@mtbird/shared';
-import { IImageListSearch } from 'src/types';
-import { getImageList, getImageTags } from 'src/services';
-import { DEFAULT_PAGE } from '../../utils/constants';
+import React, { useEffect, useState } from "react";
+import style from "./style.module.less";
+import { Input, Radio, Spin, Pagination, RadioChangeEvent } from "antd";
+import ImageList from "../ImageList";
+import { IExtensionContext, IPagination } from "@mtbird/shared";
+import { IImageListSearch } from "src/types";
+import { getImageList, getImageTags } from "src/services";
+import { DEFAULT_PAGE } from "../../utils/constants";
 
 export interface IImage {
   id: string;
@@ -29,7 +29,7 @@ interface ITag {
 const ImageLibTab = ({ context }: { context: IExtensionContext }) => {
   const [search, setSearch] = useState<IImageListSearch>({
     ...DEFAULT_PAGE,
-    query: 'business'
+    query: "business",
   });
   const [data, setData] = useState<IPagination<IImage[]>>([]);
   const [tags, setTags] = useState<ITag[]>([]);
@@ -45,7 +45,7 @@ const ImageLibTab = ({ context }: { context: IExtensionContext }) => {
     setTags(res.data.data);
     setSearch({
       ...search,
-      query: res.data.data[0].name
+      query: res.data.data[0].name,
     });
   };
 
@@ -61,12 +61,15 @@ const ImageLibTab = ({ context }: { context: IExtensionContext }) => {
       });
   }, []);
 
-  const handleSearch = (key: string, value: string | number | RadioChangeEvent) => {
+  const handleSearch = (
+    key: string,
+    value: string | number | RadioChangeEvent
+  ) => {
     setLoading(true);
 
     setSearch({
       ...search,
-      [key]: value
+      [key]: value,
     });
     initList();
     setLoading(false);
@@ -78,13 +81,17 @@ const ImageLibTab = ({ context }: { context: IExtensionContext }) => {
         <Spin className={style.imageLibContainer}></Spin>
       ) : (
         <>
-          <Input.Search placeholder="搜索素材" onSearch={(e) => handleSearch('query', e)} size="small" />
+          <Input.Search
+            placeholder="搜索素材"
+            onSearch={(e) => handleSearch("query", e)}
+            size="small"
+          />
           <Radio.Group
             className={style.tagRadio}
             defaultValue={search.query}
             buttonStyle="solid"
             size="small"
-            onChange={(e) => handleSearch('query', e)}
+            onChange={(e) => handleSearch("query", e)}
           >
             <Radio.Button value="a">全部</Radio.Button>
             {tags.map((cur) => (
@@ -95,10 +102,10 @@ const ImageLibTab = ({ context }: { context: IExtensionContext }) => {
           </Radio.Group>
           <ImageList context={context} list={data?.data || []} />
           <Pagination
-            style={{ color: 'white' }}
+            style={{ color: "white" }}
             defaultCurrent={data.pageNum}
             total={data.total}
-            onChange={(e) => handleSearch('pageNum', e)}
+            onChange={(e) => handleSearch("pageNum", e)}
             size="small"
             showSizeChanger={false}
           />

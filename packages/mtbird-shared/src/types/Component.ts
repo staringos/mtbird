@@ -1,9 +1,9 @@
 // import React from 'react';
-import { ReactDOM } from 'react';
-import { IEntity } from './Common';
-import { DataType } from './Data';
-import type { IDataSource } from './DataSource';
-import { IPipe } from './Extension';
+import { ReactDOM } from "react";
+import { IEntity } from "./Common";
+import { DataType } from "./Data";
+import type { IDataSource } from "./DataSource";
+import { IPipe } from "./Extension";
 
 /**
  * The props of component which will directly send to React DOM
@@ -20,23 +20,31 @@ export interface IVariable {
   value: any;
 
   // variable init value from
-  sourceType: 'api' | 'dataModels' | 'defaultValue' | 'pageParams';
+  sourceType: "api" | "dataModels" | "defaultValue" | "pageParams";
 
   dataModelsId?: string;
   apiId?: string;
   defaultValue?: string | number;
 }
 
-export type EventAction = 'click' | 'hover' | 'blur' | 'dbclick' | 'scroll';
-export type EventType = 'link' | 'link-blank' | 'submit' | 'clear' | 'open-modal' | 'close-modal' | 'inline-code' | 'change-variable';
+export type EventAction = "click" | "hover" | "blur" | "dbclick" | "scroll";
+export type EventType =
+  | "link"
+  | "link-blank"
+  | "submit"
+  | "clear"
+  | "open-modal"
+  | "close-modal"
+  | "inline-code"
+  | "change-variable";
 export type SearchOperator =
-  | 'eq' // 等于
-  | 'lt' // 小于
-  | 'gt' // 大于
-  | 'le' // 小于等于
-  | 'ge' // 大于等于
-  | 'ne' // 不等于
-  | 'like'; // 模糊匹配
+  | "eq" // 等于
+  | "lt" // 小于
+  | "gt" // 大于
+  | "le" // 小于等于
+  | "ge" // 大于等于
+  | "ne" // 不等于
+  | "like"; // 模糊匹配
 
 export interface IEvent {
   action?: EventAction;
@@ -72,7 +80,7 @@ export interface ISearch {
 export interface IColumn {
   title: string;
   dataIndex: string;
-  render?: 'date' | string;
+  render?: "date" | string;
 }
 
 export interface IFeatures {
@@ -90,14 +98,16 @@ export interface IComponentInstance {
   type: string;
   componentName: string;
   props: IProps;
-  layout?: 'absolute' | 'grid' | 'flex';
+  isSlot?: boolean;
+  layout?: "absolute" | "grid" | "flex";
+  componentLib?: string;
   data?: {
     isDataContainer?: boolean; // 是否是数据容器（具备数据查询和暂存功能的组件）
     title?: string;
     alias?: string; // 组件自定义显示别名
     showIcon?: string; // 展示相关，某些组件是否展示icon
 
-    fileType?: 'input' | 'upload'; // 文件类型：输入地址 ｜ 上传文件
+    fileType?: "input" | "upload"; // 文件类型：输入地址 ｜ 上传文件
 
     // 局部变量
     variables?: IVariable[];
@@ -107,10 +117,10 @@ export interface IComponentInstance {
 
     // 接入数据类型
     type?:
-      | 'form' // 表单类型 + 表单数据： 需要 formId, pageId
-      | 'entity' // 内置实体/数据模型 + 局部变量数据：需要 entity
-      | 'dataSource' // 数据源 + 数据源数据
-      | 'model'; // model
+      | "form" // 表单类型 + 表单数据： 需要 formId, pageId
+      | "entity" // 内置实体/数据模型 + 局部变量数据：需要 entity
+      | "dataSource" // 数据源 + 数据源数据
+      | "model"; // model
     entity?: IEntity; // 数据实体
     targetId?: string; // list target ID (formId for type=form or modelId for type=model)
     fieldId?: string; // bind fieldId
@@ -122,12 +132,12 @@ export interface IComponentInstance {
   events?: Record<EventAction, IEvent[]>;
   parent?: string;
   theme?: {
-    type: 'dark' | 'light';
+    type: "dark" | "light";
   };
   children: IComponentInstance[] | number | string;
   pattern?: {
     display?: string;
-    background?: 'image' | 'graduual' | 'color';
+    background?: "image" | "graduual" | "color";
     animate?: IAnimate;
 
     // 渲染器渲染组件时不包裹 wrapper
@@ -138,6 +148,7 @@ export interface IComponentInstance {
   pipes?: {
     render?: Record<string, IPipe>;
   };
+  slots?: Record<string, IComponentInstance>;
   extension?: {
     isExtension: boolean;
     extensionName: string;
@@ -148,10 +159,11 @@ export interface IComponentInstance {
   editing?: {
     showMask?: boolean;
   };
+  manifest?: IComponentManifest<IComponentInstanceCommon>;
 }
 
 export interface IComponentProps {
-  value: string | number | boolean | any;
+  value?: string | number | boolean | any;
   formId?: string | undefined;
   node: IComponentInstanceCommon;
   children?: string | React.ReactNode;
@@ -176,8 +188,9 @@ export interface ISchemaOptions {
 export interface IComponentManifest<T> {
   type: string;
   componentName: string;
-  category?: 'basic' | 'form' | 'icon' | 'extension';
-  subCategory?: 'common' | 'mobile' | 'container' | 'data';
+  componentLib: string;
+  category?: "basic" | "form" | "icon" | "extension";
+  subCategory?: "common" | "mobile" | "container" | "data";
   title: string;
   icon: string;
   desc: string;
@@ -189,9 +202,12 @@ export interface IComponentManifest<T> {
 
 export interface IComponent<T> extends IComponentManifest<T> {}
 
-export type IComponentInstanceCommon = IComponentInstance | IComponentInstanceForm;
+export type IComponentInstanceCommon =
+  | IComponentInstance
+  | IComponentInstanceForm;
 
-export interface IComponentCommon extends IComponentManifest<IComponentInstance | IComponentInstanceForm> {}
+export interface IComponentCommon
+  extends IComponentManifest<IComponentInstance | IComponentInstanceForm> {}
 
 export interface IFormRules {}
 
@@ -212,33 +228,34 @@ export interface IComponentInstanceForm extends IComponentInstance {
     valueFormatter?: string; // 'function(value, oldValue) { return value + "px"; }';
     editFormatter?: string; // send to edit formatter
     rules?: Array<any>; // Array<IFormRules>;
-    formLayout?: 'horizontal' | 'vertical'; // 表单垂直 or 水平排列 只在 Form 组件可用
+    formLayout?: "horizontal" | "vertical"; // 表单垂直 or 水平排列 只在 Form 组件可用
   };
 }
 
-export interface IComponentDefine<T> extends React.FunctionComponent<IComponentProps> {
+export interface IComponentDefine<T>
+  extends React.FunctionComponent<IComponentProps> {
   manifest?: IComponentManifest<T>;
 }
 
 export const enum ShapePathFormulasKeys {
-  ROUND_RECT = 'roundRect',
-  ROUND_RECT_DIAGONAL = 'roundRectDiagonal',
-  ROUND_RECT_SINGLE = 'roundRectSingle',
-  ROUND_RECT_SAMESIDE = 'roundRectSameSide',
-  CUT_RECT_DIAGONAL = 'cutRectDiagonal',
-  CUT_RECT_SINGLE = 'cutRectSingle',
-  CUT_RECT_SAMESIDE = 'cutRectSameSide',
-  MESSAGE = 'message',
-  ROUND_MESSAGE = 'roundMessage',
-  L = 'L',
-  RING_RECT = 'ringRect',
-  PLUS = 'plus',
-  TRIANGLE = 'triangle',
-  PARALLELOGRAM_LEFT = 'parallelogramLeft',
-  PARALLELOGRAM_RIGHT = 'parallelogramRight',
-  TRAPEZOID = 'trapezoid',
-  BULLET = 'bullet',
-  INDICATOR = 'indicator'
+  ROUND_RECT = "roundRect",
+  ROUND_RECT_DIAGONAL = "roundRectDiagonal",
+  ROUND_RECT_SINGLE = "roundRectSingle",
+  ROUND_RECT_SAMESIDE = "roundRectSameSide",
+  CUT_RECT_DIAGONAL = "cutRectDiagonal",
+  CUT_RECT_SINGLE = "cutRectSingle",
+  CUT_RECT_SAMESIDE = "cutRectSameSide",
+  MESSAGE = "message",
+  ROUND_MESSAGE = "roundMessage",
+  L = "L",
+  RING_RECT = "ringRect",
+  PLUS = "plus",
+  TRIANGLE = "triangle",
+  PARALLELOGRAM_LEFT = "parallelogramLeft",
+  PARALLELOGRAM_RIGHT = "parallelogramRight",
+  TRAPEZOID = "trapezoid",
+  BULLET = "bullet",
+  INDICATOR = "indicator",
 }
 
 export interface ShapePoolItem {

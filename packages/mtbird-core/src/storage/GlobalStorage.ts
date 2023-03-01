@@ -1,33 +1,37 @@
-export const EXTENSION_DEBUG_KEY = 'EXTENSION_DEBUG';
-export const TAB_STATE_KEY = 'TAB_STATE_KEY';
-export const TOUR_STATE_KEY = 'TOUR_STATE_KEY';
-export const SAAS_TOUR_STATE_KEY = 'SAAS_TOUR_STATE_KEY';
+export const EXTENSION_DEBUG_KEY = "EXTENSION_DEBUG";
+export const TAB_STATE_KEY = "TAB_STATE_KEY";
+export const TOUR_STATE_KEY = "TOUR_STATE_KEY";
+export const SAAS_TOUR_STATE_KEY = "SAAS_TOUR_STATE_KEY";
 
 const getLocal = () => {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     return localStorage;
   } else {
     return {
       getItem(key: string) {},
       removeItem(key: string) {},
-      setItem(key: string, value: string) {}
+      setItem(key: string, value: string) {},
     };
   }
 };
 
 const getter = (Storage: ReturnType<typeof getLocal>, key: string) => {
   return () => {
-    return Storage.getItem(key) || '';
+    return Storage.getItem(key) || "";
   };
 };
 
-const getterJson = (Storage: ReturnType<typeof getLocal>, key: string, defaultValue?: any) => {
+const getterJson = (
+  Storage: ReturnType<typeof getLocal>,
+  key: string,
+  defaultValue?: any
+) => {
   return () => {
     const res = Storage.getItem(key);
     if (!res) return defaultValue || {};
 
     try {
-      return JSON.parse(res as string) || '';
+      return JSON.parse(res as string) || "";
     } catch (e) {
       return defaultValue;
     }
@@ -66,7 +70,11 @@ class GlobalStorage {
   }
 
   static get tabState() {
-    return getterJson(this.Storage, TAB_STATE_KEY, { toolTabs: true, bottomTabs: true, schemaTabs: true })();
+    return getterJson(this.Storage, TAB_STATE_KEY, {
+      toolTabs: true,
+      bottomTabs: false,
+      schemaTabs: true,
+    })();
   }
 
   static set tabState(value: Record<string, any>) {
@@ -75,7 +83,7 @@ class GlobalStorage {
 
   static get tourState() {
     const value = getter(this.Storage, TOUR_STATE_KEY)();
-    return value !== 'false' ? true : false;
+    return value !== "false" ? true : false;
   }
 
   static set tourState(value: boolean) {
@@ -84,7 +92,7 @@ class GlobalStorage {
 
   static get saasTourState() {
     const value = getter(this.Storage, SAAS_TOUR_STATE_KEY)();
-    return value !== 'false' ? true : false;
+    return value !== "false" ? true : false;
   }
 
   static set saasTourState(value: boolean) {

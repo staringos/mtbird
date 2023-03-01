@@ -1,6 +1,6 @@
-import React, { CSSProperties } from 'react';
-import { Tabs } from 'antd';
-import styles from './style.module.less';
+import React, { CSSProperties } from "react";
+import { Tabs } from "antd";
+import styles from "./style.module.less";
 
 interface IProps {
   activeKey: string;
@@ -16,13 +16,29 @@ interface IProps {
   };
 }
 
-const TabsComponent = ({ activeKey, onChange, tabItems, width, height, style, hideTabContent, extra }: IProps) => {
+const TabsComponent = ({
+  activeKey,
+  onChange,
+  tabItems,
+  width,
+  height,
+  style,
+  hideTabContent,
+  extra,
+}: IProps) => {
   return (
     <div
-      className={styles.tabsContainer + ' ' + (hideTabContent ? styles.hideContent : '')}
+      className={
+        styles.tabsContainer + " " + (hideTabContent ? styles.hideContent : "")
+      }
       style={{ ...style, width, height: hideTabContent ? 35 : height }}
     >
-      <Tabs activeKey={activeKey} onChange={onChange} items={tabItems} tabBarExtraContent={extra}></Tabs>
+      <Tabs
+        activeKey={activeKey}
+        onChange={onChange}
+        items={tabItems}
+        tabBarExtraContent={extra}
+      ></Tabs>
     </div>
   );
 };

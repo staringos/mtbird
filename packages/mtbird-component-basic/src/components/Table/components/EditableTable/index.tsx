@@ -1,41 +1,48 @@
-import React, { ForwardedRef, useState, useMemo } from 'react';
+import React, { ForwardedRef, useState, useMemo } from "react";
 
-import { Button, Form, Popconfirm, Table, Typography } from 'antd';
-import type { TableProps } from 'antd';
-import { ColumnsType } from 'antd/es/table';
+import { Button, Form, Popconfirm, Table, Typography } from "antd";
+import type { TableProps } from "antd";
+import { ColumnsType } from "antd/es/table";
 
-import { EditableCell } from '../EditableCell';
-import { OperationCell } from '../OperationCell';
+import { EditableCell } from "../EditableCell";
+import { OperationCell } from "../OperationCell";
 
-import styles from './style.module.less';
+import styles from "./style.module.less";
 
 export interface BaseRecordType {
   key: string;
 }
 
-export type EditableColumnsType<RecordType = unknown> = (ColumnsType<RecordType>[number] & {
-  dataIndex: string;
-  editable?: boolean;
-  required?: boolean;
-  inputType: 'number' | 'text';
-})[];
+export type EditableColumnsType<RecordType = unknown> =
+  (ColumnsType<RecordType>[number] & {
+    dataIndex: string;
+    editable?: boolean;
+    required?: boolean;
+    inputType: "number" | "text";
+  })[];
 
-export type DefaultRecordType<RecordType = unknown> = Partial<Omit<RecordType, 'key'>>;
-export interface EditableTableProps<RecordType = unknown> extends Omit<TableProps<RecordType>, 'columns'> {
+export type DefaultRecordType<RecordType = unknown> = Partial<
+  Omit<RecordType, "key">
+>;
+export interface EditableTableProps<RecordType = unknown>
+  extends Omit<TableProps<RecordType>, "columns"> {
   columns: EditableColumnsType<RecordType>;
   setDataSource: (data: RecordType[]) => void;
   defaultRecord?: DefaultRecordType<RecordType>;
   disabled?: boolean;
 }
 
-const InternalEditableTable = <RecordType extends BaseRecordType>(props: EditableTableProps<RecordType>, ref: ForwardedRef<HTMLDivElement>) => {
+const InternalEditableTable = <RecordType extends BaseRecordType>(
+  props: EditableTableProps<RecordType>,
+  ref: ForwardedRef<HTMLDivElement>
+) => {
   const { dataSource, setDataSource, columns, disabled } = props;
 
   const defaultRecord = useMemo(
     () =>
       columns.reduce<DefaultRecordType<RecordType>>(
         (res, cur) => {
-          res[cur.dataIndex] = cur.inputType === 'text' ? '' : 0;
+          res[cur.dataIndex] = cur.inputType === "text" ? "" : 0;
           return res;
         },
         { ...props.defaultRecord }
@@ -44,7 +51,7 @@ const InternalEditableTable = <RecordType extends BaseRecordType>(props: Editabl
   );
 
   const [form] = Form.useForm();
-  const [editingKey, setEditingKey] = useState('');
+  const [editingKey, setEditingKey] = useState("");
   const [count, setCount] = useState(dataSource?.length ?? 0);
 
   const isEditing = (record: RecordType) => record.key === editingKey;
@@ -66,7 +73,7 @@ const InternalEditableTable = <RecordType extends BaseRecordType>(props: Editabl
     setEditingKey(key);
   });
 
-  const cancel = actionProxy(() => setEditingKey(''));
+  const cancel = actionProxy(() => setEditingKey(""));
 
   const omit = actionProxy((key: React.Key) => {
     if (Array.isArray(dataSource) && dataSource.length > 0) {
@@ -77,7 +84,7 @@ const InternalEditableTable = <RecordType extends BaseRecordType>(props: Editabl
         setDataSource(newData);
       }
     }
-    setEditingKey('');
+    setEditingKey("");
   });
 
   const save = actionProxy(async (key: React.Key) => {
@@ -90,17 +97,17 @@ const InternalEditableTable = <RecordType extends BaseRecordType>(props: Editabl
         const item = newData[index];
         newData.splice(index, 1, {
           ...item,
-          ...row
+          ...row,
         });
         setDataSource(newData);
-        setEditingKey('');
+        setEditingKey("");
       } else {
         newData.push(row);
         setDataSource(newData);
-        setEditingKey('');
+        setEditingKey("");
       }
     } catch (errInfo) {
-      console.log('Validate Failed:', errInfo);
+      console.log("Validate Failed:", errInfo);
     }
   });
 
@@ -120,14 +127,22 @@ const InternalEditableTable = <RecordType extends BaseRecordType>(props: Editabl
         inputType: col.inputType,
         dataIndex: col.dataIndex,
         title: col.title,
-        editing: editable && isEditing(record)
-      })
+        editing: editable && isEditing(record),
+      }),
     })) as ColumnsType<RecordType>;
     mergedColumns.push({
-      title: '操作',
-      dataIndex: 'operation',
-      width: 'max-content',
-      render: (_: any, record: RecordType) => <OperationCell record={record} editingKey={editingKey} save={save} omit={omit} edit={edit} />
+      title: "操作",
+      dataIndex: "operation",
+      width: "max-content",
+      render: (_: any, record: RecordType) => (
+        <OperationCell
+          record={record}
+          editingKey={editingKey}
+          save={save}
+          omit={omit}
+          edit={edit}
+        />
+      ),
     });
     return mergedColumns;
   }, [columns]);
@@ -137,13 +152,13 @@ const InternalEditableTable = <RecordType extends BaseRecordType>(props: Editabl
     ref,
     components: {
       body: {
-        cell: EditableCell
-      }
+        cell: EditableCell,
+      },
     },
     bordered: true,
     columns: mergedColumns,
     rowClassName: styles.editableTableRow,
-    pagination: { onChange: cancel }
+    pagination: { onChange: cancel },
   };
 
   return (
@@ -151,15 +166,23 @@ const InternalEditableTable = <RecordType extends BaseRecordType>(props: Editabl
       <Form form={form} component={false}>
         <Table {...tableProps} />
       </Form>
-      <Button disabled={!!editingKey && editingKey !== ''} onClick={add} type="default">
+      <Button
+        disabled={!!editingKey && editingKey !== ""}
+        onClick={add}
+        type="default"
+      >
         添加数据
       </Button>
     </div>
   );
 };
 
-const ForwardEditableTable = React.forwardRef(InternalEditableTable) as <RecordType extends BaseRecordType>(
-  props: React.PropsWithChildren<EditableTableProps<RecordType>> & { ref?: React.Ref<HTMLDivElement> }
+const ForwardEditableTable = React.forwardRef(InternalEditableTable) as <
+  RecordType extends BaseRecordType
+>(
+  props: React.PropsWithChildren<EditableTableProps<RecordType>> & {
+    ref?: React.Ref<HTMLDivElement>;
+  }
 ) => React.ReactElement;
 
 type InternalTableType = typeof ForwardEditableTable;

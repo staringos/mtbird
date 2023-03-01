@@ -1,18 +1,22 @@
-import { IComponentProps } from '@mtbird/shared';
-import React, { ChangeEvent } from 'react';
-import styles from './style.module.less';
-import { Input } from 'antd';
-import manifest from './manifest';
+import { IComponentProps } from "@mtbird/shared";
+import React, { ChangeEvent } from "react";
+import styles from "./style.module.less";
+import { Input } from "antd";
+import manifest from "./manifest";
 
 interface IInputProps {
-  pos: 'Left' | 'Right' | 'Top' | 'Bottom';
-  type: 'margin' | 'padding';
+  pos: "Left" | "Right" | "Top" | "Bottom";
+  type: "margin" | "padding";
 }
 
-const SchemaSpacingPanel = ({ onChangeValue, value, style }: IComponentProps) => {
+const SchemaSpacingPanel = ({
+  onChangeValue,
+  value,
+  style,
+}: IComponentProps) => {
   const handleInput = (key: string) => {
     return (e: ChangeEvent<HTMLInputElement>) => {
-      console.log('key: ', key, e.target.value);
+      console.log("key: ", key, e.target.value);
       onChangeValue(parseFloat(e.target.value), `props.style.${key}`);
     };
   };
@@ -22,7 +26,7 @@ const SchemaSpacingPanel = ({ onChangeValue, value, style }: IComponentProps) =>
     return (
       <Input
         type="number"
-        className={styles.inputCommon + ' ' + styles[`input${pos}`]}
+        className={styles.inputCommon + " " + styles[`input${pos}`]}
         defaultValue={value[key]}
         placeholder="0"
         onBlur={handleInput(key)}

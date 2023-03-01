@@ -1,4 +1,4 @@
-import type { IPageConfig, ISchemaOptions } from '@mtbird/shared';
+import type { IPageConfig, ISchemaOptions } from "@mtbird/shared";
 
 interface ISchemaProps {
   page?: IPageConfig;

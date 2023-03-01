@@ -1,7 +1,7 @@
-import React, { useContext, useEffect } from 'react';
-import ExtensionContext from './ExtensionContext';
-import Sandbox from './Sandbox';
-import { ISandBox } from './types';
+import React, { useContext, useEffect } from "react";
+import ExtensionContext from "./ExtensionContext";
+import Sandbox from "./Sandbox";
+import { ISandBox } from "./types";
 
 interface IProps {
   featureKey: string;
@@ -17,7 +17,7 @@ const ExtensionRender = (props: IProps) => {
 
   if (!featureKey) return <div>need featureKey</div>;
   if (!extensionName) {
-    extensionName = featureKey.split('.')[0];
+    extensionName = featureKey.split(".")[0];
   }
 
   // 1. create extension context

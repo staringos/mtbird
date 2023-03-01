@@ -1,21 +1,37 @@
-import { useState } from 'react';
-import IContext from '../types/extension';
-import { IEditorOptions, IContribute, IComponentCommon } from '@mtbird/shared';
-import { extensionLoader, extensionInit, helpers } from '@mtbird/helper-extension';
-import clone from 'lodash/clone';
-import { getManifests } from '@mtbird/component-basic';
+import { useState } from "react";
+import IContext from "../types/extension";
+import {
+  IEditorOptions,
+  IContribute,
+  IComponentCommon,
+  IComponentLibs,
+} from "@mtbird/shared";
+import {
+  extensionLoader,
+  extensionInit,
+  helpers,
+} from "@mtbird/helper-extension";
+import clone from "lodash/clone";
+import { getManifests } from "@mtbird/component-basic";
 
-function useExtensionModal(options: IEditorOptions, setLoading: (i: boolean) => void): IContext {
+function useExtensionModal(
+  options: IEditorOptions,
+  setLoading: (i: boolean) => void
+): IContext {
   const { extensions } = options;
   const [extensionsParams, setExtensionParams] = useState([]);
+  const [componentLibs, setComponentLibs] = useState<IComponentLibs[]>([]);
   const [extensionContributes, setExtensionContributes] = useState(new Map());
   const [extensionPipes, setExtensionPipes] = useState(new Map());
   const [extensionModalVisible, setExtensionModalVisible] = useState(new Map());
   const [extensionComponents, setExtensionComponents] = useState(new Map());
   const [extensionFeatures, setExtensionFeatures] = useState(new Map());
-  const [extensionLoadStatus, setExtensionLoadStatus] = useState<string>('not-start');
+  const [extensionLoadStatus, setExtensionLoadStatus] =
+    useState<string>("not-start");
   const [extensionPanelVisible, setExtensionPanelVisible] = useState(new Map());
-  const [registeredComponents, setRegisteredComponents] = useState<Record<string, IComponentCommon>>(getManifests() as any);
+  const [registeredComponents, setRegisteredComponents] = useState<
+    Record<string, IComponentCommon>
+  >(getManifests() as any);
 
   const context: IContext = {
     state: {
@@ -27,16 +43,18 @@ function useExtensionModal(options: IEditorOptions, setLoading: (i: boolean) => 
       extensionFeatures,
       extensionPipes,
       extensionPanelVisible,
-      registeredComponents
+      registeredComponents,
+      componentLibs,
     },
     actions: {
       init: async (store: IContext) => {
-        if (extensionLoadStatus !== 'not-start') return;
+        if (extensionLoadStatus !== "not-start") return;
 
         // has loaded
-        if (extensionsParams && extensionsParams.length === extensions?.length) return;
+        if (extensionsParams && extensionsParams.length === extensions?.length)
+          return;
 
-        setExtensionLoadStatus('loading');
+        setExtensionLoadStatus("loading");
         setLoading(true);
 
         if (extensions && extensions.length > 0) {
@@ -46,12 +64,17 @@ function useExtensionModal(options: IEditorOptions, setLoading: (i: boolean) => 
           setExtensionPipes(res.pipes);
           setExtensionParams(res.extensionParams);
           setExtensionComponents(res.components);
+          setComponentLibs(res.componentLibs);
+
           await extensionInit(store);
 
-          setRegisteredComponents({ ...registeredComponents, ...helpers.getExtensionComponentManifests(res.components) });
+          setRegisteredComponents({
+            ...registeredComponents,
+            ...helpers.getExtensionComponentManifests(res.components),
+          });
         }
         setLoading(false);
-        setExtensionLoadStatus('done');
+        setExtensionLoadStatus("done");
       },
       appendContributes: () => {},
       registerFeature: (key: string, feature: any) => {
@@ -65,8 +88,8 @@ function useExtensionModal(options: IEditorOptions, setLoading: (i: boolean) => 
       togglePanel: (key: string, params: IContribute) => {
         extensionPanelVisible.set(key, params);
         setExtensionPanelVisible(clone(extensionPanelVisible));
-      }
-    }
+      },
+    },
   };
 
   return context;

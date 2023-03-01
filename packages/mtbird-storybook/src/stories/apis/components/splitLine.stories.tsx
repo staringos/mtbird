@@ -1,6 +1,6 @@
-import SBComponentGenerator from '../../../utils/SBComponentGenerator';
+import SBComponentGenerator from "../../../utils/SBComponentGenerator";
 
-const Component = SBComponentGenerator('SplitLine');
+const Component = SBComponentGenerator("SplitLine");
 
 export default Component.main;
 

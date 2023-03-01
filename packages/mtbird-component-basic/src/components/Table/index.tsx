@@ -1,18 +1,18 @@
-import React, { useMemo } from 'react';
-import FormItemWrapper from 'src/toolComponents/FormItemWrapper';
+import React, { useMemo } from "react";
+import FormItemWrapper from "src/toolComponents/FormItemWrapper";
 
-import styles from './style.module.less';
+import styles from "./style.module.less";
 
-import { EditableTable } from './components/EditableTable';
-import manifest from './manifest';
-import { IComponentProps } from '@mtbird/shared';
+import { EditableTable } from "./components/EditableTable";
+import manifest from "./manifest";
+import { IComponentProps } from "@mtbird/shared";
 
 const TableComponent = (allProps: IComponentProps) => {
   const {
     node: { data },
     value,
     onChangeValue,
-    isEdit
+    isEdit,
   } = allProps;
 
   const columns: any = useMemo(() => {
@@ -24,7 +24,7 @@ const TableComponent = (allProps: IComponentProps) => {
       dataIndex: item.title,
       editable: true,
       inputType: item.type,
-      required: item.required === 'true'
+      required: item.required === "true",
     }));
   }, [data?.options]);
 
@@ -39,7 +39,13 @@ const TableComponent = (allProps: IComponentProps) => {
     />
   );
 
-  return <FormItemWrapper {...allProps} renderChildrenOnly={true} component={component}></FormItemWrapper>;
+  return (
+    <FormItemWrapper
+      {...allProps}
+      renderChildrenOnly={true}
+      component={component}
+    ></FormItemWrapper>
+  );
 };
 
 TableComponent.manifest = manifest;

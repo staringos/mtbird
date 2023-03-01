@@ -1,4 +1,9 @@
-import type { IEditorOptions, IComponentInstance, IEditorSettings, IUser } from '@mtbird/shared';
+import type {
+  IEditorOptions,
+  IComponentInstance,
+  IEditorSettings,
+  IUser,
+} from "@mtbird/shared";
 
 export type EditMode = IComponentInstance | { componentName: string };
 

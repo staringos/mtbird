@@ -1,27 +1,30 @@
-import type { IComponentManifest, IComponentInstanceForm } from '@mtbird/shared';
-import { COMPONENT } from '@mtbird/core';
+import type {
+  IComponentManifest,
+  IComponentInstanceForm,
+} from "@mtbird/shared";
+import { COMPONENT } from "@mtbird/core";
 
 const manifest: IComponentManifest<IComponentInstanceForm> = {
-  type: 'container',
-  componentName: 'ContainerRoot',
-  title: '根组件',
-  icon: 'mtbird-layout',
-  desc: '',
+  type: "container",
+  componentName: "ContainerRoot",
+  title: "根组件",
+  icon: "mtbird-layout",
+  desc: "",
   hideInToolbar: true,
   schema: [...COMPONENT.SCHEMA_CONTAINER_BASIC_STYLE],
-  category: 'basic',
+  category: "basic",
   instance: {
-    type: 'container',
-    componentName: 'ContainerRoot',
-    layout: 'flex',
+    type: "container",
+    componentName: "ContainerRoot",
+    layout: "flex",
     props: {
       style: {
-        position: 'relative',
-        height: 500
-      }
+        position: "relative",
+        height: 500,
+      },
     },
-    children: []
-  }
+    children: [],
+  },
 };
 
 export default manifest;

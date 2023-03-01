@@ -1,14 +1,14 @@
-import React, { useContext, useState } from 'react';
-import { Button, Tooltip } from 'antd';
-import styles from './style.module.less';
-import Model from '../../store/types';
-import PageSelect from '../PageSelect';
-import DebugButton from '../DebugButton';
-import HeaderBars from './HeaderBars';
-import PlatformSelect from '../PlatformSelect';
-import UserList from '../UserList';
-import ShareDropdown from '../ShareDropdown';
-import SaveBtn from './SaveBtn';
+import React, { useContext, useState } from "react";
+import { Button, Tooltip } from "antd";
+import styles from "./style.module.less";
+import Model from "../../store/types";
+import PageSelect from "../PageSelect";
+import DebugButton from "../DebugButton";
+import HeaderBars from "./HeaderBars";
+import PlatformSelect from "../PlatformSelect";
+import UserList from "../UserList";
+import ShareDropdown from "../ShareDropdown";
+import SaveBtn from "./SaveBtn";
 
 export default () => {
   const { actions, state } = useContext(Model);
@@ -32,21 +32,34 @@ export default () => {
     <div className={styles.headerContainer}>
       <div className={styles.headerLeft}>
         <Tooltip placement="right" title="返回">
-          <Button type="link" onClick={handleBack} className={styles.headerBackButton}>
+          <Button
+            type="link"
+            onClick={handleBack}
+            className={styles.headerBackButton}
+          >
             <i className="mtbird-icon mtbird-left"></i>
           </Button>
         </Tooltip>
         <div className={styles.splitLine} />
-        <Tooltip placement="bottom" title={`${state.tabsState['toolTabs'] ? '隐藏' : '显示'}组件面板`}>
+        <Tooltip
+          placement="bottom"
+          title={`${state.tabsState["toolTabs"] ? "隐藏" : "显示"}组件面板`}
+        >
           <Button
             className={styles.headerButton}
-            style={{ textAlign: 'center', padding: 0 }}
+            style={{ textAlign: "center", padding: 0 }}
             type="text"
-            onClick={() => actions.toggleTab('toolTabs')}
+            onClick={() => actions.toggleTab("toolTabs")}
           >
             <i
               className="mtbird-icon mtbird-border-right"
-              style={{ fontSize: '18px', margin: 0, color: state.tabsState['toolTabs'] ? 'var(--mtbird-primary-5)' : 'white' }}
+              style={{
+                fontSize: "18px",
+                margin: 0,
+                color: state.tabsState["toolTabs"]
+                  ? "var(--mtbird-primary-5)"
+                  : "white",
+              }}
             />
           </Button>
         </Tooltip>
@@ -64,22 +77,45 @@ export default () => {
         <DebugButton />
         <div className={styles.splitLine} />
         <Tooltip placement="bottom" title="上一步 (ctrl + z | cmd + z)">
-          <Button className={styles.headerButton} type="text" onClick={() => actions.prevStep()}>
+          <Button
+            className={styles.headerButton}
+            type="text"
+            onClick={() => actions.prevStep()}
+          >
             <i className="mtbird-icon mtbird-arrowleft" />
           </Button>
         </Tooltip>
-        <Tooltip placement="bottom" title="下一步 (ctrl + shift + z | cmd + shift + z)">
-          <Button className={styles.headerButton} type="text" onClick={() => actions.nextStep()}>
+        <Tooltip
+          placement="bottom"
+          title="下一步 (ctrl + shift + z | cmd + shift + z)"
+        >
+          <Button
+            className={styles.headerButton}
+            type="text"
+            onClick={() => actions.nextStep()}
+          >
             <i className="mtbird-icon mtbird-arrowright" />
           </Button>
         </Tooltip>
         <div className={styles.splitLine} />
         <SaveBtn />
-        <Button className={styles.headerButton} type="text" onClick={handlePreview} id="previewBtn">
+        <Button
+          className={styles.headerButton}
+          type="text"
+          onClick={handlePreview}
+          id="previewBtn"
+        >
           <i className="mtbird-icon mtbird-tablet" />
           预览
         </Button>
-        <Button className={styles.headerButton} type="text" onClick={handlePublish} loading={publishing} disabled={publishing} id="publishBtn">
+        <Button
+          className={styles.headerButton}
+          type="text"
+          onClick={handlePublish}
+          loading={publishing}
+          disabled={publishing}
+          id="publishBtn"
+        >
           <i className="mtbird-icon mtbird-up-square" />
           发布
         </Button>
@@ -90,9 +126,24 @@ export default () => {
           </Button>
         </ShareDropdown>
         <div className={styles.splitLine} />
-        <Tooltip placement="bottom" title={`${state.tabsState['schemaTabs'] ? '隐藏' : '显示'}样式面板`}>
-          <Button className={styles.headerButton} style={{ color: 'white' }} type="text" onClick={() => actions.toggleTab('schemaTabs')}>
-            <i className="mtbird-icon mtbird-control" style={{ color: state.tabsState['schemaTabs'] ? 'var(--mtbird-primary-5)' : 'white' }} />
+        <Tooltip
+          placement="bottom"
+          title={`${state.tabsState["schemaTabs"] ? "隐藏" : "显示"}样式面板`}
+        >
+          <Button
+            className={styles.headerButton}
+            style={{ color: "white" }}
+            type="text"
+            onClick={() => actions.toggleTab("schemaTabs")}
+          >
+            <i
+              className="mtbird-icon mtbird-control"
+              style={{
+                color: state.tabsState["schemaTabs"]
+                  ? "var(--mtbird-primary-5)"
+                  : "white",
+              }}
+            />
           </Button>
         </Tooltip>
       </div>

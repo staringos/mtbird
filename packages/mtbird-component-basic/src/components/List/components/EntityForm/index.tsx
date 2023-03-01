@@ -1,9 +1,15 @@
-import React, { useEffect } from 'react';
-import { Form, Input, Button, message, Select } from 'antd';
-import { IEntity, IEntityField, IComponentInstanceForm, IDataSource } from '@mtbird/shared';
-import { generateKeys, generateEntityValue, COMPONENT } from '@mtbird/core';
-import { Upload } from '@mtbird/ui';
-import styles from './style.module.less';
+import React, { useEffect } from "react";
+import { Form, Input, Button, message, Select, Space } from "antd";
+import {
+  IEntity,
+  IEntityField,
+  IComponentInstanceForm,
+  IDataSource,
+} from "@mtbird/shared";
+import { generateKeys, generateEntityValue, COMPONENT } from "@mtbird/core";
+import { Upload } from "@mtbird/ui";
+import styles from "./style.module.less";
+import FieldItem from "./FieldItem";
 
 interface IProps {
   entity: IEntity;
@@ -17,8 +23,18 @@ interface IProps {
   onUpload: any;
 }
 
-const EntityForm = ({ entity, node, editData, value, onChangeValue, onFinish, index, dataSource, onUpload }: IProps) => {
-  const { formConfig, data } = node;
+const EntityForm = ({
+  entity,
+  node,
+  editData,
+  value,
+  onChangeValue,
+  onFinish,
+  index,
+  dataSource,
+  onUpload,
+}: IProps) => {
+  const { data } = node;
   const { type, targetId } = data as any;
   const [form] = Form.useForm();
 
@@ -35,58 +51,47 @@ const EntityForm = ({ entity, node, editData, value, onChangeValue, onFinish, in
     if (!formData) return;
 
     // for model
-    if (type === 'model') {
-      if (editData) await dataSource.modifyData?.(targetId, editData.id as string, formData as Record<string, any>);
-      else await dataSource.createData?.(targetId, formData as Record<string, any>);
+    if (type === "model") {
+      if (editData)
+        await dataSource.modifyData?.(
+          targetId,
+          editData.id as string,
+          formData as Record<string, any>
+        );
+      else
+        await dataSource.createData?.(
+          targetId,
+          formData as Record<string, any>
+        );
       // for entity
     } else {
-      if (!editData) value[COMPONENT.ID_KEY] = generateKeys();
+      const curValue = value || [];
+      if (!editData) curValue[COMPONENT.ID_KEY] = generateKeys();
 
       onChangeValue(
         editData
-          ? value.map((cur: any, i: number) => {
+          ? curValue.map((cur: any, i: number) => {
+              // update by replace
               return i === index ? formData : cur;
             })
-          : [...value, formData]
+          : [...curValue, formData] // create by push
       );
     }
 
     form.resetFields();
-    message.success('操作成功!');
+    message.success("操作成功!");
     onFinish();
   };
 
-  const fieldChangeHandler = (keyPath: string) => {
-    return (value: string) => {
-      form.setFieldValue(keyPath, value);
-    };
-  };
-
   return (
-    <Form className={styles.entityFormContainer} onFinish={handleSubmit} form={form}>
+    <Form
+      className={styles.entityFormContainer}
+      onFinish={handleSubmit}
+      form={form}
+    >
       {entity.map((cur: IEntityField) => {
-        const label = <label style={{ width: 100, ...formConfig.labelStyle }}>{cur.title || ' '}</label>;
-        const rules = cur.isRequired ? [{ required: true, message: `${cur.title}是必填的` }] : [];
-        if (cur.type === 'ENUM') {
-          return (
-            <Form.Item label={label} name={cur.keyPath} rules={rules}>
-              <Select options={cur.options} />
-            </Form.Item>
-          );
-        }
-
-        if (cur.type === 'PHOTO' || cur.type === 'VIDEO') {
-          return (
-            <Form.Item label={label} name={cur.keyPath} rules={rules}>
-              <Upload maxCount={1} value={form.getFieldValue(cur.keyPath)} onChange={fieldChangeHandler(cur.keyPath)} onUpload={onUpload} />
-            </Form.Item>
-          );
-        }
-
         return (
-          <Form.Item label={label} name={cur.keyPath} rules={rules}>
-            <Input />
-          </Form.Item>
+          <FieldItem cur={cur} node={node} form={form} onUpload={onUpload} />
         );
       })}
       <Form.Item>

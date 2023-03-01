@@ -1,5 +1,5 @@
-import { IPipeProps } from '@mtbird/shared';
-import { generateFunction } from '@mtbird/core';
+import { IPipeProps } from "@mtbird/shared";
+import { generateFunction } from "@mtbird/core";
 
 /**
  * If parent.layout is flex, then positon: relative and flex: 1;
@@ -12,7 +12,7 @@ const PatternDisplayPipe = (props: IPipeProps) => {
 
   if (!dataSource || !dataSource.getValue) return { ...props, display };
 
-  const realValue = dataSource.getValue(formId || '0.');
+  const realValue = dataSource.getValue(formId || "0.");
 
   try {
     // display or not

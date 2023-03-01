@@ -1,27 +1,27 @@
 // here is code from arco-design and @arco-design/color, THX!
 // http://dwbbb.com/blog/ant-design-palettes/#comment-3679988230
 
-const Color = require('color');
+const Color = require("color");
 
-const formats = ['hex', 'rgb', 'hsl'];
+const formats = ["hex", "rgb", "hsl"];
 
 function getFormat(format) {
   if (!format || formats.indexOf(format) < 0) {
-    return 'hex';
+    return "hex";
   }
   return format;
 }
 
-const getColorString = function(color, format) {
+const getColorString = function (color, format) {
   const innerFormat = getFormat(format);
-  if (innerFormat === 'hex') {
+  if (innerFormat === "hex") {
     if (!color[innerFormat]) {
-      return `rgb(${color.values.rgb.join(',')})`
+      return `rgb(${color.values.rgb.join(",")})`;
     }
     return color[innerFormat]();
   }
   return color[innerFormat]().round().string();
-}
+};
 
 // 动态梯度算法
 function colorPalette(originColor, i, format) {
@@ -56,7 +56,8 @@ function colorPalette(originColor, i, format) {
     let newSaturation;
 
     if (isLight) {
-      newSaturation = s <= minSaturationStep ? s : s - ((s - minSaturationStep) / 5) * i;
+      newSaturation =
+        s <= minSaturationStep ? s : s - ((s - minSaturationStep) / 5) * i;
     } else {
       newSaturation = s + ((maxSaturationStep - s) / 4) * i;
     }
@@ -64,20 +65,25 @@ function colorPalette(originColor, i, format) {
   }
 
   function getNewValue(isLight, i) {
-    return isLight ? v + ((maxValue - v) / 5) * i : (v <= minValue ? v : v - ((v - minValue) / 4) * i);
+    return isLight
+      ? v + ((maxValue - v) / 5) * i
+      : v <= minValue
+      ? v
+      : v - ((v - minValue) / 4) * i;
   }
 
   const isLight = i < 6;
   const index = isLight ? 6 - i : i - 6;
 
-  const retColor = i === 6
-    ? color
-    : Color({
-        h: getNewHue(isLight, index),
-        s: getNewSaturation(isLight, index),
-        v: getNewValue(isLight, index),
-      });
-  
+  const retColor =
+    i === 6
+      ? color
+      : Color({
+          h: getNewHue(isLight, index),
+          s: getNewSaturation(isLight, index),
+          v: getNewValue(isLight, index),
+        });
+
   return getColorString(retColor, format);
 }
 
@@ -91,26 +97,28 @@ function colorPaletteDark(color, index, format) {}
  * @param {boolean} options.dark
  * @param {boolean} options.list
  * @param {string} options.format 'hex' | 'rgb' | 'hsl'
- * 
+ *
  * @return string | string[]
  */
 function generate(color, options = {}) {
-  const { dark, list, index = 6, format = 'hex' } = options;
+  const { dark, list, index = 6, format = "hex" } = options;
 
   if (list) {
     const list = [];
     const func = dark ? colorPaletteDark : colorPalette;
-    for(let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 10; i++) {
       list.push(func(color, i, format));
     }
     return list;
   }
-  return dark ? colorPaletteDark(color, index, format) : colorPalette(color, index, format);
+  return dark
+    ? colorPaletteDark(color, index, format)
+    : colorPalette(color, index, format);
 }
 
 module.exports = {
   install(_, __, functions) {
-    functions.add('color-palette', (color, index) => {
+    functions.add("color-palette", (color, index) => {
       const res = generate(color.value, { index: index.value });
       return res;
     });

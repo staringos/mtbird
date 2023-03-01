@@ -1,4 +1,4 @@
-import get from 'lodash/get';
+import get from "lodash/get";
 
 /**
  * Load js assets file by create new <script /> tag
@@ -8,16 +8,21 @@ import get from 'lodash/get';
  * @param addDate add t=new Date().getTime() to load file every time from server?
  * @returns
  */
-const js = (url: string, keyPath: string, useCache: boolean = true, addDate: boolean = true) => {
+const js = (
+  url: string,
+  keyPath: string,
+  useCache: boolean = true,
+  addDate: boolean = true
+) => {
   if (useCache) {
     const component = get(window, keyPath);
     if (component) return component;
   }
 
-  const finalUrl = addDate ? url + '?t=' + new Date().getTime() : url;
-  const script = document.createElement('script');
+  const finalUrl = addDate ? url + "?t=" + new Date().getTime() : url;
+  const script = document.createElement("script");
 
-  script.id = url.split('?')[0];
+  script.id = url.split("?")[0];
   script.src = finalUrl;
 
   return new Promise((res, rej) => {
@@ -37,22 +42,26 @@ const js = (url: string, keyPath: string, useCache: boolean = true, addDate: boo
   });
 };
 
-const css = (url: string, useCache: boolean = true, addDate: boolean = false) => {
+const css = (
+  url: string,
+  useCache: boolean = true,
+  addDate: boolean = false
+) => {
   if (useCache) {
     const loaded = document.getElementById(url);
     if (loaded) return;
   }
 
-  const finalUrl = addDate ? url + '?t=' + new Date().getTime() : url;
-  const link = document.createElement('link');
+  const finalUrl = addDate ? url + "?t=" + new Date().getTime() : url;
+  const link = document.createElement("link");
 
-  link.setAttribute('id', url);
-  link.setAttribute('rel', 'stylesheet');
-  link.setAttribute('type', 'text/css');
-  link.setAttribute('href', finalUrl);
-  link.setAttribute('crossorigin', 'anonymous');
+  link.setAttribute("id", url);
+  link.setAttribute("rel", "stylesheet");
+  link.setAttribute("type", "text/css");
+  link.setAttribute("href", finalUrl);
+  link.setAttribute("crossorigin", "anonymous");
 
-  const heads = document.getElementsByTagName('head');
+  const heads = document.getElementsByTagName("head");
 
   if (heads.length) heads[0].appendChild(link);
   else document.documentElement.appendChild(link);
@@ -60,5 +69,5 @@ const css = (url: string, useCache: boolean = true, addDate: boolean = false) =>
 
 export default {
   js,
-  css
+  css,
 };

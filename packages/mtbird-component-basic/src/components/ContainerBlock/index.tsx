@@ -1,11 +1,20 @@
-import React from 'react';
-import styles from './style.module.less';
-import manifest from './manifest';
-import { IComponentProps } from '@mtbird/shared';
+import React from "react";
+import styles from "./style.module.less";
+import manifest from "./manifest";
+import { IComponentProps } from "@mtbird/shared";
 
-const ContainerBlock = ({ children, node, className, style }: IComponentProps) => {
+const ContainerBlock = ({
+  children,
+  node,
+  className,
+  style,
+}: IComponentProps) => {
   return (
-    <div {...node.props} className={`${styles.containerBlock} ${className} ${node.props.className}`} style={style}>
+    <div
+      {...node.props}
+      className={`${styles.containerBlock} ${className} ${node.props.className}`}
+      style={style}
+    >
       {children}
     </div>
   );
