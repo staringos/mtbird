@@ -1,6 +1,6 @@
 {
   "name": "mtbird-extension-component-mobile",
-  "version": "0.0.3-beta.43",
+  "version": "0.0.3-beta.44",
   "private": true,
   "description": "星搭星搭移动端组件库",
   "homepage": "",
@@ -21,10 +21,9 @@
     "publish-lib": "NODE_ENV=production mtbird publish --token="
   },
   "dependencies": {
-    "antd-mobile": "^5.25.1",
-    "@mtbird/core": "^0.0.3-beta.43"
+    "@mtbird/core": "^0.0.3-beta.44",
+    "antd-mobile": "^5.25.1"
   },
-  "devDependencies": {},
   "peerDependencies": {
     "@mtbird/cli": "^0.0.3-beta.15",
     "@mtbird/shared": "^0.0.3-beta.15",

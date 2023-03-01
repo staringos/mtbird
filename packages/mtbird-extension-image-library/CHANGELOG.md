@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.44](https://github.com/staringos/mtbird/compare/v0.0.3-beta.43...v0.0.3-beta.44) (2023-03-01)
+
+
+### Features
+
+* lint with prettier ([6072b3b](https://github.com/staringos/mtbird/commit/6072b3bb1845ac737c68c610009e37340649b7ee))
+
+
+
+
+
 ## [0.0.3-beta.43](https://github.com/staringos/mtbird/compare/v0.0.3-beta.42...v0.0.3-beta.43) (2023-01-25)
 
 **Note:** Version bump only for package @mtbird/extension-image-library

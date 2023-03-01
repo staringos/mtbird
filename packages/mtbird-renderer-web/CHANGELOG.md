@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.44](https://github.com/staringos/mtbird/compare/v0.0.3-beta.43...v0.0.3-beta.44) (2023-03-01)
+
+
+### Features
+
+* adjust pc to no zoom ([c10de30](https://github.com/staringos/mtbird/commit/c10de30155e632b778a036986406ae76fb3a060e))
+* lint with prettier ([6072b3b](https://github.com/staringos/mtbird/commit/6072b3bb1845ac737c68c610009e37340649b7ee))
+* slot light ([33ceeb0](https://github.com/staringos/mtbird/commit/33ceeb015641b050a9919457f623851d4bde1d2e))
+* **slot:** support slot part 1: add component ([be504c7](https://github.com/staringos/mtbird/commit/be504c741263946ebff7f25ceca9be344847e169))
+
+
+
+
+
 ## [0.0.3-beta.43](https://github.com/staringos/mtbird/compare/v0.0.3-beta.42...v0.0.3-beta.43) (2023-01-25)
 
 **Note:** Version bump only for package @mtbird/renderer-web

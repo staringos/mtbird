@@ -1,6 +1,8 @@
 {
-  "packages": ["packages/*"],
-  "version": "0.0.3-beta.43",
+  "packages": [
+    "packages/*"
+  ],
+  "version": "0.0.3-beta.44",
   "publish": {
     "graphType": "all"
   },

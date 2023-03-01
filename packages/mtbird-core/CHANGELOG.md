@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.44](https://github.com/staringos/mtbird/compare/v0.0.3-beta.43...v0.0.3-beta.44) (2023-03-01)
+
+
+### Features
+
+* add modelData hook ([f419d21](https://github.com/staringos/mtbird/commit/f419d213b01ec31b040dfce65dd232b0fa826bf8))
+* add slot generator ([f564902](https://github.com/staringos/mtbird/commit/f5649023ce099e9423a1f1848840774597b9f23a))
+* click to toggle tab and set button tabs default hidden ([1d3a095](https://github.com/staringos/mtbird/commit/1d3a095c30835c47b5aabadea9ce123cd6cf4beb))
+* lint with prettier ([6072b3b](https://github.com/staringos/mtbird/commit/6072b3bb1845ac737c68c610009e37340649b7ee))
+* slot light ([33ceeb0](https://github.com/staringos/mtbird/commit/33ceeb015641b050a9919457f623851d4bde1d2e))
+* slot support ([596884b](https://github.com/staringos/mtbird/commit/596884bf9bb962666693176052eb6b95dcbbc2fd))
+* **slot:** support slot part 1: add component ([be504c7](https://github.com/staringos/mtbird/commit/be504c741263946ebff7f25ceca9be344847e169))
+* website components and compoent libs ([81a84b3](https://github.com/staringos/mtbird/commit/81a84b34451b90bda5491837b62c5a5eb1f519a4))
+
+
+
+
+
 ## [0.0.3-beta.43](https://github.com/staringos/mtbird/compare/v0.0.3-beta.42...v0.0.3-beta.43) (2023-01-25)
 
 ### Features

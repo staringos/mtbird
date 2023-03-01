@@ -1,6 +1,6 @@
 {
   "name": "@mtbird/editor",
-  "version": "0.0.3-beta.43",
+  "version": "0.0.3-beta.44",
   "description": "The editor of mtbird",
   "author": "zousongqi <george@staringos.com>",
   "homepage": "",
@@ -41,13 +41,13 @@
     "react-selecto": "^1.16.2"
   },
   "peerDependencies": {
-    "@mtbird/ui": "^0.0.3-beta.43",
     "@mtbird/component-basic": "^0.0.3-beta.43",
     "@mtbird/core": "^0.0.3-beta.43",
     "@mtbird/helper-component": "^0.0.3-beta.43",
     "@mtbird/helper-extension": "^0.0.3-beta.43",
     "@mtbird/renderer-web": "^0.0.3-beta.43",
     "@mtbird/shared": "^0.0.3-beta.43",
+    "@mtbird/ui": "^0.0.3-beta.43",
     "antd": "^5.1.4",
     "lodash": "^4.17.21",
     "react": "18.1.0",

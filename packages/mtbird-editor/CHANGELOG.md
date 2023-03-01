@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.44](https://github.com/staringos/mtbird/compare/v0.0.3-beta.43...v0.0.3-beta.44) (2023-03-01)
+
+
+### Bug Fixes
+
+* text problem ([a83126c](https://github.com/staringos/mtbird/commit/a83126c8e94f0387819d738a7192f397ea2cea0f))
+* typo ([9db9772](https://github.com/staringos/mtbird/commit/9db97720f821851515f259739bed848438a71c01))
+
+
+### Features
+
+* add extension for website and change ruler color ([f849e9b](https://github.com/staringos/mtbird/commit/f849e9b37e6e32b4b1ce744c6eb27b85d1dbf128))
+* adjust pc to no zoom ([c10de30](https://github.com/staringos/mtbird/commit/c10de30155e632b778a036986406ae76fb3a060e))
+* click to toggle tab and set button tabs default hidden ([1d3a095](https://github.com/staringos/mtbird/commit/1d3a095c30835c47b5aabadea9ce123cd6cf4beb))
+* lint with prettier ([6072b3b](https://github.com/staringos/mtbird/commit/6072b3bb1845ac737c68c610009e37340649b7ee))
+* list modify support DATA_ARRAY ([07ca665](https://github.com/staringos/mtbird/commit/07ca665eaf0a0908448a99392d2ee7b18ad03b5c))
+* slot light ([33ceeb0](https://github.com/staringos/mtbird/commit/33ceeb015641b050a9919457f623851d4bde1d2e))
+* slot support ([596884b](https://github.com/staringos/mtbird/commit/596884bf9bb962666693176052eb6b95dcbbc2fd))
+* **slot:** support slot part 1: add component ([be504c7](https://github.com/staringos/mtbird/commit/be504c741263946ebff7f25ceca9be344847e169))
+* website components and compoent libs ([81a84b3](https://github.com/staringos/mtbird/commit/81a84b34451b90bda5491837b62c5a5eb1f519a4))
+
+
+
+
+
 ## [0.0.3-beta.43](https://github.com/staringos/mtbird/compare/v0.0.3-beta.42...v0.0.3-beta.43) (2023-01-25)
 
 ### Features

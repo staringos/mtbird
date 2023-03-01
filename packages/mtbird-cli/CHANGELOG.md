@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.44](https://github.com/staringos/mtbird/compare/v0.0.3-beta.43...v0.0.3-beta.44) (2023-03-01)
+
+
+### Features
+
+* add version and help to cli ([357ebbf](https://github.com/staringos/mtbird/commit/357ebbf33e2d032c3899eef4ed7ff0379efb332e))
+* lint with prettier ([6072b3b](https://github.com/staringos/mtbird/commit/6072b3bb1845ac737c68c610009e37340649b7ee))
+* remove website component to outside ([17ada5e](https://github.com/staringos/mtbird/commit/17ada5ef1a2cdca15a00ed8f236518f30ac899f1))
+* **slot:** support slot part 1: add component ([be504c7](https://github.com/staringos/mtbird/commit/be504c741263946ebff7f25ceca9be344847e169))
+
+
+
+
+
 ## [0.0.3-beta.43](https://github.com/staringos/mtbird/compare/v0.0.3-beta.42...v0.0.3-beta.43) (2023-01-25)
 
 **Note:** Version bump only for package @mtbird/cli
