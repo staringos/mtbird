@@ -9,6 +9,7 @@ import {
 import { generateKeys, generateEntityValue, COMPONENT } from "@mtbird/core";
 import { Upload } from "@mtbird/ui";
 import styles from "./style.module.less";
+import FieldItem from "./FieldItem";
 
 interface IProps {
   entity: IEntity;
@@ -33,7 +34,7 @@ const EntityForm = ({
   dataSource,
   onUpload,
 }: IProps) => {
-  const { formConfig, data } = node;
+  const { data } = node;
   const { type, targetId } = data as any;
   const [form] = Form.useForm();
 
@@ -82,12 +83,6 @@ const EntityForm = ({
     onFinish();
   };
 
-  const fieldChangeHandler = (keyPath: string) => {
-    return (value: any) => {
-      form.setFieldValue(keyPath, value);
-    };
-  };
-
   return (
     <Form
       className={styles.entityFormContainer}
@@ -95,47 +90,8 @@ const EntityForm = ({
       form={form}
     >
       {entity.map((cur: IEntityField) => {
-        const label = (
-          <label style={{ width: 100, ...formConfig.labelStyle }}>
-            {cur.title || " "}
-          </label>
-        );
-        const rules = cur.isRequired
-          ? [{ required: true, message: `${cur.title}是必填的` }]
-          : [];
-        if (cur.type === "ENUM") {
-          return (
-            <Form.Item label={label} name={cur.keyPath} rules={rules}>
-              <Select options={cur.options} />
-            </Form.Item>
-          );
-        }
-
-        if (cur.type === "PHOTO" || cur.type === "VIDEO") {
-          return (
-            <Form.Item label={label} name={cur.keyPath} rules={rules}>
-              <Space direction="vertical">
-                <Input
-                  value={form.getFieldValue(cur.keyPath)}
-                  onChange={(e) =>
-                    fieldChangeHandler(cur.keyPath)(e.target.value)
-                  }
-                />
-                <Upload
-                  maxCount={1}
-                  value={form.getFieldValue(cur.keyPath)}
-                  onChange={fieldChangeHandler(cur.keyPath)}
-                  onUpload={onUpload}
-                />
-              </Space>
-            </Form.Item>
-          );
-        }
-
         return (
-          <Form.Item label={label} name={cur.keyPath} rules={rules}>
-            <Input />
-          </Form.Item>
+          <FieldItem cur={cur} node={node} form={form} onUpload={onUpload} />
         );
       })}
       <Form.Item>

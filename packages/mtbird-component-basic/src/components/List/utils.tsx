@@ -32,6 +32,16 @@ export const generateColumns = async (
     default:
       columns = [
         ...entity.map((cur: IEntityField) => {
+          if (cur.type === "DATA_ARRAY") {
+            return {
+              title: cur.title,
+              dataIndex: cur.keyPath,
+              render: (data: any[]) => {
+                if (!data) return data;
+                return JSON.stringify(data);
+              },
+            };
+          }
           return {
             title: cur.title,
             dataIndex: cur.keyPath,

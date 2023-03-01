@@ -417,20 +417,24 @@ function usePageModal(options: IEditorOptions): IContext {
         setCurrentComponent([tmpPageConfig.data]);
       },
       publishPage: async () => {
-        if (hasEdit) {
-          return message.warning("正在保存中，请稍后发布!");
-        }
+        if (hasEdit) return message.warning("正在保存中，请稍后发布!");
         const dom: any = document.getElementById(
           tmpPageConfig.data.id
         )?.parentNode;
 
         let dataUrl = undefined;
         let avatarUrl = undefined;
-        if (dom) {
-          // for compress, jpeg only
-          dataUrl = await toPng(dom, { quality: 0.8 });
-          avatarUrl = await options.onUpload([dataURItoBlob(dataUrl)]);
-          avatarUrl = avatarUrl[0];
+        // image is not required
+        try {
+          if (dom) {
+            // for compress, jpeg only
+            dataUrl = await toPng(dom, { quality: 0.8 });
+            avatarUrl = await options.onUpload([dataURItoBlob(dataUrl)]);
+            avatarUrl = avatarUrl[0];
+          }
+        } catch (e) {
+          // image generation problem don't block publish
+          console.log("publish e:", e);
         }
 
         options.onPublish && (await options.onPublish(avatarUrl as string));

@@ -22,7 +22,10 @@ export type DataType =
   | "FILE"
   | "PHOTO"
   | "VIDEO"
-  | "RELATE";
+  | "RELATE"
+  | "STRING_ARRAY"
+  | "NUMBER_ARRAY"
+  | "DATA_ARRAY";
 
 /**
  * 数据模型字段

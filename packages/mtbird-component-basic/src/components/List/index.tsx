@@ -192,8 +192,6 @@ const ListComponent = ({
 
   if (needConfig) return <div>请配置数据源</div>;
 
-  console.log("lllllll columns:", columns);
-
   return (
     <div className={styles.listWrapper}>
       <Space style={{ marginBottom: 16 }}>
