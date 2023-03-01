@@ -159,10 +159,11 @@ export interface IComponentInstance {
   editing?: {
     showMask?: boolean;
   };
+  manifest?: IComponentManifest<IComponentInstanceCommon>;
 }
 
 export interface IComponentProps {
-  value: string | number | boolean | any;
+  value?: string | number | boolean | any;
   formId?: string | undefined;
   node: IComponentInstanceCommon;
   children?: string | React.ReactNode;

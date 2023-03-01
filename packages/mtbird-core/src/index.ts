@@ -7,6 +7,7 @@ export * from "./events";
 export { default as Events } from "./events";
 export { default as SchemaGenerator } from "./generator/SchemaGenerator";
 export { default as SlotGenerator } from "./generator/SlotGenerator";
+export { default as ManifestGenerator } from "./generator/ManifestGenerator";
 export { default as AssetsLoader } from "./loader/AssetsLoader";
 export { default as ExtensionComponentLoader } from "./loader/ExtensionComponentLoader";
 export {

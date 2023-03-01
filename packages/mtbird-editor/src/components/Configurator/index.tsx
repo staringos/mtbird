@@ -18,9 +18,7 @@ export default () => {
     currentComponent,
     schemaDataSource,
     extensionComponents,
-    pageConfig,
     extensionContributes,
-    options,
   } = state;
   const schemaTabs = extensionContributes.get(
     EXTENSION_CONTRIBUTE_TYPE.SCHEMA.TABS
@@ -38,7 +36,7 @@ export default () => {
   const firstCurrentComponent = currentComponent?.[0];
   const schemaConfig = generateSchemaForm(
     extensionComponents as any,
-    firstCurrentComponent?.componentName
+    firstCurrentComponent
   );
 
   const styleTab = {

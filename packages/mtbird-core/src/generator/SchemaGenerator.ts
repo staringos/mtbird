@@ -246,7 +246,7 @@ export default {
     return res;
   },
 
-  form: (props: Record<string, any>) => {
+  form: (props: Record<string, any> = {}): IComponentInstanceForm => {
     return {
       type: "form",
       componentName: "Form",

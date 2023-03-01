@@ -1,5 +1,9 @@
 import React, { useContext, useRef, useState } from "react";
-import type { IComponentInstanceForm, IPageConfig } from "@mtbird/shared";
+import type {
+  IComponentInstanceCommon,
+  IComponentProps,
+  IPageConfig,
+} from "@mtbird/shared";
 import { LAYOUT_TYPE, generateFunction, RenderContext } from "@mtbird/core";
 import isArray from "lodash/isArray";
 import isString from "lodash/isString";
@@ -13,12 +17,13 @@ import cloneDeep from "lodash/cloneDeep";
 interface IProps {
   className: string;
   pageConfig: IPageConfig;
-  parent?: IComponentInstance;
+  parent?: IComponentInstanceCommon;
   formId?: string | undefined;
   platform: "pc" | "mobile";
-  node: IComponentInstance | IComponentInstanceForm;
+  node: IComponentInstanceCommon;
   zIndex: number;
   variables: Record<string, any>;
+  children?: (props: IComponentProps) => React.ReactNode;
 }
 
 const Render = ({
@@ -28,6 +33,7 @@ const Render = ({
   formId,
   parent,
   variables,
+  children,
 }: IProps & IPageConfig) => {
   // 1. no need to render, return empty or directly
   if (!node) return <div />;
@@ -45,7 +51,9 @@ const Render = ({
     onChangeSelf,
   } = context;
 
-  const Component = node.extension
+  const Component = children
+    ? children
+    : node.extension
     ? Components[node.extension.extensionName]?.[node.extension.componentName]
     : Components[node.componentName];
   const componentRef = useRef(null);
@@ -143,7 +151,7 @@ const Render = ({
       );
     }
     // dataSource.modify(instanceFormId + '.' + (keyPath || node.formConfig?.keyPath || node.formConfig?.label || node.id), value);
-    dataSource.modify(keyPathHere, value);
+    dataSource?.modify?.(keyPathHere, value);
   };
 
   const handleMaskDBClick = () => {
@@ -165,24 +173,26 @@ const Render = ({
     onClick && onClick(node, e);
   };
 
+  const cmptProps = {
+    ...node.props,
+    className: `render-component ${className} ${node.props.className}`,
+    node,
+    style: restStyle,
+    dataSource,
+    onUpload,
+    isEdit,
+    formId: instanceFormId,
+    onSelectComponent: handleClick as () => void,
+    onChangeValue: handleValueChange,
+    onChangeSelf: onChangeSelf,
+    parent,
+    variables,
+    childrenRender,
+  };
+
   // 8. init component with its children and extra
   const component = (
-    <Component
-      {...node.props}
-      className={`render-component ${className} ${node.props.className}`}
-      node={node}
-      style={restStyle}
-      dataSource={dataSource}
-      onUpload={onUpload}
-      isEdit={isEdit}
-      formId={instanceFormId}
-      onSelectComponent={handleClick}
-      onChangeValue={handleValueChange}
-      onChangeSelf={onChangeSelf}
-      parent={parent}
-      variables={variables}
-      childrenRender={childrenRender}
-    >
+    <Component {...cmptProps}>
       {childrenRender()}
       {extra}
     </Component>

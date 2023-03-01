@@ -1,5 +1,6 @@
-import { IEvent } from "@mtbird/shared/dist/types";
+import { IComponentCommon, IEvent } from "@mtbird/shared/dist/types";
 import { mergeKeypath } from "../utils";
+import ManifestGenerator from "./ManifestGenerator";
 
 export default {
   button: (children?: string, click?: IEvent, style?: any) => {
@@ -23,6 +24,30 @@ export default {
       },
       children: children || "按钮",
     };
+  },
+
+  light: (
+    className?: string,
+    additionSchemas: IComponentCommon[] = [],
+    data: Record<string, any> = {}
+  ) => {
+    let res = {
+      type: "component",
+      componentName: "",
+      props: {
+        className,
+        style: {
+          width: "unset",
+          height: "unset",
+        },
+      },
+      data: {},
+      children: [],
+      manifest: ManifestGenerator.light("", additionSchemas),
+    } as any;
+
+    if (data) res = mergeKeypath(res, data);
+    return res;
   },
 
   text: (

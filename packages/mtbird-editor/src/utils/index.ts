@@ -118,18 +118,20 @@ export const computeBlockOverstep = (component: IComponentInstance) => {
 
 export const generateSchemaForm = (
   extensionComponents: Map<string, IComponentCommon>,
-  currentComponentName: string
+  currentComponent: IComponentInstance
 ) => {
   const obj = Object.fromEntries(extensionComponents);
   const manifests = { ...getManifests(), ...obj };
   let currentSchema =
-    manifests[currentComponentName || "ContainerRoot"]?.schema;
+    manifests[currentComponent.componentName]?.schema ||
+    currentComponent.manifest?.schema;
   const schemaConfig = SchemaGenerator.form();
 
+  // ContainerRoot is default schema
   if (!currentSchema) {
-    console.warn(
-      `[mtbird warn] cannot find component (${currentComponentName}) schema, extension not install?`
-    );
+    // console.warn(
+    //   `[mtbird warn] cannot find component (${currentComponent.componentName}) schema, extension not install?`
+    // );
     currentSchema = manifests["ContainerRoot"]?.schema;
   }
 
@@ -146,12 +148,12 @@ export const generateSchemaForm = (
  * IComponentInstance list to Map<id, component>
  */
 export const componentArrayToMap = (
-  array: IComponentInstance
+  array: IComponentInstance[]
 ): Map<string, IComponentInstance> => {
   const res = new Map<string, IComponentInstance>();
 
   array.forEach((cur: IComponentInstance) => {
-    res.set(cur.id, cur);
+    res.set(cur.id as string, cur);
   });
   return res;
 };

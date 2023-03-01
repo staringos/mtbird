@@ -9,3 +9,4 @@ export { default as EditableText } from "./components/EditableText";
 export { default as ToolBox } from "./components/ToolBox";
 export { default as ToolBoxList } from "./components/ToolBoxList";
 export { default as Slot } from "./components/Slot";
+export { default as SlotLight } from "./components/SlotLight";
