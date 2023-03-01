@@ -20,6 +20,8 @@ export const uploadFileToRegistry = (distPath, token, manifest) => {
         Authorization: "Bearer " + token,
         ...formData.getHeaders(),
       },
+      'maxContentLength': Infinity,
+      'maxBodyLength': Infinity
     }
   );
 };

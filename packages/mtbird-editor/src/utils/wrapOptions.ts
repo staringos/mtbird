@@ -36,7 +36,7 @@ const wrapOptions = (userOptions: IEditorOptions): IEditorOptions => {
   if (!pageList) pageList = [pageConfig];
 
   // add debug extension
-  if (debug) {
+  if (debug && debug.trim().length > 0) {
     const debugs = debug.split("||");
     debugs.map((curDebug: string) => {
       const name = getParamFromURL(curDebug, "name");

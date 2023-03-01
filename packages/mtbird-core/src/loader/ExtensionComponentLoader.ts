@@ -12,12 +12,15 @@ import { GLOBAL_EXTENSION_COMPONENTS_KEY } from "../constants";
 const REGISTRY = process.env.REGISTRY || "https://registry.staringos.com/";
 
 const getRegistry = (extension: any) => {
-  const debug = GlobalStorage.debugExtension.split("||");
-  if (!isEmpty(debug) && debug) {
-    for (let i = 0; i < debug.length; i++) {
-      const name = getParamFromURL(debug[i] as string, "name");
-      if (name === extension.extensionName) {
-        return `${debug[i]?.split("?")[0]}`;
+  const debugStr = GlobalStorage.debugExtension;
+  if (!isEmpty(debugStr) && debugStr) {
+    const debug = debugStr.split("||");
+    if (debug.length !== 0) {
+      for (let i = 0; i < debug.length; i++) {
+        const name = getParamFromURL(debug[i] as string, "name");
+        if (name === extension.extensionName) {
+          return `${debug[i]?.split("?")[0]}`;
+        }
       }
     }
   }
@@ -61,6 +64,7 @@ const load = async (pageConfig: IPageConfig) => {
   await Promise.all(
     extensions.map(async (cur: any) => {
       const { extension } = cur;
+      console.log("extension:", extension);
       const registry = getRegistry(extension);
       const url = `${registry}/components.js`;
       const cssUrl = `${registry}/components.css`;
