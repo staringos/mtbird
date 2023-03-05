@@ -64,6 +64,8 @@ export interface IExtensionContext {
   eventHub: IEventEmitter;
   EVENT_KEYS: Record<string, Symbol>;
 
+  onUpload: (images: []) => Promise<string[]>;
+
   /**
    * 编辑器所有已注册的组件
    */

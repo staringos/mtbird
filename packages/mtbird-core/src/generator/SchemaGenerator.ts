@@ -660,7 +660,7 @@ export default {
   image: (
     src: string,
     style: Record<string, any>,
-    data: Record<string, any>
+    data?: Record<string, any>
   ) => {
     let res = {
       type: "component",
