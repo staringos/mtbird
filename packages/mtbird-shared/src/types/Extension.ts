@@ -4,6 +4,7 @@ import {
   IComponentInstanceForm,
   IComponentManifest,
 } from "./Component";
+import { IUser } from "./Editor";
 import { IPageConfig } from "./Page";
 
 export type ContributesTypes = "toolbars" | "headers" | "schemas";
@@ -59,11 +60,17 @@ export interface IExtensionContext {
   variables: Record<string, any>;
   currentDataContainer?: IComponentInstance;
   componentLibs: IComponentLibs;
+  onlineUserList: IUser[];
 
   // event emit and subscription hub
   eventHub: IEventEmitter;
   EVENT_KEYS: Record<string, Symbol>;
 
+  /**
+   * 上传图片
+   * @param images
+   * @returns
+   */
   onUpload: (images: []) => Promise<string[]>;
 
   /**
