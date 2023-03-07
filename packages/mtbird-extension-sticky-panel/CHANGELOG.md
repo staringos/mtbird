@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.46](https://github.com/staringos/mtbird/compare/v0.0.3-beta.45...v0.0.3-beta.46) (2023-03-06)
+
+**Note:** Version bump only for package @mtbird/extension-sticky-panel
+
+
+
+
+
 ## [0.0.3-beta.45](https://github.com/staringos/mtbird/compare/v0.0.3-beta.44...v0.0.3-beta.45) (2023-03-01)
 
 **Note:** Version bump only for package @mtbird/extension-sticky-panel

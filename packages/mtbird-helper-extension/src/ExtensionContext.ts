@@ -61,6 +61,14 @@ export default class ExtensionContext implements IExtensionContext {
     return this.store?.state.componentLibs;
   }
 
+  get onUpload() {
+    return this.store?.actions.onUpload;
+  }
+
+  get onlineUserList() {
+    return this.store?.state.onlineUserList;
+  }
+
   extensionName = "";
 
   private store: IContext | null = null;
