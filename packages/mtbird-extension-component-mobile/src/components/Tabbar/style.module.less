@@ -1,6 +1,9 @@
 .tabbarWrapper {
   display: flex;
   height: 50px;
+  margin-bottom: constant(safe-area-inset-bottom); /* 兼容 iOS < 11.2 */
+  margin-bottom: env(safe-area-inset-bottom); /* 兼容 iOS >= 11.2 */
+  background-color: red;
 
   .tabbarItem {
     flex: 1;

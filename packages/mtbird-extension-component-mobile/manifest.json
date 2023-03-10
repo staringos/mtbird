@@ -1,11 +1,17 @@
 {
   "name": "mtbird-extension-component-mobile",
   "title": "移动端组件库",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "desc": "星搭精卫移动端组件库",
   "tags": ["拓展案例"],
   "components": true,
   "contributes": {
     "toolbars": []
-  }
+  },
+  "componentLibs": [
+    {
+      "title": "移动端组件库",
+      "key": "mobile"
+    }
+  ]
 }
