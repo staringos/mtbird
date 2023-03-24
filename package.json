@@ -21,7 +21,7 @@
     "update-version": "lerna version prerelease --force-publish --conventional-commits",
     "build": "lerna run build",
     "publish": "lerna publish from-package --yes --registry https://registry.npmjs.org/",
-    "link": "yarn link @mtbird/renderer-web & yarn link @mtbird/shared & yarn link @mtbird/ui",
+    "link": "yanr link @mtbird/component-basic & yarn link @mtbird/renderer-web & yarn link @mtbird/shared & yarn link @mtbird/ui",
     "lint": "yarn prettier --write ."
   },
   "devDependencies": {
@@ -83,6 +83,7 @@
     "yargs": "^17.4.1"
   },
   "dependencies": {
+    "@mtbird/component-basic": "^0.0.3-beta.46",
     "@mtbird/core": "^0.0.3-beta.43",
     "@mtbird/ui": "^0.0.3-beta.43",
     "react": "^18.1.0",
