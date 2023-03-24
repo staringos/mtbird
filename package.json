@@ -21,7 +21,7 @@
     "update-version": "lerna version prerelease --force-publish --conventional-commits",
     "build": "lerna run build",
     "publish": "lerna publish from-package --yes --registry https://registry.npmjs.org/",
-    "link": "yanr link @mtbird/component-basic & yarn link @mtbird/renderer-web & yarn link @mtbird/shared & yarn link @mtbird/ui",
+    "link": "yarn link @mtbird/component-basic & yarn link @mtbird/helper-component& yarn link @mtbird/renderer-web & yarn link @mtbird/shared & yarn link @mtbird/ui",
     "lint": "yarn prettier --write ."
   },
   "devDependencies": {
