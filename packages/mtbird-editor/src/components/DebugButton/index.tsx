@@ -18,6 +18,7 @@ const DebugPanel = () => {
       content: "确认开始调试吗？（页面需刷新，请保存修改！）",
       okText: "确定",
       cancelText: "取消",
+      zIndex: 1040,
       onOk() {
         GlobalStorage.debugExtension = debug;
         location.reload();
@@ -31,6 +32,7 @@ const DebugPanel = () => {
       content: "确认停止调试吗？（页面需刷新，请保存修改！）",
       okText: "确定",
       cancelText: "取消",
+      zIndex: 1040,
       onOk() {
         GlobalStorage.debugExtension = null;
         location.reload();
