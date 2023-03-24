@@ -3,10 +3,11 @@
   "version": "0.0.3-beta.46",
   "private": true,
   "scripts": {
-    "link": "yarn link @mtbird/ui & yarn link @mtbird/core & yarn link @mtbird/shared & yarn link @mtbird/component-basic & yarn link @mtbird/renderer-web & yarn link @mtbird/editor & yarn link @mtbird/helper-component & yarn link @mtbird/helper-extension",
-    "start": "next dev",
+    "link-pkg": "yarn link @mtbird/ui & yarn link @mtbird/core & yarn link @mtbird/shared & yarn link @mtbird/component-basic & yarn link @mtbird/renderer-web & yarn link @mtbird/editor & yarn link @mtbird/helper-component & yarn link @mtbird/helper-extension",
+    "start": "yarn clean && next dev",
     "build": "next build",
     "start-product": "next start",
+    "clean": "rimraf .next",
     "lint": "next lint"
   },
   "dependencies": {

@@ -34,7 +34,7 @@ Require NodeJS version: >=14.18.0
 ```shell
 git clone https://github.com/staringos/mtbird
 yarn
-yarn run bootstrap
+yarn bootstrap
 yarn start
 ```
 

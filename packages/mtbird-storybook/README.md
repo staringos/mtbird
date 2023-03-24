@@ -3,5 +3,5 @@
 ```shell
 yarn global add sb
 yarn
-yarn run start
+yarn start
 ```

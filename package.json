@@ -16,12 +16,11 @@
   ],
   "scripts": {
     "start": "lerna run start --scope=@mtbird/example --stream",
-    "bootstrap": "lerna exec yarn",
-    "link-dev": "lerna exec yarn link",
+    "bootstrap": "lerna exec yarn && yarn build && lerna exec yarn link && yarn link-pkg",
+    "link-pkg": "yarn link @mtbird/component-basic & yarn link @mtbird/helper-component & yarn link @mtbird/renderer-web & yarn link @mtbird/shared & yarn link @mtbird/ui && lerna run link-pkg --scope=@mtbird/example --stream",
     "update-version": "lerna version prerelease --force-publish --conventional-commits",
     "build": "lerna run build",
     "publish": "lerna publish from-package --yes --registry https://registry.npmjs.org/",
-    "link": "yarn link @mtbird/component-basic & yarn link @mtbird/helper-component& yarn link @mtbird/renderer-web & yarn link @mtbird/shared & yarn link @mtbird/ui",
     "lint": "yarn prettier --write ."
   },
   "devDependencies": {

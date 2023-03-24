@@ -23,7 +23,7 @@ MtBird 项目库的提交规范采用 [Angular 提交规范](https://zj-git-guid
 ```shell
 git clone https://github.com/staringos/mtbird
 yarn
-lerna bootstrap
+yarn bootstrap
 yarn start
 ```
 
@@ -31,16 +31,11 @@ yarn start
 
 ## 调试本地模块
 
-```shell
-cd packages/mtbird-example
-yarn run link
-```
-
-这时候，example 中所有 mtbird 相关依赖都会被 link 到本地，您可以在本地开启代码监听，进行代码修改，example 中的引用会自动更新。比如修改 editor 模块:
+这时候，example 中所有 mtbird 相关依赖已经被 link 到本地，您可以在本地开启代码监听，进行代码修改，example 中的引用会自动更新。比如修改 editor 模块:
 
 ```shell
 cd packages/mtbrid-editor
-yarn run start
+yarn start
 ```
 
 ## Packages
