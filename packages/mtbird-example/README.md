@@ -4,28 +4,17 @@ MtBird example for editor and web renderer
 
 ## Getting Started
 
-run in local
+run in root dir
 
 ```shell
 yarn
-yarn run start
+yarn bootstrap
+yarn start
 ```
 
 ## Dev mtbird Lib
 
-cd mtbird root dir
-
-```shell
-lerna link
-```
-
-```
-cd packages/mtbird-example
-yarn run link
-yarn run start
-```
-
-link script will help you link all mtbird library
+All mtbird packages are now linked locally
 
 and you can going to library you want to modify, like @mtbird/editor
 

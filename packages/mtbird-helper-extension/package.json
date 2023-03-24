@@ -27,8 +27,8 @@
   "scripts": {
     "start": "NODE_ENV=production mtbird watch",
     "build": "NODE_ENV=production mtbird build",
-    "link": "npm link ../../../mtbird-saas/node_modules/react",
-    "preDev": "lerna link & yarn run link",
+    "link-pkg": "npm link ../../../mtbird-saas/node_modules/react",
+    "preDev": "lerna link & yarn link-pkg",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "devDependencies": {

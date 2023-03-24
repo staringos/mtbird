@@ -35,7 +35,7 @@
   "scripts": {
     "test-storybook": "test-storybook",
     "start": "start-storybook -p 6006 -s public",
-    "link": "yarn link @mtbird/ui & yarn link @mtbird/core & yarn link @mtbird/shared & yarn link @mtbird/component-basic & yarn link @mtbird/renderer-web & yarn link @mtbird/editor & yarn link @mtbird/helper-component & yarn link @mtbird/helper-extension",
+    "link-pkg": "yarn link @mtbird/ui & yarn link @mtbird/core & yarn link @mtbird/shared & yarn link @mtbird/component-basic & yarn link @mtbird/renderer-web & yarn link @mtbird/editor & yarn link @mtbird/helper-component & yarn link @mtbird/helper-extension",
     "build": "build-storybook -s public -c .storybook",
     "generate": "yarn build && npx sb extract && mv ./storybook-static/stories.json ./storybook-static/sitemap.json"
   },

@@ -23,7 +23,7 @@
     "start": "NODE_ENV=production mtbird watch",
     "build": "NODE_ENV=production mtbird build",
     "preDev": "echo \"1\"",
-    "link": "npm link ../../../mtbird-saas/node_modules/react",
+    "link-pkg": "npm link ../../../mtbird-saas/node_modules/react",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "peerDependencies": {

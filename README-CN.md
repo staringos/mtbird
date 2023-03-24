@@ -35,7 +35,7 @@
 ```shell
 git clone https://github.com/staringos/mtbird
 yarn
-yarn run bootstrap
+yarn bootstrap
 yarn start
 ```
 

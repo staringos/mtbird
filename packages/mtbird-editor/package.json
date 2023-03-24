@@ -22,8 +22,8 @@
   "scripts": {
     "start": "rimraf dist & NODE_ENV=development mtbird watch",
     "build": "NODE_ENV=production mtbird build",
-    "preDev": "npm-install-peers & lerna link & yarn run link",
-    "link": "npm link ../../../mtbird-saas/node_modules/react",
+    "preDev": "npm-install-peers & lerna link & yarn link-pkg",
+    "link-pkg": "npm link ../../../mtbird-saas/node_modules/react",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
