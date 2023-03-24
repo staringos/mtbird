@@ -17,6 +17,7 @@
   "scripts": {
     "start": "lerna run start --scope=@mtbird/example --stream",
     "bootstrap": "lerna exec yarn",
+    "link-dev": "lerna exec yarn link",
     "update-version": "lerna version prerelease --force-publish --conventional-commits",
     "build": "lerna run build",
     "publish": "lerna publish from-package --yes --registry https://registry.npmjs.org/",
