@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.54](https://github.com/staringos/mtbird/compare/v0.0.3-beta.53...v0.0.3-beta.54) (2023-04-12)
+
+
+### Bug Fixes
+
+* video problem ([6f1c569](https://github.com/staringos/mtbird/commit/6f1c5692ebed96201ace2273ddb8149349a3c9ef))
+
+
+### Features
+
+* try to fix autoplay problem ([b34efa4](https://github.com/staringos/mtbird/commit/b34efa4891c9e9d235f8b90e3bcabba2c72223fa))
+
+
+
+
+
 ## [0.0.3-beta.53](https://github.com/staringos/mtbird/compare/v0.0.3-beta.52...v0.0.3-beta.53) (2023-04-12)
 
 **Note:** Version bump only for package @mtbird/component-basic
