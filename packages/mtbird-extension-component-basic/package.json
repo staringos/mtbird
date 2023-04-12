@@ -1,0 +1,34 @@
+{
+  "name": "mtbird-extension-component-basic",
+  "version": "0.0.3-beta.53",
+  "private": true,
+  "description": "星搭基础组件库",
+  "homepage": "",
+  "license": "Apache-2.0",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/types",
+  "directories": {
+    "dist": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "NODE_ENV=development mtbird start",
+    "build": "NODE_ENV=production mtbird build",
+    "publish-lib": "NODE_ENV=production mtbird publish --token="
+  },
+  "dependencies": {
+    "@mtbird/core": "^0.0.3-beta.53",
+    "antd-mobile": "^5.25.1"
+  },
+  "peerDependencies": {
+    "@mtbird/cli": "^0.0.3-beta.15",
+    "@mtbird/shared": "^0.0.3-beta.15",
+    "antd": "^5.1.4",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  }
+}
