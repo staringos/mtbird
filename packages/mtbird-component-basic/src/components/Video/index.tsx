@@ -35,6 +35,7 @@ const VideoComponent = ({ node, style }: IComponentProps) => {
       height={props.style.height}
       playsinline="true"
       webkit-playsinline="true"
+      data-autoplay={props.autoplay}
       onClick={handleClick}
     >
       <source src={props.src as string} type="video/mp4" />
