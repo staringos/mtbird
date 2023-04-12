@@ -3,7 +3,7 @@ import React from "react";
 import manifest from "./manifest";
 import { generateKeys } from "@mtbird/core";
 
-const VideoComponent = ({ node, style }: IComponentProps) => {
+const VideoComponent = ({ node, style, isEdit }: IComponentProps) => {
   const { props } = node;
   const id = generateKeys();
   const addProps = {
@@ -16,6 +16,7 @@ const VideoComponent = ({ node, style }: IComponentProps) => {
   }
 
   const handleClick = (e: any) => {
+    if (isEdit) return;
     e.stopPropagation();
     e.preventDefault();
     const video = document.getElementById(id) as HTMLVideoElement;
@@ -33,8 +34,8 @@ const VideoComponent = ({ node, style }: IComponentProps) => {
       style={style}
       width={props.style.width}
       height={props.style.height}
-      playsinline="true"
-      webkit-playsinline="true"
+      playsInline={true}
+      webkit-playsinline={true}
       data-autoplay={props.autoplay}
       onClick={handleClick}
     >
