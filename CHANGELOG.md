@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.48](https://github.com/staringos/mtbird/compare/v0.0.3-beta.47...v0.0.3-beta.48) (2023-04-12)
+
+
+### Bug Fixes
+
+* mobile style problem ([9194af4](https://github.com/staringos/mtbird/commit/9194af4a67e920a412418e9a937958e11550c52d))
+* video problem ([8e3515e](https://github.com/staringos/mtbird/commit/8e3515e076e88e7f612c95793117442cccce66a0))
+
+
+### Features
+
+* update version ([62bff03](https://github.com/staringos/mtbird/commit/62bff0394685d5b9bd84f67676a1fd05dd2cefdc))
+
+
+
+
+
 ## [0.0.3-beta.47](https://github.com/staringos/mtbird/compare/v0.0.3-beta.46...v0.0.3-beta.47) (2023-04-12)
 
 
