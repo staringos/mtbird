@@ -1,6 +1,6 @@
 {
   "name": "@mtbird/shared",
-  "version": "0.0.3-beta.48",
+  "version": "0.0.3-beta.49",
   "description": "The shared constants and types for mtbird",
   "author": "zousongqi <george@staringos.com>",
   "homepage": "",
@@ -30,5 +30,5 @@
     "react": "18.1.0",
     "react-dom": "18.1.0"
   },
-  "gitHead": "8e3515e076e88e7f612c95793117442cccce66a0"
+  "gitHead": "3ab22cb51110e1d04df833f1b694e148535c1e80"
 }
