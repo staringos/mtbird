@@ -20,7 +20,7 @@ const VideoComponent = ({ node, style, isEdit }: IComponentProps) => {
     if (isEdit) return;
     e.stopPropagation();
     e.preventDefault();
-    message.success("点击了视频");
+    // message.success("点击了视频");
     const video = document.getElementById(id) as HTMLVideoElement;
     if (video.paused) {
       video.play();
@@ -39,7 +39,7 @@ const VideoComponent = ({ node, style, isEdit }: IComponentProps) => {
       playsInline={true}
       webkit-playsinline={true}
       data-autoplay={props.autoplay}
-      onTouchStart={handleClick}
+      onClick={handleClick}
     >
       <source src={props.src as string} type="video/mp4" />
     </video>

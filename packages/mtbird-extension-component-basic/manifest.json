@@ -1,7 +1,7 @@
 {
   "name": "mtbird-extension-component-basic",
   "title": "基础组件库",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "desc": "星搭精卫基础组件库",
   "tags": ["组件库"],
   "components": true,
