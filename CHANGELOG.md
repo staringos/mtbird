@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.47](https://github.com/staringos/mtbird/compare/v0.0.3-beta.46...v0.0.3-beta.47) (2023-04-12)
+
+
+### Bug Fixes
+
+* debug-panel z-index ([756d521](https://github.com/staringos/mtbird/commit/756d521595f98e2060b28705a440c9b9a6a84db2))
+* example bug ([799761a](https://github.com/staringos/mtbird/commit/799761a3f92564f9f16f995bdbaeb50ed937a074))
+* link problem ([e9867b6](https://github.com/staringos/mtbird/commit/e9867b6e2cde5525ae8ad4d985727e6038870904))
+* yarn link helper-component ([f6bc41b](https://github.com/staringos/mtbird/commit/f6bc41bcb7544523eb3ba7fca45d75647f82e92d))
+
+
+### Features
+
+* add link dev command ([c62b4e2](https://github.com/staringos/mtbird/commit/c62b4e2af16a545a216ac9491ada53ca55e0729f))
+
+
+
+
+
 ## [0.0.3-beta.46](https://github.com/staringos/mtbird/compare/v0.0.3-beta.45...v0.0.3-beta.46) (2023-03-06)
 
 

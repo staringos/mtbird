@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.47](https://github.com/staringos/mtbird/compare/v0.0.3-beta.46...v0.0.3-beta.47) (2023-04-12)
+
+
+### Bug Fixes
+
+* example bug ([799761a](https://github.com/staringos/mtbird/commit/799761a3f92564f9f16f995bdbaeb50ed937a074))
+
+
+
+
+
 ## [0.0.3-beta.46](https://github.com/staringos/mtbird/compare/v0.0.3-beta.45...v0.0.3-beta.46) (2023-03-06)
 
 **Note:** Version bump only for package @mtbird/example
