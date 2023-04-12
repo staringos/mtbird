@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@mtbird/shared@^0.0.1-beta.7":
-  version "0.0.1-beta.33"
-  resolved "https://registry.yarnpkg.com/@mtbird/shared/-/shared-0.0.1-beta.33.tgz#495df53fb503c1c913d170fec05b370e089293bd"
-  integrity sha512-rFK9th1EHiPnzIsTl8i2p6jaxdvYV7vzF4+9oSPILjOcukrfyoew2U0eKC8HHyfkSYhe91Pq0S/NuwmwuPq6gA==
+"@mtbird/shared@^0.0.3-beta.46":
+  version "0.0.3-beta.46"
+  resolved "https://registry.yarnpkg.com/@mtbird/shared/-/shared-0.0.3-beta.46.tgz#9e864ae6c789285b96ad461e7322c27142ebaa9d"
+  integrity sha512-1BTtp9QfF8IhW98kbUbrkEips0RE5Y5ooS0e09snW8rOwtNtl9kQ214Dnp5kZ6tWffxev3XWjb+4P2Mo+/M4QQ==
 
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"

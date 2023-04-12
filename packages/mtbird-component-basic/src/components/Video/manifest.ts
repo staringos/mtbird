@@ -32,6 +32,10 @@ const manifest: IComponentManifest<IComponentInstance> = {
           "pattern.display":
             'function(node) { return node?.data?.fileType === "upload"; }',
         }),
+        SchemaGenerator.upload("默认图片", "props.poster", {
+          "pattern.display":
+            'function(node) { return node?.data?.fileType === "upload"; }',
+        }),
         SchemaGenerator.input("视频地址", "props.src", {
           "pattern.display":
             'function(node) { return node?.data?.fileType === "input"; }',

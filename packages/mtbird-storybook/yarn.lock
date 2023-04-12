@@ -1897,27 +1897,27 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@mtbird/component-basic@^0.0.3-beta.35":
-  version "0.0.3-beta.35"
-  resolved "https://mirrors.cloud.tencent.com/npm/@mtbird%2fcomponent-basic/-/component-basic-0.0.3-beta.35.tgz#5b6b174f8527129ba1e27b327dba37d587510bb4"
-  integrity sha512-3bJbJVk8x//MSjDMKotvsViGGhZFeoNzsktZ7mD15pyEW7YkbeUk3t+os3wkqLjcWfy7Q9YgG2+zyis3XfXkzQ==
+"@mtbird/component-basic@^0.0.3-beta.46":
+  version "0.0.3-beta.46"
+  resolved "https://registry.yarnpkg.com/@mtbird/component-basic/-/component-basic-0.0.3-beta.46.tgz#c26a8bf653fea0bd90bd5ec16356e20e3fdebdcc"
+  integrity sha512-agYI70xMJqxF4+meJL+FZZUALdSSjAdHqnzipAovA4F80MDddLWP1E1P74xe1SiYNVN8u/+rBd+ij7pzUkBDuw==
   dependencies:
     antd-img-crop "^4.2.3"
     react-color "^2.19.3"
     react-sortable-hoc "^2.0.0"
 
-"@mtbird/core@^0.0.3-beta.35":
-  version "0.0.3-beta.35"
-  resolved "https://mirrors.cloud.tencent.com/npm/@mtbird%2fcore/-/core-0.0.3-beta.35.tgz#f234c3c7691b66411d06abe8193b4ef3f76023e6"
-  integrity sha512-WtRsfW6107kb/YdHdjLNKstWzf6pW95ZMSijBB1AxQnWaSbZqZU2LgTNivXkPThJaVMmUboPuQdaOVaaDAl3lA==
+"@mtbird/core@^0.0.3-beta.46":
+  version "0.0.3-beta.46"
+  resolved "https://registry.yarnpkg.com/@mtbird/core/-/core-0.0.3-beta.46.tgz#5039ff3a21313cd11cdcb7cfe0627517482860db"
+  integrity sha512-TdTMmtATAY6yTQmCMgK9T4bJq2Y4tA+reV3wK0gppg2p13Zrbry6ga597VF7zX5WUR/lbkOVJ8DgbYwtP7sbjQ==
   dependencies:
     eventemitter2 "^6.4.9"
     nanoid "^4.0.0"
 
-"@mtbird/editor@^0.0.3-beta.35":
-  version "0.0.3-beta.35"
-  resolved "https://mirrors.cloud.tencent.com/npm/@mtbird%2feditor/-/editor-0.0.3-beta.35.tgz#3f3f05b06a79a6c71479c6a1f2197c1c81e5bdba"
-  integrity sha512-4MmusQF6epov6r33X0Od8TibQY1zyJTefEGgcn2FqOFvs/USkGs27TC4y0RMeduI+oI+3lwb7QgBOeQ3KEbXVQ==
+"@mtbird/editor@^0.0.3-beta.46":
+  version "0.0.3-beta.46"
+  resolved "https://registry.yarnpkg.com/@mtbird/editor/-/editor-0.0.3-beta.46.tgz#991ce8a7e8320e44f5426fac521e8e47da36255e"
+  integrity sha512-MK72ZpMpik7usEACQxTCjk78hRme6Gz2xMk9J5ZtsEbVFSP6U3cICPTXcjxE7QADHw2tPKLRclzW17QrpOQ6pw==
   dependencies:
     "@scena/guides" "^0.18.1"
     "@scena/react-guides" "^0.17.1"
@@ -1932,32 +1932,32 @@
     react-moveable "^0.32.7"
     react-selecto "^1.16.2"
 
-"@mtbird/helper-component@^0.0.3-beta.35":
-  version "0.0.3-beta.35"
-  resolved "https://mirrors.cloud.tencent.com/npm/@mtbird%2fhelper-component/-/helper-component-0.0.3-beta.35.tgz#d7b300d561dca66122beb423236f25c418932805"
-  integrity sha512-LBjUKWWfqBltHEhQbpWyEwfEAJ1qKGCDTVBzQ6f1aBHu+bZIgkRQnqn841dl9fUUinSsP8Zl8zzYo2P2HrHzFQ==
+"@mtbird/helper-component@^0.0.3-beta.46":
+  version "0.0.3-beta.46"
+  resolved "https://registry.yarnpkg.com/@mtbird/helper-component/-/helper-component-0.0.3-beta.46.tgz#71765fb9d114167aed7cd2d532f369136b46fb42"
+  integrity sha512-iuwRXE+rz9FKrSbHh6avSUW5guzaz9jm2vUXrKO6+NaHRlbG39xbs5IXheXAYoMkUC0yEapPfMnLn0hP8CHT1g==
 
-"@mtbird/helper-extension@^0.0.3-beta.35":
-  version "0.0.3-beta.35"
-  resolved "https://mirrors.cloud.tencent.com/npm/@mtbird%2fhelper-extension/-/helper-extension-0.0.3-beta.35.tgz#c23856865042b582368a52729b6e5b41c03ab892"
-  integrity sha512-+TUoYhy3yl5+v/XjS8fI+pDA4rSjMFDJi4c5Tv72OJkoy+R4IEn8Epn1BgPVKNfENZrO2BzWPTlgaPkhj9m5YQ==
+"@mtbird/helper-extension@^0.0.3-beta.46":
+  version "0.0.3-beta.46"
+  resolved "https://registry.yarnpkg.com/@mtbird/helper-extension/-/helper-extension-0.0.3-beta.46.tgz#e54869d7395788975feefd5d4ee58371a7a7a560"
+  integrity sha512-xnIP0oMHBKi/BJ4AVuA3HvXOG17lE0Yhu9xmKofQB40R57DeAeWq3wxMDLXayEBTdq0NrEahzI56f45AyGci5Q==
   dependencies:
     axios "^0.27.2"
 
-"@mtbird/renderer-web@^0.0.3-beta.35":
-  version "0.0.3-beta.35"
-  resolved "https://mirrors.cloud.tencent.com/npm/@mtbird%2frenderer-web/-/renderer-web-0.0.3-beta.35.tgz#ee92024ac60296d87f1036ebd211ca1f760b81e6"
-  integrity sha512-s57KEsEcRN0OaQXCsES83+9yg49yDU0Oil7UT44oOMXbV9B8C6ZZlTgB9waiLRAUZK5IeJ80P4cppAIAxPvwIA==
+"@mtbird/renderer-web@^0.0.3-beta.46":
+  version "0.0.3-beta.46"
+  resolved "https://registry.yarnpkg.com/@mtbird/renderer-web/-/renderer-web-0.0.3-beta.46.tgz#650fa8f2488767922adfae8c3deaf095e31742c4"
+  integrity sha512-paId9+peyQkO7mnUFc+/kzesMHpMqmUg1R+pOZjOjGfmRWZ4+JpMlVt/iJMOLHtJPnFw+Ew8FkwpGEzgg65xyQ==
 
-"@mtbird/shared@^0.0.3-beta.35":
-  version "0.0.3-beta.35"
-  resolved "https://mirrors.cloud.tencent.com/npm/@mtbird%2fshared/-/shared-0.0.3-beta.35.tgz#318998b2248c1d5ec5cfea72e5f53a5108683561"
-  integrity sha512-o8aGvoQSfd1M+ll15ffJG8Acws6eK0cpJgb1INis/yBtw/WCt2JwnX/h5s1J7ms1PICPDfJXitdLLXln/q6Oew==
+"@mtbird/shared@^0.0.3-beta.46":
+  version "0.0.3-beta.46"
+  resolved "https://registry.yarnpkg.com/@mtbird/shared/-/shared-0.0.3-beta.46.tgz#9e864ae6c789285b96ad461e7322c27142ebaa9d"
+  integrity sha512-1BTtp9QfF8IhW98kbUbrkEips0RE5Y5ooS0e09snW8rOwtNtl9kQ214Dnp5kZ6tWffxev3XWjb+4P2Mo+/M4QQ==
 
-"@mtbird/ui@^0.0.3-beta.35":
-  version "0.0.3-beta.35"
-  resolved "https://mirrors.cloud.tencent.com/npm/@mtbird%2fui/-/ui-0.0.3-beta.35.tgz#6b6928cbcff9bbfc12bcb558a75fcca4c3c034ea"
-  integrity sha512-oisMcykVwD2sZux4u7rha0jDNJg5UOSW2dV5gDwIhGhd52SkQq6xM9dJmxs/9Cc3O572uUqcndxldkonJ5C7Yw==
+"@mtbird/ui@^0.0.3-beta.46":
+  version "0.0.3-beta.46"
+  resolved "https://registry.yarnpkg.com/@mtbird/ui/-/ui-0.0.3-beta.46.tgz#6f3c0e3927ec42b7da280f588841c4d73791368d"
+  integrity sha512-sSKaEQavghwLIeyZuvR7oW8WN82TX/PZNjtd/pOoqwadzdR8Go7+m+uOcwnnFNDbKUwFzhTuoI47ykzT2DXVGw==
 
 "@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1":
   version "5.1.1-v1"

@@ -21,10 +21,10 @@
   dependencies:
     "@floating-ui/core" "^1.0.2"
 
-"@mtbird/core@^0.0.3-beta.35":
-  version "0.0.3-beta.36"
-  resolved "https://registry.yarnpkg.com/@mtbird/core/-/core-0.0.3-beta.36.tgz#dadd0bcd033cf2bffc28ce644266eb9dc9229557"
-  integrity sha512-ux3wj38sTO9Hda5EnM572qMuAPkTYIhlcNnzeMefQ0FRxaSLT/DmgF2UpoqsQ6y5gDe+riXgG5gYrSzzvQVE7Q==
+"@mtbird/core@^0.0.3-beta.46":
+  version "0.0.3-beta.46"
+  resolved "https://registry.yarnpkg.com/@mtbird/core/-/core-0.0.3-beta.46.tgz#5039ff3a21313cd11cdcb7cfe0627517482860db"
+  integrity sha512-TdTMmtATAY6yTQmCMgK9T4bJq2Y4tA+reV3wK0gppg2p13Zrbry6ga597VF7zX5WUR/lbkOVJ8DgbYwtP7sbjQ==
   dependencies:
     eventemitter2 "^6.4.9"
     nanoid "^4.0.0"

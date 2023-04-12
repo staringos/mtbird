@@ -544,18 +544,18 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@mtbird/core@^0.0.1-beta.36":
-  version "0.0.1-beta.36"
-  resolved "https://registry.yarnpkg.com/@mtbird/core/-/core-0.0.1-beta.36.tgz#0e3e22f0b967a6268fe8a3d570cc4c8c442ef506"
-  integrity sha512-Q5ykKeGX9eFW1pwI80fdNgeSly4HH5F1y7/7PBkqtVTms6+rVbaYWuARVbvigWoG9GNFOVwWF1Yd4nyUtlUkAA==
+"@mtbird/core@^0.0.3-beta.46":
+  version "0.0.3-beta.46"
+  resolved "https://registry.yarnpkg.com/@mtbird/core/-/core-0.0.3-beta.46.tgz#5039ff3a21313cd11cdcb7cfe0627517482860db"
+  integrity sha512-TdTMmtATAY6yTQmCMgK9T4bJq2Y4tA+reV3wK0gppg2p13Zrbry6ga597VF7zX5WUR/lbkOVJ8DgbYwtP7sbjQ==
   dependencies:
     eventemitter2 "^6.4.9"
     nanoid "^4.0.0"
 
-"@mtbird/shared@^0.0.1-beta.36":
-  version "0.0.1-beta.36"
-  resolved "https://registry.yarnpkg.com/@mtbird/shared/-/shared-0.0.1-beta.36.tgz#33c16461648c4abf9d56d522d415969082400d21"
-  integrity sha512-SCrHxO9yO7iKuGrCzDqkABGFK6jNXs19Yh6ODNEHkiml6K8yHuu5WmatobL+rHdVdXtjwEYFF3Y9kf0xa6TRlg==
+"@mtbird/shared@^0.0.3-beta.46":
+  version "0.0.3-beta.46"
+  resolved "https://registry.yarnpkg.com/@mtbird/shared/-/shared-0.0.3-beta.46.tgz#9e864ae6c789285b96ad461e7322c27142ebaa9d"
+  integrity sha512-1BTtp9QfF8IhW98kbUbrkEips0RE5Y5ooS0e09snW8rOwtNtl9kQ214Dnp5kZ6tWffxev3XWjb+4P2Mo+/M4QQ==
 
 "@popperjs/core@^2.9.0", "@popperjs/core@^2.9.1":
   version "2.11.6"
@@ -728,16 +728,6 @@
   version "2.0.0-beta.199"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-strike/-/extension-strike-2.0.0-beta.199.tgz#5fc6e067728009d92027e58a042f18449f2fa264"
   integrity sha512-KyN5+d9o9FGvrSiSuh81oo4+XjMDsZVY4UHc9lBY0nAzaGAkJOwkCjk40RfyO5ZJ2GdEEQ6Nh/3YqVMcJTY+rA==
-
-"@tiptap/extension-task-item@^2.0.0-beta.199":
-  version "2.0.0-beta.199"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-task-item/-/extension-task-item-2.0.0-beta.199.tgz#a877dc249b13588f774c50183b1054c6361851b3"
-  integrity sha512-dvMgXr4B/V8dYvksLtbby3R2wM9zk3xdkOBuohTLQuRq73dK12Bh/h5xrl4cey8i/2tQBWgUfFiGVPsEUJjQCQ==
-
-"@tiptap/extension-task-list@^2.0.0-beta.199":
-  version "2.0.0-beta.199"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-task-list/-/extension-task-list-2.0.0-beta.199.tgz#93e14ce92dbdc4224138cc1207836d4c8c97fb67"
-  integrity sha512-//1bw2Wd4IYKxYLw3iaxBcd0/iFw1Jwc/Q1j41oBc5QTZDuRxhEO/5Gjy1UmEZsWhsH39bS2za4uMBX4DbHBUQ==
 
 "@tiptap/extension-text-align@^2.0.0-beta.199":
   version "2.0.0-beta.199"
