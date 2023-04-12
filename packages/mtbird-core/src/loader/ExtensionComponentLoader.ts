@@ -64,7 +64,6 @@ const load = async (pageConfig: IPageConfig) => {
   await Promise.all(
     extensions.map(async (cur: any) => {
       const { extension } = cur;
-      console.log("extension:", extension);
       const registry = getRegistry(extension);
       const url = `${registry}/components.js`;
       const cssUrl = `${registry}/components.css`;

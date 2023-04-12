@@ -54,11 +54,12 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
   icon: "mtbird-tabbar",
   desc: "",
   category: "basic",
+  componentLib: "mobile",
   subCategory: "mobile",
   schema: [
     ...SCHEMA_COMPONENT_BASIC_STYLE,
     ...SCHEMA_FORM_CONFIG,
-    ...SchemaGenerator.list("Tab项", "data.options", ENTITY),
+    ...SchemaGenerator.list("Tab项", "data.options", ENTITY as any),
   ],
   instance: SchemaGenerator.containerBlock(
     [
@@ -70,7 +71,7 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
             ...COMPONENT_DEFAULT_STYLE,
             flex: 1,
             background: "white",
-            border: "1px solid var(--gray-6)",
+            border: "1px solid var(--gray-3)",
           },
         },
         data: {
@@ -105,8 +106,8 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
     ],
     {
       layout: "flex",
-      "props.style.height": 50,
       "props.style.display": "flex",
+      "props.style.height": "unset",
     }
   ),
 };

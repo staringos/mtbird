@@ -15,7 +15,11 @@ const Tabbar = ({ node, style }: IComponentProps) => {
   return (
     <div
       className={styles.tabbarWrapper}
-      style={{ ...style, borderTop, border: "unset" }}
+      style={{
+        ...style,
+        borderTop,
+        border: "unset",
+      }}
     >
       {options.map((cur: Record<string, any>) => {
         return (

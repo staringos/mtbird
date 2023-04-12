@@ -36,6 +36,7 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
   desc: "",
   category: "basic",
   subCategory: "mobile",
+  componentLib: "mobile",
   schema: [
     ...SCHEMA_COMPONENT_BASIC_STYLE,
     ...SCHEMA_FORM_CONFIG,

@@ -7,7 +7,6 @@ const {
   COMPONENT_DEFAULT_STYLE,
   SCHEMA_COMPONENT_BASIC_STYLE,
   SCHEMA_FORM_CONFIG,
-  DEFAULT_ENTITIES,
 } = COMPONENT;
 
 const manifest: IComponentManifest<IComponentInstanceForm> = {
@@ -18,6 +17,7 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
   desc: "",
   category: "basic",
   subCategory: "mobile",
+  componentLib: "mobile",
   schema: [
     ...SCHEMA_COMPONENT_BASIC_STYLE,
     ...SCHEMA_FORM_CONFIG,
@@ -42,7 +42,7 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
             ...COMPONENT_DEFAULT_STYLE,
             flex: 1,
             background: "white",
-            border: "1px solid var(--gray-6)",
+            border: "1px solid var(--gray-3)",
           },
         },
         data: {
