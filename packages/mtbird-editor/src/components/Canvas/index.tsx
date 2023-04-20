@@ -234,13 +234,13 @@ export default () => {
 
           const target = inputEvent.target; // inputEvent.path.find((cur: any) => cur?.className?.indexOf?.('mtbird-component') !== -1);
           const id = target.id;
-          const cls = target.className?.split(" ") || [];
+          const cls = target.className?.split?.(" ") || [];
 
           if (!target) return e.stop();
 
           if (
             // moving temporarily group
-            inputEvent.target?.className?.indexOf("moveable-area") !== -1 ||
+            inputEvent.target?.className?.indexOf?.("moveable-area") !== -1 ||
             (inputEvent.type === "touchstart" && e.isTrusted) ||
             moveableRef.current?.isDragging() ||
             // moving component draggable
@@ -269,7 +269,7 @@ export default () => {
 
           // added
           if (editMode.componentName !== "cursor") {
-            const dom = e.inputEvent.path[0];
+            const dom = e.inputEvent.srcElement;
             const id = dom.id || dom.parentNode.id;
             const { left, top } = dom.getBoundingClientRect();
 
@@ -289,7 +289,7 @@ export default () => {
           }
 
           // select
-          if (e.selected.length && e.selected[0]?.id) {
+          if (e.selected?.length && e.selected?.[0]?.id) {
             const selected = getSelectedComponent(
               e.selected,
               state.componentMap

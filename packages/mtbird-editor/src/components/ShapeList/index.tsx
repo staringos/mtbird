@@ -8,7 +8,7 @@ const ShapePanel = () => {
   const handleAddShape = (shape: any) => {
     const node = utils.generateShape(shape, 58);
     actions.setEditMode(node);
-    // actions.addComponent(node);
+    // actions.addComponent(node as any);
   };
 
   return (

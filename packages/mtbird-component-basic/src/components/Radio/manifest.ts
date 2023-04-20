@@ -2,7 +2,7 @@ import type {
   IComponentManifest,
   IComponentInstanceForm,
 } from "@mtbird/shared";
-import { COMPONENT } from "@mtbird/core";
+import { COMPONENT, SchemaGenerator } from "@mtbird/core";
 import { generateList } from "../../utils";
 
 const {
@@ -22,7 +22,8 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
   schema: [
     ...SCHEMA_COMPONENT_BASIC_STYLE,
     ...SCHEMA_FORM_CONFIG,
-    ...generateList("选项"),
+    // ...generateList("选项"),
+    ...SchemaGenerator.list("选项", "data.options"),
   ],
   instance: {
     type: "form",

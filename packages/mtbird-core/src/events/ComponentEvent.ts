@@ -76,6 +76,7 @@ export const EventActionEventHandler = {
 export const EventType = {
   link: "link",
   linkBlank: "link-blank",
+  linkPage: "link-page",
   submit: "submit",
   clear: "clear",
   openModal: "open-modal",
@@ -104,6 +105,8 @@ export const generateEventHandlers = (
         return (location.href = event.src);
       case EventType.inlineCode:
         return generateFunction(event.inlineCode as string);
+      case EventType.linkPage:
+        return (location.href = `/page/${event.pageId}`);
     }
   };
 

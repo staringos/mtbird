@@ -43,7 +43,15 @@ const Editor = ({ options }: IProps) => {
   return (
     <Model.Provider value={context}>
       {context.state.loading && <Spin spinning={context.state.loading}></Spin>}
-      <div className={styles.editorWrapper}>
+      <div
+        className={
+          styles.editorWrapper +
+          " " +
+          (context.state.editMode.componentName !== "cursor"
+            ? styles.editorWrapperEdit
+            : styles.editorWrapperMoveable)
+        }
+      >
         <Header />
         <div className={styles.editorContainer}>
           <Toolbar />
