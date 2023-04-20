@@ -1,6 +1,6 @@
 {
   "name": "@mtbird/helper-component",
-  "version": "0.0.3-beta.59",
+  "version": "0.0.3-beta.60",
   "description": "The component tools constants & helpers for mtbird",
   "author": "zousongqi <george@staringos.com>",
   "homepage": "",
@@ -31,5 +31,5 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
-  "gitHead": "8e3515e076e88e7f612c95793117442cccce66a0"
+  "gitHead": "0972d2236b07128ae7f1dd2a9481224a2ba10469"
 }

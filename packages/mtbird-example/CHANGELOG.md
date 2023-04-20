@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.60](https://github.com/staringos/mtbird/compare/v0.0.3-beta.59...v0.0.3-beta.60) (2023-04-20)
+
+**Note:** Version bump only for package @mtbird/example
+
+
+
+
+
 ## [0.0.3-beta.59](https://github.com/staringos/mtbird/compare/v0.0.3-beta.58...v0.0.3-beta.59) (2023-04-20)
 
 **Note:** Version bump only for package @mtbird/example
