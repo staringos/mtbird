@@ -26,6 +26,8 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
     ...SCHEMA_COMPONENT_BASIC_STYLE,
     ...SCHEMA_LAYOUT,
     SchemaGenerator.select("表单布局", "formConfig.formLayout", formLayout, {}),
+    SchemaGenerator.switch("允许重复提交", "formConfig.duplicateSubmit"),
+    SchemaGenerator.richTextEditor("重复提交提示文案", "formConfig.duplicateSubmitText"),
   ],
   category: "basic",
   subCategory: "data",
@@ -35,6 +37,8 @@ const manifest: IComponentManifest<IComponentInstanceForm> = {
     layout: "flex",
     formConfig: {
       formLayout: "horizontal",
+      duplicateSubmit: true,
+      duplicateSubmitText: "已提交"
     },
     props: {
       style: {
