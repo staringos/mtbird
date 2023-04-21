@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.61](https://github.com/staringos/mtbird/compare/v0.0.3-beta.60...v0.0.3-beta.61) (2023-04-21)
+
+
+### Features
+
+* add configurable duplicate form submission check ([0aaed3c](https://github.com/staringos/mtbird/commit/0aaed3c721eb5e5f7b7ec1280d671454675806a9))
+
+
+
+
+
 ## [0.0.3-beta.60](https://github.com/staringos/mtbird/compare/v0.0.3-beta.59...v0.0.3-beta.60) (2023-04-20)
 
 
