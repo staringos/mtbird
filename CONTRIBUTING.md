@@ -37,6 +37,15 @@ yarn start
 cd packages/mtbrid-editor
 yarn start
 ```
+## 发布到 npmjs.com
+
+在根目录执行
+
+```shell
+yarn run build
+yarn run update-version
+yarn run publish
+```
 
 ## Packages
 
