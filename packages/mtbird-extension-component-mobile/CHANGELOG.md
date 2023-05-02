@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.62](https://github.com/staringos/mtbird/compare/v0.0.3-beta.61...v0.0.3-beta.62) (2023-05-02)
+
+**Note:** Version bump only for package mtbird-extension-component-mobile
+
+
+
+
+
 ## [0.0.3-beta.61](https://github.com/staringos/mtbird/compare/v0.0.3-beta.60...v0.0.3-beta.61) (2023-04-21)
 
 **Note:** Version bump only for package mtbird-extension-component-mobile

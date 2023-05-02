@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.62](https://github.com/staringos/mtbird/compare/v0.0.3-beta.61...v0.0.3-beta.62) (2023-05-02)
+
+
+### Features
+
+* Add dynamic style zoom update on window resize ([47c2576](https://github.com/staringos/mtbird/commit/47c2576f2d5a9ae0a982dea00620a861672e3766))
+
+
+
+
+
 ## [0.0.3-beta.61](https://github.com/staringos/mtbird/compare/v0.0.3-beta.60...v0.0.3-beta.61) (2023-04-21)
 
 
