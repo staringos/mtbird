@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import styles from "./style.module.less";
 import type { IPageConfig, IDataSource } from "@mtbird/shared";
 import * as BasicComponents from "@mtbird/component-basic";
@@ -9,6 +9,7 @@ import Render from "./Render";
 import cloneDeep from "lodash/cloneDeep";
 import { IComponentInstance } from "../../../mtbird-shared/src/types/Component";
 import useRenderContext from "src/context/useRenderContext";
+import useZoom from "../hooks/useZoom";
 
 interface IProps {
   dataSource?: IDataSource;
@@ -80,15 +81,14 @@ export default (props: IProps) => {
     Render,
   });
 
+  const zoomValue = useZoom(PLATFORM_DEFAULT_WIDTH[platform || ""]);
+
   return (
     <RenderContext.Provider value={context}>
       <div
         className={styles.rendererContainer}
         style={{
-          zoom:
-            isZoom && platform !== "pc"
-              ? getZoom(PLATFORM_DEFAULT_WIDTH[platform || ""])
-              : 0,
+          zoom: isZoom && platform !== "pc" ? zoomValue : 0,
         }}
       >
         <Render
