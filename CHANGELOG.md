@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3-beta.63](https://github.com/staringos/mtbird/compare/v0.0.3-beta.62...v0.0.3-beta.63) (2023-05-03)
+
+
+### Features
+
+* add event page route ([5882382](https://github.com/staringos/mtbird/commit/5882382aff52d81b0cfd151523839c76f103291e))
+
+
+
+
+
 ## [0.0.3-beta.62](https://github.com/staringos/mtbird/compare/v0.0.3-beta.61...v0.0.3-beta.62) (2023-05-02)
 
 
