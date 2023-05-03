@@ -7,4 +7,5 @@ export interface IPageConfig {
   publishedHistoryId?: string;
   data: IComponentInstance;
   type: "pc" | "mobile" | "form" | "dashboard";
+  routeKey?: string;
 }

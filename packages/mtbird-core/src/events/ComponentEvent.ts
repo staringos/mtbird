@@ -56,6 +56,10 @@ export const EVENT_TYPE = [
     label: "执行代码",
     value: "inline-code",
   },
+  {
+    label: "跳转路由",
+    value: "jump-router",
+  },
 ];
 
 export const EventActionConstants = {
