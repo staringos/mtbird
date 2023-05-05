@@ -24,8 +24,8 @@
     "url": "git+https://github.com/staringos/mtbird.git"
   },
   "scripts": {
-    "start": "rimraf dist & NODE_ENV=production mtbird watch",
-    "build": "NODE_ENV=production mtbird build",
+    "start": "rimraf dist & cross-env NODE_ENV=production mtbird watch",
+    "build": "cross-env NODE_ENV=production mtbird build",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {

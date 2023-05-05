@@ -22,8 +22,8 @@
     "url": "git+https://github.com/staringos/mtbird.git"
   },
   "scripts": {
-    "build": "NODE_ENV=production node ./build/index.js",
-    "start": "NODE_ENV=development node ./build/index.js watch"
+    "build": "cross-env NODE_ENV=production node ./build/index.js",
+    "start": "cross-env NODE_ENV=development node ./build/index.js watch"
   },
   "bugs": {
     "url": "https://github.com/staringos/mtbird/issues"

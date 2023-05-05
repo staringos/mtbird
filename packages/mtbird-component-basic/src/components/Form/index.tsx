@@ -38,7 +38,7 @@ const FormComponent = ({
     }
 
     return !formConfig?.duplicateSubmit && localStorage.getItem(getFormSubmitFlag(node.id!)) === String(node.id)
-  }, [formConfig.duplicateSubmit, node.id, isEdit])
+  }, [formConfig?.duplicateSubmit, node.id, isEdit])
 
   return (
     <Form

@@ -16,9 +16,9 @@
     "dist"
   ],
   "scripts": {
-    "start": "rimraf dist & NODE_ENV=development mtbird start",
-    "build": "NODE_ENV=production mtbird build",
-    "publish-lib": "NODE_ENV=production mtbird publish --token="
+    "start": "rimraf dist & cross-env NODE_ENV=development mtbird start",
+    "build": "cross-env NODE_ENV=production mtbird build",
+    "publish-lib": "cross-env NODE_ENV=production mtbird publish --token="
   },
   "peerDependencies": {
     "@mtbird/cli": "^0.0.1-beta.7",

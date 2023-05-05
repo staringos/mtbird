@@ -7,6 +7,9 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "bin": {
     "mtbbuilder": "./builder/mtbbuilder.js"
   },
@@ -44,6 +47,7 @@
     "@typescript-eslint/eslint-plugin": "^5.22.0",
     "@typescript-eslint/parser": "^5.22.0",
     "antd": "^5.1.4",
+    "cross-env": "^7.0.3",
     "eslint": "^8.15.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
