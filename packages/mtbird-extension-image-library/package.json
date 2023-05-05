@@ -21,11 +21,11 @@
     "access": "public"
   },
   "scripts": {
-    "start": "NODE_ENV=production mtbird start",
-    "build": "NODE_ENV=production mtbird build",
+    "start": "cross-env NODE_ENV=production mtbird start",
+    "build": "cross-env NODE_ENV=production mtbird build",
     "link-pkg": "npm link ../../../mtbird-saas/node_modules/react",
     "preDev": "lerna link & yarn link-pkg",
-    "publish-lib": "NODE_ENV=production mtbird publish --token=",
+    "publish-lib": "cross-env NODE_ENV=production mtbird publish --token=",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "peerDependencies": {

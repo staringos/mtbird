@@ -24,8 +24,8 @@
     "url": "git+https://github.com/staringos/mtbird.git"
   },
   "scripts": {
-    "start": "NODE_ENV=development mtbird watch",
-    "build": "NODE_ENV=production mtbird build",
+    "start": "cross-env NODE_ENV=development mtbird watch",
+    "build": "cross-env NODE_ENV=production mtbird build",
     "preDev": "lerna link & yarn link-pkg",
     "link-pkg": "npm link ../../../mtbird-saas/node_modules/react"
   },

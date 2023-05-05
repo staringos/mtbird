@@ -20,8 +20,8 @@
     "access": "public"
   },
   "scripts": {
-    "start": "rimraf dist & NODE_ENV=development mtbird watch",
-    "build": "NODE_ENV=production mtbird build",
+    "start": "rimraf dist & cross-env NODE_ENV=development mtbird watch",
+    "build": "cross-env NODE_ENV=production mtbird build",
     "preDev": "npm-install-peers & lerna link & yarn link-pkg",
     "link-pkg": "npm link ../../../mtbird-saas/node_modules/react",
     "test": "echo \"Error: run tests from root\" && exit 1"
