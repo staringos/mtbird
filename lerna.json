@@ -6,6 +6,7 @@
   "publish": {
     "graphType": "all"
   },
+  "useWorkspaces": true,
   "command": {
     "run": {
       "npmClient": "yarn"
