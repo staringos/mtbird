@@ -32,7 +32,8 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "devDependencies": {
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+      "cross-env": "^7.0.3"
   },
   "peerDependencies": {
     "@mtbird/shared": "^0.0.1-beta.4",

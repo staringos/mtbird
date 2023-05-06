@@ -32,7 +32,8 @@
   },
   "devDependencies": {
     "@mtbird/core": "^0.0.3-beta.64",
-    "@mtbird/shared": "^0.0.3-beta.64"
+    "@mtbird/shared": "^0.0.3-beta.64",
+    "cross-env": "^7.0.3"
   },
   "peerDependencies": {
     "@mtbird/cli": "^0.0.1-beta.7",

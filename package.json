@@ -7,9 +7,6 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "bin": {
     "mtbbuilder": "./builder/mtbbuilder.js"
   },

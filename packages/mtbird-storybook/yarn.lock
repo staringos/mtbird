@@ -1897,27 +1897,27 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@mtbird/component-basic@^0.0.3-beta.46":
-  version "0.0.3-beta.46"
-  resolved "https://registry.yarnpkg.com/@mtbird/component-basic/-/component-basic-0.0.3-beta.46.tgz#c26a8bf653fea0bd90bd5ec16356e20e3fdebdcc"
-  integrity sha512-agYI70xMJqxF4+meJL+FZZUALdSSjAdHqnzipAovA4F80MDddLWP1E1P74xe1SiYNVN8u/+rBd+ij7pzUkBDuw==
+"@mtbird/component-basic@^0.0.3-beta.64":
+  version "0.0.3-beta.64"
+  resolved "https://registry.yarnpkg.com/@mtbird/component-basic/-/component-basic-0.0.3-beta.64.tgz#d7f62f69358386cd3f55803c902d6e217627b616"
+  integrity sha512-YZj7SHwO+E8WLo09QArpj1o7JF/9D6Sw+uJz52nHMgwJelvvuMIIHxhc6iggQCcZyovP5uOPTvuWw1BcLt5rcg==
   dependencies:
     antd-img-crop "^4.2.3"
     react-color "^2.19.3"
     react-sortable-hoc "^2.0.0"
 
-"@mtbird/core@^0.0.3-beta.46":
-  version "0.0.3-beta.46"
-  resolved "https://registry.yarnpkg.com/@mtbird/core/-/core-0.0.3-beta.46.tgz#5039ff3a21313cd11cdcb7cfe0627517482860db"
-  integrity sha512-TdTMmtATAY6yTQmCMgK9T4bJq2Y4tA+reV3wK0gppg2p13Zrbry6ga597VF7zX5WUR/lbkOVJ8DgbYwtP7sbjQ==
+"@mtbird/core@^0.0.3-beta.64":
+  version "0.0.3-beta.64"
+  resolved "https://registry.yarnpkg.com/@mtbird/core/-/core-0.0.3-beta.64.tgz#7e3c33401fe94f968b0332eb910330d884ea5580"
+  integrity sha512-30SngjvxnwmDZXj+jqHBN10kFbPQIE16hQ2kgTIk8MVVy1ys0KMyggnROU4IC8OW/liFH/yJeff/sOEaCbJN2w==
   dependencies:
     eventemitter2 "^6.4.9"
     nanoid "^4.0.0"
 
-"@mtbird/editor@^0.0.3-beta.46":
-  version "0.0.3-beta.46"
-  resolved "https://registry.yarnpkg.com/@mtbird/editor/-/editor-0.0.3-beta.46.tgz#991ce8a7e8320e44f5426fac521e8e47da36255e"
-  integrity sha512-MK72ZpMpik7usEACQxTCjk78hRme6Gz2xMk9J5ZtsEbVFSP6U3cICPTXcjxE7QADHw2tPKLRclzW17QrpOQ6pw==
+"@mtbird/editor@^0.0.3-beta.64":
+  version "0.0.3-beta.64"
+  resolved "https://registry.yarnpkg.com/@mtbird/editor/-/editor-0.0.3-beta.64.tgz#6d1e22b7ca49ec22462f3f789199b00a60329acf"
+  integrity sha512-wAFpGxWpb/+K91OF8FMow03wXHNIBJ4O6wEpX0KX1W/LLnTpusHwKfe1hUW6vKD2o1jWV+Wd8OCIJG3OkQIhuw==
   dependencies:
     "@scena/guides" "^0.18.1"
     "@scena/react-guides" "^0.17.1"
@@ -1932,32 +1932,32 @@
     react-moveable "^0.32.7"
     react-selecto "^1.16.2"
 
-"@mtbird/helper-component@^0.0.3-beta.46":
-  version "0.0.3-beta.46"
-  resolved "https://registry.yarnpkg.com/@mtbird/helper-component/-/helper-component-0.0.3-beta.46.tgz#71765fb9d114167aed7cd2d532f369136b46fb42"
-  integrity sha512-iuwRXE+rz9FKrSbHh6avSUW5guzaz9jm2vUXrKO6+NaHRlbG39xbs5IXheXAYoMkUC0yEapPfMnLn0hP8CHT1g==
+"@mtbird/helper-component@^0.0.3-beta.64":
+  version "0.0.3-beta.64"
+  resolved "https://registry.yarnpkg.com/@mtbird/helper-component/-/helper-component-0.0.3-beta.64.tgz#0cd276e6373fab5067d013c664f0d73844e3694e"
+  integrity sha512-TUUp/1PY9Lwsn/4k4cPmnUxWXJ7ykCQhjwx9vPQDkxUASAGFxAco+U2TpRVFLVez4l7tQuVq3oXdtDGNNIO/Wg==
 
-"@mtbird/helper-extension@^0.0.3-beta.46":
-  version "0.0.3-beta.46"
-  resolved "https://registry.yarnpkg.com/@mtbird/helper-extension/-/helper-extension-0.0.3-beta.46.tgz#e54869d7395788975feefd5d4ee58371a7a7a560"
-  integrity sha512-xnIP0oMHBKi/BJ4AVuA3HvXOG17lE0Yhu9xmKofQB40R57DeAeWq3wxMDLXayEBTdq0NrEahzI56f45AyGci5Q==
+"@mtbird/helper-extension@^0.0.3-beta.64":
+  version "0.0.3-beta.64"
+  resolved "https://registry.yarnpkg.com/@mtbird/helper-extension/-/helper-extension-0.0.3-beta.64.tgz#ade44861d8fd81bf89902318dc3c25f5b1e341ce"
+  integrity sha512-uaNboh51EmsQQDQ+odWPgnlnrrBvhEL0PvlqEQ7/7xaMuBAJmhZP+/l7iYh1ZDkmg8zwQtPLPR2k7bXtSAvtvw==
   dependencies:
     axios "^0.27.2"
 
-"@mtbird/renderer-web@^0.0.3-beta.46":
-  version "0.0.3-beta.46"
-  resolved "https://registry.yarnpkg.com/@mtbird/renderer-web/-/renderer-web-0.0.3-beta.46.tgz#650fa8f2488767922adfae8c3deaf095e31742c4"
-  integrity sha512-paId9+peyQkO7mnUFc+/kzesMHpMqmUg1R+pOZjOjGfmRWZ4+JpMlVt/iJMOLHtJPnFw+Ew8FkwpGEzgg65xyQ==
+"@mtbird/renderer-web@^0.0.3-beta.64":
+  version "0.0.3-beta.64"
+  resolved "https://registry.yarnpkg.com/@mtbird/renderer-web/-/renderer-web-0.0.3-beta.64.tgz#241261ff16af360265252a1b89ebc38289335ef6"
+  integrity sha512-PMpfYsAUo+6tL8dLlN/carRQE5f0Wx1G45DRWtPkMCmsuQfDze1PqXnEBAeYx+QIeTg2O+rRjhhxJOemDqyd5g==
 
-"@mtbird/shared@^0.0.3-beta.46":
-  version "0.0.3-beta.46"
-  resolved "https://registry.yarnpkg.com/@mtbird/shared/-/shared-0.0.3-beta.46.tgz#9e864ae6c789285b96ad461e7322c27142ebaa9d"
-  integrity sha512-1BTtp9QfF8IhW98kbUbrkEips0RE5Y5ooS0e09snW8rOwtNtl9kQ214Dnp5kZ6tWffxev3XWjb+4P2Mo+/M4QQ==
+"@mtbird/shared@^0.0.3-beta.64":
+  version "0.0.3-beta.64"
+  resolved "https://registry.yarnpkg.com/@mtbird/shared/-/shared-0.0.3-beta.64.tgz#57b74c6b21b513e0c2224e1573cbd886ea1e08f6"
+  integrity sha512-eUgULeoEAC6Hv8pR2zWXnHYycxniLxM5P0Zqm6E0/wIKvHR/8bUxGsALqz8xhdP3s0Pkv0hCoQ38fF79qq8WEQ==
 
-"@mtbird/ui@^0.0.3-beta.46":
-  version "0.0.3-beta.46"
-  resolved "https://registry.yarnpkg.com/@mtbird/ui/-/ui-0.0.3-beta.46.tgz#6f3c0e3927ec42b7da280f588841c4d73791368d"
-  integrity sha512-sSKaEQavghwLIeyZuvR7oW8WN82TX/PZNjtd/pOoqwadzdR8Go7+m+uOcwnnFNDbKUwFzhTuoI47ykzT2DXVGw==
+"@mtbird/ui@^0.0.3-beta.64":
+  version "0.0.3-beta.64"
+  resolved "https://registry.yarnpkg.com/@mtbird/ui/-/ui-0.0.3-beta.64.tgz#f369f9075672d345fd5166f865da5ffa99c0f638"
+  integrity sha512-WEFoCliVbplU9Td2oH+QSOANWpV9DYbLU45PLBGiQpYYBQx68oT+BIwkWzLw3KKSupJQQV5u0UyanyD5gYUsPw==
 
 "@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1":
   version "5.1.1-v1"
