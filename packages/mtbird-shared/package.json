@@ -30,5 +30,9 @@
     "react": "18.1.0",
     "react-dom": "18.1.0"
   },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "@mtbird/cli": "^0.0.3-beta.64"
+},
   "gitHead": "0972d2236b07128ae7f1dd2a9481224a2ba10469"
 }

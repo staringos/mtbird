@@ -48,6 +48,7 @@
     "@typescript-eslint/eslint-plugin": "^5.22.0",
     "@typescript-eslint/parser": "^5.22.0",
     "axios": "^0.27.2",
+    "cross-env": "^7.0.3",
     "babel-preset-react-app": "^10.0.1",
     "concurrently": "^7.3.0",
     "cross-spawn": "^7.0.3",
