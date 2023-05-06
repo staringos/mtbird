@@ -21,7 +21,7 @@
     "publish-lib": "cross-env NODE_ENV=production mtbird publish --token="
   },
   "peerDependencies": {
-    "@mtbird/cli": "^0.0.1-beta.7",
+    "@mtbird/cli": "^0.0.3-beta.64",
     "antd": "^5.1.4"
   },
   "devDependencies": {
@@ -29,7 +29,8 @@
     "lodash": "^4.17.21",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "@mtbird/cli": "^0.0.3-beta.64"
   },
   "gitHead": "2f918f1c199fc230eb68d1fdaf07890b1fb99206"
 }

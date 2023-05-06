@@ -32,6 +32,7 @@
     "react-dom": "^18.1.0"
   },
   "devDependencies": {
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "@mtbird/cli": "^0.0.3-beta.64"
   }
 }
