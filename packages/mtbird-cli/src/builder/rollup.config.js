@@ -1,6 +1,8 @@
-import { GLOBAL_EXTENSION_KEY } from "@mtbird/core";
+// import { GLOBAL_EXTENSION_KEY } from "./../../../mtbird-core/src/constants";
 import { RollupExternal, RollupGlobal } from "../utils/constants";
 import { getPollupPlugins } from "../utils/rollup";
+
+const GLOBAL_EXTENSION_KEY = "MTBIRD_EXTENSION";
 
 const path = require("path");
 const copy = require("rollup-plugin-copy");

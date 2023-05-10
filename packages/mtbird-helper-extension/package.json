@@ -34,10 +34,13 @@
   "devDependencies": {
     "rimraf": "^3.0.2",
     "cross-env": "^7.0.3",
-    "@mtbird/cli": "^0.0.3-beta.64"
+    "@mtbird/cli": "^0.0.3-beta.64",
+    "@mtbird/shared": "^0.0.3-beta.64",
+    "@mtbird/core": "^0.0.3-beta.64"
   },
   "peerDependencies": {
-    "@mtbird/shared": "^0.0.1-beta.4",
+    "@mtbird/shared": "^0.0.3-beta.64",
+    "@mtbird/core": "^0.0.3-beta.64",
     "antd": "^5.1.4",
     "axios": "^0.27.2",
     "lodash": "^4.17.21"
