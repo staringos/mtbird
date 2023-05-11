@@ -38,7 +38,12 @@ pnpm  -w run start
 ```shell
 pnpm install
 pnpm -w run build
-yarn run publish
+pnpm run release:enter-beta
+pnpm run release:changeset // 选择要发布的模块
+# with `read:user` and `repo:status` permissions
+token=yourGithubToken pnpm run release:change-version
+pnpm run release:exit-beta
+pnpm run release:publish
 ```
 
 ## Packages
