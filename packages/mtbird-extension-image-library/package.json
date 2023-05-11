@@ -29,7 +29,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "peerDependencies": {
-    "@mtbird/shared": "^0.0.1-beta.4",
+    "@mtbird/shared": "^0.0.3-beta.64",
     "@mtbird/cli": "^0.0.3-beta.15",
     "antd": "^5.1.4"
   },
