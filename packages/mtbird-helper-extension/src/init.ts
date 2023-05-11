@@ -1,5 +1,5 @@
-import { GLOBAL_EXTENSION_KEY } from "../../mtbird-core/src";
-import { IContext } from "../../mtbird-editor/src/models";
+import { GLOBAL_EXTENSION_KEY } from "@mtbird/core";
+import { IContext } from "../../mtbird-editor/src/store/types";
 import { IExtension } from "../../mtbird-shared/src/types/Extension";
 import ExtensionContext from "./ExtensionContext";
 import keys from "lodash/keys";

@@ -15,11 +15,14 @@
     "builder"
   ],
   "scripts": {
-    "start": "lerna run start --scope=@mtbird/example --stream",
+    "example": "pnpm run -r --parallel --aggregate-output --filter @mtbird/example... start",
+    "start": "pnpm run -r --parallel --filter @mtbird/example^... start",
+    "start1": "pnpm run  -r --parallel --aggregate-output --filter=!@mtbird/example --filter=!mtbird-storybook start",
+    "build": "pnpm run --if-present --stream --aggregate-output -r build",
     "bootstrap": "lerna exec yarn && yarn build && lerna exec yarn link && yarn link-pkg",
     "link-pkg": "yarn link @mtbird/component-basic & yarn link @mtbird/helper-component & yarn link @mtbird/renderer-web & yarn link @mtbird/shared & yarn link @mtbird/ui && lerna run link-pkg --scope=@mtbird/example --stream",
     "update-version": "lerna version prerelease --force-publish --conventional-commits",
-    "build": "lerna run build",
+    "lerna:build": "lerna run build",
     "publish": "lerna publish from-package --yes --registry https://registry.npmjs.org/",
     "lint": "yarn prettier --write ."
   },

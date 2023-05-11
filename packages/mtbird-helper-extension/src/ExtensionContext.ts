@@ -1,4 +1,4 @@
-import { IContext } from "packages/mtbird-editor/src/models";
+import { IContext } from "../../mtbird-editor/src/store/types";
 import {
   IComponentInstanceCommon,
   IExtensionContext,

@@ -38,6 +38,7 @@ module.exports = (root) => {
       builtins({ crypto: true }),
       // Allow json resolution
       json(),
+      commonjs(),
       // Compile TypeScript files
       babel({
         // ...pkg.babel,
@@ -48,7 +49,6 @@ module.exports = (root) => {
         babelrc: true,
         exclude: 'node_modules/**'
       }),
-      commonjs(),
       // https://github.com/rollup/rollup-plugin-node-resolve#usage
       resolve.default(),
       sourceMaps()

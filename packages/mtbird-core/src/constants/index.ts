@@ -31,6 +31,7 @@ export const LAYOUT_TYPE = {
   ABSOLUTE: "absolute",
 };
 
+// @TODO This constant is hardcoded in /packages/mtbird-cli/src/builder/rollup.config.js
 export const GLOBAL_EXTENSION_KEY = "MTBIRD_EXTENSION";
 export const GLOBAL_EXTENSION_COMPONENTS_KEY = "MTBIRD_EXTENSION_COMPONENTS";
 
