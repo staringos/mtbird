@@ -1,0 +1,24 @@
+{
+  "mode": "exit",
+  "tag": "next",
+  "initialVersions": {
+    "@mtbird/cli": "0.0.3-beta.64",
+    "@mtbird/component-basic": "0.0.3-beta.64",
+    "@mtbird/core": "0.0.3-beta.64",
+    "@mtbird/editor": "0.0.3-beta.64",
+    "@mtbird/example": "0.0.3-beta.64",
+    "@mtbird/extension-animation": "0.0.3-beta.64",
+    "mtbird-extension-component-basic": "0.0.3-beta.64",
+    "mtbird-extension-component-mobile": "0.0.3-beta.64",
+    "@mtbird/extension-image-library": "0.0.3-beta.64",
+    "@mtbird/extension-rich-text": "0.0.3-beta.64",
+    "@mtbird/extension-sticky-panel": "0.0.3-beta.64",
+    "@mtbird/helper-component": "0.0.3-beta.64",
+    "@mtbird/helper-extension": "0.0.3-beta.64",
+    "@mtbird/renderer-web": "0.0.3-beta.64",
+    "@mtbird/shared": "0.0.3-beta.64",
+    "mtbird-storybook": "0.0.3-beta.64",
+    "@mtbird/ui": "0.0.3-beta.64"
+  },
+  "changesets": []
+}

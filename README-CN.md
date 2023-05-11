@@ -34,9 +34,8 @@
 
 ```shell
 git clone https://github.com/staringos/mtbird
-yarn
-yarn bootstrap
-yarn start
+pnpm install
+pnpm  -w run start
 ```
 
 在浏览器打开: http://localhost:3000/

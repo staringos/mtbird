@@ -27,7 +27,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "peerDependencies": {
-    "@mtbird/renderer-web": "^0.0.1",
+    "@mtbird/renderer-web": "^0.0.3-beta.64",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },

@@ -22,28 +22,22 @@ MtBird 项目库的提交规范采用 [Angular 提交规范](https://zj-git-guid
 
 ```shell
 git clone https://github.com/staringos/mtbird
-yarn
-yarn bootstrap
-yarn start
+pnpm install
+pnpm  -w run start
 ```
 
 在浏览器打开: http://localhost:3000/
 
 ## 调试本地模块
 
-这时候，example 中所有 mtbird 相关依赖已经被 link 到本地，您可以在本地开启代码监听，进行代码修改，example 中的引用会自动更新。比如修改 editor 模块:
-
-```shell
-cd packages/mtbrid-editor
-yarn start
-```
+通过 `pnpm  -w run start` 启动 example 后，example 中所有 mtbird 相关依赖已经被 link 到本地，您可以直接进行代码修改，example 中的引用会自动更新。
 ## 发布到 npmjs.com
 
 在根目录执行
 
 ```shell
-yarn run build
-yarn run update-version
+pnpm install
+pnpm -w run build
 yarn run publish
 ```
 
