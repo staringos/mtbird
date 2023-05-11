@@ -1,6 +1,6 @@
 {
   "mode": "exit",
-  "tag": "next",
+  "tag": "beta",
   "initialVersions": {
     "@mtbird/cli": "0.0.3-beta.64",
     "@mtbird/component-basic": "0.0.3-beta.64",
@@ -20,5 +20,7 @@
     "mtbird-storybook": "0.0.3-beta.64",
     "@mtbird/ui": "0.0.3-beta.64"
   },
-  "changesets": []
+  "changesets": [
+    "many-lamps-own"
+  ]
 }

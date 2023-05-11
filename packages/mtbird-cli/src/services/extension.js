@@ -52,7 +52,7 @@ export const recallHistory = (name, version, token) => {
     {
       headers: {
         Authorization: "Beare " + token,
-      },
+      }
     },
   );
 };
