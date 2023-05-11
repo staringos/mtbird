@@ -33,9 +33,8 @@ Require NodeJS version: >=14.18.0
 
 ```shell
 git clone https://github.com/staringos/mtbird
-yarn
-yarn bootstrap
-yarn start
+pnpm install
+pnpm  -w run start
 ```
 
 Open: http://localhost:3000/
