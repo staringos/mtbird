@@ -38,7 +38,7 @@ export const publishExtension = (manifest, token) => {
       headers: {
         Authorization: "Beare " + token,
       },
-    }
+    },
   );
 };
 
