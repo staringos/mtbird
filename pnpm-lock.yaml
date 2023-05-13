@@ -16,6 +16,12 @@ importers:
       '@mtbird/ui':
         specifier: ^0.0.3-beta.43
         version: link:packages/mtbird-ui
+      chalk:
+        specifier: ^5.2.0
+        version: 5.2.0
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
       react:
         specifier: ^18.1.0
         version: 18.1.0
@@ -263,6 +269,9 @@ importers:
       babel-preset-react-app:
         specifier: ^10.0.1
         version: 10.0.1
+      chalk:
+        specifier: ^5.2.0
+        version: 5.2.0
       concurrently:
         specifier: ^7.3.0
         version: 7.6.0
@@ -447,13 +456,16 @@ importers:
       eventemitter2:
         specifier: ^6.4.9
         version: 6.4.9
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
       nanoid:
         specifier: ^4.0.0
         version: 4.0.1
     devDependencies:
       '@mtbird/cli':
         specifier: ^0.0.3-beta.64
-        version: link:../mtbird-cli
+        version: 0.0.3-beta.65
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3

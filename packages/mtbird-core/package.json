@@ -34,11 +34,12 @@
   "gitHead": "0972d2236b07128ae7f1dd2a9481224a2ba10469",
   "dependencies": {
     "eventemitter2": "^6.4.9",
+    "lodash": "^4.17.21",
     "nanoid": "^4.0.0"
   },
   "devDependencies": {
-    "rimraf": "^3.0.2",
+    "@mtbird/cli": "^0.0.3-beta.64",
     "cross-env": "^7.0.3",
-    "@mtbird/cli": "^0.0.3-beta.64"
+    "rimraf": "^3.0.2"
   }
 }
