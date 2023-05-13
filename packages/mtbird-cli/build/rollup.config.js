@@ -50,7 +50,9 @@ module.exports = (root) => {
         exclude: 'node_modules/**'
       }),
       // https://github.com/rollup/rollup-plugin-node-resolve#usage
-      resolve.default(),
+      resolve.default({
+        exportConditions: ['node'],
+      }),
       sourceMaps()
     ]
   };

@@ -98,6 +98,8 @@
     "@mtbird/component-basic": "^0.0.3-beta.46",
     "@mtbird/core": "^0.0.3-beta.43",
     "@mtbird/ui": "^0.0.3-beta.43",
+    "chalk": "^5.2.0",
+    "lodash": "^4.17.21",
     "react": "^18.1.0",
     "react-color": "^2.19.3",
     "react-dom": "^18.1.0"
