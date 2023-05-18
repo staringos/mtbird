@@ -34,7 +34,7 @@
   "devDependencies": {
     "rimraf": "^3.0.2",
     "cross-env": "^7.0.3",
-    "@mtbird/cli": "^0.0.3-beta.64",
+    "@mtbird/cli": "^0.0.3-beta.65",
     "@mtbird/shared": "^0.0.3-beta.64",
     "@mtbird/core": "^0.0.3-beta.64"
   },

@@ -33,6 +33,6 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "@mtbird/cli": "^0.0.3-beta.64"
+    "@mtbird/cli": "^0.0.3-beta.65"
   }
 }
