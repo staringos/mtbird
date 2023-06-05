@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.0.3-beta.66
+
+### Patch Changes
+
+- [`5aca5a9`](https://github.com/staringos/mtbird/commit/5aca5a9b2b7c2c54a623547607d2ade72f28a39a) Thanks [@jtaox](https://github.com/jtaox)! - add configurable registry for loading extension resources
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
@@ -7,198 +13,108 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @mtbird/editor
 
-
-
-
-
 ## [0.0.3-beta.63](https://github.com/staringos/mtbird/compare/v0.0.3-beta.62...v0.0.3-beta.63) (2023-05-03)
 
 **Note:** Version bump only for package @mtbird/editor
-
-
-
-
 
 ## [0.0.3-beta.62](https://github.com/staringos/mtbird/compare/v0.0.3-beta.61...v0.0.3-beta.62) (2023-05-02)
 
 **Note:** Version bump only for package @mtbird/editor
 
-
-
-
-
 ## [0.0.3-beta.61](https://github.com/staringos/mtbird/compare/v0.0.3-beta.60...v0.0.3-beta.61) (2023-04-21)
 
 **Note:** Version bump only for package @mtbird/editor
 
-
-
-
-
 ## [0.0.3-beta.60](https://github.com/staringos/mtbird/compare/v0.0.3-beta.59...v0.0.3-beta.60) (2023-04-20)
-
 
 ### Bug Fixes
 
-* bugs ([0972d22](https://github.com/staringos/mtbird/commit/0972d2236b07128ae7f1dd2a9481224a2ba10469))
-
-
-
-
+- bugs ([0972d22](https://github.com/staringos/mtbird/commit/0972d2236b07128ae7f1dd2a9481224a2ba10469))
 
 ## [0.0.3-beta.59](https://github.com/staringos/mtbird/compare/v0.0.3-beta.58...v0.0.3-beta.59) (2023-04-20)
 
 **Note:** Version bump only for package @mtbird/editor
 
-
-
-
-
 ## [0.0.3-beta.58](https://github.com/staringos/mtbird/compare/v0.0.3-beta.57...v0.0.3-beta.58) (2023-04-12)
 
 **Note:** Version bump only for package @mtbird/editor
-
-
-
-
 
 ## [0.0.3-beta.57](https://github.com/staringos/mtbird/compare/v0.0.3-beta.56...v0.0.3-beta.57) (2023-04-12)
 
 **Note:** Version bump only for package @mtbird/editor
 
-
-
-
-
 ## [0.0.3-beta.56](https://github.com/staringos/mtbird/compare/v0.0.3-beta.55...v0.0.3-beta.56) (2023-04-12)
 
 **Note:** Version bump only for package @mtbird/editor
-
-
-
-
 
 ## [0.0.3-beta.55](https://github.com/staringos/mtbird/compare/v0.0.3-beta.54...v0.0.3-beta.55) (2023-04-12)
 
 **Note:** Version bump only for package @mtbird/editor
 
-
-
-
-
 ## [0.0.3-beta.54](https://github.com/staringos/mtbird/compare/v0.0.3-beta.53...v0.0.3-beta.54) (2023-04-12)
 
 **Note:** Version bump only for package @mtbird/editor
-
-
-
-
 
 ## [0.0.3-beta.53](https://github.com/staringos/mtbird/compare/v0.0.3-beta.52...v0.0.3-beta.53) (2023-04-12)
 
 **Note:** Version bump only for package @mtbird/editor
 
-
-
-
-
 ## [0.0.3-beta.52](https://github.com/staringos/mtbird/compare/v0.0.3-beta.51...v0.0.3-beta.52) (2023-04-12)
 
 **Note:** Version bump only for package @mtbird/editor
-
-
-
-
 
 ## [0.0.3-beta.51](https://github.com/staringos/mtbird/compare/v0.0.3-beta.50...v0.0.3-beta.51) (2023-04-12)
 
 **Note:** Version bump only for package @mtbird/editor
 
-
-
-
-
 ## [0.0.3-beta.50](https://github.com/staringos/mtbird/compare/v0.0.3-beta.49...v0.0.3-beta.50) (2023-04-12)
 
 **Note:** Version bump only for package @mtbird/editor
-
-
-
-
 
 ## [0.0.3-beta.49](https://github.com/staringos/mtbird/compare/v0.0.3-beta.48...v0.0.3-beta.49) (2023-04-12)
 
 **Note:** Version bump only for package @mtbird/editor
 
-
-
-
-
 ## [0.0.3-beta.48](https://github.com/staringos/mtbird/compare/v0.0.3-beta.47...v0.0.3-beta.48) (2023-04-12)
-
 
 ### Features
 
-* update version ([62bff03](https://github.com/staringos/mtbird/commit/62bff0394685d5b9bd84f67676a1fd05dd2cefdc))
-
-
-
-
+- update version ([62bff03](https://github.com/staringos/mtbird/commit/62bff0394685d5b9bd84f67676a1fd05dd2cefdc))
 
 ## [0.0.3-beta.47](https://github.com/staringos/mtbird/compare/v0.0.3-beta.46...v0.0.3-beta.47) (2023-04-12)
 
-
 ### Bug Fixes
 
-* debug-panel z-index ([756d521](https://github.com/staringos/mtbird/commit/756d521595f98e2060b28705a440c9b9a6a84db2))
-
-
-
-
+- debug-panel z-index ([756d521](https://github.com/staringos/mtbird/commit/756d521595f98e2060b28705a440c9b9a6a84db2))
 
 ## [0.0.3-beta.46](https://github.com/staringos/mtbird/compare/v0.0.3-beta.45...v0.0.3-beta.46) (2023-03-06)
 
 **Note:** Version bump only for package @mtbird/editor
 
-
-
-
-
 ## [0.0.3-beta.45](https://github.com/staringos/mtbird/compare/v0.0.3-beta.44...v0.0.3-beta.45) (2023-03-01)
-
 
 ### Bug Fixes
 
-* debug bugs ([eff35f5](https://github.com/staringos/mtbird/commit/eff35f515a65f3b4ef296da2bf8cb8342226f325))
-
-
-
-
+- debug bugs ([eff35f5](https://github.com/staringos/mtbird/commit/eff35f515a65f3b4ef296da2bf8cb8342226f325))
 
 ## [0.0.3-beta.44](https://github.com/staringos/mtbird/compare/v0.0.3-beta.43...v0.0.3-beta.44) (2023-03-01)
 
-
 ### Bug Fixes
 
-* text problem ([a83126c](https://github.com/staringos/mtbird/commit/a83126c8e94f0387819d738a7192f397ea2cea0f))
-* typo ([9db9772](https://github.com/staringos/mtbird/commit/9db97720f821851515f259739bed848438a71c01))
-
+- text problem ([a83126c](https://github.com/staringos/mtbird/commit/a83126c8e94f0387819d738a7192f397ea2cea0f))
+- typo ([9db9772](https://github.com/staringos/mtbird/commit/9db97720f821851515f259739bed848438a71c01))
 
 ### Features
 
-* add extension for website and change ruler color ([f849e9b](https://github.com/staringos/mtbird/commit/f849e9b37e6e32b4b1ce744c6eb27b85d1dbf128))
-* adjust pc to no zoom ([c10de30](https://github.com/staringos/mtbird/commit/c10de30155e632b778a036986406ae76fb3a060e))
-* click to toggle tab and set button tabs default hidden ([1d3a095](https://github.com/staringos/mtbird/commit/1d3a095c30835c47b5aabadea9ce123cd6cf4beb))
-* lint with prettier ([6072b3b](https://github.com/staringos/mtbird/commit/6072b3bb1845ac737c68c610009e37340649b7ee))
-* list modify support DATA_ARRAY ([07ca665](https://github.com/staringos/mtbird/commit/07ca665eaf0a0908448a99392d2ee7b18ad03b5c))
-* slot light ([33ceeb0](https://github.com/staringos/mtbird/commit/33ceeb015641b050a9919457f623851d4bde1d2e))
-* slot support ([596884b](https://github.com/staringos/mtbird/commit/596884bf9bb962666693176052eb6b95dcbbc2fd))
-* **slot:** support slot part 1: add component ([be504c7](https://github.com/staringos/mtbird/commit/be504c741263946ebff7f25ceca9be344847e169))
-* website components and compoent libs ([81a84b3](https://github.com/staringos/mtbird/commit/81a84b34451b90bda5491837b62c5a5eb1f519a4))
-
-
-
-
+- add extension for website and change ruler color ([f849e9b](https://github.com/staringos/mtbird/commit/f849e9b37e6e32b4b1ce744c6eb27b85d1dbf128))
+- adjust pc to no zoom ([c10de30](https://github.com/staringos/mtbird/commit/c10de30155e632b778a036986406ae76fb3a060e))
+- click to toggle tab and set button tabs default hidden ([1d3a095](https://github.com/staringos/mtbird/commit/1d3a095c30835c47b5aabadea9ce123cd6cf4beb))
+- lint with prettier ([6072b3b](https://github.com/staringos/mtbird/commit/6072b3bb1845ac737c68c610009e37340649b7ee))
+- list modify support DATA_ARRAY ([07ca665](https://github.com/staringos/mtbird/commit/07ca665eaf0a0908448a99392d2ee7b18ad03b5c))
+- slot light ([33ceeb0](https://github.com/staringos/mtbird/commit/33ceeb015641b050a9919457f623851d4bde1d2e))
+- slot support ([596884b](https://github.com/staringos/mtbird/commit/596884bf9bb962666693176052eb6b95dcbbc2fd))
+- **slot:** support slot part 1: add component ([be504c7](https://github.com/staringos/mtbird/commit/be504c741263946ebff7f25ceca9be344847e169))
+- website components and compoent libs ([81a84b3](https://github.com/staringos/mtbird/commit/81a84b34451b90bda5491837b62c5a5eb1f519a4))
 
 ## [0.0.3-beta.43](https://github.com/staringos/mtbird/compare/v0.0.3-beta.42...v0.0.3-beta.43) (2023-01-25)
 

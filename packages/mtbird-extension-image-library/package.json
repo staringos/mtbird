@@ -1,6 +1,6 @@
 {
   "name": "@mtbird/extension-image-library",
-  "version": "0.0.3-beta.64",
+  "version": "0.0.3-beta.66",
   "private": true,
   "description": "The image library plugin",
   "author": "zousongqi <george@staringos.com>",
@@ -34,11 +34,10 @@
     "antd": "^5.1.4"
   },
   "devDependencies": {
-    "@mtbird/cli": "^0.0.3-beta.15",
+    "@mtbird/cli": "^0.0.3-beta.66",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "cross-env": "^7.0.3"
-
   },
   "gitHead": "2f918f1c199fc230eb68d1fdaf07890b1fb99206"
 }

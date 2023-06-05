@@ -1,6 +1,6 @@
 {
   "name": "@mtbird/helper-extension",
-  "version": "0.0.3-beta.64",
+  "version": "0.0.3-beta.66",
   "description": "The extension helper for mtbird",
   "author": "zousongqi <george@staringos.com>",
   "homepage": "",
@@ -34,9 +34,9 @@
   "devDependencies": {
     "rimraf": "^3.0.2",
     "cross-env": "^7.0.3",
-    "@mtbird/cli": "^0.0.3-beta.65",
-    "@mtbird/shared": "^0.0.3-beta.64",
-    "@mtbird/core": "^0.0.3-beta.64"
+    "@mtbird/cli": "^0.0.3-beta.66",
+    "@mtbird/shared": "^0.0.3-beta.66",
+    "@mtbird/core": "^0.0.3-beta.66"
   },
   "peerDependencies": {
     "@mtbird/shared": "^0.0.3-beta.64",

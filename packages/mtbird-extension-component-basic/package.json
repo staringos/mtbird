@@ -1,6 +1,6 @@
 {
   "name": "mtbird-extension-component-basic",
-  "version": "0.0.3-beta.64",
+  "version": "0.0.3-beta.65",
   "private": true,
   "description": "星搭基础组件库",
   "homepage": "",
@@ -21,7 +21,7 @@
     "publish-lib": "cross-env NODE_ENV=production mtbird publish --token="
   },
   "dependencies": {
-    "@mtbird/core": "^0.0.3-beta.64",
+    "@mtbird/core": "^0.0.3-beta.66",
     "antd-mobile": "^5.25.1"
   },
   "peerDependencies": {
@@ -33,6 +33,6 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "@mtbird/cli": "^0.0.3-beta.65"
+    "@mtbird/cli": "^0.0.3-beta.66"
   }
 }

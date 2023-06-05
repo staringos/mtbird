@@ -1,5 +1,21 @@
 # Change Log
 
+## 0.0.3-beta.66
+
+### Patch Changes
+
+- [`5aca5a9`](https://github.com/staringos/mtbird/commit/5aca5a9b2b7c2c54a623547607d2ade72f28a39a) Thanks [@jtaox](https://github.com/jtaox)! - add configurable registry for loading extension resources
+
+- Updated dependencies [[`5aca5a9`](https://github.com/staringos/mtbird/commit/5aca5a9b2b7c2c54a623547607d2ade72f28a39a)]:
+  - @mtbird/component-basic@0.0.3-beta.66
+  - @mtbird/core@0.0.3-beta.66
+  - @mtbird/editor@0.0.3-beta.66
+  - @mtbird/helper-component@0.0.3-beta.66
+  - @mtbird/helper-extension@0.0.3-beta.66
+  - @mtbird/renderer-web@0.0.3-beta.66
+  - @mtbird/shared@0.0.3-beta.66
+  - @mtbird/ui@0.0.3-beta.66
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
@@ -7,183 +23,95 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @mtbird/example
 
-
-
-
-
 ## [0.0.3-beta.63](https://github.com/staringos/mtbird/compare/v0.0.3-beta.62...v0.0.3-beta.63) (2023-05-03)
 
 **Note:** Version bump only for package @mtbird/example
-
-
-
-
 
 ## [0.0.3-beta.62](https://github.com/staringos/mtbird/compare/v0.0.3-beta.61...v0.0.3-beta.62) (2023-05-02)
 
 **Note:** Version bump only for package @mtbird/example
 
-
-
-
-
 ## [0.0.3-beta.61](https://github.com/staringos/mtbird/compare/v0.0.3-beta.60...v0.0.3-beta.61) (2023-04-21)
 
 **Note:** Version bump only for package @mtbird/example
-
-
-
-
 
 ## [0.0.3-beta.60](https://github.com/staringos/mtbird/compare/v0.0.3-beta.59...v0.0.3-beta.60) (2023-04-20)
 
 **Note:** Version bump only for package @mtbird/example
 
-
-
-
-
 ## [0.0.3-beta.59](https://github.com/staringos/mtbird/compare/v0.0.3-beta.58...v0.0.3-beta.59) (2023-04-20)
 
 **Note:** Version bump only for package @mtbird/example
-
-
-
-
 
 ## [0.0.3-beta.58](https://github.com/staringos/mtbird/compare/v0.0.3-beta.57...v0.0.3-beta.58) (2023-04-12)
 
 **Note:** Version bump only for package @mtbird/example
 
-
-
-
-
 ## [0.0.3-beta.57](https://github.com/staringos/mtbird/compare/v0.0.3-beta.56...v0.0.3-beta.57) (2023-04-12)
 
 **Note:** Version bump only for package @mtbird/example
-
-
-
-
 
 ## [0.0.3-beta.56](https://github.com/staringos/mtbird/compare/v0.0.3-beta.55...v0.0.3-beta.56) (2023-04-12)
 
 **Note:** Version bump only for package @mtbird/example
 
-
-
-
-
 ## [0.0.3-beta.55](https://github.com/staringos/mtbird/compare/v0.0.3-beta.54...v0.0.3-beta.55) (2023-04-12)
 
 **Note:** Version bump only for package @mtbird/example
-
-
-
-
 
 ## [0.0.3-beta.54](https://github.com/staringos/mtbird/compare/v0.0.3-beta.53...v0.0.3-beta.54) (2023-04-12)
 
 **Note:** Version bump only for package @mtbird/example
 
-
-
-
-
 ## [0.0.3-beta.53](https://github.com/staringos/mtbird/compare/v0.0.3-beta.52...v0.0.3-beta.53) (2023-04-12)
 
 **Note:** Version bump only for package @mtbird/example
-
-
-
-
 
 ## [0.0.3-beta.52](https://github.com/staringos/mtbird/compare/v0.0.3-beta.51...v0.0.3-beta.52) (2023-04-12)
 
 **Note:** Version bump only for package @mtbird/example
 
-
-
-
-
 ## [0.0.3-beta.51](https://github.com/staringos/mtbird/compare/v0.0.3-beta.50...v0.0.3-beta.51) (2023-04-12)
 
 **Note:** Version bump only for package @mtbird/example
-
-
-
-
 
 ## [0.0.3-beta.50](https://github.com/staringos/mtbird/compare/v0.0.3-beta.49...v0.0.3-beta.50) (2023-04-12)
 
 **Note:** Version bump only for package @mtbird/example
 
-
-
-
-
 ## [0.0.3-beta.49](https://github.com/staringos/mtbird/compare/v0.0.3-beta.48...v0.0.3-beta.49) (2023-04-12)
 
 **Note:** Version bump only for package @mtbird/example
 
-
-
-
-
 ## [0.0.3-beta.48](https://github.com/staringos/mtbird/compare/v0.0.3-beta.47...v0.0.3-beta.48) (2023-04-12)
-
 
 ### Bug Fixes
 
-* video problem ([8e3515e](https://github.com/staringos/mtbird/commit/8e3515e076e88e7f612c95793117442cccce66a0))
-
-
-
-
+- video problem ([8e3515e](https://github.com/staringos/mtbird/commit/8e3515e076e88e7f612c95793117442cccce66a0))
 
 ## [0.0.3-beta.47](https://github.com/staringos/mtbird/compare/v0.0.3-beta.46...v0.0.3-beta.47) (2023-04-12)
 
-
 ### Bug Fixes
 
-* example bug ([799761a](https://github.com/staringos/mtbird/commit/799761a3f92564f9f16f995bdbaeb50ed937a074))
-
-
-
-
+- example bug ([799761a](https://github.com/staringos/mtbird/commit/799761a3f92564f9f16f995bdbaeb50ed937a074))
 
 ## [0.0.3-beta.46](https://github.com/staringos/mtbird/compare/v0.0.3-beta.45...v0.0.3-beta.46) (2023-03-06)
 
 **Note:** Version bump only for package @mtbird/example
 
-
-
-
-
 ## [0.0.3-beta.45](https://github.com/staringos/mtbird/compare/v0.0.3-beta.44...v0.0.3-beta.45) (2023-03-01)
 
 **Note:** Version bump only for package @mtbird/example
 
-
-
-
-
 ## [0.0.3-beta.44](https://github.com/staringos/mtbird/compare/v0.0.3-beta.43...v0.0.3-beta.44) (2023-03-01)
-
 
 ### Bug Fixes
 
-* text problem ([a83126c](https://github.com/staringos/mtbird/commit/a83126c8e94f0387819d738a7192f397ea2cea0f))
-
+- text problem ([a83126c](https://github.com/staringos/mtbird/commit/a83126c8e94f0387819d738a7192f397ea2cea0f))
 
 ### Features
 
-* lint with prettier ([6072b3b](https://github.com/staringos/mtbird/commit/6072b3bb1845ac737c68c610009e37340649b7ee))
-
-
-
-
+- lint with prettier ([6072b3b](https://github.com/staringos/mtbird/commit/6072b3bb1845ac737c68c610009e37340649b7ee))
 
 ## [0.0.3-beta.43](https://github.com/staringos/mtbird/compare/v0.0.3-beta.42...v0.0.3-beta.43) (2023-01-25)
 
