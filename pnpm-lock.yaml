@@ -463,7 +463,7 @@ importers:
         version: 2.0.0(prop-types@15.8.1)(react-dom@18.1.0)(react@18.1.0)
     devDependencies:
       '@mtbird/cli':
-        specifier: ^0.0.3-beta.64
+        specifier: ^0.0.3-beta.65
         version: link:../mtbird-cli
       cross-env:
         specifier: ^7.0.3
@@ -482,7 +482,7 @@ importers:
         version: 4.0.1
     devDependencies:
       '@mtbird/cli':
-        specifier: ^0.0.3-beta.64
+        specifier: ^0.0.3-beta.65
         version: link:../mtbird-cli
       cross-env:
         specifier: ^7.0.3
@@ -564,7 +564,7 @@ importers:
         version: 1.22.3
     devDependencies:
       '@mtbird/cli':
-        specifier: ^0.0.3-beta.64
+        specifier: ^0.0.3-beta.65
         version: link:../mtbird-cli
       '@types/react-grid-layout':
         specifier: ^1.3.2
@@ -671,7 +671,7 @@ importers:
         version: 5.4.7(react-dom@18.1.0)(react@18.1.0)
     devDependencies:
       '@mtbird/cli':
-        specifier: ^0.0.3-beta.64
+        specifier: ^0.0.3-beta.65
         version: link:../mtbird-cli
       '@mtbird/shared':
         specifier: ^0.0.3-beta.64
@@ -714,7 +714,7 @@ importers:
         version: 18.2.0(react@18.2.0)
     devDependencies:
       '@mtbird/cli':
-        specifier: ^0.0.3-beta.64
+        specifier: ^0.0.3-beta.65
         version: link:../mtbird-cli
       cross-env:
         specifier: ^7.0.3
@@ -742,7 +742,7 @@ importers:
         version: 18.2.0(react@18.2.0)
     devDependencies:
       '@mtbird/cli':
-        specifier: ^0.0.3-beta.64
+        specifier: ^0.0.3-beta.65
         version: link:../mtbird-cli
       cross-env:
         specifier: ^7.0.3
@@ -807,7 +807,7 @@ importers:
         version: 18.2.0(react@18.2.0)
     devDependencies:
       '@mtbird/cli':
-        specifier: ^0.0.3-beta.64
+        specifier: ^0.0.3-beta.65
         version: link:../mtbird-cli
       '@mtbird/core':
         specifier: ^0.0.3-beta.64
@@ -832,7 +832,7 @@ importers:
         version: 18.2.0(react@18.2.0)
     devDependencies:
       '@mtbird/cli':
-        specifier: ^0.0.3-beta.64
+        specifier: ^0.0.3-beta.65
         version: link:../mtbird-cli
       '@mtbird/shared':
         specifier: workspace:0.0.3-beta.64
@@ -854,7 +854,7 @@ importers:
         version: 18.2.0(react@18.2.0)
     devDependencies:
       '@mtbird/cli':
-        specifier: ^0.0.3-beta.64
+        specifier: ^0.0.3-beta.65
         version: link:../mtbird-cli
       cross-env:
         specifier: ^7.0.3
@@ -873,7 +873,7 @@ importers:
         version: 4.17.21
     devDependencies:
       '@mtbird/cli':
-        specifier: ^0.0.3-beta.64
+        specifier: ^0.0.3-beta.65
         version: link:../mtbird-cli
       '@mtbird/core':
         specifier: ^0.0.3-beta.64
@@ -910,7 +910,7 @@ importers:
         version: 18.2.0(react@18.2.0)
     devDependencies:
       '@mtbird/cli':
-        specifier: ^0.0.3-beta.64
+        specifier: ^0.0.3-beta.65
         version: link:../mtbird-cli
       cross-env:
         specifier: ^7.0.3
@@ -926,7 +926,7 @@ importers:
         version: 18.1.0(react@18.1.0)
     devDependencies:
       '@mtbird/cli':
-        specifier: ^0.0.3-beta.64
+        specifier: ^0.0.3-beta.65
         version: link:../mtbird-cli
       cross-env:
         specifier: ^7.0.3
@@ -1066,7 +1066,7 @@ importers:
         version: 18.1.0(react@18.1.0)
     devDependencies:
       '@mtbird/cli':
-        specifier: ^0.0.3-beta.64
+        specifier: ^0.0.3-beta.65
         version: link:../mtbird-cli
       cross-env:
         specifier: ^7.0.3
@@ -5507,7 +5507,7 @@ packages:
       '@types/object.omit': 3.0.0
       '@types/object.pick': 1.3.2
       '@types/throttle-debounce': 2.1.0
-      case-anything: 2.1.11
+      case-anything: 2.1.13
       dash-get: 1.0.2
       deepmerge: 4.3.1
       fast-deep-equal: 3.1.3
@@ -7868,11 +7868,11 @@ packages:
       prosemirror-menu: 1.2.2
       prosemirror-model: 1.19.0
       prosemirror-schema-basic: 1.2.2
-      prosemirror-schema-list: 1.2.3
+      prosemirror-schema-list: 1.3.0
       prosemirror-state: 1.4.2
       prosemirror-tables: 1.3.2
       prosemirror-trailing-node: 2.0.4(prosemirror-model@1.19.0)(prosemirror-state@1.4.2)(prosemirror-view@1.31.2)
-      prosemirror-transform: 1.7.1
+      prosemirror-transform: 1.7.3
       prosemirror-view: 1.31.2
     transitivePeerDependencies:
       - supports-color
@@ -10672,8 +10672,8 @@ packages:
       rsvp: 4.8.5
     dev: true
 
-  /case-anything@2.1.11:
-    resolution: {integrity: sha512-uzKDXzdM/x914cepWPzElU3y50NRKYhjkO4ittOHLq+rF6M0AgRLF/+yPR1tvwLNAh8WHEPTfhuciZGPfX+oyg==}
+  /case-anything@2.1.13:
+    resolution: {integrity: sha512-zlOQ80VrQ2Ue+ymH5OuM/DlDq64mEm+B9UTdHULv5osUMD6HalNTblf2b1u/m6QecjsnOkBpqVZ+XPwIVsy7Ng==}
     engines: {node: '>=12.13'}
     dev: false
 
@@ -16726,9 +16726,9 @@ packages:
       prelude-ls: 1.2.1
       type-check: 0.4.0
 
-  /lib0@0.2.74:
-    resolution: {integrity: sha512-roj9i46/JwG5ik5KNTkxP2IytlnrssAkD/OhlAVtE+GqectrdkfR+pttszVLrOzMDeXNs1MPt6yo66MUolWSiA==}
-    engines: {node: '>=14'}
+  /lib0@0.2.78:
+    resolution: {integrity: sha512-SV2nU43/6eaYnGH3l0lg2wg1ziB/TH3sAd2E8quXPGwrqo+aX98SNT2ZKucpUr5B8A52jD7ZMjAl+r87Fa/bLQ==}
+    engines: {node: '>=16'}
     hasBin: true
     dependencies:
       isomorphic.js: 0.2.5
@@ -20672,7 +20672,7 @@ packages:
   /prosemirror-changeset@2.2.1:
     resolution: {integrity: sha512-J7msc6wbxB4ekDFj+n9gTW/jav/p53kdlivvuppHsrZXCaQdVgRghoZbSS3kwrRyAstRVQ4/+u5k7YfLgkkQvQ==}
     dependencies:
-      prosemirror-transform: 1.7.1
+      prosemirror-transform: 1.7.3
     dev: false
 
   /prosemirror-collab@1.3.1:
@@ -20686,14 +20686,14 @@ packages:
     dependencies:
       prosemirror-model: 1.19.0
       prosemirror-state: 1.4.2
-      prosemirror-transform: 1.7.1
+      prosemirror-transform: 1.7.3
     dev: false
 
   /prosemirror-dropcursor@1.8.1:
     resolution: {integrity: sha512-M30WJdJZLyXHi3N8vxN6Zh5O8ZBbQCz0gURTfPmTIBNQ5pxrdU7A58QkNqfa98YEjSAL1HUyyU34f6Pm5xBSGw==}
     dependencies:
       prosemirror-state: 1.4.2
-      prosemirror-transform: 1.7.1
+      prosemirror-transform: 1.7.3
       prosemirror-view: 1.31.2
     dev: false
 
@@ -20710,7 +20710,7 @@ packages:
     resolution: {integrity: sha512-/zm0XoU/N/+u7i5zepjmZAEnpvjDtzoPWW6VmKptcAnPadN/SStsBjMImdCEbb3seiNTpveziPTIrXQbHLtU1g==}
     dependencies:
       prosemirror-state: 1.4.2
-      prosemirror-transform: 1.7.1
+      prosemirror-transform: 1.7.3
       prosemirror-view: 1.31.2
       rope-sequence: 1.3.4
     dev: false
@@ -20719,7 +20719,7 @@ packages:
     resolution: {integrity: sha512-3LrWJX1+ULRh5SZvbIQlwZafOXqp1XuV21MGBu/i5xsztd+9VD15x6OtN6mdqSFI7/8Y77gYUbQ6vwwJ4mr6QQ==}
     dependencies:
       prosemirror-state: 1.4.2
-      prosemirror-transform: 1.7.1
+      prosemirror-transform: 1.7.3
     dev: false
 
   /prosemirror-keymap@1.2.2:
@@ -20763,12 +20763,12 @@ packages:
       prosemirror-model: 1.19.0
     dev: false
 
-  /prosemirror-schema-list@1.2.3:
-    resolution: {integrity: sha512-HD8yjDOusz7JB3oBFCaMOpEN9Z9DZttLr6tcASjnvKMc0qTyX5xgAN8YiMFFEcwyhF7WZrZ2YQkAwzsn8ICVbQ==}
+  /prosemirror-schema-list@1.3.0:
+    resolution: {integrity: sha512-Hz/7gM4skaaYfRPNgr421CU4GSwotmEwBVvJh5ltGiffUJwm7C8GfN/Bc6DR1EKEp5pDKhODmdXXyi9uIsZl5A==}
     dependencies:
       prosemirror-model: 1.19.0
       prosemirror-state: 1.4.2
-      prosemirror-transform: 1.7.1
+      prosemirror-transform: 1.7.3
     dev: false
 
   /prosemirror-state@1.4.1:
@@ -20792,7 +20792,7 @@ packages:
       prosemirror-keymap: 1.2.2
       prosemirror-model: 1.19.0
       prosemirror-state: 1.4.2
-      prosemirror-transform: 1.7.1
+      prosemirror-transform: 1.7.3
       prosemirror-view: 1.31.2
     dev: false
 
@@ -20816,6 +20816,12 @@ packages:
 
   /prosemirror-transform@1.7.1:
     resolution: {integrity: sha512-VteoifAfpt46z0yEt6Fc73A5OID9t/y2QIeR5MgxEwTuitadEunD/V0c9jQW8ziT8pbFM54uTzRLJ/nLuQjMxg==}
+    dependencies:
+      prosemirror-model: 1.19.0
+    dev: false
+
+  /prosemirror-transform@1.7.3:
+    resolution: {integrity: sha512-qDapyx5lqYfxVeUWEw0xTGgeP2S8346QtE7DxkalsXlX89lpzkY6GZfulgfHyk1n4tf74sZ7CcXgcaCcGjsUtA==}
     dependencies:
       prosemirror-model: 1.19.0
     dev: false
@@ -27113,7 +27119,7 @@ packages:
       y-protocols: ^1.0.1
       yjs: ^13.3.2
     dependencies:
-      lib0: 0.2.74
+      lib0: 0.2.78
       prosemirror-model: 1.19.0
       prosemirror-state: 1.4.2
       prosemirror-view: 1.31.2
@@ -27124,7 +27130,7 @@ packages:
   /y-protocols@1.0.5:
     resolution: {integrity: sha512-Wil92b7cGk712lRHDqS4T90IczF6RkcvCwAD0A2OPg+adKmOe+nOiT/N2hvpQIWS3zfjmtL4CPaH5sIW1Hkm/A==}
     dependencies:
-      lib0: 0.2.74
+      lib0: 0.2.78
     dev: false
 
   /y18n@4.0.3:
@@ -27227,7 +27233,7 @@ packages:
     resolution: {integrity: sha512-IyyHL+/v9N2S4YLSjGHMa0vMAfFxq8RDG5Nvb77raTTHJPweU3L/fRlqw6ElZvZUuHWnax3ufHR0Tx0ntfG63Q==}
     engines: {node: '>=16.0.0', npm: '>=8.0.0'}
     dependencies:
-      lib0: 0.2.74
+      lib0: 0.2.78
     dev: false
 
   /yocto-queue@0.1.0:

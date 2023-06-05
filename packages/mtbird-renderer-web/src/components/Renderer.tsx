@@ -20,6 +20,7 @@ interface IProps {
   formId?: string | undefined;
   variables?: Record<string, any>;
   layoutMoveable?: { grid: any };
+  extensionRegistry?: string;
   renderExtra?: (
     node: IComponentInstance
   ) => React.Component | React.FC | string | null;
@@ -41,6 +42,7 @@ export default (props: IProps) => {
     renderExtra,
     variables,
     onChangeSelf,
+    extensionRegistry,
   } = props;
   const style = pageConfig?.data?.props?.style || {};
   const [isLoading, setIsLoading] = useState(true);
@@ -50,7 +52,7 @@ export default (props: IProps) => {
     setIsLoading(true);
 
     // load extension components async ly
-    const res = await ExtensionComponentLoader.load(pageConfig);
+    const res = await ExtensionComponentLoader.load(pageConfig, extensionRegistry);
     if (!isEqual(res, extensionComponents)) {
       // 只做增量，不删存量，增量无影响
       setExtensionComponents({ ...res, ...extensionComponents });
