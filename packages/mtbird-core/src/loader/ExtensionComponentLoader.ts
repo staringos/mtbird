@@ -11,7 +11,7 @@ import { GLOBAL_EXTENSION_COMPONENTS_KEY } from "../constants";
 
 const REGISTRY = process.env.REGISTRY || "https://registry.staringos.com/";
 
-const getRegistry = (extension: any) => {
+const getRegistry = (extension: any, registry?:string) => {
   const debugStr = GlobalStorage.debugExtension;
   if (!isEmpty(debugStr) && debugStr) {
     const debug = debugStr.split("||");
@@ -24,7 +24,8 @@ const getRegistry = (extension: any) => {
       }
     }
   }
-  return `${REGISTRY}${extension.extensionName}/latest`;
+  console.log("registry", registry)
+  return `${registry || REGISTRY}${extension.extensionName}/latest`;
 };
 
 const getExtensionComponents = (root: IComponentInstance) => {
@@ -49,7 +50,7 @@ const getExtensionComponents = (root: IComponentInstance) => {
   return extensionComponents;
 };
 
-const load = async (pageConfig: IPageConfig) => {
+const load = async (pageConfig: IPageConfig,  registryHost?:string) => {
   let res = {};
   const extensionComponents: IComponentInstance[] = getExtensionComponents(
     pageConfig.data
@@ -64,7 +65,7 @@ const load = async (pageConfig: IPageConfig) => {
   await Promise.all(
     extensions.map(async (cur: any) => {
       const { extension } = cur;
-      const registry = getRegistry(extension);
+      const registry = getRegistry(extension,  registryHost);
       const url = `${registry}/components.js`;
       const cssUrl = `${registry}/components.css`;
       const keyPath = `${GLOBAL_EXTENSION_COMPONENTS_KEY}.${
