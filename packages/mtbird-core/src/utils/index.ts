@@ -283,7 +283,8 @@ export function uuidv4(number: number) {
 }
 
 export const generateKeys = () => {
-  return "i" + nanoid();
+  const customNonoid = customAlphabet("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", 17)
+  return "i" + customNonoid();
 };
 
 export const getZoom = (standardWidth: number = 375) => {
