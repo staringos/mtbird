@@ -1,6 +1,6 @@
 {
   "name": "@mtbird/editor",
-  "version": "0.0.3-beta.66",
+  "version": "0.0.3-beta.67",
   "description": "The editor of mtbird",
   "author": "zousongqi <george@staringos.com>",
   "homepage": "",
@@ -58,7 +58,7 @@
     "less": "^4.1.3",
     "rimraf": "^3.0.2",
     "cross-env": "^7.0.3",
-    "@mtbird/cli": "^0.0.3-beta.66"
+    "@mtbird/cli": "^0.0.3-beta.67"
   },
   "gitHead": "0972d2236b07128ae7f1dd2a9481224a2ba10469"
 }

@@ -1,5 +1,21 @@
 # Change Log
 
+## 0.0.3-beta.67
+
+### Patch Changes
+
+- [`9a17537`](https://github.com/staringos/mtbird/commit/9a17537cdf970012bccc556377f48b871e28d53f) Thanks [@jtaox](https://github.com/jtaox)! - update id generate rule
+
+- Updated dependencies [[`9a17537`](https://github.com/staringos/mtbird/commit/9a17537cdf970012bccc556377f48b871e28d53f)]:
+  - @mtbird/component-basic@0.0.3-beta.67
+  - @mtbird/core@0.0.3-beta.67
+  - @mtbird/editor@0.0.3-beta.67
+  - @mtbird/helper-component@0.0.3-beta.67
+  - @mtbird/helper-extension@0.0.3-beta.67
+  - @mtbird/renderer-web@0.0.3-beta.67
+  - @mtbird/shared@0.0.3-beta.67
+  - @mtbird/ui@0.0.3-beta.67
+
 ## 0.0.3-beta.66
 
 ### Patch Changes

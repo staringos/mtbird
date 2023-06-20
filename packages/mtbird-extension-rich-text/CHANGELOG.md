@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.0.3-beta.67
+
+### Patch Changes
+
+- [`9a17537`](https://github.com/staringos/mtbird/commit/9a17537cdf970012bccc556377f48b871e28d53f) Thanks [@jtaox](https://github.com/jtaox)! - update id generate rule
+
 ## 0.0.3-beta.66
 
 ### Patch Changes
