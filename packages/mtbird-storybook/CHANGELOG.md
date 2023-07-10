@@ -1,5 +1,25 @@
 # Change Log
 
+## 0.0.3
+
+### Patch Changes
+
+- [`5aca5a9`](https://github.com/staringos/mtbird/commit/5aca5a9b2b7c2c54a623547607d2ade72f28a39a) Thanks [@jtaox](https://github.com/jtaox)! - add configurable registry for loading extension resources
+
+- [`9a17537`](https://github.com/staringos/mtbird/commit/9a17537cdf970012bccc556377f48b871e28d53f) Thanks [@jtaox](https://github.com/jtaox)! - update id generate rule
+
+- [`ea6236d`](https://github.com/staringos/mtbird/commit/ea6236d85939c76c961b88b757a9cc24b937b8d3) Thanks [@jtaox](https://github.com/jtaox)! - update antd version
+
+- Updated dependencies [[`5aca5a9`](https://github.com/staringos/mtbird/commit/5aca5a9b2b7c2c54a623547607d2ade72f28a39a), [`9a17537`](https://github.com/staringos/mtbird/commit/9a17537cdf970012bccc556377f48b871e28d53f), [`ea6236d`](https://github.com/staringos/mtbird/commit/ea6236d85939c76c961b88b757a9cc24b937b8d3)]:
+  - @mtbird/component-basic@0.0.3
+  - @mtbird/core@0.0.3
+  - @mtbird/editor@0.0.3
+  - @mtbird/helper-component@0.0.3
+  - @mtbird/helper-extension@0.0.3
+  - @mtbird/renderer-web@0.0.3
+  - @mtbird/shared@0.0.3
+  - @mtbird/ui@0.0.3
+
 ## 0.0.3-beta.66
 
 ### Patch Changes

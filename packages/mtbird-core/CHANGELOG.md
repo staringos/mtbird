@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.0.3
+
+### Patch Changes
+
+- [`5aca5a9`](https://github.com/staringos/mtbird/commit/5aca5a9b2b7c2c54a623547607d2ade72f28a39a) Thanks [@jtaox](https://github.com/jtaox)! - add configurable registry for loading extension resources
+
+- [`9a17537`](https://github.com/staringos/mtbird/commit/9a17537cdf970012bccc556377f48b871e28d53f) Thanks [@jtaox](https://github.com/jtaox)! - update id generate rule
+
 ## 0.0.3-beta.67
 
 ### Patch Changes

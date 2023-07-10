@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.0.3
+
+### Patch Changes
+
+- [`5aca5a9`](https://github.com/staringos/mtbird/commit/5aca5a9b2b7c2c54a623547607d2ade72f28a39a) Thanks [@jtaox](https://github.com/jtaox)! - add configurable registry for loading extension resources
+
+- [`9a17537`](https://github.com/staringos/mtbird/commit/9a17537cdf970012bccc556377f48b871e28d53f) Thanks [@jtaox](https://github.com/jtaox)! - update id generate rule
+
+- [`ea6236d`](https://github.com/staringos/mtbird/commit/ea6236d85939c76c961b88b757a9cc24b937b8d3) Thanks [@jtaox](https://github.com/jtaox)! - update antd version
+
 ## 0.0.3-beta.67
 
 ### Patch Changes

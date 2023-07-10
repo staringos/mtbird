@@ -1,6 +1,6 @@
 {
   "name": "@mtbird/core",
-  "version": "0.0.3-beta.67",
+  "version": "0.0.3",
   "description": "The core function utils and constants for mtbird",
   "author": "GeorgeZou <george@staringos.com>",
   "homepage": "https://github.com/staringos/mtbird#readme",
@@ -38,7 +38,7 @@
     "nanoid": "^4.0.0"
   },
   "devDependencies": {
-    "@mtbird/cli": "^0.0.3-beta.67",
+    "@mtbird/cli": "^0.0.3",
     "cross-env": "^7.0.3",
     "rimraf": "^3.0.2"
   }
