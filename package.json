@@ -53,7 +53,7 @@
     "@types/svgr__rollup": "^4.3.1",
     "@typescript-eslint/eslint-plugin": "^5.22.0",
     "@typescript-eslint/parser": "^5.22.0",
-    "antd": "^5.1.4",
+    "antd": "^5.6.3",
     "cross-env": "^7.0.3",
     "eslint": "^8.15.0",
     "eslint-config-airbnb": "^19.0.4",

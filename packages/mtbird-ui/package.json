@@ -33,7 +33,7 @@
     "url": "https://github.com/staringos/mtbird/issues"
   },
   "peerDependencies": {
-    "antd": "^5.1.4",
+    "antd": "^5.6.3",
     "react": "18.1.0",
     "react-dom": "18.1.0"
   },

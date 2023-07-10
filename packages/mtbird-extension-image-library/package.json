@@ -31,7 +31,7 @@
   "peerDependencies": {
     "@mtbird/shared": "^0.0.3-beta.64",
     "@mtbird/cli": "^0.0.3-beta.15",
-    "antd": "^5.1.4"
+    "antd": "^5.6.3"
   },
   "devDependencies": {
     "@mtbird/cli": "^0.0.3-beta.67",

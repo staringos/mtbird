@@ -48,7 +48,7 @@
     "@mtbird/renderer-web": "^0.0.3-beta.43",
     "@mtbird/shared": "^0.0.3-beta.43",
     "@mtbird/ui": "^0.0.3-beta.43",
-    "antd": "^5.1.4",
+    "antd": "^5.6.3",
     "lodash": "^4.17.21",
     "react": "18.1.0",
     "react-dom": "18.1.0"
