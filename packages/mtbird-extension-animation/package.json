@@ -1,6 +1,6 @@
 {
   "name": "@mtbird/extension-animation",
-  "version": "0.0.3",
+  "version": "0.0.4-beta.0",
   "private": true,
   "description": "星搭官方动画拓展",
   "homepage": "",
@@ -21,12 +21,12 @@
     "publish-lib": "cross-env NODE_ENV=production mtbird publish --token="
   },
   "peerDependencies": {
-    "@mtbird/cli": "^0.0.3-beta.65",
+    "@mtbird/cli": "^0.0.4-beta.0",
     "antd": "^5.6.3"
   },
   "devDependencies": {
-    "@mtbird/cli": "^0.0.3",
-    "@mtbird/shared": "^0.0.3",
+    "@mtbird/cli": "^0.0.4-beta.0",
+    "@mtbird/shared": "^0.0.4-beta.0",
     "cross-env": "^7.0.3",
     "lodash": "^4.17.21",
     "react": "^18.1.0",

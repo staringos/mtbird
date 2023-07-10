@@ -1,6 +1,6 @@
 {
   "name": "@mtbird/ui",
-  "version": "0.0.3",
+  "version": "0.0.4-beta.0",
   "description": "The basic ui components for mtbird",
   "author": "GeorgeZou <george@staringos.com>",
   "homepage": "https://github.com/staringos/mtbird#readme",
@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "@mtbird/cli": "^0.0.3"
+    "@mtbird/cli": "^0.0.4-beta.0"
   },
   "gitHead": "0972d2236b07128ae7f1dd2a9481224a2ba10469"
 }

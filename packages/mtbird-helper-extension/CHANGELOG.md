@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.0.4-beta.0
+
+### Patch Changes
+
+- [`71407a3`](https://github.com/staringos/mtbird/commit/71407a3ec7852e7a185182e64350d845cd9094b1) Thanks [@jtaox](https://github.com/jtaox)! - update antd version
+
+- Updated dependencies [[`71407a3`](https://github.com/staringos/mtbird/commit/71407a3ec7852e7a185182e64350d845cd9094b1)]:
+  - @mtbird/core@0.0.4-beta.0
+  - @mtbird/shared@0.0.4-beta.0
+
 ## 0.0.3
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@mtbird/renderer-web",
-  "version": "0.0.3",
+  "version": "0.0.4-beta.0",
   "description": "Web renderer for mtbird",
   "author": "zousongqi <george@staringos.com>",
   "homepage": "",
@@ -27,8 +27,8 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "peerDependencies": {
-    "@mtbird/component-basic": "^0.0.3-beta.64",
-    "@mtbird/core": "^0.0.3-beta.64",
+    "@mtbird/component-basic": "^0.0.4-beta.0",
+    "@mtbird/core": "^0.0.4-beta.0",
     "antd": "^5.6.3",
     "lodash": "^4.17.21",
     "react": "^18.1.0",
@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "@mtbird/cli": "^0.0.3"
+    "@mtbird/cli": "^0.0.4-beta.0"
   },
   "gitHead": "0972d2236b07128ae7f1dd2a9481224a2ba10469"
 }
