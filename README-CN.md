@@ -30,7 +30,7 @@
 
 ## 快速开始
 
-需要 NodeJS 版本: >=14.18.0
+需要 NodeJS 版本: >=18
 
 ```shell
 git clone https://github.com/staringos/mtbird
