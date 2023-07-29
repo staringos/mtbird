@@ -15,6 +15,7 @@
     "builder"
   ],
   "scripts": {
+    "postinstall": "pnpm run --filter @mtbird/cli build",
     "start": "pnpm run -r --parallel --aggregate-output --filter @mtbird/example... start",
     "watch": "pnpm run -r --parallel --filter @mtbird/example^... start",
     "watch2": "pnpm run  -r --parallel --aggregate-output --filter=!@mtbird/example --filter=!mtbird-storybook start",
