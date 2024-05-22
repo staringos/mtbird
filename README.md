@@ -17,7 +17,7 @@
 
 # MtBird
 
-StaringOS MtBird is a low-code platform for HTML Page、Website. We help use to build page without code or less code. It also support Wechat Mini-Program
+StaringOS MtBird is a low-code editor for HTML Page、Website. We help to build page without code or less code. It also support Wechat Mini-Program. This is front-end editor component repository, see [mtbird-saas](https://github.com/staringos/mtbird-saas) for api and admin panel.
 
 [中文文档](./README-CN.md)
 
@@ -66,4 +66,3 @@ Develop mtbird library mode see [this document](https://github.com/staringos/mtb
 PRs & Issues are all welcome, feel free to ask question or submit your code.
 
 [CONTRIBUTING](./CONTRIBUTING.md)
-
